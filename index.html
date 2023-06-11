@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AntiSwap- про скам-обменники</title>
   </head>
-  <header class="h-20 w-screen bg-[#1E2027] pt-[28px]">
+  <header class="h-20 max-w-screen bg-[#1E2027] pt-[28px]">
     <div class="flex justify-start items-center px-10 md:px-0">
       <h1 class="text-white text-lg font-mont font-extrabold mr-3 lg:text-2xl md:mr-14 md:ml-20">AntiSwap</h1>
       <div class="md:hidden flex ml-auto">
@@ -26,31 +26,68 @@
       </div>
     </header>
   <body
-    class="h-[1000px] w-screen bg-[#101115]"
-  ></body>
-  <footer class="h-[401px] w-screen bg-[#1E2027] pt-[28px] md:h-[166px]">
-    <div class="flex flex-col md:px-0">
-      <div class="flex flex-col items-center md:flex-row md:justify-between mr-20">
-        <h1 class="font-mont mr-3 text-lg font-extrabold text-white md:ml-20 md:mr-14 lg:text-2xl">AntiSwap</h1>
-        <hr class="border-[#545B71] h-1">
-        <h2 class="font-mont text-sm text-white md:ml-6 lg:text-xl">Обменники</h2>
-        <h2 class="font-mont text-sm text-white md:ml-4 lg:text-xl">О нас</h2>
-        <div class="flex mt-4 md:mt-0">
-          <h1 class="flex gap-2 font-mont text-lg text-white md:mr-14">AntiSwap@gmail.com</h1>
-          <svg width="31" height="27" viewBox="0 0 31 27" fill="none" xmlns="http://www.w3.org/2000/svg" class="ml-10">
-            <path d="M28.4834 0.798923L1.01884 11.4068C-0.0863836 11.9008 -0.4602 12.8901 0.751706 13.427L7.79754 15.6697L24.8335 5.12429C25.7637 4.46227 26.7159 4.6388 25.8965 5.36706L11.2649 18.6361L10.8053 24.2516C11.231 25.1186 12.0105 25.1226 12.5077 24.6917L16.5558 20.8552L23.4887 26.0551C25.0989 27.0099 25.9751 26.3937 26.3215 24.6437L30.8689 3.07687C31.3411 0.922724 30.5359 -0.0264154 28.4834 0.798923Z" fill="white" />
-          </svg>
-        </div>
+    class="max-w-screen bg-[#101115]"
+  >
+<div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+  <div class="col-span-1 md:col-span-1 lg:w-[372px] bg-gray-200 mb-8 md:mb-0 md:mr-8 lg:mr-0 border border-gray-500">
+    <!-- Левая боковая панель -->
+  </div>
+  <div class="col-span-1 md:col-span-1 lg:w-[calc(100% - 372px - 80px)]">
+    <div class="mb-8 border border-gray-500">
+      <!-- Правая колонна, блок 1 -->
+    </div>
+    <div class="mb-8 border border-gray-500">
+      <!-- Правая колонна, блок 2 -->
+    </div>
+    <div class="mb-8 border border-gray-500">
+      <!-- Правая колонна, блок 3 -->
+    </div>
+    <div class="border border-gray-500">
+      <!-- Правая колонна, блок 4 -->
+    </div>
+  </div>
+</div>
+
+
+</body>
+  <footer>
+    <div class="h-[401px] bg-[#1E2027] md:hidden">
+      <h1 class="text-white text-lg font-mont font-extrabold flex justify-center pt-10">AntiSwap</h1>
+      <div class="h-[1px] bg-[#545B71] my-10"></div>
+      <h2 class="text-white text-lg font-mont flex justify-center mt-[1px]">Обменники</h2>
+      <h2 class="text-white text-lg font-mont flex justify-center m-16 mt-[1px]">О нас</h2>
+      <div class="text-white text-lg font-mont flex mb-10 justify-center">
+        <h2>AntiSwap@gmail.com</h2>
+        <svg width="31" height="27" viewBox="0 0 31 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M28.4834 0.798923L1.01884 11.4068C-0.0863836 11.9008 -0.4602 12.8901 0.751706 13.427L7.79754 15.6697L24.8335 5.12429C25.7637 4.46227 26.7159 4.6388 25.8965 5.36706L11.2649 18.6361L10.8053 24.2516C11.231 25.1186 12.0105 25.1226 12.5077 24.6917L16.5558 20.8552L23.4887 26.0551C25.0989 27.0099 25.9751 26.3937 26.3215 24.6437L30.8689 3.07687C31.3411 0.922724 30.5359 -0.0264154 28.4834 0.798923Z" fill="white" />
+        </svg>
       </div>
-      <div class="md:hidden mt-4">
-        <hr class="border-[#545B71] h-1">
-      </div>
-      <div class="hidden md:flex md:my-5 lg:mr-28 md:mr-20 h-[1px] bg-[#545B71] md:ml-20"></div>
-      <div class="flex justify-between mt-4">
-        <h1 class="text-[#545B71] md:flex lg:mr-28 md:mr-20 md:ml-20 font-bold">© 2023 AntiSwap</h1>
-        <h1 class="text-[#545B71] md:flex lg:mr-28 md:mr-20 md:ml-20 font-bold">Все права защищены</h1>
+      <div class="h-[1px] bg-[#545B71]"></div>
+      <div class="flex justify-between">
+        <h1 class="text-[#545B71] font-mont text-sm m-5 font-medium">© 2023 AntiSwap</h1>
+        <h1 class="text-[#545B71] font-mont text-sm m-5 font-medium">Все права защищены.</h1>
       </div>
     </div>
-  </footer>
-  
+    <div class="hidden md:block bg-[#1E2027] h-[166px] pt-10">
+      <div class="flex flex-col px-10 md:px-0">
+      <div class="flex items-center justify-start px-10 md:px-0">
+      <h1 class="font-mont mr-3 text-lg font-extrabold text-white md:ml-20 md:mr-14 lg:text-2xl">AntiSwap</h1>
+      <h2 class="font-mont text-sm text-white md:ml-6 lg:text-xl">Обменники</h2>
+      <h2 class="font-mont text-sm text-white md:ml-4 lg:text-xl">О нас</h2>
+      <div class="flex ml-auto md:mr-6 lg:mr-20">
+        <h1 class="flex gap-2 font-mont  text-lg text-white md:mr-14 md:flex lg:mr-10">AntiSwap@gmail.com
+          <svg width="31" height="27" viewBox="0 0 31 27" fill="none" xmlns="http://www.w3.org/2000/svg%22%3E" class="ml-10">
+          <path d="M28.4834 0.798923L1.01884 11.4068C-0.0863836 11.9008 -0.4602 12.8901 0.751706 13.427L7.79754 15.6697L24.8335 5.12429C25.7637 4.46227 26.7159 4.6388 25.8965 5.36706L11.2649 18.6361L10.8053 24.2516C11.231 25.1186 12.0105 25.1226 12.5077 24.6917L16.5558 20.8552L23.4887 26.0551C25.0989 27.0099 25.9751 26.3937 26.3215 24.6437L30.8689 3.07687C31.3411 0.922724 30.5359 -0.0264154 28.4834 0.798923Z" fill="white" />
+        </svg>
+        </h1>
+      </div>
+    </div>
+    <div class="md:my-5 md:flex lg:mr-28 md:mr-20 h-[1px] bg-[#545B71] md:ml-20"></div>
+    <div class="flex justify-between">
+      <h1 class="text-[#545B71] md:flex lg:mr-28 md:mr-20 md:ml-20 font-bold">© 2023 AntiSwap</h1>
+      <h1 class="text-[#545B71] md:flex lg:mr-28 md:mr-20 md:ml-20 font-bold">Все права защищены</h1>
+    </div>
+  </div>
+    </div>
+</footer>
 </html>
