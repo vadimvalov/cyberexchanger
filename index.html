@@ -7,6 +7,7 @@
     <link href="https://fonts.cdnfonts.com/css/mont" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AntiSwap- про скам-обменники</title>
+    
   </head>
   <header class="h-20 max-w-screen bg-[#1E2027] pt-[28px]">
     <div class="flex justify-start items-center px-10 md:px-0">
@@ -27,14 +28,14 @@
     </header>
   <body class="max-w-screen bg-[#101115]"> <!--камон еврибади-->
   <div class="max-w-screen bg-[#101115] font-mont">
-    <div class="flex justify-between flex-col md:flex-row">
-      <div class="m-20 h-full pb-0 text-center lg:mr-0 lg:w-[372px]">
-        <div>
-          <div class="rounded-2xl bg-[#1E2027] text-white"> <!--таблица левая-->
+    <div class="flex justify-between flex-col lg:flex-row">
+      <div class="m-10 lg:m-20 h-full text-center lg:mr-0 lg:w-[372px] flex">
+        <div class="w-screen">
+          <div class="rounded-xl bg-[#1E2027] text-white"> <!--таблица левая-->
             <h1 class="font-mont mb-2 text-center text-xl font-bold p-8">Направления обмена</h1>
             <div class="mb-3 flex w-full items-center justify-between gap-5 p-1 px-3">
               <div class="relative border-b-2 border-b-[#545B71]">
-                <input class="w-full bg-[#1E2027] py-1 pl-1 pr-1 text-[#545B71] outline-none" placeholder="Отдаете" />
+                <input id='give-input' class="w-full bg-[#1E2027] py-1 pl-1 pr-1 text-[#545B71] outline-none" placeholder="Отдаете" />
                 <div class="absolute right-1 top-1/2 -translate-y-1/2 transform">
                   <svg class="h-4 w-4 text-[#545B71]" viewBox="0 0 17 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M10.7659 10.7656C11.8388 9.69281 12.4415 8.23776 12.4415 6.72057C12.4415 5.20338 11.8388 3.74833 10.7659 2.67552C9.69309 1.6027 8.23799 1 6.72075 1C5.20351 1 3.74842 1.6027 2.67557 2.67552C1.60272 3.74833 1 5.20338 1 6.72057C1 8.23776 1.60272 9.69281 2.67557 10.7656C3.74842 11.8384 5.20351 12.4411 6.72075 12.4411C8.23799 12.4411 9.69309 11.8384 10.7659 10.7656ZM10.7659 10.7656L16 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
@@ -42,7 +43,7 @@
                 </div>
               </div>
               <div class="relative border-b-2 border-b-[#545B71]">
-                <input class="w-full bg-[#1E2027] py-1 pl-1 pr-1 text-[#545B71] outline-none" placeholder="Получаете" />
+                <input id='receive-input' class="w-full bg-[#1E2027] py-1 pl-1 pr-1 text-[#545B71] outline-none" placeholder="Получаете" />
                 <div class="absolute right-1 top-1/2 -translate-y-1/2 transform">
                   <svg class="h-4 w-4 text-[#545B71]" viewBox="0 0 17 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M10.7659 10.7656C11.8388 9.69281 12.4415 8.23776 12.4415 6.72057C12.4415 5.20338 11.8388 3.74833 10.7659 2.67552C9.69309 1.6027 8.23799 1 6.72075 1C5.20351 1 3.74842 1.6027 2.67557 2.67552C1.60272 3.74833 1 5.20338 1 6.72057C1 8.23776 1.60272 9.69281 2.67557 10.7656C3.74842 11.8384 5.20351 12.4411 6.72075 12.4411C8.23799 12.4411 9.69309 11.8384 10.7659 10.7656ZM10.7659 10.7656L16 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
@@ -50,176 +51,432 @@
                 </div>
               </div>
             </div>
-            <table class="w-full">
-              <thead>
-                <tr>
-                  <th class="bg-[#545B71] px-4 py-2 text-white" colspan="4">Криптовалюта</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr class="odd:bg-[#353845] even:bg-[#2C2F3A]">
-                  <td class="px-4 py-2">Bitcoin</td>
-                  <td class="border-r-2 px-4 py-2 text-right opacity-60 odd:border-r-[#1E2027] even:border-r-[#1E2027]">BTC</td>
-                  <td class="px-4 py-2">Bitcoin</td>
-                  <td class="px-4 py-2 text-right opacity-60">BTC</td>
-                </tr>
-                <tr class="odd:bg-[#353845] even:bg-[#2C2F3A]">
-                  <td class="px-4 py-2">Bitcoin</td>
-                  <td class="border-r-2 px-4 py-2 text-right opacity-60 odd:border-r-[#1E2027] even:border-r-[#1E2027]">BTC</td>
-                  <td class="px-4 py-2">Bitcoin</td>
-                  <td class="px-4 py-2 text-right opacity-60">BTC</td>
-                </tr>
-              </tbody>
-            </table>
-            <table class="w-full">
-              <thead>
-                <tr>
-                  <th class="bg-[#545B71] px-4 py-2 text-white" colspan="4">Электронные деньги</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr class="odd:bg-[#353845] even:bg-[#2C2F3A]">
-                  <td class="px-4 py-2">Bitcoin</td>
-                  <td class="border-r-2 px-4 py-2 text-right opacity-60 odd:border-r-[#1E2027] even:border-r-[#1E2027]">BTC</td>
-                  <td class="px-4 py-2">Bitcoin</td>
-                  <td class="px-4 py-2 text-right opacity-60">BTC</td>
-                </tr>
-                <tr class="odd:bg-[#353845] even:bg-[#2C2F3A]">
-                  <td class="px-4 py-2">Bitcoin</td>
-                  <td class="border-r-2 px-4 py-2 text-right opacity-60 odd:border-r-[#1E2027] even:border-r-[#1E2027]">BTC</td>
-                  <td class="px-4 py-2">Bitcoin</td>
-                  <td class="px-4 py-2 text-right opacity-60">BTC</td>
-                </tr>
-                <tr class="odd:bg-[#353845] even:bg-[#2C2F3A]">
-                  <td class="px-4 py-2">Bitcoin</td>
-                  <td class="border-r-2 px-4 py-2 text-right opacity-60 odd:border-r-[#1E2027] even:border-r-[#1E2027]">BTC</td>
-                  <td class="px-4 py-2">Bitcoin</td>
-                  <td class="px-4 py-2 text-right opacity-60">BTC</td>
-                </tr>
-                <tr class="odd:bg-[#353845] even:bg-[#2C2F3A]">
-                  <td class="px-4 py-2">Bitcoin</td>
-                  <td class="border-r-2 px-4 py-2 text-right opacity-60 odd:border-r-[#1E2027] even:border-r-[#1E2027]">BTC</td>
-                  <td class="px-4 py-2">Bitcoin</td>
-                  <td class="px-4 py-2 text-right opacity-60">BTC</td>
-                </tr>
-                <tr class="odd:bg-[#353845] even:bg-[#2C2F3A]">
-                  <td class="px-4 py-2">Bitcoin</td>
-                  <td class="border-r-2 px-4 py-2 text-right opacity-60 odd:border-r-[#1E2027] even:border-r-[#1E2027]">BTC</td>
-                  <td class="px-4 py-2">Bitcoin</td>
-                  <td class="px-4 py-2 text-right opacity-60">BTC</td>
-                </tr>
-                <tr class="odd:bg-[#353845] even:bg-[#2C2F3A]">
-                  <td class="px-4 py-2">Bitcoin</td>
-                  <td class="border-r-2 px-4 py-2 text-right opacity-60 odd:border-r-[#1E2027] even:border-r-[#1E2027]">BTC</td>
-                  <td class="px-4 py-2">Bitcoin</td>
-                  <td class="px-4 py-2 text-right opacity-60">BTC</td>
-                </tr>
-                <tr class="odd:bg-[#353845] even:bg-[#2C2F3A]">
-                  <td class="px-4 py-2">Bitcoin</td>
-                  <td class="border-r-2 px-4 py-2 text-right opacity-60 odd:border-r-[#1E2027] even:border-r-[#1E2027]">BTC</td>
-                  <td class="px-4 py-2">Bitcoin</td>
-                  <td class="px-4 py-2 text-right opacity-60">BTC</td>
-                </tr>
-              </tbody>
-            </table>
-            <table class="w-full">
-              <thead>
-                <tr>
-                  <th class="bg-[#545B71] px-4 py-2 text-white" colspan="4">Баланс криптобирж</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr class="odd:bg-[#353845] even:bg-[#2C2F3A]">
-                  <td class="px-4 py-2">Bitcoin</td>
-                  <td class="border-r-2 px-4 py-2 text-right opacity-60 odd:border-r-[#1E2027] even:border-r-[#1E2027]">BTC</td>
-                  <td class="px-4 py-2">Bitcoin</td>
-                  <td class="px-4 py-2 text-right opacity-60">BTC</td>
-                </tr>
-                <tr class="odd:bg-[#353845] even:bg-[#2C2F3A]">
-                  <td class="px-4 py-2">Bitcoin</td>
-                  <td class="border-r-2 px-4 py-2 text-right opacity-60 odd:border-r-[#1E2027] even:border-r-[#1E2027]">BTC</td>
-                  <td class="px-4 py-2">Bitcoin</td>
-                  <td class="px-4 py-2 text-right opacity-60">BTC</td>
-                </tr>
-              </tbody>
-            </table>
-            <table class="w-full">
-              <thead>
-                <tr>
-                  <th class="bg-[#545B71] px-4 py-2 text-white" colspan="4">Интернет банкинг</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr class="odd:bg-[#353845] even:bg-[#2C2F3A]">
-                  <td class="px-4 py-2">Bitcoin</td>
-                  <td class="border-r-2 px-4 py-2 text-right opacity-60 odd:border-r-[#1E2027] even:border-r-[#1E2027]">BTC</td>
-                  <td class="px-4 py-2">Bitcoin</td>
-                  <td class="px-4 py-2 text-right opacity-60">BTC</td>
-                </tr>
-                <tr class="odd:bg-[#353845] even:bg-[#2C2F3A]">
-                  <td class="px-4 py-2">Bitcoin</td>
-                  <td class="border-r-2 px-4 py-2 text-right opacity-60 odd:border-r-[#1E2027] even:border-r-[#1E2027]">BTC</td>
-                  <td class="px-4 py-2">Bitcoin</td>
-                  <td class="px-4 py-2 text-right opacity-60">BTC</td>
-                </tr>
-                <tr class="odd:bg-[#353845] even:bg-[#2C2F3A]">
-                  <td class="px-4 py-2">Bitcoin</td>
-                  <td class="border-r-2 px-4 py-2 text-right opacity-60 odd:border-r-[#1E2027] even:border-r-[#1E2027]">BTC</td>
-                  <td class="px-4 py-2">Bitcoin</td>
-                  <td class="px-4 py-2 text-right opacity-60">BTC</td>
-                </tr>
-                <tr class="odd:bg-[#353845] even:bg-[#2C2F3A]">
-                  <td class="px-4 py-2">Bitcoin</td>
-                  <td class="border-r-2 px-4 py-2 text-right opacity-60 odd:border-r-[#1E2027] even:border-r-[#1E2027]">BTC</td>
-                  <td class="px-4 py-2">Bitcoin</td>
-                  <td class="px-4 py-2 text-right opacity-60">BTC</td>
-                </tr>
-                <tr class="odd:bg-[#353845] even:bg-[#2C2F3A]">
-                  <td class="px-4 py-2">Bitcoin</td>
-                  <td class="border-r-2 px-4 py-2 text-right opacity-60 odd:border-r-[#1E2027] even:border-r-[#1E2027]">BTC</td>
-                  <td class="px-4 py-2">Bitcoin</td>
-                  <td class="px-4 py-2 text-right opacity-60">BTC</td>
-                </tr>
-                <tr class="odd:bg-[#353845] even:bg-[#2C2F3A]">
-                  <td class="px-4 py-2">Bitcoin</td>
-                  <td class="border-r-2 px-4 py-2 text-right opacity-60 odd:border-r-[#1E2027] even:border-r-[#1E2027]">BTC</td>
-                  <td class="px-4 py-2">Bitcoin</td>
-                  <td class="px-4 py-2 text-right opacity-60">BTC</td>
-                </tr>
-                <tr class="odd:bg-[#353845] even:bg-[#2C2F3A]">
-                  <td class="px-4 py-2">Bitcoin</td>
-                  <td class="border-r-2 px-4 py-2 text-right opacity-60 odd:border-r-[#1E2027] even:border-r-[#1E2027]">BTC</td>
-                  <td class="px-4 py-2">Bitcoin</td>
-                  <td class="px-4 py-2 text-right opacity-60">BTC</td>
-                </tr>
-              </tbody>
-            </table>
-            <button class="mt-4px-5 w-full bg-[#00A3FF] py-3 font-bold text-white hover:bg-blue-600 rounded-b-2xl flex justify-center"> <svg width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+            <div class="table-container">
+              <h1 class="bg-[#545B71] px-4 py-2 text-white">Криптовалюта</h1>
+              <div class='flex gap-1.5'>
+                <table class="w-[50%]">
+                    <tbody>
+                      <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
+                        <td class="p-0">
+                            <button class="w-full flex" data-table="crypto-1">
+                                <span class='px-4 py-2'>Bitcoin</span>
+                                <span class='ml-auto px-4 py-2 opacity-60'>BTC</span>
+                            </button>
+                        </td>
+                      </tr>
+                      <tr class="p-0 hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
+                        <td class="p-0">
+                            <button class="w-full flex" data-table="crypto-1">
+                                <span class='px-4 py-2'>Bitcoin</span>
+                                <span class='ml-auto px-4 py-2 opacity-60'>BTC</span>
+                            </button>
+                        </td>
+                      </tr>
+                      <tr class="p-0 hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
+                        <td class="p-0">
+                            <button class="w-full flex" data-table="crypto-1">
+                                <span class='px-4 py-2'>Bitcoin</span>
+                                <span class='ml-auto px-4 py-2 opacity-60'>BTC</span>
+                            </button>
+                        </td>
+                      </tr>
+                      <tr class="p-0 hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
+                        <td class="p-0">
+                            <button class="w-full flex" data-table="crypto-1">
+                                <span class='px-4 py-2'>Bitcoin</span>
+                                <span class='ml-auto px-4 py-2 opacity-60'>BTC</span>
+                            </button>
+                        </td>
+                      </tr>
+                    </tbody>
+                </table>
+                <table class="w-[50%]">
+                    <tr class="p-0 hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
+                        <td class="p-0">
+                            <button class="w-full flex" data-table="crypto-2">
+                                <span class='px-4 py-2'>Bitcoin</span>
+                                <span class='ml-auto px-4 py-2 opacity-60'>BTC</span>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr class="p-0 hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
+                        <td class="p-0">
+                            <button class="w-full flex" data-table="crypto-2">
+                                <span class='px-4 py-2'>Bitcoin</span>
+                                <span class='ml-auto px-4 py-2 opacity-60'>BTC</span>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr class="p-0 hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
+                        <td class="p-0">
+                            <button class="w-full flex" data-table="crypto-2">
+                                <span class='px-4 py-2'>Bitcoin</span>
+                                <span class='ml-auto px-4 py-2 opacity-60'>BTC</span>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr class="p-0 hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
+                        <td class="p-0">
+                            <button class="w-full flex" data-table="crypto-2">
+                                <span class='px-4 py-2'>Bitcoin</span>
+                                <span class='ml-auto px-4 py-2 opacity-60'>BTC</span>
+                            </button>
+                        </td>
+                    </tr>
+                </table>
+              </div>
+            </div>
+            
+            <div class='table-container'>
+              <h1 class="bg-[#545B71] px-4 py-2 text-white" colspan="4">Баланс криптобирж</h1>
+              <div class='flex gap-1.5'>
+                <table class="w-[50%]">
+                    <tbody>
+                      <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
+                        <td class="p-0">
+                            <button class="w-full flex" data-table="balance-1">
+                                <span class='px-4 py-2'>Bitcoin</span>
+                                <span class='ml-auto px-4 py-2 opacity-60'>BTC</span>
+                            </button>
+                        </td>
+                      </tr>
+                      <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
+                        <td class="p-0">
+                            <button class="w-full flex" data-table="balance-1">
+                                <span class='px-4 py-2'>Bitcoin</span>
+                                <span class='ml-auto px-4 py-2 opacity-60'>BTC</span>
+                            </button>
+                        </td>
+                      </tr>
+                      <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
+                        <td class="p-0">
+                            <button class="w-full flex" data-table="balance-1">
+                                <span class='px-4 py-2'>Bitcoin</span>
+                                <span class='ml-auto px-4 py-2 opacity-60'>BTC</span>
+                            </button>
+                        </td>
+                      </tr>
+                      <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
+                        <td class="p-0">
+                            <button class="w-full flex" data-table="balance-1">
+                                <span class='px-4 py-2'>Bitcoin</span>
+                                <span class='ml-auto px-4 py-2 opacity-60'>BTC</span>
+                            </button>
+                        </td>
+                      </tr>
+                    </tbody>
+                </table>
+                <table class="w-[50%]">
+                   <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
+                        <td class="p-0">
+                            <button class="w-full flex" data-table="balance-2">
+                                <span class='px-4 py-2'>Bitcoin</span>
+                                <span class='ml-auto px-4 py-2 opacity-60'>BTC</span>
+                            </button>
+                        </td>
+                      </tr>
+                    <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
+                        <td class="p-0">
+                            <button class="w-full flex" data-table="balance-2">
+                                <span class='px-4 py-2'>Bitcoin</span>
+                                <span class='ml-auto px-4 py-2 opacity-60'>BTC</span>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
+                        <td class="p-0">
+                            <button class="w-full flex" data-table="balance-2">
+                                <span class='px-4 py-2'>Bitcoin</span>
+                                <span class='ml-auto px-4 py-2 opacity-60'>BTC</span>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
+                        <td class="p-0">
+                            <button class="w-full flex" data-table="balance-2">
+                                <span class='px-4 py-2'>Bitcoin</span>
+                                <span class='ml-auto px-4 py-2 opacity-60'>BTC</span>
+                            </button>
+                        </td>
+                    </tr>
+                </table>
+              </div>
+            </div>
+            <div class='table-container'>
+              <h1 class="bg-[#545B71] px-4 py-2 text-white" colspan="4">Интернет банкинг</h1>
+              <div class='flex gap-1.5'>
+                <table class="w-[50%]">
+                    <tbody>
+                      <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
+                        <td class="p-0">
+                            <button class="w-full flex" data-table="banking-1">
+                                <span class='px-4 py-2'>Bitcoin</span>
+                                <span class='ml-auto px-4 py-2 opacity-60'>BTC</span>
+                            </button>
+                        </td>
+                    </tr>
+                      <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
+                        <td class="p-0">
+                            <button class="w-full flex" data-table="banking-1">
+                                <span class='px-4 py-2'>Bitcoin</span>
+                                <span class='ml-auto px-4 py-2 opacity-60'>BTC</span>
+                            </button>
+                        </td>
+                    </tr>
+                      <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
+                        <td class="p-0">
+                            <button class="w-full flex" data-table="banking-1">
+                                <span class='px-4 py-2'>Bitcoin</span>
+                                <span class='ml-auto px-4 py-2 opacity-60'>BTC</span>
+                            </button>
+                        </td>
+                    </tr>
+                      <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
+                        <td class="p-0">
+                            <button class="w-full flex" data-table="banking-1">
+                                <span class='px-4 py-2'>Bitcoin</span>
+                                <span class='ml-auto px-4 py-2 opacity-60'>BTC</span>
+                            </button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <table class="w-[50%]">
+                    <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
+                        <td class="p-0">
+                            <button class="w-full flex" data-table="banking-2">
+                                <span class='px-4 py-2'>Bitcoin</span>
+                                <span class='ml-auto px-4 py-2 opacity-60'>BTC</span>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
+                        <td class="p-0">
+                            <button class="w-full flex" data-table="banking-2">
+                                <span class='px-4 py-2'>Bitcoin</span>
+                                <span class='ml-auto px-4 py-2 opacity-60'>BTC</span>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
+                        <td class="p-0">
+                            <button class="w-full flex" data-table="banking-2">
+                                <span class='px-4 py-2'>Bitcoin</span>
+                                <span class='ml-auto px-4 py-2 opacity-60'>BTC</span>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
+                        <td class="p-0">
+                            <button class="w-full flex" data-table="banking-2">
+                                <span class='px-4 py-2'>Bitcoin</span>
+                                <span class='ml-auto px-4 py-2 opacity-60'>BTC</span>
+                            </button>
+                        </td>
+                    </tr>
+                </table>
+              </div>
+            </div>
+            
+            <button id='extend-button' class="mt-4px-5 w-full bg-[#00A3FF] py-3 font-bold text-white hover:bg-blue-600 rounded-b-2xl flex justify-center"> <svg width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path fill-rule="evenodd" clip-rule="evenodd" d="M13.7071 0.292893C14.0976 0.683418 14.0976 1.31658 13.7071 1.70711L7.70711 7.70711C7.31658 8.09763 6.68342 8.09763 6.29289 7.70711L0.292893 1.70711C-0.0976315 1.31658 -0.0976315 0.683417 0.292893 0.292893C0.683417 -0.0976317 1.31658 -0.0976317 1.70711 0.292893L7 5.58579L12.2929 0.292893C12.6834 -0.0976312 13.3166 -0.0976311 13.7071 0.292893Z" fill="white"/>
               </svg>
               </button>
           </div>
         </div>
       </div>
-      <div class="lg:w-[1028px] md:m-20 m-10"> <!--правая часть-->
+      <div class="lg:w-[1028px] lg:m-20 m-10"> <!--правая часть-->
         <div class="flex flex-col">
-          <div class="mb-10"> <!--блок AntiSwap с описанием-->
-            <div class="rounded-2xl bg-[#1E2027] p-10 text-white">
-              <h1 class="font-mont mb-2 text-xl font-bold">AntiSwap</h1>
-              <p class="mb-4">
-                Сервис анализирующий прозрачность и безопасность <br />
-                обменников благодаря отзывам пользователей
-              </p>
-              <button class="rounded bg-[#00A3FF] px-5 py-3 font-bold text-white hover:bg-blue-600">Подробнее -</button>
-              <img class="float-right" src="путь_к_картинке" alt="Картинка" />
+          <div class="mb-10"> <!--блок Обмен А на Б СКРЫТАЯ ЧАСТЬ ДО ВЗАИМОДЕЙСТВИЯ С ОБМЕННИКОМ -->
+            <div class="rounded-xl bg-[#1E2027] text-white">
+              <div class="flex">
+                <div class="p-8"> 
+                  <h1 class="font-mont mb-2 text-3xl font-bold ">Обмен Bitcoin (BTC) на Etherium (ETH)</h1>
+                  <p class="mt-6">
+                    Мы предлагаем вам список пунктов обмена, в которых вы можете довольно просто менять A(a) → B(b) по выгодным курсам в сети Интернет. При определении оптимального курса, обратите внимание также и на резерв валюты Ethereum. Все пункты обмена, представленные на сайте, были тщательно проверены администраторами.
+                  </p>
+                </div>
+              </div>
+            </div>
+            </div>
+            <div class="mb-10"> <!--ТАБЛИЦА КУРСЫ ОБМЕНА СКРЫТА ДО РАБОТЫ С ОБМЕННИКОМ-->
+              <div class="rounded-xl bg-[#1E2027] md:h-full">
+                <h1 class="font-mont mr-3 px-10 pt-10 pb-4 text-2xl font-extrabold text-white md:mr-14 lg:text-2xl"> Курсы обмена</h1>
+                <div class="h-[802px] overflow-y-auto">
+                  <div class="bg-white m-4">
+                    <div class="p-4 flex justify-between">
+                    <section>
+                    <h1 class="text-sm">Обменник</h1>
+                    <p>Шахта</p>
+                    </section>
+                    <section class="bg-gray-300 rounded-2xl flex align-middle p-3 text-sm"> Честный </section>
+                    </div>
+                    <div class="p-4 flex justify-between">
+                    <section>
+                    <h1 class="text-sm">Отдаёте</h1>
+                    <p>1 BTC <span class="text-sm">от 0.2</span></p>
+                    </section>
+                    <section class="pr-16"> 
+                    <h1 class="text-sm">Получаете</h1>
+                    <p>12.545454 <span>ETH</span></p>
+                    </section>
+                    </div>
+                    <div class="p-4 flex justify-between">
+                    <section>
+                    <h1 class="text-sm">Резерв</h1>
+                    <p>16 484.25</p>
+                    </section>
+                    <section class="pr-16">
+                    <h1 class="text-sm">Отзывы</h1>
+                    <p class="text-red-500">20 <span class="text-black"> | </span> <span class="text-green-600">2000</span></p>
+                    </section>
+                    </div>
+                  </div>
+                  <div class="bg-white m-4">
+                    <div class="p-4 flex justify-between">
+                    <section>
+                    <h1 class="text-sm">Обменник</h1>
+                    <p>Шахта</p>
+                    </section>
+                    <section class="bg-gray-300 rounded-2xl flex align-middle p-3 text-sm"> Честный </section>
+                    </div>
+                    <div class="p-4 flex justify-between">
+                    <section>
+                    <h1 class="text-sm">Отдаёте</h1>
+                    <p>1 BTC <span class="text-sm">от 0.2</span></p>
+                    </section>
+                    <section class="pr-16"> 
+                    <h1 class="text-sm">Получаете</h1>
+                    <p>12.545454 <span>ETH</span></p>
+                    </section>
+                    </div>
+                    <div class="p-4 flex justify-between">
+                    <section>
+                    <h1 class="text-sm">Резерв</h1>
+                    <p>16 484.25</p>
+                    </section>
+                    <section class="pr-16">
+                    <h1 class="text-sm">Отзывы</h1>
+                    <p class="text-red-500">20 <span class="text-black"> | </span> <span class="text-green-600">2000</span></p>
+                    </section>
+                    </div>
+                  </div>
+                  <div class="bg-white m-4">
+                    <div class="p-4 flex justify-between">
+                    <section>
+                    <h1 class="text-sm">Обменник</h1>
+                    <p>Шахта</p>
+                    </section>
+                    <section class="bg-gray-300 rounded-2xl flex align-middle p-3 text-sm"> Честный </section>
+                    </div>
+                    <div class="p-4 flex justify-between">
+                    <section>
+                    <h1 class="text-sm">Отдаёте</h1>
+                    <p>1 BTC <span class="text-sm">от 0.2</span></p>
+                    </section>
+                    <section class="pr-16"> 
+                    <h1 class="text-sm">Получаете</h1>
+                    <p>12.545454 <span>ETH</span></p>
+                    </section>
+                    </div>
+                    <div class="p-4 flex justify-between">
+                    <section>
+                    <h1 class="text-sm">Резерв</h1>
+                    <p>16 484.25</p>
+                    </section>
+                    <section class="pr-16">
+                    <h1 class="text-sm">Отзывы</h1>
+                    <p class="text-red-500">20 <span class="text-black"> | </span> <span class="text-green-600">2000</span></p>
+                    </section>
+                    </div>
+                  </div>
+                  <div class="bg-white m-4">
+                    <div class="p-4 flex justify-between">
+                    <section>
+                    <h1 class="text-sm">Обменник</h1>
+                    <p>Шахта</p>
+                    </section>
+                    <section class="bg-gray-300 rounded-2xl flex align-middle p-3 text-sm"> Честный </section>
+                    </div>
+                    <div class="p-4 flex justify-between">
+                    <section>
+                    <h1 class="text-sm">Отдаёте</h1>
+                    <p>1 BTC <span class="text-sm">от 0.2</span></p>
+                    </section>
+                    <section class="pr-16"> 
+                    <h1 class="text-sm">Получаете</h1>
+                    <p>12.545454 <span>ETH</span></p>
+                    </section>
+                    </div>
+                    <div class="p-4 flex justify-between">
+                    <section>
+                    <h1 class="text-sm">Резерв</h1>
+                    <p>16 484.25</p>
+                    </section>
+                    <section class="pr-16">
+                    <h1 class="text-sm">Отзывы</h1>
+                    <p class="text-red-500">20 <span class="text-black"> | </span> <span class="text-green-600">2000</span></p>
+                    </section>
+                    </div>
+                  </div>
+                  <div class="bg-white m-4">
+                    <div class="p-4 flex justify-between">
+                    <section>
+                    <h1 class="text-sm">Обменник</h1>
+                    <p>Шахта</p>
+                    </section>
+                    <section class="bg-gray-300 rounded-2xl flex align-middle p-3 text-sm"> Честный </section>
+                    </div>
+                    <div class="p-4 flex justify-between">
+                    <section>
+                    <h1 class="text-sm">Отдаёте</h1>
+                    <p>1 BTC <span class="text-sm">от 0.2</span></p>
+                    </section>
+                    <section class="pr-16"> 
+                    <h1 class="text-sm">Получаете</h1>
+                    <p>12.545454 <span>ETH</span></p>
+                    </section>
+                    </div>
+                    <div class="p-4 flex justify-between">
+                    <section>
+                    <h1 class="text-sm">Резерв</h1>
+                    <p>16 484.25</p>
+                    </section>
+                    <section class="pr-16">
+                    <h1 class="text-sm">Отзывы</h1>
+                    <p class="text-red-500">20 <span class="text-black"> | </span> <span class="text-green-600">2000</span></p>
+                    </section>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="mb-10"> <!--таблица СКАМ-->
-            <div class="rounded-2xl border-2 border-red-600 bg-[#1E2027]">
+          <div class="mb-10 hidden"> <!--блок AntiSwap с описанием-->
+            <div class="rounded-xl bg-[#1E2027] text-white">
+              <div class="flex flex-col md:flex-row-reverse">
+                <div class="flex align-bottom"> <!--Картинки-->
+                  <img class="hidden md:hidden lg:block object-right-bottom object-contain w-full h-full flex-shrink-0 transition-all duration-300 ease-in-out" src="https://antiswap.info/images/main/bg-desktop.png" alt="Десктопная Картинка" />
+                  <img class="block md:block lg:hidden mb-4" src="https://antiswap.info/images/main/bg-mobile.png" alt="Мобильная Картинка" />
+                </div>
+                <div class="p-10"> <!--Текст-->
+                  <h1 class="font-mont mb-2 text-xl font-bold ">AntiSwap</h1>
+                  <p class="mb-8">
+                    Сервис анализирующий прозрачность и безопасность <br />
+                    обменников благодаря отзывам пользователей
+                  </p>
+                  <button class="rounded bg-[#00A3FF] px-5 py-3 font-bold text-white hover:bg-blue-600">Подробнее -</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="mb-10 hidden"> <!--таблица СКАМ-->
+            <div class="rounded-xl border-2 border-red-600 bg-[#1E2027]">
               <h1 class="font-mont mr-3 p-10 text-lg font-extrabold text-white md:mr-14 lg:text-2xl"> <span class="text-red-600">СКАМ </span> обменники</h1>
               <div class="h-[370px] md:h-[556px] overflow-y-auto">
 
-                <table class="rounded-2xl overflow-hidden mr-0 pr-0 w-full h-full md:h-[556px] table-fixed">
+                <table class="rounded-xl overflow-hidden mr-0 pr-0 w-full h-full md:h-[556px] table-fixed">
                   <thead class="border-b-[1px] border-[#545B71]">
                     <tr class="text-white font-mont text-xs md:text-sm lg:text-base">
                       <th class="w-1/10 py-2 px-2">Название</th>
@@ -310,12 +567,12 @@
             <h1 class="font-mont m-2 text-sm font-bold text-[#545B71]">*Всего <span class="text-red-600">*VALUE*</span> мошеннических обменных пунктов</h1>
           </div>
         </div>
-        <div class="mb-10"> <!--таблица честн-->
-          <div class="rounded-2xl border-2 border-[#74E900] bg-[#1E2027]">
+        <div class="mb-10 hidden"> <!--таблица честн-->
+          <div class="rounded-xl border-2 border-[#74E900] bg-[#1E2027]">
             <h1 class="font-mont mr-3 p-10 text-lg font-extrabold text-white md:mr-14 lg:text-2xl"><span class="text-[#74E900]">Честные </span> обменники</h1>
             <div class="h-[370px] md:h-[556px] overflow-y-auto">
 
-              <table class="rounded-2xl overflow-hidden mr-0 pr-0 w-full h-full md:h-[556px] table-fixed">
+              <table class="rounded-xl overflow-hidden mr-0 pr-0 w-full h-full md:h-[556px] table-fixed">
                 <thead class="border-b-[1px] border-[#545B71]">
                   <tr class="text-white font-mont text-xs md:text-sm lg:text-base">
                     <th class="w-1/10 py-2 px-2">Название</th>
@@ -405,12 +662,12 @@
           </div>
           <h1 class="font-mont m-2 text-sm font-bold text-[#545B71]">*Всего <span class="text-[#74E900]">*VALUE*</span> надежных обменных пунктов</h1>
         </div>
-        <div class="mb-4"> <!--таблица нейтраль-->
-          <div class="rounded-2xl border-2 border-[#FBA72A] bg-[#1E2027]">
+        <div class="mb-4 hidden"> <!--таблица нейтраль-->
+          <div class="rounded-xl border-2 border-[#FBA72A] bg-[#1E2027]">
             <h1 class="font-mont mr-3 p-10 text-lg font-extrabold text-white md:mr-14 lg:text-2xl"><span class="text-[#FBA72A]">Нейтральные</span> обменники</h1>
             <div class="h-[370px] md:h-[556px] overflow-y-auto">
 
-              <table class="rounded-2xl overflow-hidden mr-0 pr-0 w-full h-full md:h-[556px] table-fixed">
+              <table class="rounded-xl overflow-hidden mr-0 pr-0 w-full h-full md:h-[556px] table-fixed">
                 <thead class="border-b-[1px] border-[#545B71]">
                   <tr class="text-white font-mont text-xs md:text-sm lg:text-base">
                     <th class="w-1/10 py-2 px-2">Название</th>
@@ -501,7 +758,20 @@
           <h1 class="font-mont m-2 text-sm font-bold text-[#545B71]">*Всего <span class="text-[#FBA72A]">*VALUE*</span> нейтральных обменных пунктов</h1>
         </div>
       </div>
-      <div></div>
+      
+    </div>
+  </div>
+    <div class="mb-4"> <!--вопросы?-->
+      <div class="flex flex-col items-center font-mont text-center break words">
+        <h1 class="p-10 text-3xl font-extrabold text-white lg:text-5xl">У Вас есть вопросы или предложения?</h1>
+        <h1 class="text-sm lg:text-lg font-bold text-[#545B71] mb-4"> Свяжитесь с нами, и мы ответим Вам так скоро, как сможем. </h1>
+        <button class="flex justify-center mt-2 gap-3 items-center rounded bg-[#00A3FF] w-[60%] lg:w-8 md:w-[20%] min-w-[200px] min-h-[50px] px-5 py-3 font-bold text-white hover:bg-blue-600">
+                  <svg class="w-auto h-auto max-w-none max-h-none min-w-23 min-h-20" width="23" height="20" viewBox="0 0 23 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21.1328 0.716923L0.755912 8.46884C-0.0640911 8.82984 -0.341439 9.55276 0.557717 9.94511L5.78527 11.584L18.4248 3.87777C19.115 3.39398 19.8215 3.52298 19.2135 4.05518L8.35786 13.7518L8.01686 17.8554C8.3327 18.489 8.91103 18.4919 9.27992 18.177L12.2833 15.3735L17.4271 19.1733C18.6218 19.8711 19.2718 19.4208 19.5289 18.1419L22.9027 2.38158C23.253 0.807392 22.6557 0.113791 21.1328 0.716923Z" fill="white"/>
+                  </svg>
+              Telegram
+          </button>
+      </div>
     </div>
   </div>
   
@@ -546,4 +816,28 @@
   </div>
     </div>
 </footer>
+<script>
+  var buttons = document.querySelectorAll('button[data-table]');
+
+  buttons.forEach(function(button) {
+    button.addEventListener('click', function() {
+      button.classList.add('focused');
+      var table = this.getAttribute('data-table').split('-')[1];
+      if (table === '1') {
+        document.getElementById('give-input').value = button.querySelectorAll('span')[1].innerHTML;
+      } else {
+        document.getElementById('receive-input').value = button.querySelectorAll('span')[1].innerHTML;
+      }
+
+      var btns = document.querySelectorAll(`button[data-table]`);
+
+        btns.forEach(function(btn) {
+            if (btn !== button && btn.getAttribute('data-table').split('-')[1] === table) {
+                btn.classList.remove('focused');
+            }
+        });
+    
+    });
+  });
+</script>
 </html>
