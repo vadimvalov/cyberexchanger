@@ -318,17 +318,19 @@
               </div>
             </div>
         </div>
-        <div id="mobile_trade_table" class="mb-10 hidden"> <!--Карточки Курсы Обмена (Mobile)-->
+        <div id="mobile_trade_table" class="mb-10       "> <!--Карточки Курсы Обмена (Mobile) hidden, баг Город Москва на md (1024) не center-->
           <div class="rounded-xl bg-[#1E2027] md:h-full">
-            <div class="flex justify-between items-center text-white">
-              <h1 class="font-mont mr-3 px-10 pb-4 pt-10 text-2xl font-extrabold text-white md:mr-14 lg:text-2xl">Курсы обмена</h1>
-              <h1 class="ml-auto p-10 pr-2 text-lg">
-                Город:
-                <strong class="my-10 rounded-lg bg-[#00A3FF] bg-opacity-20 p-1 text-[#00A3FF]">Москва</strong>
-              </h1>
-              <svg class="mr-10" width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M1 1L6 6M11 11L6 6M6 6L11 1L1 11" stroke="#E90035" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-              </svg>
+            <div class="flex justify-start items-center text-white flex-col md:flex-row">
+              <h1 class="font-mont lg:px-10 pb-4 pt-10 text-xl font-extrabold text-white md:mr-14 lg:text-2xl mr-auto ml-5">Курсы обмена</h1>
+              <div class="flex items-center mr-auto ml-5 mb-4">
+                <h1 class="m-auto text-lg">
+                  Город:
+                  <strong class="my-10 rounded-lg bg-[#00A3FF] bg-opacity-20 p-1 text-[#00A3FF]">Москва</strong>
+                </h1>
+                <svg class="ml-4" width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M1 1L6 6M11 11L6 6M6 6L11 1L1 11" stroke="#E90035" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </div>
             </div>
             <div class="h-[802px] overflow-y-auto border-t-4 border-[#545B71]">
               <div class="mx-0 my-4 bg-[#1E2027] text-white">
@@ -704,7 +706,7 @@
         <div id="desc" class="mb-10"> <!--блок AntiSwap с описанием-->
             <div class="rounded-xl bg-[#1E2027] text-white">
               <div class="flex flex-col md:flex-row-reverse">
-                <div class="flex align-bottom"> <!--Картинки-->
+                <div class="flex align-bottom"> <!--Картинки СЛОМАЛАСЬ БЛЯТЬ КОМПЬЮТЕРНАЯ-->
                   <img class="hidden md:hidden lg:block object-right-bottom object-contain w-full h-full flex-shrink-0 transition-all duration-300 ease-in-out" src="https://antiswap.info/images/main/bg-desktop.png" alt="Десктопная Картинка" />
                   <img class="block md:block lg:hidden mb-4" src="https://antiswap.info/images/main/bg-mobile.png" alt="Мобильная Картинка" />
                 </div>
