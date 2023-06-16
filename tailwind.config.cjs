@@ -4,11 +4,14 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        'mont': ['Mont'],
-    }
+        mont: ["Montserrat", "sans-serif"],
+      },
+    },
+    fontFamily: {
+      "mont-regular": ["Montserrat-Regular", "sans-serif"],
+      "mont-bold": ["Montserrat-Bold", "sans-serif"],
+      "mont-semibold": ["Montserrat-SemiBold", "sans-serif"],
     },
   },
-  plugins: [
-    // require('flowbite/plugin')
-]
+  plugins: [require("flowbite/plugin")],
 };
