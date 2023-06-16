@@ -320,18 +320,30 @@
         </div>
         <div id="mobile_trade_table" class="mb-10       "> <!--Карточки Курсы Обмена (Mobile) hidden, баг Город Москва на md (1024) не center-->
           <div class="rounded-xl bg-[#1E2027] md:h-full">
-            <div class="flex justify-start items-center text-white flex-col md:flex-row">
-              <h1 class="font-mont lg:px-10 pb-4 pt-10 text-xl font-extrabold text-white md:mr-14 lg:text-2xl mr-auto ml-5">Курсы обмена</h1>
-              <div class="flex items-center mr-auto ml-5 mb-4">
+            <div class="flex justify-between items-center text-white flex-col md:flex-row">
+              <h1 class="font-mont mr-3 px-2 lg:px-10 pb-4 pt-10 text-xl font-extrabold text-white md:mr-14 lg:text-2xl">Курсы обмена</h1>
+              <div class="flex items-center">
                 <h1 class="m-auto text-lg">
                   Город:
-                  <strong class="my-10 rounded-lg bg-[#00A3FF] bg-opacity-20 p-1 text-[#00A3FF]">Москва</strong>
+                  <button class="my-10 rounded-lg bg-[#00A3FF] bg-opacity-20 p-1 text-[#00A3FF] cursor-pointer" id="city-selector">Москва</button>
                 </h1>
                 <svg class="ml-4" width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M1 1L6 6M11 11L6 6M6 6L11 1L1 11" stroke="#E90035" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                 </svg>
               </div>
             </div>
+            
+            <div id="modal" class=" hidden fixed top-0 left-0 w-60 bg-black z-50 mt-60 mx-20"> <!--модалка-->
+              <div class="modal-content bg-white w-full max-w-3xl h-412 px-6 py-4 rounded-lg">
+                <h1 class="text-xl font-bold text-center">ХУЙ</h1>
+                <button class="close-button absolute top-4 right-4 w-6 h-6 bg-gray-300 rounded-full flex items-center justify-center">
+                  <svg class="w-4 h-4 text-gray-600" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M12.707 7.293a1 1 0 010 1.414L8.414 12l4.293 4.293a1 1 0 01-1.414 1.414L7 13.414l-4.293 4.293a1 1 0 01-1.414-1.414L5.586 12 1.293 7.707a1 1 0 111.414-1.414L7 10.586l4.293-4.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+
             <div class="h-[802px] overflow-y-auto border-t-4 border-[#545B71]">
               <div class="mx-0 my-4 bg-[#1E2027] text-white">
                 <div class="flex justify-between p-4">
@@ -1063,6 +1075,12 @@
     </div>
   </div>
     </div>
+
+
+
+
+    
+
 </footer>
 <script> // скриптецкий на Кнопку, Бургер и Выборку двух значений в обменнике
 function checkInputValues() {
@@ -1131,4 +1149,22 @@ burgerBtn.addEventListener('click', function() {
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"> //flowbitejs либа для модалок
 </script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var citySelector = document.getElementById('city-selector');
+  var modal = document.getElementById('modal');
+  var closeButton = document.querySelector('#modal .close-button');
+
+  citySelector.addEventListener('click', function() {
+    modal.classList.remove('hidden');
+  });
+
+  closeButton.addEventListener('click', function() {
+    modal.classList.add('hidden');
+  });
+});
+
+</script>
+
+
 </html>
