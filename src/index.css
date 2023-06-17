@@ -2,6 +2,27 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "Mont";
+  src: url("/public/fonts/Mont-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Mont";
+  src: url("fonts/Mont-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Mont";
+  src: url("fonts/Mont-SemiBold.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+}
+
 .hidden-modal {
   visibility: hidden;
   opacity: 0;
@@ -27,31 +48,29 @@
 }
 
 .focused {
-  background-color: #12547D;
+  background-color: #12547d;
 }
 
 /* Скрытие стандартного скроллбара */
 ::-webkit-scrollbar {
-    width: 3px; /* Ширина скроллбара */
-  }
-  
-  /* Стили для кастомного скроллера */
-  ::-webkit-scrollbar-track {
-    background-color: #1E2027; /* Цвет фона трека скроллера / bg-[#1E2027] збс */
-  }
-  
-  ::-webkit-scrollbar-thumb {
-    background-color: #00A3FF; /* Цвет ползунка скроллера #00A3FF / токсично над чет другое  */
-    border-radius: 1px /* Радиус скругления ползунка / При одном пикселе норм скрывается уходит в хедер/футер */
-  }
-  
-  ::-webkit-scrollbar-thumb:hover {
-    background-color: #00679e; /* Цвет ползунка скроллера при наведении */
-  }
+  width: 3px; /* Ширина скроллбара */
+}
 
+/* Стили для кастомного скроллера */
+::-webkit-scrollbar-track {
+  background-color: #1e2027; /* Цвет фона трека скроллера / bg-[#1E2027] збс */
+}
 
-  
-  /* .table-scrollbar::-webkit-scrollbar {
+::-webkit-scrollbar-thumb {
+  background-color: #00a3ff; /* Цвет ползунка скроллера #00A3FF / токсично над чет другое  */
+  border-radius: 1px; /* Радиус скругления ползунка / При одном пикселе норм скрывается уходит в хедер/футер */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #00679e; /* Цвет ползунка скроллера при наведении */
+}
+
+/* .table-scrollbar::-webkit-scrollbar {
     width: 8px;
     background-color: #F2F2F2;
   }
@@ -60,4 +79,3 @@
     background-color: #00A3FF;
     border-radius: 1px Радиус скругления ползунка
   } */
-  
