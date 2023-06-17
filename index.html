@@ -330,14 +330,95 @@
               </div>
             </div>
             
-            <div id="modal" class=" hidden fixed top-0 left-0 w-60 bg-black z-50 mt-60 mx-20"> <!--модалка-->
-              <div class="modal-content bg-white w-full max-w-3xl h-412 px-6 py-4 rounded-lg">
-                <h1 class="text-xl font-bold text-center">ХУЙ</h1>
-                <button class="close-button absolute top-4 right-4 w-6 h-6 bg-gray-300 rounded-full flex items-center justify-center">
-                  <svg class="w-4 h-4 text-gray-600" viewBox="0 0 20 20" fill="currentColor">
-                    <path fill-rule="evenodd" d="M12.707 7.293a1 1 0 010 1.414L8.414 12l4.293 4.293a1 1 0 01-1.414 1.414L7 13.414l-4.293 4.293a1 1 0 01-1.414-1.414L5.586 12 1.293 7.707a1 1 0 111.414-1.414L7 10.586l4.293-4.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+            <div id="modal"  class="hidden fixed inset-0 text-white items-center justify-center bg-black bg-opacity-80"> <!--модалка-->
+              <div class="absolute top-[80px] left-5 right-5 bg-[#1E2027] rounded-lg z-50">
+
+
+
+                <h1 class="text-xl font-bold text-left p-6 font-etrabold">Выберите город</h1>
+                <div class="px-6 py-4">
+                <p class="text-sm font-bold">Выберите страну, а затем город, в котором необходимо найти обменные пункты, работающие с наличными деньгами.</p>
+                </div>
+                <button class="close-button absolute top-6 right-6 w-6 h-6 bg-[#1E2027] rounded-full flex items-center justify-center">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M2 2L12 12M22 22L12 12M12 12L22 2L2 22" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
                   </svg>
+
                 </button>
+
+
+
+                <h1 class="px-6 pb-2 pt-6">Страна</h1>
+                <div class=" w-[300px] max-w-3xl rounded-lg bg-[#1E2027] px-6 py-4 mx-auto border-2 border-[#545B71]">
+                  <div id="extend-country-list" class="flex items-center">
+                    <button id="main-title" class="text-left font-bold border-1 border-[#545B71]">Выберите страну</button>
+                  </div>
+                  <ul id="country-list" class="flex flex-col h-[120px] justify-center hidden overflow-y-auto font-bold w-full">
+                  <li class="flex items-center py-2" onclick="updateTitle(this)">
+                    <span class="mr-auto">Страна</span>
+                    <span class="ml-auto">х обменников</span>
+                  </li>
+                  <li class="flex items-center py-2" onclick="updateTitle(this)">
+                    <span class="mr-auto">Россия</span>
+                    <span class="ml-auto">у обменников</span>
+                  </li>
+                  <li class="flex items-center py-2" onclick="updateTitle(this)">
+                    <span class="mr-auto">Казахстан</span>
+                    <span class="ml-auto">z обменников</span>
+                  </li>
+                  <li class="flex items-center py-2" onclick="updateTitle(this)">
+                    <span class="mr-auto">Страна</span>
+                    <span class="ml-auto">х обменников</span>
+                  </li>
+                  <li class="flex items-center py-2 border-t-[1px] border-[#545B71]" onclick="updateTitle(this)">
+                    <span class="mr-auto">Страна</span>
+                    <span class="ml-auto">х обменников</span>
+                  </li>
+                  <li class="flex items-center py-2" onclick="updateTitle(this)">
+                    <span class="mr-auto">Страна</span>
+                    <span class="ml-auto">х обменников</span>
+                  </li>
+                  <li class="flex items-center py-2" onclick="updateTitle(this)">
+                    <span class="mr-auto">Страна</span>
+                    <span class="ml-auto">х обменников</span>
+                  </li>
+                </ul>
+              </div>
+
+
+              <h1 class="px-6 pb-2 pt-6">Город</h1>
+              <div class=" w-[300px] max-w-3xl rounded-lg bg-[#1E2027] px-6 py-4 mx-auto border-2 border-[#545B71]">
+                  <div id="extend-city-list" class="flex items-center">
+                    <button id="main-city" class="text-left font-bold">Выберите город</button>
+                  </div>
+                  <ul id="city-list" class="flex flex-col h-[120px] justify-center hidden overflow-y-auto">
+                  <li class="flex items-center" onclick="updateCity(this)">
+                    <span class="mr-auto">Город 1</span>
+                    <span class="ml-auto">х обменников</span>
+                  </li>
+                  <li class="flex items-center" onclick="updateCity(this)">
+                    <span class="mr-auto">Город 2</span>
+                    <span class="ml-auto">у обменников</span>
+                  </li>
+                  <li class="flex items-center" onclick="updateCity(this)">
+                    <span class="mr-auto">Город 3</span>
+                    <span class="ml-auto">z обменников</span>
+                  </li>
+                   <li class="flex items-center" onclick="updateCity(this)">
+                    <span class="mr-auto">Город 4</span>
+                    <span class="ml-auto">х обменников</span>
+                  </li>
+                  <li class="flex items-center" onclick="updateCity(this)">
+                    <span class="mr-auto">Город 5</span>
+                    <span class="ml-auto">у обменников</span>
+                  </li>
+                  <li class="flex items-center" onclick="updateCity(this)">
+                    <span class="mr-auto">Город 6</span>
+                    <span class="ml-auto">z обменников</span>
+                  </li>
+                </ul>
+              </div>
+              <div class="pt-6"></div>
               </div>
             </div>
 
@@ -345,31 +426,31 @@
               <div class="mx-0 my-4 bg-[#1E2027] text-white">
                 <div class="flex justify-between p-4">
                   <section>
-                    <h1 class="text-xs font-bold opacity-60 text-[#545B71]">Обменник</h1>
+                    <h1 class="text-xs font-bold text-[#545B71]">Обменник</h1>
                     <p>Шахта</p>
                   </section>
                   <section class="flex w-20 items-center justify-center rounded-lg bg-[#2F491F] px-3 py-0 text-sm text-[#74E900]">Честный</section>
                 </div>
                 <div class="flex justify-between p-4">
                   <section>
-                    <h1 class="text-xs font-bold opacity-60 text-[#545B71]">Отдаёте</h1>
+                    <h1 class="text-xs font-bold text-[#545B71]">Отдаёте</h1>
                     <p>
                       1
-                      <span class="opacity-60 text-[#545B71] font-extrabold"> BTC <span class="text-sm text-[#545B71]">от 0.2</span> </span>
+                      <span class=" text-[#545B71] font-extrabold"> BTC <span class="text-sm text-[#545B71]">от 0.2</span> </span>
                     </p>
                   </section>
                   <section class="ml-auto">
-                    <h1 class="text-xs font-bold opacity-60 text-[#545B71]">Получаете</h1>
-                    <p>12.545454 <span class="opacity-60 text-[#545B71] font-extrabold">ETH</span></p>
+                    <h1 class="text-xs font-bold text-[#545B71]">Получаете</h1>
+                    <p>12.545454 <span class=" text-[#545B71] font-extrabold">ETH</span></p>
                   </section>
                 </div>
                 <div class="flex justify-between p-4">
                   <section>
-                    <h1 class="text-xs font-bold opacity-60 text-[#545B71]">Резерв</h1>
+                    <h1 class="text-xs font-bold text-[#545B71]">Резерв</h1>
                     <p>16 484.25</p>
                   </section>
                   <section class="ml-auto">
-                    <h1 class="text-xs font-bold opacity-60 text-[#545B71]">Отзывы</h1>
+                    <h1 class="text-xs font-bold text-[#545B71]">Отзывы</h1>
                     <p class="text-red-500">20 <span class="text-white"> | </span> <span class="text-green-600">2000</span></p>
                   </section>
                 </div>
@@ -379,31 +460,31 @@
                 
                 <div class="flex justify-between p-4">
                   <section>
-                    <h1 class="text-xs font-bold opacity-60 text-[#545B71]">Обменник</h1>
+                    <h1 class="text-xs font-bold text-[#545B71]">Обменник</h1>
                     <p>Шахта</p>
                   </section>
                   <p class="flex w-20 items-center justify-center rounded-lg bg-[#471A2A] px-3 py-0 text-sm text-[#E90035]">Скам</p>
                 </div>
                 <div class="flex justify-between p-4">
                   <section>
-                    <h1 class="text-xs font-bold opacity-60 text-[#545B71]">Отдаёте</h1>
+                    <h1 class="text-xs font-bold text-[#545B71]">Отдаёте</h1>
                     <p>
                       1
-                      <span class="opacity-60 text-[#545B71] font-extrabold"> BTC <span class="text-sm text-[#545B71]">от 0.2</span> </span>
+                      <span class=" text-[#545B71] font-extrabold"> BTC <span class="text-sm text-[#545B71]">от 0.2</span> </span>
                     </p>
                   </section>
                   <section class="ml-auto">
-                    <h1 class="text-xs font-bold opacity-60 text-[#545B71]">Получаете</h1>
-                    <p>12.545454 <span class="opacity-60 text-[#545B71] font-extrabold">ETH</span></p>
+                    <h1 class="text-xs font-bold text-[#545B71]">Получаете</h1>
+                    <p>12.545454 <span class=" text-[#545B71] font-extrabold">ETH</span></p>
                   </section>
                 </div>
                 <div class="flex justify-between p-4">
                   <section>
-                    <h1 class="text-xs font-bold opacity-60 text-[#545B71]">Резерв</h1>
+                    <h1 class="text-xs font-bold text-[#545B71]">Резерв</h1>
                     <p>16 484.25</p>
                   </section>
                   <section class="ml-auto">
-                    <h1 class="text-xs font-bold opacity-60 text-[#545B71]">Отзывы</h1>
+                    <h1 class="text-xs font-bold text-[#545B71]">Отзывы</h1>
                     <p class="text-red-500">20 <span class="text-white"> | </span> <span class="text-green-600">2000</span></p>
                   </section>
                 </div>
@@ -412,30 +493,30 @@
               <div class="mx-0 my-4 border-t-2 border-[#545B71] bg-[#1E2027] text-white">
                 <div class="flex justify-between p-4">
                   <section>
-                    <h1 class="text-xs font-bold opacity-60 text-[#545B71]">Обменник</h1>
+                    <h1 class="text-xs font-bold text-[#545B71]">Обменник</h1>
                     <p>Шахта</p>
                   </section>
                 <p class="flex w-20 items-center justify-center rounded-lg bg-[#FBA72A] bg-opacity-20 px-3 py-0 text-sm text-[#FBA72A]">Нейтр</p>                </div>
                 <div class="flex justify-between p-4">
                   <section>
-                    <h1 class="text-xs font-bold opacity-60 text-[#545B71]">Отдаёте</h1>
+                    <h1 class="text-xs font-bold text-[#545B71]">Отдаёте</h1>
                     <p>
                       1
-                      <span class="opacity-60 text-[#545B71] font-extrabold"> BTC <span class="text-sm text-[#545B71]">от 0.2</span> </span>
+                      <span class=" text-[#545B71] font-extrabold"> BTC <span class="text-sm text-[#545B71]">от 0.2</span> </span>
                     </p>
                   </section>
                   <section class="ml-auto">
-                    <h1 class="text-xs font-bold opacity-60 text-[#545B71]">Получаете</h1>
-                    <p>12.545454 <span class="opacity-60 text-[#545B71] font-extrabold">ETH</span></p>
+                    <h1 class="text-xs font-bold text-[#545B71]">Получаете</h1>
+                    <p>12.545454 <span class=" text-[#545B71] font-extrabold">ETH</span></p>
                   </section>
                 </div>
                 <div class="flex justify-between p-4">
                   <section>
-                    <h1 class="text-xs font-bold opacity-60 text-[#545B71]">Резерв</h1>
+                    <h1 class="text-xs font-bold text-[#545B71]">Резерв</h1>
                     <p>16 484.25</p>
                   </section>
                   <section class="ml-auto">
-                    <h1 class="text-xs font-bold opacity-60 text-[#545B71]">Отзывы</h1>
+                    <h1 class="text-xs font-bold text-[#545B71]">Отзывы</h1>
                     <p class="text-red-500">20 <span class="text-white"> | </span> <span class="text-green-600">2000</span></p>
                   </section>
                 </div>
@@ -443,30 +524,30 @@
               <div class="mx-0 my-4 border-t-2 border-[#545B71] bg-[#1E2027] text-white">
                 <div class="flex justify-between p-4">
                   <section>
-                    <h1 class="text-xs font-bold opacity-60 text-[#545B71]">Обменник</h1>
+                    <h1 class="text-xs font-bold text-[#545B71]">Обменник</h1>
                     <p>Шахта</p>
                   </section>
                 <p class="flex w-20 items-center justify-center rounded-lg bg-[#FBA72A] bg-opacity-20 px-3 py-0 text-sm text-[#FBA72A]">Нейтр</p>                </div>
                 <div class="flex justify-between p-4">
                   <section>
-                    <h1 class="text-xs font-bold opacity-60 text-[#545B71]">Отдаёте</h1>
+                    <h1 class="text-xs font-bold text-[#545B71]">Отдаёте</h1>
                     <p>
                       1
-                      <span class="opacity-60 text-[#545B71] font-extrabold"> BTC <span class="text-sm text-[#545B71]">от 0.2</span> </span>
+                      <span class=" text-[#545B71] font-extrabold"> BTC <span class="text-sm text-[#545B71]">от 0.2</span> </span>
                     </p>
                   </section>
                   <section class="ml-auto">
-                    <h1 class="text-xs font-bold opacity-60 text-[#545B71]">Получаете</h1>
-                    <p>12.545454 <span class="opacity-60 text-[#545B71] font-extrabold">ETH</span></p>
+                    <h1 class="text-xs font-bold  text-[#545B71]">Получаете</h1>
+                    <p>12.545454 <span class=" text-[#545B71] font-extrabold">ETH</span></p>
                   </section>
                 </div>
                 <div class="flex justify-between p-4">
                   <section>
-                    <h1 class="text-xs font-bold opacity-60 text-[#545B71]">Резерв</h1>
+                    <h1 class="text-xs font-bold text-[#545B71]">Резерв</h1>
                     <p>16 484.25</p>
                   </section>
                   <section class="ml-auto">
-                    <h1 class="text-xs font-bold opacity-60 text-[#545B71]">Отзывы</h1>
+                    <h1 class="text-xs font-bold text-[#545B71]">Отзывы</h1>
                     <p class="text-red-500">20 <span class="text-white"> | </span> <span class="text-green-600">2000</span></p>
                   </section>
                 </div>
@@ -474,30 +555,30 @@
               <div class="mx-0 my-4 border-t-2 border-[#545B71] bg-[#1E2027] text-white">
                 <div class="flex justify-between p-4">
                   <section>
-                    <h1 class="text-xs font-bold opacity-60 text-[#545B71]">Обменник</h1>
+                    <h1 class="text-xs font-bold text-[#545B71]">Обменник</h1>
                     <p>Шахта</p>
                   </section>
                 <p class="flex w-20 items-center justify-center rounded-lg bg-[#FBA72A] bg-opacity-20 px-3 py-0 text-sm text-[#FBA72A]">Нейтр</p>                </div>
                 <div class="flex justify-between p-4">
                   <section>
-                    <h1 class="text-xs font-bold opacity-60 text-[#545B71]">Отдаёте</h1>
+                    <h1 class="text-xs font-bold text-[#545B71]">Отдаёте</h1>
                     <p>
                       1
-                      <span class="opacity-60 text-[#545B71] font-extrabold"> BTC <span class="text-sm text-[#545B71]">от 0.2</span> </span>
+                      <span class=" text-[#545B71] font-extrabold"> BTC <span class="text-sm text-[#545B71]">от 0.2</span> </span>
                     </p>
                   </section>
                   <section class="ml-auto">
-                    <h1 class="text-xs font-bold opacity-60 text-[#545B71]">Получаете</h1>
-                    <p>12.545454 <span class="opacity-60 text-[#545B71] font-extrabold">ETH</span></p>
+                    <h1 class="text-xs font-bold  text-[#545B71]">Получаете</h1>
+                    <p>12.545454 <span class=" text-[#545B71] font-extrabold">ETH</span></p>
                   </section>
                 </div>
                 <div class="flex justify-between p-4">
                   <section>
-                    <h1 class="text-xs font-bold opacity-60 text-[#545B71]">Резерв</h1>
+                    <h1 class="text-xs font-bold  text-[#545B71]">Резерв</h1>
                     <p>16 484.25</p>
                   </section>
                   <section class="ml-auto">
-                    <h1 class="text-xs font-bold opacity-60 text-[#545B71]">Отзывы</h1>
+                    <h1 class="text-xs font-bold  text-[#545B71]">Отзывы</h1>
                     <p class="text-red-500">20 <span class="text-white"> | </span> <span class="text-green-600">2000</span></p>
                   </section>
                 </div>
@@ -505,30 +586,30 @@
               <div class="mx-0 my-4 border-t-2 border-[#545B71] bg-[#1E2027] text-white">
                 <div class="flex justify-between p-4">
                   <section>
-                    <h1 class="text-xs font-bold opacity-60 text-[#545B71]">Обменник</h1>
+                    <h1 class="text-xs font-bold text-[#545B71]">Обменник</h1>
                     <p>Шахта</p>
                   </section>
                 <p class="flex w-20 items-center justify-center rounded-lg bg-[#FBA72A] bg-opacity-20 px-3 py-0 text-sm text-[#FBA72A]">Нейтр</p>                </div>
                 <div class="flex justify-between p-4">
                   <section>
-                    <h1 class="text-xs font-bold opacity-60 text-[#545B71]">Отдаёте</h1>
+                    <h1 class="text-xs font-bold text-[#545B71]">Отдаёте</h1>
                     <p>
                       1
-                      <span class="opacity-60 text-[#545B71] font-extrabold"> BTC <span class="text-sm text-[#545B71]">от 0.2</span> </span>
+                      <span class=" text-[#545B71] font-extrabold"> BTC <span class="text-sm text-[#545B71]">от 0.2</span> </span>
                     </p>
                   </section>
                   <section class="ml-auto">
-                    <h1 class="text-xs font-bold opacity-60 text-[#545B71]">Получаете</h1>
-                    <p>12.545454 <span class="opacity-60 text-[#545B71] font-extrabold">ETH</span></p>
+                    <h1 class="text-xs font-bold text-[#545B71]">Получаете</h1>
+                    <p>12.545454 <span class=" text-[#545B71] font-extrabold">ETH</span></p>
                   </section>
                 </div>
                 <div class="flex justify-between p-4">
                   <section>
-                    <h1 class="text-xs font-bold opacity-60 text-[#545B71]">Резерв</h1>
+                    <h1 class="text-xs font-bold text-[#545B71]">Резерв</h1>
                     <p>16 484.25</p>
                   </section>
                   <section class="ml-auto">
-                    <h1 class="text-xs font-bold opacity-60 text-[#545B71]">Отзывы</h1>
+                    <h1 class="text-xs font-bold text-[#545B71]">Отзывы</h1>
                     <p class="text-red-500">20 <span class="text-white"> | </span> <span class="text-green-600">2000</span></p>
                   </section>
                 </div>
@@ -1151,7 +1232,6 @@ document.addEventListener('DOMContentLoaded', function() {
   var citySelector = document.getElementById('city-selector');
   var modal = document.getElementById('modal');
   var closeButton = document.querySelector('#modal .close-button');
-
   citySelector.addEventListener('click', function() {
     modal.classList.remove('hidden');
   });
@@ -1163,5 +1243,35 @@ document.addEventListener('DOMContentLoaded', function() {
 
 </script>
 
+<script> // модалка
+  const extendButton = document.getElementById("extend-country-list");
+  const countryList = document.getElementById("country-list");
+  const mainTitle = document.getElementById("main-title");
+
+  extendButton.addEventListener("click", function() {
+    countryList.classList.toggle("hidden");
+  });
+
+  function updateTitle(element) {
+    const firstSpan = element.querySelector("span:first-child");
+    mainTitle.innerText = firstSpan.innerText;
+    countryList.classList.add("hidden");
+  }
+
+  const extendCityButton = document.getElementById("extend-city-list");
+const cityList = document.getElementById("city-list");
+const mainCity = document.getElementById("main-city");
+
+extendCityButton.addEventListener("click", function() {
+  cityList.classList.toggle("hidden");
+});
+
+function updateCity(element) {
+  const cityName = element.querySelector("span:first-child");
+  mainCity.innerText = cityName.innerText;
+  cityList.classList.add("hidden");
+}
+
+</script>
 
 </html>
