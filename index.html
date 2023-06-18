@@ -39,6 +39,95 @@
       </div>
     </header>
   <body class="max-w-screen bg-[#101115] font-mont"> <!--камон еврибади-->
+
+     <div id="modal"  class="hidden fixed inset-0 text-white items-center justify-center bg-black bg-opacity-80"> <!--модалка-->
+              <div class="absolute top-[80px] left-5 right-5 bg-[#1E2027] rounded-lg z-50 lg:top-[180px] lg:left-40 lg:right-40">
+
+                <h1 class="text-xl lg:text-4xl font-bold text-left p-6 font-etrabold">Выберите город</h1>
+                <div class="px-6 py-4">
+                <p class="text-sm font-bold">Выберите страну, а затем город, в котором необходимо найти обменные пункты, работающие с наличными деньгами.</p>
+                </div>
+
+                <button class="close-button absolute top-6 right-6 w-6 h-6 bg-[#1E2027] rounded-full flex items-center justify-center">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M2 2L12 12M22 22L12 12M12 12L22 2L2 22" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </button>
+                
+                <h1 class="px-6 pb-2 pt-6">Страна</h1>
+                <div class=" w-[300px] max-w-3xl rounded-lg bg-[#1E2027] px-6 py-4 mx-auto border-2 border-[#545B71]">
+                  <div id="extend-country-list" class="flex items-center">
+                    <button id="main-title" class="flex text-left font-bold border-1 border-[#545B71]">Выберите страну</button>
+                  </div>
+                  <ul id="country-list" class="flex flex-col h-[120px] justify-center hidden overflow-y-auto font-bold w-full">
+                  <li class="flex items-center py-2" onclick="updateTitle(this)">
+                    <span class="mr-auto">Страна</span>
+                    <span class="ml-auto">х обменников</span>
+                  </li>
+                  <li class="flex items-center py-2" onclick="updateTitle(this)">
+                    <span class="mr-auto">Россия</span>
+                    <span class="ml-auto">у обменников</span>
+                  </li>
+                  <li class="flex items-center py-2" onclick="updateTitle(this)">
+                    <span class="mr-auto">Казахстан</span>
+                    <span class="ml-auto">z обменников</span>
+                  </li>
+                  <li class="flex items-center py-2" onclick="updateTitle(this)">
+                    <span class="mr-auto">Страна</span>
+                    <span class="ml-auto">х обменников</span>
+                  </li>
+                  <li class="flex items-center py-2 border-t-[1px] border-[#545B71]" onclick="updateTitle(this)">
+                    <span class="mr-auto">Страна</span>
+                    <span class="ml-auto">х обменников</span>
+                  </li>
+                  <li class="flex items-center py-2" onclick="updateTitle(this)">
+                    <span class="mr-auto">Страна</span>
+                    <span class="ml-auto">х обменников</span>
+                  </li>
+                  <li class="flex items-center py-2" onclick="updateTitle(this)">
+                    <span class="mr-auto">Страна</span>
+                    <span class="ml-auto">х обменников</span>
+                  </li>
+                </ul>
+              </div>
+
+
+              <h1 class="px-6 pb-2 pt-6">Город</h1>
+              <div class=" w-[300px] max-w-3xl rounded-lg bg-[#1E2027] px-6 py-4 mx-auto border-2 border-[#545B71]">
+                  <div id="extend-city-list" class="flex items-center">
+                    <button id="main-city" class="text-left font-bold">Выберите город</button>
+                  </div>
+                  <ul id="city-list" class="flex flex-col h-[120px] justify-center hidden overflow-y-auto">
+                  <li class="flex items-center" onclick="updateCity(this)">
+                    <span class="mr-auto">Город 1</span>
+                    <span class="ml-auto">х обменников</span>
+                  </li>
+                  <li class="flex items-center" onclick="updateCity(this)">
+                    <span class="mr-auto">Город 2</span>
+                    <span class="ml-auto">у обменников</span>
+                  </li>
+                  <li class="flex items-center" onclick="updateCity(this)">
+                    <span class="mr-auto">Город 3</span>
+                    <span class="ml-auto">z обменников</span>
+                  </li>
+                   <li class="flex items-center" onclick="updateCity(this)">
+                    <span class="mr-auto">Город 4</span>
+                    <span class="ml-auto">х обменников</span>
+                  </li>
+                  <li class="flex items-center" onclick="updateCity(this)">
+                    <span class="mr-auto">Город 5</span>
+                    <span class="ml-auto">у обменников</span>
+                  </li>
+                  <li class="flex items-center" onclick="updateCity(this)">
+                    <span class="mr-auto">Город 6</span>
+                    <span class="ml-auto">z обменников</span>
+                  </li>
+                </ul>
+              </div>
+              <div class="pt-6"></div>
+              </div>
+            </div>
+
     <div class="max-w-screen bg-[#101115]">
     <div class="flex justify-between flex-col lg:flex-row">
       <div class="m-10 lg:m-20 h-full text-center lg:mr-0 lg:w-[372px] flex">
@@ -330,98 +419,7 @@
               </div>
             </div>
             
-            <div id="modal"  class="hidden fixed inset-0 text-white items-center justify-center bg-black bg-opacity-80"> <!--модалка-->
-              <div class="absolute top-[80px] left-5 right-5 bg-[#1E2027] rounded-lg z-50">
-
-
-
-                <h1 class="text-xl font-bold text-left p-6 font-etrabold">Выберите город</h1>
-                <div class="px-6 py-4">
-                <p class="text-sm font-bold">Выберите страну, а затем город, в котором необходимо найти обменные пункты, работающие с наличными деньгами.</p>
-                </div>
-                <button class="close-button absolute top-6 right-6 w-6 h-6 bg-[#1E2027] rounded-full flex items-center justify-center">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M2 2L12 12M22 22L12 12M12 12L22 2L2 22" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-
-                </button>
-
-
-
-                <h1 class="px-6 pb-2 pt-6">Страна</h1>
-                <div class=" w-[300px] max-w-3xl rounded-lg bg-[#1E2027] px-6 py-4 mx-auto border-2 border-[#545B71]">
-                  <div id="extend-country-list" class="flex items-center">
-                    <button id="main-title" class="text-left font-bold border-1 border-[#545B71]">Выберите страну</button>
-                  </div>
-                  <ul id="country-list" class="flex flex-col h-[120px] justify-center hidden overflow-y-auto font-bold w-full">
-                  <li class="flex items-center py-2" onclick="updateTitle(this)">
-                    <span class="mr-auto">Страна</span>
-                    <span class="ml-auto">х обменников</span>
-                  </li>
-                  <li class="flex items-center py-2" onclick="updateTitle(this)">
-                    <span class="mr-auto">Россия</span>
-                    <span class="ml-auto">у обменников</span>
-                  </li>
-                  <li class="flex items-center py-2" onclick="updateTitle(this)">
-                    <span class="mr-auto">Казахстан</span>
-                    <span class="ml-auto">z обменников</span>
-                  </li>
-                  <li class="flex items-center py-2" onclick="updateTitle(this)">
-                    <span class="mr-auto">Страна</span>
-                    <span class="ml-auto">х обменников</span>
-                  </li>
-                  <li class="flex items-center py-2 border-t-[1px] border-[#545B71]" onclick="updateTitle(this)">
-                    <span class="mr-auto">Страна</span>
-                    <span class="ml-auto">х обменников</span>
-                  </li>
-                  <li class="flex items-center py-2" onclick="updateTitle(this)">
-                    <span class="mr-auto">Страна</span>
-                    <span class="ml-auto">х обменников</span>
-                  </li>
-                  <li class="flex items-center py-2" onclick="updateTitle(this)">
-                    <span class="mr-auto">Страна</span>
-                    <span class="ml-auto">х обменников</span>
-                  </li>
-                </ul>
-              </div>
-
-
-              <h1 class="px-6 pb-2 pt-6">Город</h1>
-              <div class=" w-[300px] max-w-3xl rounded-lg bg-[#1E2027] px-6 py-4 mx-auto border-2 border-[#545B71]">
-                  <div id="extend-city-list" class="flex items-center">
-                    <button id="main-city" class="text-left font-bold">Выберите город</button>
-                  </div>
-                  <ul id="city-list" class="flex flex-col h-[120px] justify-center hidden overflow-y-auto">
-                  <li class="flex items-center" onclick="updateCity(this)">
-                    <span class="mr-auto">Город 1</span>
-                    <span class="ml-auto">х обменников</span>
-                  </li>
-                  <li class="flex items-center" onclick="updateCity(this)">
-                    <span class="mr-auto">Город 2</span>
-                    <span class="ml-auto">у обменников</span>
-                  </li>
-                  <li class="flex items-center" onclick="updateCity(this)">
-                    <span class="mr-auto">Город 3</span>
-                    <span class="ml-auto">z обменников</span>
-                  </li>
-                   <li class="flex items-center" onclick="updateCity(this)">
-                    <span class="mr-auto">Город 4</span>
-                    <span class="ml-auto">х обменников</span>
-                  </li>
-                  <li class="flex items-center" onclick="updateCity(this)">
-                    <span class="mr-auto">Город 5</span>
-                    <span class="ml-auto">у обменников</span>
-                  </li>
-                  <li class="flex items-center" onclick="updateCity(this)">
-                    <span class="mr-auto">Город 6</span>
-                    <span class="ml-auto">z обменников</span>
-                  </li>
-                </ul>
-              </div>
-              <div class="pt-6"></div>
-              </div>
-            </div>
-
+           
             <div class="h-[802px] overflow-y-auto border-t-4 border-[#545B71]">
               <div class="mx-0 my-4 bg-[#1E2027] text-white">
                 <div class="flex justify-between p-4">
