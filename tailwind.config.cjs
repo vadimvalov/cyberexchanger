@@ -7,6 +7,6 @@ module.exports = {
         mont: ["Mont", "sans-serif"],
       },
     },
-    plugins: [require("flowbite/plugin")],
+    plugins: [],
   },
 };
