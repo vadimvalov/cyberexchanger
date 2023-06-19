@@ -14,7 +14,7 @@
   <header class="h-20 max-w-screen bg-[#1E2027] pt-[28px]"> <!--лого ниже чем надо-->
     <div class="flex justify-start items-center px-10 md:px-0">
       <a href="" class="text-white text-lg font-extrabold mr-3 lg:text-2xl md:mr-14 md:ml-20">AntiSwap</a>
-      <div class="relative md:hidden ml-auto flex flex-col items-center">
+      <div class="md:hidden ml-auto flex flex-col items-center">
         <button id="burger-btn" class="w-8 h-8 flex items-center text-white justify-center focus:outline-none">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 9h16.5m-16.5 6.75h16.5" />
@@ -41,7 +41,7 @@
   <body class="max-w-screen bg-[#101115] font-mont"> <!--камон еврибади-->
 
      <div id="modal"  class="hidden fixed inset-0 text-white items-center justify-center bg-black bg-opacity-80"> <!--модалка-->
-              <div class="absolute top-[80px] left-5 right-5 bg-[#1E2027] rounded-lg z-50 lg:top-[180px] lg:left-40 lg:right-40">
+              <div class="absolute py-50 top-[80px] left-5 right-5 bg-[#1E2027] rounded-lg z-50 lg:top-[180px] lg:left-40 lg:right-40">
 
                 <h1 class="text-xl lg:text-4xl font-bold text-left p-6 font-etrabold">Выберите город</h1>
                 <div class="px-6 py-4">
@@ -54,50 +54,51 @@
                   </svg>
                 </button>
                 
-                <h1 class="px-6 pb-2 pt-6">Страна</h1>
-                <div class=" w-[300px] max-w-3xl rounded-lg bg-[#1E2027] px-6 py-4 mx-auto border-2 border-[#545B71]">
-                  <div id="extend-country-list" class="flex items-center">
-                    <button id="main-title" class="flex text-left font-bold border-1 border-[#545B71]">Выберите страну</button>
+                <div>
+                  <h1 class="px-6 pb-2 pt-6">Страна</h1>
+                  <div class=" w-[300px] max-w-3xl rounded-lg bg-[#1E2027] px-2 py-4 mx-auto border-2 border-[#545B71]">
+                    <div id="extend-country-list" class="flex items-center">
+                      <button id="main-title" class="flex text-left font-bold border-1 border-[#545B71]">Выберите страну</button>
+                    </div>
+                    <ul id="country-list" class="flex px-2 flex-col h-[120px] justify-center hidden overflow-y-auto font-bold w-full">
+                    <li class="flex items-center gap-1 py-2" onclick="updateTitle(this)">
+                      <span class="mr-auto">Страна</span>
+                      <span class="ml-auto">х обменников</span>
+                    </li>
+                    <li class="flex items-center py-2" onclick="updateTitle(this)">
+                      <span class="mr-auto">Россия</span>
+                      <span class="ml-auto">у обменников</span>
+                    </li>
+                    <li class="flex items-center py-2" onclick="updateTitle(this)">
+                      <span class="mr-auto">Казахстан</span>
+                      <span class="ml-auto">z обменников</span>
+                    </li>
+                    <li class="flex items-center py-2" onclick="updateTitle(this)">
+                      <span class="mr-auto">Страна</span>
+                      <span class="ml-auto">х обменников</span>
+                    </li>
+                    <li class="flex items-center py-2 border-t-[1px] border-[#545B71]" onclick="updateTitle(this)">
+                      <span class="mr-auto">Страна</span>
+                      <span class="ml-auto">х обменников</span>
+                    </li>
+                    <li class="flex items-center py-2" onclick="updateTitle(this)">
+                      <span class="mr-auto">Страна</span>
+                      <span class="ml-auto">х обменников</span>
+                    </li>
+                    <li class="flex items-center py-2" onclick="updateTitle(this)">
+                      <span class="mr-auto">Страна</span>
+                      <span class="ml-auto">х обменников</span>
+                    </li>
+                  </ul>
                   </div>
-                  <ul id="country-list" class="flex flex-col h-[120px] justify-center hidden overflow-y-auto font-bold w-full">
-                  <li class="flex items-center py-2" onclick="updateTitle(this)">
-                    <span class="mr-auto">Страна</span>
-                    <span class="ml-auto">х обменников</span>
-                  </li>
-                  <li class="flex items-center py-2" onclick="updateTitle(this)">
-                    <span class="mr-auto">Россия</span>
-                    <span class="ml-auto">у обменников</span>
-                  </li>
-                  <li class="flex items-center py-2" onclick="updateTitle(this)">
-                    <span class="mr-auto">Казахстан</span>
-                    <span class="ml-auto">z обменников</span>
-                  </li>
-                  <li class="flex items-center py-2" onclick="updateTitle(this)">
-                    <span class="mr-auto">Страна</span>
-                    <span class="ml-auto">х обменников</span>
-                  </li>
-                  <li class="flex items-center py-2 border-t-[1px] border-[#545B71]" onclick="updateTitle(this)">
-                    <span class="mr-auto">Страна</span>
-                    <span class="ml-auto">х обменников</span>
-                  </li>
-                  <li class="flex items-center py-2" onclick="updateTitle(this)">
-                    <span class="mr-auto">Страна</span>
-                    <span class="ml-auto">х обменников</span>
-                  </li>
-                  <li class="flex items-center py-2" onclick="updateTitle(this)">
-                    <span class="mr-auto">Страна</span>
-                    <span class="ml-auto">х обменников</span>
-                  </li>
-                </ul>
-              </div>
+                </div>  
 
-
-              <h1 class="px-6 pb-2 pt-6">Город</h1>
-              <div class=" w-[300px] max-w-3xl rounded-lg bg-[#1E2027] px-6 py-4 mx-auto border-2 border-[#545B71]">
+             <h1 class="px-6 pb-2 pt-6">Город</h1>
+              <div class=" w-[300px] max-w-3xl rounded-lg bg-[#1E2027] px-2 py-4 mx-auto border-2 border-[#545B71]">
                   <div id="extend-city-list" class="flex items-center">
                     <button id="main-city" class="text-left font-bold">Выберите город</button>
                   </div>
-                  <ul id="city-list" class="flex flex-col h-[120px] justify-center hidden overflow-y-auto">
+                  <ul id="city-list" class="px-2 gap-1 flex-col h-[120px] justify-center hidden overflow-y-auto">
                   <li class="flex items-center" onclick="updateCity(this)">
                     <span class="mr-auto">Город 1</span>
                     <span class="ml-auto">х обменников</span>
@@ -127,33 +128,29 @@
               <div class="pt-6"></div>
               </div>
             </div>
-
+            
     <div class="max-w-screen bg-[#101115]">
     <div class="flex justify-between flex-col lg:flex-row">
       <div class="m-10 lg:m-20 h-full text-center lg:mr-0 lg:w-[372px] flex">
         <div class="w-screen">
-          <div class="rounded-xl bg-[#1E2027] text-white"> <!--таблица левая-->
+          <div class="left-tables rounded-xl bg-[#1E2027] text-white"> <!--таблица левая-->
             <h1 class= "mb-2 text-center text-xl p-8 font-[800]">Направления обмена</h1>
             <div class="mb-3 flex w-full items-center justify-between gap-5 p-1 px-3">
-              <div class="relative border-b-2 border-b-[#545B71]">
+              <div class="flex items-center border-b-2 border-b-[#545B71]">
                 <input id='give-input' class="w-full bg-[#1E2027] py-1 pl-1 pr-1 text-[#545B71] outline-none" placeholder="Отдаете" />
-                <div class="absolute right-1 top-1/2 -translate-y-1/2 transform">
                   <svg class="h-4 w-4 text-[#545B71]" viewBox="0 0 17 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M10.7659 10.7656C11.8388 9.69281 12.4415 8.23776 12.4415 6.72057C12.4415 5.20338 11.8388 3.74833 10.7659 2.67552C9.69309 1.6027 8.23799 1 6.72075 1C5.20351 1 3.74842 1.6027 2.67557 2.67552C1.60272 3.74833 1 5.20338 1 6.72057C1 8.23776 1.60272 9.69281 2.67557 10.7656C3.74842 11.8384 5.20351 12.4411 6.72075 12.4411C8.23799 12.4411 9.69309 11.8384 10.7659 10.7656ZM10.7659 10.7656L16 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
                   </svg>
-                </div>
               </div>
-              <div class="relative border-b-2 border-b-[#545B71]">
+              <div class="flex items-center border-b-2 border-b-[#545B71]">
                 <input id='receive-input' class="w-full bg-[#1E2027] py-1 pl-1 pr-1 text-[#545B71] outline-none" placeholder="Получаете" />
-                <div class="absolute right-1 top-1/2 -translate-y-1/2 transform">
                   <svg class="h-4 w-4 text-[#545B71]" viewBox="0 0 17 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M10.7659 10.7656C11.8388 9.69281 12.4415 8.23776 12.4415 6.72057C12.4415 5.20338 11.8388 3.74833 10.7659 2.67552C9.69309 1.6027 8.23799 1 6.72075 1C5.20351 1 3.74842 1.6027 2.67557 2.67552C1.60272 3.74833 1 5.20338 1 6.72057C1 8.23776 1.60272 9.69281 2.67557 10.7656C3.74842 11.8384 5.20351 12.4411 6.72075 12.4411C8.23799 12.4411 9.69309 11.8384 10.7659 10.7656ZM10.7659 10.7656L16 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
                   </svg>
-                </div>
               </div>
             </div>
 
-            <div class="table-container">
+            <div id="crypto" class="table-container">
               <h1 class="bg-[#545B71] px-4 py-2 text-white font-extrabold text-xl">Криптовалюта</h1>
               <div class='flex gap-1.5'>
                 <table class="w-[50%]">
@@ -162,7 +159,7 @@
                         <td class="p-0">
                             <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="crypto-1">
                                 <span>Bitcoin</span>
-                                <span class='ml-auto opacity-60'>BTC</span>
+                                <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
                             </button>
                         </td>
                       </tr>
@@ -170,7 +167,7 @@
                         <td class="p-0">
                             <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="crypto-1">
                                 <span>Bitcoin</span>
-                                <span class='ml-auto opacity-60'>BTC</span>
+                                <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
                             </button>
                         </td>
                       </tr>
@@ -178,7 +175,7 @@
                         <td class="p-0">
                             <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="crypto-1">
                                 <span>Bitcoin</span>
-                                <span class='ml-auto opacity-60'>BTC</span>
+                                <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
                             </button>
                         </td>
                       </tr>
@@ -186,7 +183,7 @@
                         <td class="p-0">
                             <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="crypto-1">
                                 <span>Bitcoin</span>
-                                <span class='ml-auto opacity-60'>BTC</span>
+                                <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
                             </button>
                         </td>
                       </tr>
@@ -197,7 +194,7 @@
                         <td class="p-0">
                             <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="crypto-2">
                                 <span>Bitcoin</span>
-                                <span class='ml-auto opacity-60'>BTC</span>
+                                <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
                             </button>
                         </td>
                     </tr>
@@ -205,7 +202,7 @@
                         <td class="p-0">
                             <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="crypto-2">
                                 <span>Bitcoin</span>
-                                <span class='ml-auto opacity-60'>BTC</span>
+                                <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
                             </button>
                         </td>
                     </tr>
@@ -213,7 +210,7 @@
                         <td class="p-0">
                             <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="crypto-2">
                                 <span>Bitcoin</span>
-                                <span class='ml-auto opacity-60'>BTC</span>
+                                <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
                             </button>
                         </td>
                     </tr>
@@ -221,7 +218,7 @@
                         <td class="p-0">
                             <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="crypto-2">
                                 <span>Bitcoin</span>
-                                <span class='ml-auto opacity-60'>BTC</span>
+                                <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
                             </button>
                         </td>
                     </tr>
@@ -238,7 +235,7 @@
                         <td class="p-0">
                             <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="balance-1">
                                 <span>Bitcoin</span>
-                                <span class='ml-auto opacity-60'>BTC</span>
+                                <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
                             </button>
                         </td>
                       </tr>
@@ -246,7 +243,7 @@
                         <td class="p-0">
                             <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="balance-1">
                                 <span>Bitcoin</span>
-                                <span class='ml-auto opacity-60'>BTC</span>
+                                <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
                             </button>
                         </td>
                       </tr>
@@ -254,7 +251,7 @@
                         <td class="p-0">
                             <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="balance-1">
                                 <span>Bitcoin</span>
-                                <span class='ml-auto opacity-60'>BTC</span>
+                                <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
                             </button>
                         </td>
                       </tr>
@@ -262,7 +259,7 @@
                         <td class="p-0">
                             <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="balance-1">
                                 <span>Bitcoin</span>
-                                <span class='ml-auto opacity-60'>BTC</span>
+                                <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
                             </button>
                         </td>
                       </tr>
@@ -273,7 +270,7 @@
                         <td class="p-0">
                             <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="balance-2">
                                 <span>Bitcoin</span>
-                                <span class='ml-auto opacity-60'>BTC</span>
+                                <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
                             </button>
                         </td>
                       </tr>
@@ -281,7 +278,7 @@
                         <td class="p-0">
                             <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="balance-2">
                                 <span>Bitcoin</span>
-                                <span class='ml-auto opacity-60'>BTC</span>
+                                <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
                             </button>
                         </td>
                     </tr>
@@ -289,7 +286,7 @@
                         <td class="p-0">
                             <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="balance-2">
                                 <span>Bitcoin</span>
-                                <span class='ml-auto opacity-60'>BTC</span>
+                                <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
                             </button>
                         </td>
                     </tr>
@@ -297,13 +294,14 @@
                         <td class="p-0">
                             <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="balance-2">
                                 <span>Bitcoin</span>
-                                <span class='ml-auto opacity-60'>BTC</span>
+                                <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
                             </button>
                         </td>
                     </tr>
                 </table>
               </div>
             </div>
+
             <div id="banking" class='table-container hidden lg:block'> <!--Интернет банкинг-->
               <h1 class="bg-[#545B71] px-4 py-2 text-white text-xl font-extrabold" colspan="4">Интернет банкинг</h1>
               <div class='flex gap-1.5'>
@@ -313,7 +311,7 @@
                         <td class="p-0">
                             <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="banking-1">
                                 <span>Bitcoin</span>
-                                <span class='ml-auto opacity-60'>BTC</span>
+                                <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
                             </button>
                         </td>
                     </tr>
@@ -321,7 +319,7 @@
                         <td class="p-0">
                             <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="banking-1">
                                 <span>Bitcoin</span>
-                                <span class='ml-auto opacity-60'>BTC</span>
+                                <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
                             </button>
                         </td>
                     </tr>
@@ -329,7 +327,7 @@
                         <td class="p-0">
                             <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="banking-1">
                                 <span>Bitcoin</span>
-                                <span class='ml-auto opacity-60'>BTC</span>
+                                <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
                             </button>
                         </td>
                     </tr>
@@ -337,7 +335,7 @@
                         <td class="p-0">
                             <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="banking-1">
                                 <span>Bitcoin</span>
-                                <span class='ml-auto opacity-60'>BTC</span>
+                                <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
                             </button>
                         </td>
                     </tr>
@@ -348,7 +346,7 @@
                         <td class="p-0">
                             <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="banking-2">
                                 <span>Bitcoin</span>
-                                <span class='ml-auto opacity-60'>BTC</span>
+                                <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
                             </button>
                         </td>
                     </tr>
@@ -356,7 +354,7 @@
                         <td class="p-0">
                             <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="banking-2">
                                 <span>Bitcoin</span>
-                                <span class='ml-auto opacity-60'>BTC</span>
+                                <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
                             </button>
                         </td>
                     </tr>
@@ -364,7 +362,7 @@
                         <td class="p-0">
                            <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="banking-2">
                                 <span>Bitcoin</span>
-                                <span class='ml-auto opacity-60'>BTC</span>
+                                <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
                             </button>
                         </td>
                     </tr>
@@ -372,7 +370,235 @@
                         <td class="p-0">
                             <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="banking-2">
                                 <span>Bitcoin</span>
-                                <span class='ml-auto opacity-60'>BTC</span>
+                                <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
+                            </button>
+                        </td>
+                    </tr>
+                </table>
+              </div>
+            </div>
+
+            <div id="eMoney" class='table-container hidden lg:block'> <!--Электронные деньги-->
+              <h1 class="bg-[#545B71] px-4 py-2 text-white text-xl font-extrabold" colspan="4">Электронные деньги</h1>
+              <div class='flex gap-1.5'>
+                <table class="w-[50%]">
+                    <tbody>
+                      <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
+                        <td class="p-0">
+                            <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="eMoney-1">
+                                <span>Bitcoin</span>
+                                <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
+                            </button>
+                        </td>
+                    </tr>
+                      <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
+                        <td class="p-0">
+                            <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="eMoney-1">
+                                <span>Bitcoin</span>
+                                <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
+                            </button>
+                        </td>
+                    </tr>
+                      <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
+                        <td class="p-0">
+                            <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="eMoney-1">
+                                <span>Bitcoin</span>
+                                <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
+                            </button>
+                        </td>
+                    </tr>
+                      <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
+                        <td class="p-0">
+                            <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="banking-1">
+                                <span>Bitcoin</span>
+                                <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
+                            </button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <table class="w-[50%]">
+                    <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
+                        <td class="p-0">
+                            <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="eMoney-2">
+                                <span>Bitcoin</span>
+                                <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
+                        <td class="p-0">
+                            <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="eMoney-2">
+                                <span>Bitcoin</span>
+                                <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
+                        <td class="p-0">
+                           <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="eMoney-2">
+                                <span>Bitcoin</span>
+                                <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
+                        <td class="p-0">
+                            <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="eMoney-2">
+                                <span>Bitcoin</span>
+                                <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
+                            </button>
+                        </td>
+                    </tr>
+                </table>
+              </div>
+            </div>
+
+            <div id="transactions" class='table-container hidden lg:block'> <!--Денежные переводы-->
+              <h1 class="bg-[#545B71] px-4 py-2 text-white text-xl font-extrabold" colspan="4">Денежные переводы</h1>
+              <div class='flex gap-1.5'>
+                <table class="w-[50%]">
+                    <tbody>
+                      <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
+                        <td class="p-0">
+                            <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="transactions-1">
+                                <span>Bitcoin</span>
+                                <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
+                            </button>
+                        </td>
+                    </tr>
+                      <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
+                        <td class="p-0">
+                            <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="transactions-1">
+                                <span>Bitcoin</span>
+                                <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
+                            </button>
+                        </td>
+                    </tr>
+                      <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
+                        <td class="p-0">
+                            <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="transactions-1">
+                                <span>Bitcoin</span>
+                                <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
+                            </button>
+                        </td>
+                    </tr>
+                      <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
+                        <td class="p-0">
+                            <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="transactions-1">
+                                <span>Bitcoin</span>
+                                <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
+                            </button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <table class="w-[50%]">
+                    <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
+                        <td class="p-0">
+                            <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="transactions-2">
+                                <span>Bitcoin</span>
+                                <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
+                        <td class="p-0">
+                            <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="transactions-2">
+                                <span>Bitcoin</span>
+                                <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
+                        <td class="p-0">
+                           <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="transactions-2">
+                                <span>Bitcoin</span>
+                                <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
+                        <td class="p-0">
+                            <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="transactions-2">
+                                <span>Bitcoin</span>
+                                <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
+                            </button>
+                        </td>
+                    </tr>
+                </table>
+              </div>
+            </div>
+
+            <div id="cash" class='table-container hidden lg:block'> <!--Наличные деньги-->
+              <h1 class="bg-[#545B71] px-4 py-2 text-white text-xl font-extrabold" colspan="4">Наличные деньги</h1>
+              <div class='flex gap-1.5'>
+                <table class="w-[50%]">
+                    <tbody>
+                      <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
+                        <td class="p-0">
+                            <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="cash-1">
+                                <span>Bitcoin</span>
+                                <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
+                            </button>
+                        </td>
+                    </tr>
+                      <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
+                        <td class="p-0">
+                            <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="cash-1">
+                                <span>Bitcoin</span>
+                                <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
+                            </button>
+                        </td>
+                    </tr>
+                      <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
+                        <td class="p-0">
+                            <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="cash-1">
+                                <span>Bitcoin</span>
+                                <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
+                            </button>
+                        </td>
+                    </tr>
+                      <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
+                        <td class="p-0">
+                            <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="cash-1">
+                                <span>Bitcoin</span>
+                                <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
+                            </button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <table class="w-[50%]">
+                    <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
+                        <td class="p-0">
+                            <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="cash-2">
+                                <span>Bitcoin</span>
+                                <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
+                        <td class="p-0">
+                            <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="cash-2">
+                                <span>Bitcoin</span>
+                                <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
+                        <td class="p-0">
+                           <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="cash-2">
+                                <span>Bitcoin</span>
+                                <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
+                        <td class="p-0">
+                            <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="cash-2">
+                                <span>Bitcoin</span>
+                                <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
                             </button>
                         </td>
                     </tr>
@@ -618,14 +844,14 @@
         <div id="desktop_trade_table" class="mb-10 hidden"> <!--Таблица Курсы Обмена (Desktop)-->
           <div class="rounded-xl bg-[#1E2027]">
             <div class= "flex items-center justify-normal text-white">
-              <h1 class="mr-3 p-8 text-4xl font-extrabold mb-8">Курсы обмена</h1>
-              <h1 class="ml-auto p-8 mb-8 text-xl font-bold text-[#545B71]">
+              <h1 class="pl-8 flex-1 text-4xl font-extrabold mb-8">Курсы обмена</h1>
+              <h1 class="ml-auto flex gap-0.5 items-center pr-8 mb-8 text-xl font-bold text-[#545B71]">
                Город:
-                <strong class="my-10 rounded-lg font-bold text-xl bg-[#00A3FF] bg-opacity-20 p-1 text-[#00A3FF]">Москва</strong>
+                <button class="my-10 rounded-lg  p-1 text-[#00A3FF] cursor-pointer underline underline-offset-[4px]" onclick="showModal()">Выбрать город</button>
+                <svg class="ml-2" width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M1 1L6 6M11 11L6 6M6 6L11 1L1 11" stroke="#E90035" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
               </h1>
-              <svg class="mr-8 mb-8" width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-               <path d="M1 1L6 6M11 11L6 6M6 6L11 1L1 11" stroke="#E90035" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-              </svg>
             </div>
     <div class="h-[370px] overflow-y-auto md:h-[556px]">
       <table class="mr-0 h-full w-full table-auto overflow-hidden rounded-xl pr-0">
@@ -811,6 +1037,14 @@
                     Сервис анализирующий прозрачность и безопасность <br />
                     обменников благодаря отзывам пользователей
                   </p>
+                  <div class="flex">
+                    <button class="rounded bg-[#00A3FF] px-8 py-3 font-bold text-xl text-white hover:bg-blue-600 flex items-center">
+                    <span class="mr-4">Подробнее</span>
+                    <svg class="w-5 h-5" viewBox="0 0 29 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M20.0833 0.324148C20.5017 -0.102146 21.1868 -0.108834 21.6135 0.309208L28.6756 7.22813C28.8831 7.43144 29 7.70962 29 8C29 8.29038 28.8831 8.56856 28.6756 8.77187L21.6135 15.6908C21.1868 16.1088 20.5017 16.1021 20.0833 15.6759C19.6648 15.2496 19.6715 14.5651 20.0982 14.147L25.269 9.08108H1.08209C0.484468 9.08108 0 8.59706 0 8C0 7.40293 0.484468 6.91892 1.08209 6.91892H25.269L20.0982 1.85295C19.6715 1.43491 19.6648 0.750441 20.0833 0.324148Z" fill="white"/>
+                    </svg>
+                    </button>
+                  </div>
                 </div>
             </div>
         </div>
@@ -1200,14 +1434,24 @@ buttons.forEach(function(button) {
 });
 
 var button_extend = document.getElementById('extend_button');
-var banking = document.getElementById('banking');
-var balance = document.getElementById('balance');
+//var banking = document.getElementById('banking');
+//var balance = document.getElementById('balance');
 
 function extend() {
-  banking.classList.toggle('hidden');
-  banking.classList.toggle('md:block');
-  balance.classList.toggle('hidden');
-  balance.classList.toggle('lg:block');
+  //banking.classList.toggle('hidden');
+  //banking.classList.toggle('md:block');
+  //balance.classList.toggle('hidden');
+  //balance.classList.toggle('lg:block');
+  let tableContainers = document.getElementsByClassName('left-tables')[0].getElementsByClassName('table-container');
+  for (let tc = 1; tc < tableContainers.length; tc++) {
+    let classList = tableContainers[tc].classList;
+    classList.toggle('hidden');
+    for (let c = 0; c < classList.length; c++)
+      if (classList[c].includes('block')) block = classList[c];
+    console.log(block);
+    classList.toggle(block);
+    console.log(tableContainers[tc].classList);
+  }
 }
 
 button_extend.addEventListener('click', extend);
@@ -1222,6 +1466,15 @@ burgerBtn.addEventListener('click', function() {
   menu.classList.toggle('hidden');
 });
 
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"> //flowbitejs либа для модалок
+</script>
+<script>
+  
+  function showModal() {
+    document.getElementById('modal').classList.toggle('hidden');
+
+  }
 </script>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
@@ -1268,6 +1521,23 @@ function updateCity(element) {
   cityList.classList.add("hidden");
 }
 
+function turnRowsIntoLinks() {
+  let tables = [
+    document.getElementById('table_true'), 
+    document.getElementById('table_scam'), 
+    document.getElementById('table_hz')
+  ].forEach((table) => {
+    let rows = Array.from(table.getElementsByTagName('tbody')[0].getElementsByTagName('tr'));
+    console.log(rows);
+    rows.forEach((row) => {
+      console.log(row);
+      row.addEventListener('click', () => {
+        window.location.href = 'shahta.html';
+      });
+    })
+  });
+}
+turnRowsIntoLinks();
 </script>
 
 </html>
