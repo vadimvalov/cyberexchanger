@@ -792,28 +792,28 @@
 
         <div id="desc" class="mb-10"> <!--блок AntiSwap с описанием-->
             <div class="rounded-xl bg-[#1E2027] text-white">
-              <div class="flex flex-col md:flex-row-reverse">
-                <div class="flex align-bottom"> <!--Картинки СЛОМАЛАСЬ БЛЯТЬ КОМПЬЮТЕРНАЯ-->
-                  <img class="hidden md:hidden lg:block object-right-bottom object-contain w-full h-full flex-shrink-0 transition-all duration-300 ease-in-out" src="https://antiswap.info/images/main/bg-desktop.png" alt="Десктопная Картинка" />
-                  <img class="block md:block lg:hidden mb-4" src="https://antiswap.info/images/main/bg-mobile.png" alt="Мобильная Картинка" />
-                </div>
-                <div class="p-10"> <!--Текст-->
-                  <h1 class= "mb-6 lg:text-4xl text-2xl font-extrabold">AntiSwap</h1>
-                  <p class="mb-8 font-bold lg:text-xl leading-8">
+              <div class="flex flex-col md:flex-row">
+                <div class="p-10 hidden md:block"> <!--Текст-->
+                  <h1 class="mb-2 text-xl font-bold ">AntiSwap</h1>
+                  <p class="mb-8">
                     Сервис анализирующий прозрачность и безопасность <br />
                     обменников благодаря отзывам пользователей
                   </p>
-                  <div class="flex">
-                    <button class="rounded bg-[#00A3FF] px-8 py-3 font-bold text-xl text-white hover:bg-blue-600 flex items-center">
-                    <span class="mr-4">Подробнее</span>
-                    <svg class="w-5 h-5" viewBox="0 0 29 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path fill-rule="evenodd" clip-rule="evenodd" d="M20.0833 0.324148C20.5017 -0.102146 21.1868 -0.108834 21.6135 0.309208L28.6756 7.22813C28.8831 7.43144 29 7.70962 29 8C29 8.29038 28.8831 8.56856 28.6756 8.77187L21.6135 15.6908C21.1868 16.1088 20.5017 16.1021 20.0833 15.6759C19.6648 15.2496 19.6715 14.5651 20.0982 14.147L25.269 9.08108H1.08209C0.484468 9.08108 0 8.59706 0 8C0 7.40293 0.484468 6.91892 1.08209 6.91892H25.269L20.0982 1.85295C19.6715 1.43491 19.6648 0.750441 20.0833 0.324148Z" fill="white"/>
-                    </svg>
-                    </button>
-                  </div>
+                  <button class="rounded bg-[#00A3FF] px-5 py-3 font-bold text-white hover:bg-blue-600">Подробнее -</button>
                 </div>
-              </div>
+                <div class="flex align-bottom"> <!--Картинки-->
+                  <img class="hidden md:hidden lg:block object-right-bottom object-contain w-full h-full flex-shrink-0 transition-all duration-300 ease-in-out" src="https://antiswap.info/images/main/bg-desktop.png" alt="Десктопная Картинка" />
+                  <img class="block md:block lg:hidden mb-4" src="https://antiswap.info/images/main/bg-mobile.png" alt="Мобильная Картинка" />
+                </div>
+                <div class="md:hidden p-10">
+                   <h1 class="mb-2 text-xl font-bold ">AntiSwap</h1>
+                  <p class="mb-8">
+                    Сервис анализирующий прозрачность и безопасность <br />
+                    обменников благодаря отзывам пользователей
+                  </p>
+                </div>
             </div>
+        </div>
         </div>
         <div id="table_scam" class="mb-10"> <!--таблица СКАМ-->
             <div class="rounded-xl border-2 border-red-600 bg-[#1E2027]">
@@ -1222,8 +1222,6 @@ burgerBtn.addEventListener('click', function() {
   menu.classList.toggle('hidden');
 });
 
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"> //flowbitejs либа для модалок
 </script>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
