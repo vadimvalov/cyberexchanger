@@ -119,20 +119,19 @@
               <span class="ml-4 text-[#545B71]"> На Главную</span>
             </a>
           </div>
-          <ul class="w-full flex-row lg:flex items-center justify-between">
-            <li class="">
+          <ul class="w-full flex lg:flex items-start">
+            <li class="flex-col">
               <h3 class="lg:text-lg text-[#545b71] mb-4">Обменник</h3>
               <h1 class="text-3xl title mr-4 mb-10">Шахта</h1>
             </li>
-            <div class="flex">
-              <li>
-                <h3 class="lg:text-xl text-[#545B71] lg:mb-4 mb-2">Рейтинг</h3>
-                <span class='text-[#E90035] font-extrabold text-3xl'>5.0</span>
-              </li>
-              <li class="w-full items-end ml-10">
-                <h3 class="lg:text-xl text-[#545B71] lg:mb-4 mb-2">Статус</h3>
-                <span class='text-[#E90035] font-extrabold text-3xl'>СКАМ</span>
-              </li>
+            <li class="flex-col ml-auto">
+              <h3 class="lg:text-xl text-[#545B71] lg:mb-4 mb-2">Рейтинг</h3>
+              <span class='text-[#E90035] font-extrabold text-3xl'>5.0</span>
+            </li>
+            <li class="ml-10 flex-col">
+              <h3 class="lg:text-xl text-[#545B71] lg:mb-4 mb-2">Статус</h3>
+              <span class='text-[#E90035] font-extrabold text-3xl'>СКАМ</span>
+            </li>
           </ul>
           <div class="w-full max-w-[600px] mt-10">
             <h3 class="lg:text-xl text-[#545B71] mb-4">Описание:</h3>
@@ -141,17 +140,26 @@
           </div>
           <div id="mySection">
 
-            <h3 class="lg:text-xl text-[#545B71] mb-10">Отзывы <sup>62640</sup></h3>
+            <h3 class="lg:text-xl text-[#545B71] flex gap-1 mb-10">Отзывы <p
+                class="flex justify-start items-start mt-[-10px] text-[0.8rem]">62640</p>
+            </h3>
             <div class="flex items-center border-b-4 pt-2 pb-4"> <!-- SOLID BORDER -->
               <ul class="flex items-center lg:gap-10">
-                <li class="lg:flex lg:flex-row items-center lg:gap-4 active flex-col flex text-sm lg:text-base">
-                  <h1 class="bg-green-500 rounded-xl px-2 py-1 text-[#000000] bg-[#000000]" data-total="2426">2426
-                  </h1>
-                  <span>Отрицательных</span>
+                <li>
+                  <button
+                    class="lg:flex focus:border-b-2 focus:border-b-gray lg:flex-row items-center lg:gap-4 active flex-col flex text-sm lg:text-base">
+                    <h1 class="bg-green-500 mb-2 rounded-xl px-2 py-1 text-[#000000] bg-[#000000]" data-total="2426">
+                      2426
+                    </h1>
+                    <span>Положительных</span>
+                  </button>
                 </li>
-                <li class="lg:flex lg:flex-row items-center lg:gap-4 active flex-col flex text-sm lg:text-base">
-                  <span class="bg-red-600 rounded-xl px-2 py-1 text-black" data-total="60214">60214</span>
-                  <span>Положительных</span>
+                <li>
+                  <button
+                    class="lg:flex focus:border-b-2 focus:border-b-gray lg:flex-row items-center lg:gap-4 active flex-col flex text-sm lg:text-base">
+                    <span class="bg-red-600 mb-2 rounded-xl px-2 py-1 text-black" data-total="60214">60214</span>
+                    <span>Отрицательных</span>
+                  </button>
                 </li>
               </ul>
               <div class="ml-auto flex-col gap-1">
