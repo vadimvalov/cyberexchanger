@@ -5,7 +5,6 @@
   <meta charset="UTF-8" />
   <link rel="icon" type="image/svg+xml" href="" /> <!--фавикон сюда (желательно путь к svg)-->
   <link rel="stylesheet" href="./src/index.css" />
-  <link rel="stylesheet" href="./dist/assets/index-496d15a9.css" />
   <!-- <link href="https://fonts.cdnfonts.co" rel="stylesheet"> -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AntiSwap- про скам-обменники</title>
@@ -43,6 +42,70 @@
 
 <body class="h-full text-white font-bold font-mont">
   <main class="bg-[#101115] font-bold text-white ">
+    <div id="modal" class="hidden fixed inset-0 text-white items-center justify-center bg-black bg-opacity-80">
+      <!--модалка-->
+
+      <div
+        class="absolute py-50 top-[40px] text-white left-20 right-20 bg-[#1E2027] rounded-lg z-50 lg:top-[40px] lg:left-[30%] lg:right-[30%] p-10">
+        <div class="rounded-lg text-white bg-[#1E2027] flex-col">
+          <div class="flex">
+            <button type="button"
+              class="close-button right-2.5 top-3 ml-auto inline-flex items-center rounded-lg bg-transparent p-1.5 text-sm text-gray-400 hover:bg-gray-200 hover:text-gray-900 dark:hover:bg-gray-800 dark:hover:text-white"
+              data-modal-hide="authentication-modal">
+              <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd"
+                  d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                  clip-rule="evenodd"></path>
+              </svg>
+              <span class="sr-only">Close modal</span>
+            </button>
+          </div>
+          <div>
+            <h3 class="mb-4 text-xl font-medium text-white dark:text-white">Оставить отзыв</h3>
+            <div class="flex">
+              <div class="flex-col flex gap-2 w-1/2">
+                <label for="email" class="text-sm font-medium text-white dark:text-white">Имя</label>
+                <input type="" name="email" id="email"
+                  class="outline-none w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-500 dark:bg-gray-600 dark:text-white dark:placeholder-gray-400"
+                  placeholder="" required />
+                <label for="password" class="mt-4 text-sm font-medium text-white dark:text-white">Номер
+                  обмена</label>
+                <input type=""
+                  class="outline-none w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-500 dark:bg-gray-600 dark:text-white"
+                  required />
+              </div>
+              <div class="flex-col flex gap-2 w-1/2 ml-4">
+                <label type="email" for="additional-info" class="text-sm font-medium text-white dark:text-white"
+                  required>Email</label>
+                <input type="text" name="additional-info" id="additional-info"
+                  class="outline-none block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-500 dark:bg-gray-600 dark:text-white dark:placeholder-gray-400" />
+                <label for="rating" class="mt-4 text-sm font-medium text-white dark:text-white">Оценка</label>
+                <div class="flex">
+                  <button type="button"
+                    class="rounded-l w-full bg-green-500 px-5 py-2.5 text-sm font-medium text-white hover:bg-green-600 focus:outline-none focus:ring-4 focus:ring-green-300">+</button>
+                  <button type="button"
+                    class="rounded-r w-full bg-red-500 px-5 py-2.5 text-sm font-medium text-white hover:bg-red-600 focus:outline-none focus:ring-4 focus:ring-red-300">-</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="mt-4 flex flex-col mb-0">
+            <label for="message" class="mb-3 text-sm font-medium text-white dark:text-white">Напишите
+              отзыв</label>
+            <textarea name="message" id="message" rows="4" maxlength="2000"
+              class="outline-none w-full resize-none rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-500 dark:bg-gray-600 dark:text-white dark:placeholder-gray-400"
+              required></textarea>
+            <p class="mb-6"></p>
+          </div>
+          <div class="flex gap-1">
+            <input type="checkbox" />
+            <p class="break-words text-sm">Я прочитал и принимаю условия Политики конфиденциальности</p>
+          </div>
+          <button class="bg-blue-500 hover:bg-blue-400 rounded-lg mt-2 text-center w-full py-2"
+            type="submit">Отправить</button>
+        </div>
+      </div>
+    </div>
     <section class="pt-[calc(20px + 100 * ((100vw - 375px) / 1545))]">
       <div class="w-full h-full mx-auto md:py-20 md:p-20 p-10">
         <div class="bg-[#1E2027] rounded-xl md:p-14 p-4 pt-10">
@@ -109,6 +172,22 @@
                       fill-rule="evenodd" />
                   </svg>
                   Сначала старые
+                </button>
+                <button class="gap-1 hover:text-blue-500 flex items-center" onclick="showModal()">
+                  <!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+                  <svg class="text-blue-500" width="20px" height="20px" viewBox="0 -0.5 21 21" version="1.1"
+                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                      <g id="Dribbble-Light-Preview" transform="translate(-419.000000, -359.000000)" fill="#FFFFFF">
+                        <g id="icons" transform="translate(56.000000, 160.000000)">
+                          <path
+                            d="M384,209.210475 L384,219 L363,219 L363,199.42095 L373.5,199.42095 L373.5,201.378855 L365.1,201.378855 L365.1,217.042095 L381.9,217.042095 L381.9,209.210475 L384,209.210475 Z M370.35,209.51395 L378.7731,201.64513 L380.4048,203.643172 L371.88195,212.147332 L370.35,212.147332 L370.35,209.51395 Z M368.25,214.105237 L372.7818,214.105237 L383.18415,203.64513 L378.8298,199 L368.25,208.687714 L368.25,214.105237 Z"
+                            id="edit_cover-[#1481]"></path>
+                        </g>
+                      </g>
+                    </g>
+                  </svg>
+                  Оставить отзыв
                 </button>
               </div>
             </div>
@@ -268,6 +347,18 @@
   }
 
   // Call the sort function
+</script>
+<script>
+
+  function showModal() {
+    document.getElementById('modal').classList.toggle('hidden');
+  }
+
+  var closeButton = document.querySelector('#modal .close-button');
+
+  closeButton.addEventListener('click', function () {
+    modal.classList.add('hidden');
+  });
 </script>
 <footer>
   <div class="h-[401px] bg-[#1E2027] md:hidden"> <!--мобилка футер-->

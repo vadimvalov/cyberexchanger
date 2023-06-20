@@ -1,152 +1,167 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="" /> <!--фавикон сюда (желательно путь к svg)-->
-    <link rel="stylesheet" href="./src/index.css" />
-    <!-- <link href="https://fonts.cdnfonts.co" rel="stylesheet"> -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.css" rel="stylesheet" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AntiSwap- про скам-обменники</title>
-    <style>
-    </style>
-  </head>
-  <header class="h-20 max-w-screen bg-[#1E2027] pt-[28px]"> <!--лого ниже чем надо-->
-    <div class="flex justify-start items-center px-10 md:px-0">
-      <a href="" class="text-white text-lg font-extrabold mr-3 lg:text-2xl md:mr-14 md:ml-20">AntiSwap</a>
-      <div class="md:hidden ml-auto flex flex-col items-center">
-        <button id="burger-btn" class="w-8 h-8 flex items-center text-white justify-center focus:outline-none">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 9h16.5m-16.5 6.75h16.5" />
-            </svg>  
-            <path class="burger-line" d="M2,5h20M2,12h20M2,19h20"></path>
-            
-        </button>
-        <nav id="menu" class="p-3  rounded-lg text-white menu hidden absolute left-[-3rem] top-14 bg-[#2C2F3A]">
-            <ul class="menu-items flex flex-col gap-2">
-            <li><a href="#about" class="hover:text-blue-500">О нас</a></li>
-            <li><a href="#exchanges" class="hover:text-blue-500">Обменники</a></li>
-            </ul>
-        </nav>
-      
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="" /> <!--фавикон сюда (желательно путь к svg)-->
+  <link rel="stylesheet" href="./src/index.css" />
+  <!-- <link href="https://fonts.cdnfonts.co" rel="stylesheet"> -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.css" rel="stylesheet" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AntiSwap- про скам-обменники</title>
+  <style>
+  </style>
+</head>
+<header class="h-20 max-w-screen bg-[#1E2027] pt-[28px]"> <!--лого ниже чем надо-->
+  <div class="flex justify-start items-center px-10 md:px-0">
+    <a href="" class="text-white text-lg font-extrabold mr-3 lg:text-2xl md:mr-14 md:ml-20">AntiSwap</a>
+    <div class="md:hidden ml-auto flex flex-col items-center">
+      <button id="burger-btn" class="w-8 h-8 flex items-center text-white justify-center focus:outline-none">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+          class="w-6 h-6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 9h16.5m-16.5 6.75h16.5" />
+        </svg>
+        <path class="burger-line" d="M2,5h20M2,12h20M2,19h20"></path>
+
+      </button>
+      <nav id="menu" class="p-3  rounded-lg text-white menu hidden absolute left-[-3rem] top-14 bg-[#2C2F3A]">
+        <ul class="menu-items flex flex-col gap-2">
+          <li><a href="#about" class="hover:text-blue-500">О нас</a></li>
+          <li><a href="#exchanges" class="hover:text-blue-500">Обменники</a></li>
+        </ul>
+      </nav>
+
+    </div>
+    <a href="" class="hidden md:block text-white text-sm font-[700] lg:text-sm md:ml-6">Обменники</a>
+    <a href="" class="hidden md:block text-white text-sm font-[700] lg:text-sm md:ml-4">О нас</a>
+    <div class="hidden md:flex ml-auto lg:mr-20 md:mr-20 gap-1 font-[700] text-sm">
+      <h1 class="text-[#00A3FF]">*VALUE*</h1>
+      <p class="text-[#545B71]">Обменников проверено</p>
+    </div>
+  </div>
+</header>
+
+<body class="max-w-screen bg-[#101115] font-mont"> <!--камон еврибади-->
+
+  <div id="modal" class="hidden fixed inset-0 text-white items-center justify-center bg-black bg-opacity-80">
+    <!--модалка-->
+    <div
+      class="absolute py-50 top-[80px] left-5 right-5 bg-[#1E2027] rounded-lg z-50 lg:top-[180px] lg:left-40 lg:right-40">
+
+      <h1 class="text-xl lg:text-4xl font-bold text-left p-6 font-etrabold">Выберите город</h1>
+      <div class="px-6 py-4">
+        <p class="text-sm font-bold">Выберите страну, а затем город, в котором необходимо найти обменные пункты,
+          работающие с наличными деньгами.</p>
       </div>
-      <a href="" class="hidden md:block text-white text-sm font-[700] lg:text-sm md:ml-6">Обменники</a>
-      <a href="" class="hidden md:block text-white text-sm font-[700] lg:text-sm md:ml-4">О нас</a>
-      <div class="hidden md:flex ml-auto lg:mr-20 md:mr-20 gap-1 font-[700] text-sm">
-        <h1 class="text-[#00A3FF]">*VALUE*</h1>
-        <p class="text-[#545B71]">Обменников проверено</p>
+
+      <button
+        class="close-button absolute top-6 right-6 w-6 h-6 bg-[#1E2027] rounded-full flex items-center justify-center">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M2 2L12 12M22 22L12 12M12 12L22 2L2 22" stroke="white" stroke-width="3" stroke-linecap="round"
+            stroke-linejoin="round" />
+        </svg>
+      </button>
+
+      <div>
+        <h1 class="px-6 pb-2 pt-6">Страна</h1>
+        <div class=" w-[300px] max-w-3xl rounded-lg bg-[#1E2027] px-2 py-4 mx-auto border-2 border-[#545B71]">
+          <div id="extend-country-list" class="flex items-center">
+            <button id="main-title" class="flex text-left font-bold border-1 border-[#545B71]">Выберите страну</button>
+          </div>
+          <ul id="country-list"
+            class="flex px-2 flex-col h-[120px] justify-center hidden overflow-y-auto font-bold w-full">
+            <li class="flex items-center gap-1 py-2" onclick="updateTitle(this)">
+              <span class="mr-auto">Страна</span>
+              <span class="ml-auto">х обменников</span>
+            </li>
+            <li class="flex items-center py-2" onclick="updateTitle(this)">
+              <span class="mr-auto">Россия</span>
+              <span class="ml-auto">у обменников</span>
+            </li>
+            <li class="flex items-center py-2" onclick="updateTitle(this)">
+              <span class="mr-auto">Казахстан</span>
+              <span class="ml-auto">z обменников</span>
+            </li>
+            <li class="flex items-center py-2" onclick="updateTitle(this)">
+              <span class="mr-auto">Страна</span>
+              <span class="ml-auto">х обменников</span>
+            </li>
+            <li class="flex items-center py-2 border-t-[1px] border-[#545B71]" onclick="updateTitle(this)">
+              <span class="mr-auto">Страна</span>
+              <span class="ml-auto">х обменников</span>
+            </li>
+            <li class="flex items-center py-2" onclick="updateTitle(this)">
+              <span class="mr-auto">Страна</span>
+              <span class="ml-auto">х обменников</span>
+            </li>
+            <li class="flex items-center py-2" onclick="updateTitle(this)">
+              <span class="mr-auto">Страна</span>
+              <span class="ml-auto">х обменников</span>
+            </li>
+          </ul>
+        </div>
       </div>
+
+      <h1 class="px-6 pb-2 pt-6">Город</h1>
+      <div class=" w-[300px] max-w-3xl rounded-lg bg-[#1E2027] px-2 py-4 mx-auto border-2 border-[#545B71]">
+        <div id="extend-city-list" class="flex items-center">
+          <button id="main-city" class="text-left font-bold">Выберите город</button>
+        </div>
+        <ul id="city-list" class="px-2 gap-1 flex-col h-[120px] justify-center hidden overflow-y-auto">
+          <li class="flex items-center" onclick="updateCity(this)">
+            <span class="mr-auto">Город 1</span>
+            <span class="ml-auto">х обменников</span>
+          </li>
+          <li class="flex items-center" onclick="updateCity(this)">
+            <span class="mr-auto">Город 2</span>
+            <span class="ml-auto">у обменников</span>
+          </li>
+          <li class="flex items-center" onclick="updateCity(this)">
+            <span class="mr-auto">Город 3</span>
+            <span class="ml-auto">z обменников</span>
+          </li>
+          <li class="flex items-center" onclick="updateCity(this)">
+            <span class="mr-auto">Город 4</span>
+            <span class="ml-auto">х обменников</span>
+          </li>
+          <li class="flex items-center" onclick="updateCity(this)">
+            <span class="mr-auto">Город 5</span>
+            <span class="ml-auto">у обменников</span>
+          </li>
+          <li class="flex items-center" onclick="updateCity(this)">
+            <span class="mr-auto">Город 6</span>
+            <span class="ml-auto">z обменников</span>
+          </li>
+        </ul>
       </div>
-    </header>
-  <body class="max-w-screen bg-[#101115] font-mont"> <!--камон еврибади-->
+      <div class="pt-6"></div>
+    </div>
+  </div>
 
-     <div id="modal"  class="hidden fixed inset-0 text-white items-center justify-center bg-black bg-opacity-80"> <!--модалка-->
-              <div class="absolute py-50 top-[80px] left-5 right-5 bg-[#1E2027] rounded-lg z-50 lg:top-[180px] lg:left-40 lg:right-40">
-
-                <h1 class="text-xl lg:text-4xl font-bold text-left p-6 font-etrabold">Выберите город</h1>
-                <div class="px-6 py-4">
-                <p class="text-sm font-bold">Выберите страну, а затем город, в котором необходимо найти обменные пункты, работающие с наличными деньгами.</p>
-                </div>
-
-                <button class="close-button absolute top-6 right-6 w-6 h-6 bg-[#1E2027] rounded-full flex items-center justify-center">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M2 2L12 12M22 22L12 12M12 12L22 2L2 22" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                </button>
-                
-                <div>
-                  <h1 class="px-6 pb-2 pt-6">Страна</h1>
-                  <div class=" w-[300px] max-w-3xl rounded-lg bg-[#1E2027] px-2 py-4 mx-auto border-2 border-[#545B71]">
-                    <div id="extend-country-list" class="flex items-center">
-                      <button id="main-title" class="flex text-left font-bold border-1 border-[#545B71]">Выберите страну</button>
-                    </div>
-                    <ul id="country-list" class="flex px-2 flex-col h-[120px] justify-center hidden overflow-y-auto font-bold w-full">
-                    <li class="flex items-center gap-1 py-2" onclick="updateTitle(this)">
-                      <span class="mr-auto">Страна</span>
-                      <span class="ml-auto">х обменников</span>
-                    </li>
-                    <li class="flex items-center py-2" onclick="updateTitle(this)">
-                      <span class="mr-auto">Россия</span>
-                      <span class="ml-auto">у обменников</span>
-                    </li>
-                    <li class="flex items-center py-2" onclick="updateTitle(this)">
-                      <span class="mr-auto">Казахстан</span>
-                      <span class="ml-auto">z обменников</span>
-                    </li>
-                    <li class="flex items-center py-2" onclick="updateTitle(this)">
-                      <span class="mr-auto">Страна</span>
-                      <span class="ml-auto">х обменников</span>
-                    </li>
-                    <li class="flex items-center py-2 border-t-[1px] border-[#545B71]" onclick="updateTitle(this)">
-                      <span class="mr-auto">Страна</span>
-                      <span class="ml-auto">х обменников</span>
-                    </li>
-                    <li class="flex items-center py-2" onclick="updateTitle(this)">
-                      <span class="mr-auto">Страна</span>
-                      <span class="ml-auto">х обменников</span>
-                    </li>
-                    <li class="flex items-center py-2" onclick="updateTitle(this)">
-                      <span class="mr-auto">Страна</span>
-                      <span class="ml-auto">х обменников</span>
-                    </li>
-                  </ul>
-                  </div>
-                </div>  
-
-             <h1 class="px-6 pb-2 pt-6">Город</h1>
-              <div class=" w-[300px] max-w-3xl rounded-lg bg-[#1E2027] px-2 py-4 mx-auto border-2 border-[#545B71]">
-                  <div id="extend-city-list" class="flex items-center">
-                    <button id="main-city" class="text-left font-bold">Выберите город</button>
-                  </div>
-                  <ul id="city-list" class="px-2 gap-1 flex-col h-[120px] justify-center hidden overflow-y-auto">
-                  <li class="flex items-center" onclick="updateCity(this)">
-                    <span class="mr-auto">Город 1</span>
-                    <span class="ml-auto">х обменников</span>
-                  </li>
-                  <li class="flex items-center" onclick="updateCity(this)">
-                    <span class="mr-auto">Город 2</span>
-                    <span class="ml-auto">у обменников</span>
-                  </li>
-                  <li class="flex items-center" onclick="updateCity(this)">
-                    <span class="mr-auto">Город 3</span>
-                    <span class="ml-auto">z обменников</span>
-                  </li>
-                   <li class="flex items-center" onclick="updateCity(this)">
-                    <span class="mr-auto">Город 4</span>
-                    <span class="ml-auto">х обменников</span>
-                  </li>
-                  <li class="flex items-center" onclick="updateCity(this)">
-                    <span class="mr-auto">Город 5</span>
-                    <span class="ml-auto">у обменников</span>
-                  </li>
-                  <li class="flex items-center" onclick="updateCity(this)">
-                    <span class="mr-auto">Город 6</span>
-                    <span class="ml-auto">z обменников</span>
-                  </li>
-                </ul>
-              </div>
-              <div class="pt-6"></div>
-              </div>
-            </div>
-            
-    <div class="max-w-screen bg-[#101115]">
+  <div class="max-w-screen bg-[#101115]">
     <div class="flex justify-between flex-col lg:flex-row">
       <div class="m-10 lg:m-20 h-full text-center lg:mr-0 lg:w-[372px] flex">
         <div class="w-screen">
           <div class="left-tables rounded-xl bg-[#1E2027] text-white"> <!--таблица левая-->
-            <h1 class= "mb-2 text-center text-xl p-8 font-[800]">Направления обмена</h1>
+            <h1 class="mb-2 text-center text-xl p-8 font-[800]">Направления обмена</h1>
             <div class="mb-3 flex w-full items-center justify-between gap-5 p-1 px-3">
               <div class="flex items-center border-b-2 border-b-[#545B71]">
-                <input id='give-input' class="w-full bg-[#1E2027] py-1 pl-1 pr-1 text-[#545B71] outline-none" placeholder="Отдаете" />
-                  <svg class="h-4 w-4 text-[#545B71]" viewBox="0 0 17 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M10.7659 10.7656C11.8388 9.69281 12.4415 8.23776 12.4415 6.72057C12.4415 5.20338 11.8388 3.74833 10.7659 2.67552C9.69309 1.6027 8.23799 1 6.72075 1C5.20351 1 3.74842 1.6027 2.67557 2.67552C1.60272 3.74833 1 5.20338 1 6.72057C1 8.23776 1.60272 9.69281 2.67557 10.7656C3.74842 11.8384 5.20351 12.4411 6.72075 12.4411C8.23799 12.4411 9.69309 11.8384 10.7659 10.7656ZM10.7659 10.7656L16 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-                  </svg>
+                <input id='give-input' class="w-full bg-[#1E2027] py-1 pl-1 pr-1 text-[#545B71] outline-none"
+                  placeholder="Отдаете" />
+                <svg class="h-4 w-4 text-[#545B71]" viewBox="0 0 17 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M10.7659 10.7656C11.8388 9.69281 12.4415 8.23776 12.4415 6.72057C12.4415 5.20338 11.8388 3.74833 10.7659 2.67552C9.69309 1.6027 8.23799 1 6.72075 1C5.20351 1 3.74842 1.6027 2.67557 2.67552C1.60272 3.74833 1 5.20338 1 6.72057C1 8.23776 1.60272 9.69281 2.67557 10.7656C3.74842 11.8384 5.20351 12.4411 6.72075 12.4411C8.23799 12.4411 9.69309 11.8384 10.7659 10.7656ZM10.7659 10.7656L16 16"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                </svg>
               </div>
               <div class="flex items-center border-b-2 border-b-[#545B71]">
-                <input id='receive-input' class="w-full bg-[#1E2027] py-1 pl-1 pr-1 text-[#545B71] outline-none" placeholder="Получаете" />
-                  <svg class="h-4 w-4 text-[#545B71]" viewBox="0 0 17 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M10.7659 10.7656C11.8388 9.69281 12.4415 8.23776 12.4415 6.72057C12.4415 5.20338 11.8388 3.74833 10.7659 2.67552C9.69309 1.6027 8.23799 1 6.72075 1C5.20351 1 3.74842 1.6027 2.67557 2.67552C1.60272 3.74833 1 5.20338 1 6.72057C1 8.23776 1.60272 9.69281 2.67557 10.7656C3.74842 11.8384 5.20351 12.4411 6.72075 12.4411C8.23799 12.4411 9.69309 11.8384 10.7659 10.7656ZM10.7659 10.7656L16 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-                  </svg>
+                <input id='receive-input' class="w-full bg-[#1E2027] py-1 pl-1 pr-1 text-[#545B71] outline-none"
+                  placeholder="Получаете" />
+                <svg class="h-4 w-4 text-[#545B71]" viewBox="0 0 17 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M10.7659 10.7656C11.8388 9.69281 12.4415 8.23776 12.4415 6.72057C12.4415 5.20338 11.8388 3.74833 10.7659 2.67552C9.69309 1.6027 8.23799 1 6.72075 1C5.20351 1 3.74842 1.6027 2.67557 2.67552C1.60272 3.74833 1 5.20338 1 6.72057C1 8.23776 1.60272 9.69281 2.67557 10.7656C3.74842 11.8384 5.20351 12.4411 6.72075 12.4411C8.23799 12.4411 9.69309 11.8384 10.7659 10.7656ZM10.7659 10.7656L16 16"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                </svg>
               </div>
             </div>
 
@@ -154,150 +169,150 @@
               <h1 class="bg-[#545B71] px-4 py-2 text-white font-extrabold text-xl">Криптовалюта</h1>
               <div class='flex gap-1.5'>
                 <table class="w-[50%]">
-                    <tbody>
-                      <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
-                        <td class="p-0">
-                            <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="crypto-1">
-                                <span>Bitcoin</span>
-                                <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
-                            </button>
-                        </td>
-                      </tr>
-                      <tr class="p-0 hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
-                        <td class="p-0">
-                            <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="crypto-1">
-                                <span>Bitcoin</span>
-                                <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
-                            </button>
-                        </td>
-                      </tr>
-                      <tr class="p-0 hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
-                        <td class="p-0">
-                            <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="crypto-1">
-                                <span>Bitcoin</span>
-                                <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
-                            </button>
-                        </td>
-                      </tr>
-                      <tr class="p-0 hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
-                        <td class="p-0">
-                            <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="crypto-1">
-                                <span>Bitcoin</span>
-                                <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
-                            </button>
-                        </td>
-                      </tr>
-                    </tbody>
+                  <tbody>
+                    <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
+                      <td class="p-0">
+                        <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="crypto-1">
+                          <span>Bitcoin</span>
+                          <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr class="p-0 hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
+                      <td class="p-0">
+                        <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="crypto-1">
+                          <span>Bitcoin</span>
+                          <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr class="p-0 hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
+                      <td class="p-0">
+                        <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="crypto-1">
+                          <span>Bitcoin</span>
+                          <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr class="p-0 hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
+                      <td class="p-0">
+                        <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="crypto-1">
+                          <span>Bitcoin</span>
+                          <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
                 </table>
                 <table class="w-[50%]">
-                    <tr class="p-0 hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
-                        <td class="p-0">
-                            <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="crypto-2">
-                                <span>Bitcoin</span>
-                                <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
-                            </button>
-                        </td>
-                    </tr>
-                    <tr class="p-0 hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
-                        <td class="p-0">
-                            <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="crypto-2">
-                                <span>Bitcoin</span>
-                                <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
-                            </button>
-                        </td>
-                    </tr>
-                    <tr class="p-0 hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
-                        <td class="p-0">
-                            <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="crypto-2">
-                                <span>Bitcoin</span>
-                                <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
-                            </button>
-                        </td>
-                    </tr>
-                    <tr class="p-0 hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
-                        <td class="p-0">
-                            <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="crypto-2">
-                                <span>Bitcoin</span>
-                                <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
-                            </button>
-                        </td>
-                    </tr>
+                  <tr class="p-0 hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
+                    <td class="p-0">
+                      <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="crypto-2">
+                        <span>Bitcoin</span>
+                        <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr class="p-0 hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
+                    <td class="p-0">
+                      <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="crypto-2">
+                        <span>Bitcoin</span>
+                        <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr class="p-0 hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
+                    <td class="p-0">
+                      <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="crypto-2">
+                        <span>Bitcoin</span>
+                        <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr class="p-0 hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
+                    <td class="p-0">
+                      <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="crypto-2">
+                        <span>Bitcoin</span>
+                        <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
+                      </button>
+                    </td>
+                  </tr>
                 </table>
               </div>
             </div>
-            
+
             <div id="balance" class='table-container hidden md:block'> <!--Баланс криптобирж-->
               <h1 class="bg-[#545B71] px-4 py-2 text-white font-extrabold text-xl" colspan="4">Баланс криптобирж</h1>
               <div class='flex gap-1.5'>
                 <table class="w-[50%]">
-                    <tbody>
-                      <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
-                        <td class="p-0">
-                            <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="balance-1">
-                                <span>Bitcoin</span>
-                                <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
-                            </button>
-                        </td>
-                      </tr>
-                      <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
-                        <td class="p-0">
-                            <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="balance-1">
-                                <span>Bitcoin</span>
-                                <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
-                            </button>
-                        </td>
-                      </tr>
-                      <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
-                        <td class="p-0">
-                            <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="balance-1">
-                                <span>Bitcoin</span>
-                                <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
-                            </button>
-                        </td>
-                      </tr>
-                      <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
-                        <td class="p-0">
-                            <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="balance-1">
-                                <span>Bitcoin</span>
-                                <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
-                            </button>
-                        </td>
-                      </tr>
-                    </tbody>
+                  <tbody>
+                    <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
+                      <td class="p-0">
+                        <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="balance-1">
+                          <span>Bitcoin</span>
+                          <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
+                      <td class="p-0">
+                        <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="balance-1">
+                          <span>Bitcoin</span>
+                          <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
+                      <td class="p-0">
+                        <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="balance-1">
+                          <span>Bitcoin</span>
+                          <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
+                      <td class="p-0">
+                        <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="balance-1">
+                          <span>Bitcoin</span>
+                          <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
                 </table>
                 <table class="w-[50%]">
-                   <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
-                        <td class="p-0">
-                            <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="balance-2">
-                                <span>Bitcoin</span>
-                                <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
-                            </button>
-                        </td>
-                      </tr>
-                    <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
-                        <td class="p-0">
-                            <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="balance-2">
-                                <span>Bitcoin</span>
-                                <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
-                            </button>
-                        </td>
-                    </tr>
-                    <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
-                        <td class="p-0">
-                            <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="balance-2">
-                                <span>Bitcoin</span>
-                                <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
-                            </button>
-                        </td>
-                    </tr>
-                    <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
-                        <td class="p-0">
-                            <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="balance-2">
-                                <span>Bitcoin</span>
-                                <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
-                            </button>
-                        </td>
-                    </tr>
+                  <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
+                    <td class="p-0">
+                      <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="balance-2">
+                        <span>Bitcoin</span>
+                        <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
+                    <td class="p-0">
+                      <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="balance-2">
+                        <span>Bitcoin</span>
+                        <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
+                    <td class="p-0">
+                      <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="balance-2">
+                        <span>Bitcoin</span>
+                        <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
+                    <td class="p-0">
+                      <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="balance-2">
+                        <span>Bitcoin</span>
+                        <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
+                      </button>
+                    </td>
+                  </tr>
                 </table>
               </div>
             </div>
@@ -306,74 +321,74 @@
               <h1 class="bg-[#545B71] px-4 py-2 text-white text-xl font-extrabold" colspan="4">Интернет банкинг</h1>
               <div class='flex gap-1.5'>
                 <table class="w-[50%]">
-                    <tbody>
-                      <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
-                        <td class="p-0">
-                            <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="banking-1">
-                                <span>Bitcoin</span>
-                                <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
-                            </button>
-                        </td>
+                  <tbody>
+                    <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
+                      <td class="p-0">
+                        <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="banking-1">
+                          <span>Bitcoin</span>
+                          <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
+                        </button>
+                      </td>
                     </tr>
-                      <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
-                        <td class="p-0">
-                            <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="banking-1">
-                                <span>Bitcoin</span>
-                                <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
-                            </button>
-                        </td>
+                    <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
+                      <td class="p-0">
+                        <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="banking-1">
+                          <span>Bitcoin</span>
+                          <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
+                        </button>
+                      </td>
                     </tr>
-                      <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
-                        <td class="p-0">
-                            <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="banking-1">
-                                <span>Bitcoin</span>
-                                <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
-                            </button>
-                        </td>
+                    <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
+                      <td class="p-0">
+                        <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="banking-1">
+                          <span>Bitcoin</span>
+                          <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
+                        </button>
+                      </td>
                     </tr>
-                      <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
-                        <td class="p-0">
-                            <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="banking-1">
-                                <span>Bitcoin</span>
-                                <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
-                            </button>
-                        </td>
+                    <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
+                      <td class="p-0">
+                        <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="banking-1">
+                          <span>Bitcoin</span>
+                          <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
+                        </button>
+                      </td>
                     </tr>
-                    </tbody>
+                  </tbody>
                 </table>
                 <table class="w-[50%]">
-                    <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
-                        <td class="p-0">
-                            <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="banking-2">
-                                <span>Bitcoin</span>
-                                <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
-                            </button>
-                        </td>
-                    </tr>
-                    <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
-                        <td class="p-0">
-                            <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="banking-2">
-                                <span>Bitcoin</span>
-                                <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
-                            </button>
-                        </td>
-                    </tr>
-                    <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
-                        <td class="p-0">
-                           <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="banking-2">
-                                <span>Bitcoin</span>
-                                <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
-                            </button>
-                        </td>
-                    </tr>
-                    <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
-                        <td class="p-0">
-                            <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="banking-2">
-                                <span>Bitcoin</span>
-                                <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
-                            </button>
-                        </td>
-                    </tr>
+                  <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
+                    <td class="p-0">
+                      <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="banking-2">
+                        <span>Bitcoin</span>
+                        <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
+                    <td class="p-0">
+                      <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="banking-2">
+                        <span>Bitcoin</span>
+                        <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
+                    <td class="p-0">
+                      <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="banking-2">
+                        <span>Bitcoin</span>
+                        <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
+                    <td class="p-0">
+                      <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="banking-2">
+                        <span>Bitcoin</span>
+                        <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
+                      </button>
+                    </td>
+                  </tr>
                 </table>
               </div>
             </div>
@@ -382,74 +397,74 @@
               <h1 class="bg-[#545B71] px-4 py-2 text-white text-xl font-extrabold" colspan="4">Электронные деньги</h1>
               <div class='flex gap-1.5'>
                 <table class="w-[50%]">
-                    <tbody>
-                      <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
-                        <td class="p-0">
-                            <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="eMoney-1">
-                                <span>Bitcoin</span>
-                                <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
-                            </button>
-                        </td>
+                  <tbody>
+                    <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
+                      <td class="p-0">
+                        <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="eMoney-1">
+                          <span>Bitcoin</span>
+                          <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
+                        </button>
+                      </td>
                     </tr>
-                      <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
-                        <td class="p-0">
-                            <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="eMoney-1">
-                                <span>Bitcoin</span>
-                                <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
-                            </button>
-                        </td>
+                    <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
+                      <td class="p-0">
+                        <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="eMoney-1">
+                          <span>Bitcoin</span>
+                          <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
+                        </button>
+                      </td>
                     </tr>
-                      <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
-                        <td class="p-0">
-                            <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="eMoney-1">
-                                <span>Bitcoin</span>
-                                <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
-                            </button>
-                        </td>
+                    <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
+                      <td class="p-0">
+                        <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="eMoney-1">
+                          <span>Bitcoin</span>
+                          <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
+                        </button>
+                      </td>
                     </tr>
-                      <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
-                        <td class="p-0">
-                            <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="banking-1">
-                                <span>Bitcoin</span>
-                                <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
-                            </button>
-                        </td>
+                    <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
+                      <td class="p-0">
+                        <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="banking-1">
+                          <span>Bitcoin</span>
+                          <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
+                        </button>
+                      </td>
                     </tr>
-                    </tbody>
+                  </tbody>
                 </table>
                 <table class="w-[50%]">
-                    <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
-                        <td class="p-0">
-                            <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="eMoney-2">
-                                <span>Bitcoin</span>
-                                <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
-                            </button>
-                        </td>
-                    </tr>
-                    <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
-                        <td class="p-0">
-                            <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="eMoney-2">
-                                <span>Bitcoin</span>
-                                <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
-                            </button>
-                        </td>
-                    </tr>
-                    <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
-                        <td class="p-0">
-                           <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="eMoney-2">
-                                <span>Bitcoin</span>
-                                <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
-                            </button>
-                        </td>
-                    </tr>
-                    <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
-                        <td class="p-0">
-                            <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="eMoney-2">
-                                <span>Bitcoin</span>
-                                <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
-                            </button>
-                        </td>
-                    </tr>
+                  <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
+                    <td class="p-0">
+                      <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="eMoney-2">
+                        <span>Bitcoin</span>
+                        <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
+                    <td class="p-0">
+                      <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="eMoney-2">
+                        <span>Bitcoin</span>
+                        <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
+                    <td class="p-0">
+                      <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="eMoney-2">
+                        <span>Bitcoin</span>
+                        <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
+                    <td class="p-0">
+                      <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="eMoney-2">
+                        <span>Bitcoin</span>
+                        <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
+                      </button>
+                    </td>
+                  </tr>
                 </table>
               </div>
             </div>
@@ -458,74 +473,74 @@
               <h1 class="bg-[#545B71] px-4 py-2 text-white text-xl font-extrabold" colspan="4">Денежные переводы</h1>
               <div class='flex gap-1.5'>
                 <table class="w-[50%]">
-                    <tbody>
-                      <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
-                        <td class="p-0">
-                            <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="transactions-1">
-                                <span>Bitcoin</span>
-                                <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
-                            </button>
-                        </td>
+                  <tbody>
+                    <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
+                      <td class="p-0">
+                        <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="transactions-1">
+                          <span>Bitcoin</span>
+                          <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
+                        </button>
+                      </td>
                     </tr>
-                      <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
-                        <td class="p-0">
-                            <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="transactions-1">
-                                <span>Bitcoin</span>
-                                <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
-                            </button>
-                        </td>
+                    <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
+                      <td class="p-0">
+                        <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="transactions-1">
+                          <span>Bitcoin</span>
+                          <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
+                        </button>
+                      </td>
                     </tr>
-                      <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
-                        <td class="p-0">
-                            <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="transactions-1">
-                                <span>Bitcoin</span>
-                                <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
-                            </button>
-                        </td>
+                    <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
+                      <td class="p-0">
+                        <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="transactions-1">
+                          <span>Bitcoin</span>
+                          <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
+                        </button>
+                      </td>
                     </tr>
-                      <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
-                        <td class="p-0">
-                            <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="transactions-1">
-                                <span>Bitcoin</span>
-                                <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
-                            </button>
-                        </td>
+                    <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
+                      <td class="p-0">
+                        <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="transactions-1">
+                          <span>Bitcoin</span>
+                          <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
+                        </button>
+                      </td>
                     </tr>
-                    </tbody>
+                  </tbody>
                 </table>
                 <table class="w-[50%]">
-                    <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
-                        <td class="p-0">
-                            <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="transactions-2">
-                                <span>Bitcoin</span>
-                                <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
-                            </button>
-                        </td>
-                    </tr>
-                    <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
-                        <td class="p-0">
-                            <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="transactions-2">
-                                <span>Bitcoin</span>
-                                <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
-                            </button>
-                        </td>
-                    </tr>
-                    <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
-                        <td class="p-0">
-                           <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="transactions-2">
-                                <span>Bitcoin</span>
-                                <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
-                            </button>
-                        </td>
-                    </tr>
-                    <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
-                        <td class="p-0">
-                            <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="transactions-2">
-                                <span>Bitcoin</span>
-                                <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
-                            </button>
-                        </td>
-                    </tr>
+                  <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
+                    <td class="p-0">
+                      <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="transactions-2">
+                        <span>Bitcoin</span>
+                        <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
+                    <td class="p-0">
+                      <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="transactions-2">
+                        <span>Bitcoin</span>
+                        <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
+                    <td class="p-0">
+                      <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="transactions-2">
+                        <span>Bitcoin</span>
+                        <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
+                    <td class="p-0">
+                      <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="transactions-2">
+                        <span>Bitcoin</span>
+                        <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
+                      </button>
+                    </td>
+                  </tr>
                 </table>
               </div>
             </div>
@@ -534,489 +549,593 @@
               <h1 class="bg-[#545B71] px-4 py-2 text-white text-xl font-extrabold" colspan="4">Наличные деньги</h1>
               <div class='flex gap-1.5'>
                 <table class="w-[50%]">
-                    <tbody>
-                      <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
-                        <td class="p-0">
-                            <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="cash-1">
-                                <span>Bitcoin</span>
-                                <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
-                            </button>
-                        </td>
+                  <tbody>
+                    <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
+                      <td class="p-0">
+                        <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="cash-1">
+                          <span>Bitcoin</span>
+                          <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
+                        </button>
+                      </td>
                     </tr>
-                      <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
-                        <td class="p-0">
-                            <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="cash-1">
-                                <span>Bitcoin</span>
-                                <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
-                            </button>
-                        </td>
+                    <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
+                      <td class="p-0">
+                        <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="cash-1">
+                          <span>Bitcoin</span>
+                          <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
+                        </button>
+                      </td>
                     </tr>
-                      <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
-                        <td class="p-0">
-                            <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="cash-1">
-                                <span>Bitcoin</span>
-                                <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
-                            </button>
-                        </td>
+                    <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
+                      <td class="p-0">
+                        <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="cash-1">
+                          <span>Bitcoin</span>
+                          <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
+                        </button>
+                      </td>
                     </tr>
-                      <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
-                        <td class="p-0">
-                            <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="cash-1">
-                                <span>Bitcoin</span>
-                                <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
-                            </button>
-                        </td>
+                    <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
+                      <td class="p-0">
+                        <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="cash-1">
+                          <span>Bitcoin</span>
+                          <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
+                        </button>
+                      </td>
                     </tr>
-                    </tbody>
+                  </tbody>
                 </table>
                 <table class="w-[50%]">
-                    <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
-                        <td class="p-0">
-                            <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="cash-2">
-                                <span>Bitcoin</span>
-                                <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
-                            </button>
-                        </td>
-                    </tr>
-                    <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
-                        <td class="p-0">
-                            <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="cash-2">
-                                <span>Bitcoin</span>
-                                <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
-                            </button>
-                        </td>
-                    </tr>
-                    <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
-                        <td class="p-0">
-                           <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="cash-2">
-                                <span>Bitcoin</span>
-                                <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
-                            </button>
-                        </td>
-                    </tr>
-                    <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
-                        <td class="p-0">
-                            <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="cash-2">
-                                <span>Bitcoin</span>
-                                <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
-                            </button>
-                        </td>
-                    </tr>
+                  <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
+                    <td class="p-0">
+                      <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="cash-2">
+                        <span>Bitcoin</span>
+                        <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
+                    <td class="p-0">
+                      <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="cash-2">
+                        <span>Bitcoin</span>
+                        <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
+                    <td class="p-0">
+                      <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="cash-2">
+                        <span>Bitcoin</span>
+                        <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
+                    <td class="p-0">
+                      <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="cash-2">
+                        <span>Bitcoin</span>
+                        <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
+                      </button>
+                    </td>
+                  </tr>
                 </table>
               </div>
             </div>
-            
-            <button id='extend_button' class="mt-4px-5 w-full bg-[#00A3FF] py-3 font-bold text-white hover:bg-blue-600 rounded-b-2xl flex justify-center"> <svg width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path fill-rule="evenodd" clip-rule="evenodd" d="M13.7071 0.292893C14.0976 0.683418 14.0976 1.31658 13.7071 1.70711L7.70711 7.70711C7.31658 8.09763 6.68342 8.09763 6.29289 7.70711L0.292893 1.70711C-0.0976315 1.31658 -0.0976315 0.683417 0.292893 0.292893C0.683417 -0.0976317 1.31658 -0.0976317 1.70711 0.292893L7 5.58579L12.2929 0.292893C12.6834 -0.0976312 13.3166 -0.0976311 13.7071 0.292893Z" fill="white"/>
+
+            <button id='extend_button'
+              class="mt-4px-5 w-full bg-[#00A3FF] py-3 font-bold text-white hover:bg-blue-600 rounded-b-2xl flex justify-center">
+              <svg width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M13.7071 0.292893C14.0976 0.683418 14.0976 1.31658 13.7071 1.70711L7.70711 7.70711C7.31658 8.09763 6.68342 8.09763 6.29289 7.70711L0.292893 1.70711C-0.0976315 1.31658 -0.0976315 0.683417 0.292893 0.292893C0.683417 -0.0976317 1.31658 -0.0976317 1.70711 0.292893L7 5.58579L12.2929 0.292893C12.6834 -0.0976312 13.3166 -0.0976311 13.7071 0.292893Z"
+                  fill="white" />
               </svg>
-              </button>
+            </button>
           </div>
         </div>
       </div>
       <div class="lg:w-[1028px] lg:m-20 m-10"> <!--правая часть-->
-      <div class="flex flex-col">
-        <div id="trade_desc" class="mb-10 hidden"> <!--блок Обмен А на Б -->
+        <div class="flex flex-col">
+          <div id="trade_desc" class="mb-10 hidden"> <!--блок Обмен А на Б -->
             <div class="rounded-xl bg-[#1E2027] text-white">
               <div class="flex">
-                <div class="p-8"> 
-                  <h1 class= "mb-2 lg:text-3xl text-2xl font-extrabold">Обмен Bitcoin (BTC) на Etherium (ETH)</h1>
+                <div class="p-8">
+                  <h1 class="mb-2 lg:text-3xl text-2xl font-extrabold">Обмен Bitcoin (BTC) на Etherium (ETH)</h1>
                   <p class="mt-6 font-bold leading-8 lg:text-xl hidden md:block">
-                    Мы предлагаем вам список пунктов обмена, в которых вы можете довольно просто менять A(a) → B(b) по выгодным курсам в сети Интернет. При определении оптимального курса, обратите внимание также и на резерв валюты Ethereum. Все пункты обмена, представленные на сайте, были тщательно проверены администраторами.
+                    Мы предлагаем вам список пунктов обмена, в которых вы можете довольно просто менять A(a) → B(b) по
+                    выгодным курсам в сети Интернет. При определении оптимального курса, обратите внимание также и на
+                    резерв валюты Ethereum. Все пункты обмена, представленные на сайте, были тщательно проверены
+                    администраторами.
                   </p>
                   <p class="text-sm md:hidden leading-4">
-                    Мы предлагаем вам список пунктов обмена, в которых вы можете довольно просто менять Bitcoin (BTC) → Ethereum (ETH) по выгодным курсам в сети Интернет.
+                    Мы предлагаем вам список пунктов обмена, в которых вы можете довольно просто менять Bitcoin (BTC) →
+                    Ethereum (ETH) по выгодным курсам в сети Интернет.
                   </p>
-                </div>
-              </div>
-            </div>
-        </div>
-        <div id="mobile_trade_table" class="mb-10 hidden"> <!--Карточки Курсы Обмена (Mobile) баг Город Москва на md (1024) не center-->
-          <div class="rounded-xl bg-[#1E2027] md:h-full">
-            <div class="flex justify-between items-center text-white flex-col md:flex-row">
-              <h1 class= "mr-3 px-2 pb-4 pt-10 text-xl font-extrabold text-white">Курсы обмена</h1>
-              <div class="flex items-center">
-                <h1 class="m-auto text-lg">
-                  Город:
-                  <button class="my-10 rounded-lg  p-1 text-[#00A3FF] cursor-pointer underline" id="city-selector">Выбрать город</button> <!--BG не виден пока нет города bg-[#00A3FF] bg-opacity-20-->
-                </h1>
-                <svg class="ml-4" width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M1 1L6 6M11 11L6 6M6 6L11 1L1 11" stroke="#E90035" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                </svg>
-              </div>
-            </div>
-            
-           
-            <div class="h-[802px] overflow-y-auto border-t-4 border-[#545B71]">
-              <div class="mx-0 my-4 bg-[#1E2027] text-white">
-                <div class="flex justify-between p-4">
-                  <section>
-                    <h1 class="text-xs font-bold text-[#545B71]">Обменник</h1>
-                    <p>Шахта</p>
-                  </section>
-                  <section class="flex w-20 items-center justify-center rounded-lg bg-[#2F491F] px-3 py-0 text-sm text-[#74E900]">Честный</section>
-                </div>
-                <div class="flex justify-between p-4">
-                  <section>
-                    <h1 class="text-xs font-bold text-[#545B71]">Отдаёте</h1>
-                    <p>
-                      1
-                      <span class=" text-[#545B71] font-extrabold"> BTC <span class="text-sm text-[#545B71]">от 0.2</span> </span>
-                    </p>
-                  </section>
-                  <section class="ml-auto">
-                    <h1 class="text-xs font-bold text-[#545B71]">Получаете</h1>
-                    <p>12.545454 <span class=" text-[#545B71] font-extrabold">ETH</span></p>
-                  </section>
-                </div>
-                <div class="flex justify-between p-4">
-                  <section>
-                    <h1 class="text-xs font-bold text-[#545B71]">Резерв</h1>
-                    <p>16 484.25</p>
-                  </section>
-                  <section class="ml-auto">
-                    <h1 class="text-xs font-bold text-[#545B71]">Отзывы</h1>
-                    <p class="text-red-500">20 <span class="text-white"> | </span> <span class="text-green-600">2000</span></p>
-                  </section>
-                </div>
-              </div>
-
-              <div class="mx-0 my-4 border-t-2 border-[#545B71] bg-[#1E2027] text-white">
-                
-                <div class="flex justify-between p-4">
-                  <section>
-                    <h1 class="text-xs font-bold text-[#545B71]">Обменник</h1>
-                    <p>Шахта</p>
-                  </section>
-                  <p class="flex w-20 items-center justify-center rounded-lg bg-[#471A2A] px-3 py-0 text-sm text-[#E90035]">Скам</p>
-                </div>
-                <div class="flex justify-between p-4">
-                  <section>
-                    <h1 class="text-xs font-bold text-[#545B71]">Отдаёте</h1>
-                    <p>
-                      1
-                      <span class=" text-[#545B71] font-extrabold"> BTC <span class="text-sm text-[#545B71]">от 0.2</span> </span>
-                    </p>
-                  </section>
-                  <section class="ml-auto">
-                    <h1 class="text-xs font-bold text-[#545B71]">Получаете</h1>
-                    <p>12.545454 <span class=" text-[#545B71] font-extrabold">ETH</span></p>
-                  </section>
-                </div>
-                <div class="flex justify-between p-4">
-                  <section>
-                    <h1 class="text-xs font-bold text-[#545B71]">Резерв</h1>
-                    <p>16 484.25</p>
-                  </section>
-                  <section class="ml-auto">
-                    <h1 class="text-xs font-bold text-[#545B71]">Отзывы</h1>
-                    <p class="text-red-500">20 <span class="text-white"> | </span> <span class="text-green-600">2000</span></p>
-                  </section>
-                </div>
-              </div>
-
-              <div class="mx-0 my-4 border-t-2 border-[#545B71] bg-[#1E2027] text-white">
-                <div class="flex justify-between p-4">
-                  <section>
-                    <h1 class="text-xs font-bold text-[#545B71]">Обменник</h1>
-                    <p>Шахта</p>
-                  </section>
-                <p class="flex w-20 items-center justify-center rounded-lg bg-[#FBA72A] bg-opacity-20 px-3 py-0 text-sm text-[#FBA72A]">Нейтр</p>                </div>
-                <div class="flex justify-between p-4">
-                  <section>
-                    <h1 class="text-xs font-bold text-[#545B71]">Отдаёте</h1>
-                    <p>
-                      1
-                      <span class=" text-[#545B71] font-extrabold"> BTC <span class="text-sm text-[#545B71]">от 0.2</span> </span>
-                    </p>
-                  </section>
-                  <section class="ml-auto">
-                    <h1 class="text-xs font-bold text-[#545B71]">Получаете</h1>
-                    <p>12.545454 <span class=" text-[#545B71] font-extrabold">ETH</span></p>
-                  </section>
-                </div>
-                <div class="flex justify-between p-4">
-                  <section>
-                    <h1 class="text-xs font-bold text-[#545B71]">Резерв</h1>
-                    <p>16 484.25</p>
-                  </section>
-                  <section class="ml-auto">
-                    <h1 class="text-xs font-bold text-[#545B71]">Отзывы</h1>
-                    <p class="text-red-500">20 <span class="text-white"> | </span> <span class="text-green-600">2000</span></p>
-                  </section>
-                </div>
-              </div>
-              <div class="mx-0 my-4 border-t-2 border-[#545B71] bg-[#1E2027] text-white">
-                <div class="flex justify-between p-4">
-                  <section>
-                    <h1 class="text-xs font-bold text-[#545B71]">Обменник</h1>
-                    <p>Шахта</p>
-                  </section>
-                <p class="flex w-20 items-center justify-center rounded-lg bg-[#FBA72A] bg-opacity-20 px-3 py-0 text-sm text-[#FBA72A]">Нейтр</p>                </div>
-                <div class="flex justify-between p-4">
-                  <section>
-                    <h1 class="text-xs font-bold text-[#545B71]">Отдаёте</h1>
-                    <p>
-                      1
-                      <span class=" text-[#545B71] font-extrabold"> BTC <span class="text-sm text-[#545B71]">от 0.2</span> </span>
-                    </p>
-                  </section>
-                  <section class="ml-auto">
-                    <h1 class="text-xs font-bold  text-[#545B71]">Получаете</h1>
-                    <p>12.545454 <span class=" text-[#545B71] font-extrabold">ETH</span></p>
-                  </section>
-                </div>
-                <div class="flex justify-between p-4">
-                  <section>
-                    <h1 class="text-xs font-bold text-[#545B71]">Резерв</h1>
-                    <p>16 484.25</p>
-                  </section>
-                  <section class="ml-auto">
-                    <h1 class="text-xs font-bold text-[#545B71]">Отзывы</h1>
-                    <p class="text-red-500">20 <span class="text-white"> | </span> <span class="text-green-600">2000</span></p>
-                  </section>
-                </div>
-              </div>
-              <div class="mx-0 my-4 border-t-2 border-[#545B71] bg-[#1E2027] text-white">
-                <div class="flex justify-between p-4">
-                  <section>
-                    <h1 class="text-xs font-bold text-[#545B71]">Обменник</h1>
-                    <p>Шахта</p>
-                  </section>
-                <p class="flex w-20 items-center justify-center rounded-lg bg-[#FBA72A] bg-opacity-20 px-3 py-0 text-sm text-[#FBA72A]">Нейтр</p>                </div>
-                <div class="flex justify-between p-4">
-                  <section>
-                    <h1 class="text-xs font-bold text-[#545B71]">Отдаёте</h1>
-                    <p>
-                      1
-                      <span class=" text-[#545B71] font-extrabold"> BTC <span class="text-sm text-[#545B71]">от 0.2</span> </span>
-                    </p>
-                  </section>
-                  <section class="ml-auto">
-                    <h1 class="text-xs font-bold  text-[#545B71]">Получаете</h1>
-                    <p>12.545454 <span class=" text-[#545B71] font-extrabold">ETH</span></p>
-                  </section>
-                </div>
-                <div class="flex justify-between p-4">
-                  <section>
-                    <h1 class="text-xs font-bold  text-[#545B71]">Резерв</h1>
-                    <p>16 484.25</p>
-                  </section>
-                  <section class="ml-auto">
-                    <h1 class="text-xs font-bold  text-[#545B71]">Отзывы</h1>
-                    <p class="text-red-500">20 <span class="text-white"> | </span> <span class="text-green-600">2000</span></p>
-                  </section>
-                </div>
-              </div>
-              <div class="mx-0 my-4 border-t-2 border-[#545B71] bg-[#1E2027] text-white">
-                <div class="flex justify-between p-4">
-                  <section>
-                    <h1 class="text-xs font-bold text-[#545B71]">Обменник</h1>
-                    <p>Шахта</p>
-                  </section>
-                <p class="flex w-20 items-center justify-center rounded-lg bg-[#FBA72A] bg-opacity-20 px-3 py-0 text-sm text-[#FBA72A]">Нейтр</p>                </div>
-                <div class="flex justify-between p-4">
-                  <section>
-                    <h1 class="text-xs font-bold text-[#545B71]">Отдаёте</h1>
-                    <p>
-                      1
-                      <span class=" text-[#545B71] font-extrabold"> BTC <span class="text-sm text-[#545B71]">от 0.2</span> </span>
-                    </p>
-                  </section>
-                  <section class="ml-auto">
-                    <h1 class="text-xs font-bold text-[#545B71]">Получаете</h1>
-                    <p>12.545454 <span class=" text-[#545B71] font-extrabold">ETH</span></p>
-                  </section>
-                </div>
-                <div class="flex justify-between p-4">
-                  <section>
-                    <h1 class="text-xs font-bold text-[#545B71]">Резерв</h1>
-                    <p>16 484.25</p>
-                  </section>
-                  <section class="ml-auto">
-                    <h1 class="text-xs font-bold text-[#545B71]">Отзывы</h1>
-                    <p class="text-red-500">20 <span class="text-white"> | </span> <span class="text-green-600">2000</span></p>
-                  </section>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-        <div id="desktop_trade_table" class="mb-10 hidden"> <!--Таблица Курсы Обмена (Desktop)-->
-          <div class="rounded-xl bg-[#1E2027]">
-            <div class= "flex items-center justify-normal text-white">
-              <h1 class="pl-8 flex-1 text-4xl font-extrabold mb-8">Курсы обмена</h1>
-              <h1 class="ml-auto flex gap-0.5 items-center pr-8 mb-8 text-xl font-bold text-[#545B71]">
-               Город:
-                <button class="my-10 rounded-lg  p-1 text-[#00A3FF] cursor-pointer underline underline-offset-[4px]" onclick="showModal()">Выбрать город</button>
-                <svg class="ml-2" width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M1 1L6 6M11 11L6 6M6 6L11 1L1 11" stroke="#E90035" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                </svg>
-              </h1>
-            </div>
-    <div class="h-[370px] overflow-y-auto md:h-[556px]">
-      <table class="mr-0 h-full w-full table-auto overflow-hidden rounded-xl pr-0">
-        <thead class="border-b-[1px] border-[#545B71]">
-          <tr class= "text-white text-left font-bold">
-            <th class="first-column px-6 pb-4">Статус</th>
-            <th class="pb-4">Обменник</th>
-            <th class="pb-4">Отдаёте</th>
-            <th class="pb-4">Получаете</th>
-            <th class="pb-4">Резерв</th>
-            <th class="last-column pb-4">Отзывы</th>
-          </tr>
-        </thead>
-        <tbody class= "text-white">
-          <tr class="border-t-[1px] border-[#545B71] hover:bg-[#2C2F3A]">
-            <td class="flex px-6 py-[10px] text-left md:py-[20px]">
-              <p class="flex w-20 justify-center rounded-lg bg-[#2F491F] px-3 py-1 align-middle text-xs text-[#74E900]">Честный</p>
-            </td>
-            <td class="text-left text-sm">LigaBTC</td>
-            <td class="text-left font-extrabold">
-              1 <span class="text-[#545B71]">BTC <span class="text-xs font-bold"> от 0.2</span> </span>
-            </td>
-            <td>12.228699 <span class="text-[#545B71] font-extrabold">ETH</span></td>
-            <td><p class="font-bold">16 488,25</p></td>
-            <td class="text-red-500 font-bold">20 <span class="text-white">|</span> <span class="text-green-600">2000</span></td>
-          </tr>
-          <tr class="border-t-[1px] border-[#545B71] hover:bg-[#2C2F3A]">
-            <td class="flex px-6 py-[10px] text-left md:py-[20px]">
-              <p class="flex w-20 justify-center rounded-lg bg-[#471A2A] px-3 py-1 align-middle text-xs text-[#E90035]">Скам</p>
-            </td>
-            <td class="text-left text-sm">LigaBTC</td>
-            <td class="text-left font-extrabold">
-              1 <span class="text-[#545B71]">BTC <span class="text-xs font-bold"> от 0.2</span> </span>
-            </td>
-            <td>12.228699 <span class="text-[#545B71] font-extrabold">ETH</span></td>
-            <td><p class="font-bold">16 488,25</p></td>
-            <td class="text-red-500 font-bold">20 <span class="text-white">|</span> <span class="text-green-600">2000</span></td>
-          </tr>
-          <tr class="whitespace-normal border-t-[1px] border-[#545B71] hover:bg-[#2C2F3A]">
-            <td class="flex px-6 py-[10px] text-left md:py-[20px]">
-              <p class="flex w-20 justify-center rounded-lg bg-[#FBA72A] bg-opacity-20 px-3 py-1 align-middle text-xs text-[#FBA72A]">Нейтр</p>
-            </td>
-             <td class="text-left text-sm">LigaBTC</td>
-            <td class="text-left font-extrabold">
-              1 <span class="text-[#545B71]">BTC <span class="text-xs font-bold"> от 0.2</span> </span>
-            </td>
-            <td>12.228699 <span class="text-[#545B71] font-extrabold">ETH</span></td>
-            <td><p class="font-bold">16 488,25</p></td>
-            <td class="text-red-500 font-bold">20 <span class="text-white">|</span> <span class="text-green-600">2000</span></td>
-          </tr>
-          <tr class="border-t-[1px] border-[#545B71] hover:bg-[#2C2F3A]">
-            <td class="flex px-6 py-[10px] text-left md:py-[20px]">
-              <p class="flex w-20 justify-center rounded-lg bg-[#2F491F] px-3 py-1 align-middle text-xs text-[#74E900]">Честный</p>
-            </td>
-            <td class="text-left text-sm">LigaBTC</td>
-            <td class="text-left font-extrabold">
-              1 <span class="text-[#545B71]">BTC <span class="text-xs font-bold"> от 0.2</span> </span>
-            </td>
-            <td>12.228699 <span class="text-[#545B71] font-extrabold">ETH</span></td>
-            <td><p class="font-bold">16 488,25</p></td>
-            <td class="text-red-500 font-bold">20 <span class="text-white">|</span> <span class="text-green-600">2000</span></td>
-          </tr>
-          <tr class="border-t-[1px] border-[#545B71] hover:bg-[#2C2F3A]">
-            <td class="flex px-6 py-[10px] text-left md:py-[20px]">
-              <p class="flex w-20 justify-center rounded-lg bg-[#471A2A] px-3 py-1 align-middle text-xs text-[#E90035]">Скам</p>
-            </td>
-            <td class="text-left text-sm">LigaBTC</td>
-            <td class="text-left font-extrabold">
-              1 <span class="text-[#545B71]">BTC <span class="text-xs font-bold"> от 0.2</span> </span>
-            </td>
-            <td>12.228699 <span class="text-[#545B71] font-extrabold">ETH</span></td>
-            <td><p class="font-bold">16 488,25</p></td>
-            <td class="text-red-500 font-bold">20 <span class="text-white">|</span> <span class="text-green-600">2000</span></td>
-          </tr>
-          <tr class="whitespace-normal border-t-[1px] border-[#545B71] hover:bg-[#2C2F3A]">
-            <td class="flex px-6 py-[10px] text-left md:py-[20px]">
-              <p class="flex w-20 justify-center rounded-lg bg-[#FBA72A] bg-opacity-20 px-3 py-1 align-middle text-xs text-[#FBA72A]">Нейтр</p>
-            </td>
-             <td class="text-left text-sm">LigaBTC</td>
-            <td class="text-left font-extrabold">
-              1 <span class="text-[#545B71]">BTC <span class="text-xs font-bold"> от 0.2</span> </span>
-            </td>
-            <td>12.228699 <span class="text-[#545B71] font-extrabold">ETH</span></td>
-            <td><p class="font-bold">16 488,25</p></td>
-            <td class="text-red-500 font-bold">20 <span class="text-white">|</span> <span class="text-green-600">2000</span></td>
-          </tr>
-          <tr class="border-t-[1px] border-[#545B71] hover:bg-[#2C2F3A]">
-            <td class="flex px-6 py-[10px] text-left md:py-[20px]">
-              <p class="flex w-20 justify-center rounded-lg bg-[#2F491F] px-3 py-1 align-middle text-xs text-[#74E900]">Честный</p>
-            </td>
-            <td class="text-left text-sm">LigaBTC</td>
-            <td class="text-left font-extrabold">
-              1 <span class="text-[#545B71]">BTC <span class="text-xs font-bold"> от 0.2</span> </span>
-            </td>
-            <td>12.228699 <span class="text-[#545B71] font-extrabold">ETH</span></td>
-            <td><p class="font-bold">16 488,25</p></td>
-            <td class="text-red-500 font-bold">20 <span class="text-white">|</span> <span class="text-green-600">2000</span></td>
-          </tr>
-          <tr class="border-t-[1px] border-[#545B71] hover:bg-[#2C2F3A]">
-            <td class="flex px-6 py-[10px] text-left md:py-[20px]">
-              <p class="flex w-20 justify-center rounded-lg bg-[#471A2A] px-3 py-1 align-middle text-xs text-[#E90035]">Скам</p>
-            </td>
-            <td class="text-left text-sm">LigaBTC</td>
-            <td class="text-left font-extrabold">
-              1 <span class="text-[#545B71]">BTC <span class="text-xs font-bold"> от 0.2</span> </span>
-            </td>
-            <td>12.228699 <span class="text-[#545B71] font-extrabold">ETH</span></td>
-            <td><p class="font-bold">16 488,25</p></td>
-            <td class="text-red-500 font-bold">20 <span class="text-white">|</span> <span class="text-green-600">2000</span></td>
-          </tr>
-          <tr class="whitespace-normal border-t-[1px] border-[#545B71] hover:bg-[#2C2F3A]">
-            <td class="flex px-6 py-[10px] text-left md:py-[20px]">
-              <p class="flex w-20 justify-center rounded-lg bg-[#FBA72A] bg-opacity-20 px-3 py-1 align-middle text-xs text-[#FBA72A]">Нейтр</p>
-            </td>
-             <td class="text-left text-sm">LigaBTC</td>
-            <td class="text-left font-extrabold">
-              1 <span class="text-[#545B71]">BTC <span class="text-xs font-bold"> от 0.2</span> </span>
-            </td>
-            <td>12.228699 <span class="text-[#545B71] font-extrabold">ETH</span></td>
-            <td><p class="font-bold">16 488,25</p></td>
-            <td class="text-red-500 font-bold">20 <span class="text-white">|</span> <span class="text-green-600">2000</span></td>
-          </tr>
-          <tr class="border-t-[1px] border-[#545B71] hover:bg-[#2C2F3A]">
-            <td class="flex px-6 py-[10px] text-left md:py-[20px]">
-              <p class="flex w-20 justify-center rounded-lg bg-[#2F491F] px-3 py-1 align-middle text-xs text-[#74E900]">Честный</p>
-            </td>
-            <td class="text-left text-sm">LigaBTC</td>
-            <td class="text-left font-extrabold">
-              1 <span class="text-[#545B71]">BTC <span class="text-xs font-bold"> от 0.2</span> </span>
-            </td>
-            <td>12.228699 <span class="text-[#545B71] font-extrabold">ETH</span></td>
-            <td><p class="font-bold">16 488,25</p></td>
-            <td class="text-red-500 font-bold">20 <span class="text-white">|</span> <span class="text-green-600">2000</span></td>
-          </tr>
-          <tr class="border-t-[1px] border-[#545B71] hover:bg-[#2C2F3A]">
-            <td class="flex px-6 py-[10px] text-left md:py-[20px]">
-              <p class="flex w-20 justify-center rounded-lg bg-[#471A2A] px-3 py-1 align-middle text-xs text-[#E90035]">Скам</p>
-            </td>
-            <td class="text-left text-sm">LigaBTC</td>
-            <td class="text-left font-extrabold">
-              1 <span class="text-[#545B71]">BTC <span class="text-xs font-bold"> от 0.2</span> </span>
-            </td>
-            <td>12.228699 <span class="text-[#545B71] font-extrabold">ETH</span></td>
-            <td><p class="font-bold">16 488,25</p></td>
-            <td class="text-red-500 font-bold">20 <span class="text-white">|</span> <span class="text-green-600">2000</span></td>
-          </tr>
-          <tr class="whitespace-normal border-t-[1px] border-[#545B71] hover:bg-[#2C2F3A]">
-            <td class="flex px-6 py-[10px] text-left md:py-[20px]">
-              <p class="flex w-20 justify-center rounded-lg bg-[#FBA72A] bg-opacity-20 px-3 py-1 align-middle text-xs text-[#FBA72A]">Нейтр</p>
-            </td>
-             <td class="text-left text-sm">LigaBTC</td>
-            <td class="text-left font-extrabold">
-              1 <span class="text-[#545B71]">BTC <span class="text-xs font-bold"> от 0.2</span> </span>
-            </td>
-            <td>12.228699 <span class="text-[#545B71] font-extrabold">ETH</span></td>
-            <td><p class="font-bold">16 488,25</p></td>
-            <td class="text-red-500 font-bold">20 <span class="text-white">|</span> <span class="text-green-600">2000</span></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-        </div>
+          <div id="mobile_trade_table" class="mb-10 hidden">
+            <!--Карточки Курсы Обмена (Mobile) баг Город Москва на md (1024) не center-->
+            <div class="rounded-xl bg-[#1E2027] md:h-full">
+              <div class="flex justify-between items-center text-white flex-col md:flex-row">
+                <h1 class="mr-3 px-2 pb-4 pt-10 text-xl font-extrabold text-white">Курсы обмена</h1>
+                <div class="flex items-center">
+                  <h1 class="m-auto text-lg">
+                    Город:
+                    <button class="my-10 rounded-lg  p-1 text-[#00A3FF] cursor-pointer underline"
+                      id="city-selector">Выбрать город</button>
+                    <!--BG не виден пока нет города bg-[#00A3FF] bg-opacity-20-->
+                  </h1>
+                  <svg class="ml-4" width="12" height="12" viewBox="0 0 12 12" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1 1L6 6M11 11L6 6M6 6L11 1L1 11" stroke="#E90035" stroke-width="2" stroke-linecap="round"
+                      stroke-linejoin="round" />
+                  </svg>
+                </div>
+              </div>
 
-        <div id="desc" class="mb-10"> <!--блок AntiSwap с описанием-->
+
+              <div class="h-[802px] overflow-y-auto border-t-4 border-[#545B71]">
+                <div class="mx-0 my-4 bg-[#1E2027] text-white">
+                  <div class="flex justify-between p-4">
+                    <section>
+                      <h1 class="text-xs font-bold text-[#545B71]">Обменник</h1>
+                      <p>Шахта</p>
+                    </section>
+                    <section
+                      class="flex w-20 items-center justify-center rounded-lg bg-[#2F491F] px-3 py-0 text-sm text-[#74E900]">
+                      Честный</section>
+                  </div>
+                  <div class="flex justify-between p-4">
+                    <section>
+                      <h1 class="text-xs font-bold text-[#545B71]">Отдаёте</h1>
+                      <p>
+                        1
+                        <span class=" text-[#545B71] font-extrabold"> BTC <span class="text-sm text-[#545B71]">от
+                            0.2</span> </span>
+                      </p>
+                    </section>
+                    <section class="ml-auto">
+                      <h1 class="text-xs font-bold text-[#545B71]">Получаете</h1>
+                      <p>12.545454 <span class=" text-[#545B71] font-extrabold">ETH</span></p>
+                    </section>
+                  </div>
+                  <div class="flex justify-between p-4">
+                    <section>
+                      <h1 class="text-xs font-bold text-[#545B71]">Резерв</h1>
+                      <p>16 484.25</p>
+                    </section>
+                    <section class="ml-auto">
+                      <h1 class="text-xs font-bold text-[#545B71]">Отзывы</h1>
+                      <p class="text-red-500">20 <span class="text-white"> | </span> <span
+                          class="text-green-600">2000</span></p>
+                    </section>
+                  </div>
+                </div>
+
+                <div class="mx-0 my-4 border-t-2 border-[#545B71] bg-[#1E2027] text-white">
+
+                  <div class="flex justify-between p-4">
+                    <section>
+                      <h1 class="text-xs font-bold text-[#545B71]">Обменник</h1>
+                      <p>Шахта</p>
+                    </section>
+                    <p
+                      class="flex w-20 items-center justify-center rounded-lg bg-[#471A2A] px-3 py-0 text-sm text-[#E90035]">
+                      Скам</p>
+                  </div>
+                  <div class="flex justify-between p-4">
+                    <section>
+                      <h1 class="text-xs font-bold text-[#545B71]">Отдаёте</h1>
+                      <p>
+                        1
+                        <span class=" text-[#545B71] font-extrabold"> BTC <span class="text-sm text-[#545B71]">от
+                            0.2</span> </span>
+                      </p>
+                    </section>
+                    <section class="ml-auto">
+                      <h1 class="text-xs font-bold text-[#545B71]">Получаете</h1>
+                      <p>12.545454 <span class=" text-[#545B71] font-extrabold">ETH</span></p>
+                    </section>
+                  </div>
+                  <div class="flex justify-between p-4">
+                    <section>
+                      <h1 class="text-xs font-bold text-[#545B71]">Резерв</h1>
+                      <p>16 484.25</p>
+                    </section>
+                    <section class="ml-auto">
+                      <h1 class="text-xs font-bold text-[#545B71]">Отзывы</h1>
+                      <p class="text-red-500">20 <span class="text-white"> | </span> <span
+                          class="text-green-600">2000</span></p>
+                    </section>
+                  </div>
+                </div>
+
+                <div class="mx-0 my-4 border-t-2 border-[#545B71] bg-[#1E2027] text-white">
+                  <div class="flex justify-between p-4">
+                    <section>
+                      <h1 class="text-xs font-bold text-[#545B71]">Обменник</h1>
+                      <p>Шахта</p>
+                    </section>
+                    <p
+                      class="flex w-20 items-center justify-center rounded-lg bg-[#FBA72A] bg-opacity-20 px-3 py-0 text-sm text-[#FBA72A]">
+                      Нейтр</p>
+                  </div>
+                  <div class="flex justify-between p-4">
+                    <section>
+                      <h1 class="text-xs font-bold text-[#545B71]">Отдаёте</h1>
+                      <p>
+                        1
+                        <span class=" text-[#545B71] font-extrabold"> BTC <span class="text-sm text-[#545B71]">от
+                            0.2</span> </span>
+                      </p>
+                    </section>
+                    <section class="ml-auto">
+                      <h1 class="text-xs font-bold text-[#545B71]">Получаете</h1>
+                      <p>12.545454 <span class=" text-[#545B71] font-extrabold">ETH</span></p>
+                    </section>
+                  </div>
+                  <div class="flex justify-between p-4">
+                    <section>
+                      <h1 class="text-xs font-bold text-[#545B71]">Резерв</h1>
+                      <p>16 484.25</p>
+                    </section>
+                    <section class="ml-auto">
+                      <h1 class="text-xs font-bold text-[#545B71]">Отзывы</h1>
+                      <p class="text-red-500">20 <span class="text-white"> | </span> <span
+                          class="text-green-600">2000</span></p>
+                    </section>
+                  </div>
+                </div>
+                <div class="mx-0 my-4 border-t-2 border-[#545B71] bg-[#1E2027] text-white">
+                  <div class="flex justify-between p-4">
+                    <section>
+                      <h1 class="text-xs font-bold text-[#545B71]">Обменник</h1>
+                      <p>Шахта</p>
+                    </section>
+                    <p
+                      class="flex w-20 items-center justify-center rounded-lg bg-[#FBA72A] bg-opacity-20 px-3 py-0 text-sm text-[#FBA72A]">
+                      Нейтр</p>
+                  </div>
+                  <div class="flex justify-between p-4">
+                    <section>
+                      <h1 class="text-xs font-bold text-[#545B71]">Отдаёте</h1>
+                      <p>
+                        1
+                        <span class=" text-[#545B71] font-extrabold"> BTC <span class="text-sm text-[#545B71]">от
+                            0.2</span> </span>
+                      </p>
+                    </section>
+                    <section class="ml-auto">
+                      <h1 class="text-xs font-bold  text-[#545B71]">Получаете</h1>
+                      <p>12.545454 <span class=" text-[#545B71] font-extrabold">ETH</span></p>
+                    </section>
+                  </div>
+                  <div class="flex justify-between p-4">
+                    <section>
+                      <h1 class="text-xs font-bold text-[#545B71]">Резерв</h1>
+                      <p>16 484.25</p>
+                    </section>
+                    <section class="ml-auto">
+                      <h1 class="text-xs font-bold text-[#545B71]">Отзывы</h1>
+                      <p class="text-red-500">20 <span class="text-white"> | </span> <span
+                          class="text-green-600">2000</span></p>
+                    </section>
+                  </div>
+                </div>
+                <div class="mx-0 my-4 border-t-2 border-[#545B71] bg-[#1E2027] text-white">
+                  <div class="flex justify-between p-4">
+                    <section>
+                      <h1 class="text-xs font-bold text-[#545B71]">Обменник</h1>
+                      <p>Шахта</p>
+                    </section>
+                    <p
+                      class="flex w-20 items-center justify-center rounded-lg bg-[#FBA72A] bg-opacity-20 px-3 py-0 text-sm text-[#FBA72A]">
+                      Нейтр</p>
+                  </div>
+                  <div class="flex justify-between p-4">
+                    <section>
+                      <h1 class="text-xs font-bold text-[#545B71]">Отдаёте</h1>
+                      <p>
+                        1
+                        <span class=" text-[#545B71] font-extrabold"> BTC <span class="text-sm text-[#545B71]">от
+                            0.2</span> </span>
+                      </p>
+                    </section>
+                    <section class="ml-auto">
+                      <h1 class="text-xs font-bold  text-[#545B71]">Получаете</h1>
+                      <p>12.545454 <span class=" text-[#545B71] font-extrabold">ETH</span></p>
+                    </section>
+                  </div>
+                  <div class="flex justify-between p-4">
+                    <section>
+                      <h1 class="text-xs font-bold  text-[#545B71]">Резерв</h1>
+                      <p>16 484.25</p>
+                    </section>
+                    <section class="ml-auto">
+                      <h1 class="text-xs font-bold  text-[#545B71]">Отзывы</h1>
+                      <p class="text-red-500">20 <span class="text-white"> | </span> <span
+                          class="text-green-600">2000</span></p>
+                    </section>
+                  </div>
+                </div>
+                <div class="mx-0 my-4 border-t-2 border-[#545B71] bg-[#1E2027] text-white">
+                  <div class="flex justify-between p-4">
+                    <section>
+                      <h1 class="text-xs font-bold text-[#545B71]">Обменник</h1>
+                      <p>Шахта</p>
+                    </section>
+                    <p
+                      class="flex w-20 items-center justify-center rounded-lg bg-[#FBA72A] bg-opacity-20 px-3 py-0 text-sm text-[#FBA72A]">
+                      Нейтр</p>
+                  </div>
+                  <div class="flex justify-between p-4">
+                    <section>
+                      <h1 class="text-xs font-bold text-[#545B71]">Отдаёте</h1>
+                      <p>
+                        1
+                        <span class=" text-[#545B71] font-extrabold"> BTC <span class="text-sm text-[#545B71]">от
+                            0.2</span> </span>
+                      </p>
+                    </section>
+                    <section class="ml-auto">
+                      <h1 class="text-xs font-bold text-[#545B71]">Получаете</h1>
+                      <p>12.545454 <span class=" text-[#545B71] font-extrabold">ETH</span></p>
+                    </section>
+                  </div>
+                  <div class="flex justify-between p-4">
+                    <section>
+                      <h1 class="text-xs font-bold text-[#545B71]">Резерв</h1>
+                      <p>16 484.25</p>
+                    </section>
+                    <section class="ml-auto">
+                      <h1 class="text-xs font-bold text-[#545B71]">Отзывы</h1>
+                      <p class="text-red-500">20 <span class="text-white"> | </span> <span
+                          class="text-green-600">2000</span></p>
+                    </section>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="desktop_trade_table" class="mb-10 hidden"> <!--Таблица Курсы Обмена (Desktop)-->
+            <div class="rounded-xl bg-[#1E2027]">
+              <div class="flex items-center justify-normal text-white">
+                <h1 class="pl-8 flex-1 text-4xl font-extrabold mb-8">Курсы обмена</h1>
+                <h1 class="ml-auto flex gap-0.5 items-center pr-8 mb-8 text-xl font-bold text-[#545B71]">
+                  Город:
+                  <button class="my-10 rounded-lg  p-1 text-[#00A3FF] cursor-pointer underline underline-offset-[4px]"
+                    onclick="showModal()">Выбрать город</button>
+                  <svg class="ml-2" width="12" height="12" viewBox="0 0 12 12" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1 1L6 6M11 11L6 6M6 6L11 1L1 11" stroke="#E90035" stroke-width="2" stroke-linecap="round"
+                      stroke-linejoin="round" />
+                  </svg>
+                </h1>
+              </div>
+              <div class="h-[370px] overflow-y-auto md:h-[556px]">
+                <table class="mr-0 h-full w-full table-auto overflow-hidden rounded-xl pr-0">
+                  <thead class="border-b-[1px] border-[#545B71]">
+                    <tr class="text-white text-left font-bold">
+                      <th class="first-column px-6 pb-4">Статус</th>
+                      <th class="pb-4">Обменник</th>
+                      <th class="pb-4">Отдаёте</th>
+                      <th class="pb-4">Получаете</th>
+                      <th class="pb-4">Резерв</th>
+                      <th class="last-column pb-4">Отзывы</th>
+                    </tr>
+                  </thead>
+                  <tbody class="text-white">
+                    <tr class="border-t-[1px] border-[#545B71] hover:bg-[#2C2F3A]">
+                      <td class="flex px-6 py-[10px] text-left md:py-[20px]">
+                        <p
+                          class="flex w-20 justify-center rounded-lg bg-[#2F491F] px-3 py-1 align-middle text-xs text-[#74E900]">
+                          Честный</p>
+                      </td>
+                      <td class="text-left text-sm">LigaBTC</td>
+                      <td class="text-left font-extrabold">
+                        1 <span class="text-[#545B71]">BTC <span class="text-xs font-bold"> от 0.2</span> </span>
+                      </td>
+                      <td>12.228699 <span class="text-[#545B71] font-extrabold">ETH</span></td>
+                      <td>
+                        <p class="font-bold">16 488,25</p>
+                      </td>
+                      <td class="text-red-500 font-bold">20 <span class="text-white">|</span> <span
+                          class="text-green-600">2000</span></td>
+                    </tr>
+                    <tr class="border-t-[1px] border-[#545B71] hover:bg-[#2C2F3A]">
+                      <td class="flex px-6 py-[10px] text-left md:py-[20px]">
+                        <p
+                          class="flex w-20 justify-center rounded-lg bg-[#471A2A] px-3 py-1 align-middle text-xs text-[#E90035]">
+                          Скам</p>
+                      </td>
+                      <td class="text-left text-sm">LigaBTC</td>
+                      <td class="text-left font-extrabold">
+                        1 <span class="text-[#545B71]">BTC <span class="text-xs font-bold"> от 0.2</span> </span>
+                      </td>
+                      <td>12.228699 <span class="text-[#545B71] font-extrabold">ETH</span></td>
+                      <td>
+                        <p class="font-bold">16 488,25</p>
+                      </td>
+                      <td class="text-red-500 font-bold">20 <span class="text-white">|</span> <span
+                          class="text-green-600">2000</span></td>
+                    </tr>
+                    <tr class="whitespace-normal border-t-[1px] border-[#545B71] hover:bg-[#2C2F3A]">
+                      <td class="flex px-6 py-[10px] text-left md:py-[20px]">
+                        <p
+                          class="flex w-20 justify-center rounded-lg bg-[#FBA72A] bg-opacity-20 px-3 py-1 align-middle text-xs text-[#FBA72A]">
+                          Нейтр</p>
+                      </td>
+                      <td class="text-left text-sm">LigaBTC</td>
+                      <td class="text-left font-extrabold">
+                        1 <span class="text-[#545B71]">BTC <span class="text-xs font-bold"> от 0.2</span> </span>
+                      </td>
+                      <td>12.228699 <span class="text-[#545B71] font-extrabold">ETH</span></td>
+                      <td>
+                        <p class="font-bold">16 488,25</p>
+                      </td>
+                      <td class="text-red-500 font-bold">20 <span class="text-white">|</span> <span
+                          class="text-green-600">2000</span></td>
+                    </tr>
+                    <tr class="border-t-[1px] border-[#545B71] hover:bg-[#2C2F3A]">
+                      <td class="flex px-6 py-[10px] text-left md:py-[20px]">
+                        <p
+                          class="flex w-20 justify-center rounded-lg bg-[#2F491F] px-3 py-1 align-middle text-xs text-[#74E900]">
+                          Честный</p>
+                      </td>
+                      <td class="text-left text-sm">LigaBTC</td>
+                      <td class="text-left font-extrabold">
+                        1 <span class="text-[#545B71]">BTC <span class="text-xs font-bold"> от 0.2</span> </span>
+                      </td>
+                      <td>12.228699 <span class="text-[#545B71] font-extrabold">ETH</span></td>
+                      <td>
+                        <p class="font-bold">16 488,25</p>
+                      </td>
+                      <td class="text-red-500 font-bold">20 <span class="text-white">|</span> <span
+                          class="text-green-600">2000</span></td>
+                    </tr>
+                    <tr class="border-t-[1px] border-[#545B71] hover:bg-[#2C2F3A]">
+                      <td class="flex px-6 py-[10px] text-left md:py-[20px]">
+                        <p
+                          class="flex w-20 justify-center rounded-lg bg-[#471A2A] px-3 py-1 align-middle text-xs text-[#E90035]">
+                          Скам</p>
+                      </td>
+                      <td class="text-left text-sm">LigaBTC</td>
+                      <td class="text-left font-extrabold">
+                        1 <span class="text-[#545B71]">BTC <span class="text-xs font-bold"> от 0.2</span> </span>
+                      </td>
+                      <td>12.228699 <span class="text-[#545B71] font-extrabold">ETH</span></td>
+                      <td>
+                        <p class="font-bold">16 488,25</p>
+                      </td>
+                      <td class="text-red-500 font-bold">20 <span class="text-white">|</span> <span
+                          class="text-green-600">2000</span></td>
+                    </tr>
+                    <tr class="whitespace-normal border-t-[1px] border-[#545B71] hover:bg-[#2C2F3A]">
+                      <td class="flex px-6 py-[10px] text-left md:py-[20px]">
+                        <p
+                          class="flex w-20 justify-center rounded-lg bg-[#FBA72A] bg-opacity-20 px-3 py-1 align-middle text-xs text-[#FBA72A]">
+                          Нейтр</p>
+                      </td>
+                      <td class="text-left text-sm">LigaBTC</td>
+                      <td class="text-left font-extrabold">
+                        1 <span class="text-[#545B71]">BTC <span class="text-xs font-bold"> от 0.2</span> </span>
+                      </td>
+                      <td>12.228699 <span class="text-[#545B71] font-extrabold">ETH</span></td>
+                      <td>
+                        <p class="font-bold">16 488,25</p>
+                      </td>
+                      <td class="text-red-500 font-bold">20 <span class="text-white">|</span> <span
+                          class="text-green-600">2000</span></td>
+                    </tr>
+                    <tr class="border-t-[1px] border-[#545B71] hover:bg-[#2C2F3A]">
+                      <td class="flex px-6 py-[10px] text-left md:py-[20px]">
+                        <p
+                          class="flex w-20 justify-center rounded-lg bg-[#2F491F] px-3 py-1 align-middle text-xs text-[#74E900]">
+                          Честный</p>
+                      </td>
+                      <td class="text-left text-sm">LigaBTC</td>
+                      <td class="text-left font-extrabold">
+                        1 <span class="text-[#545B71]">BTC <span class="text-xs font-bold"> от 0.2</span> </span>
+                      </td>
+                      <td>12.228699 <span class="text-[#545B71] font-extrabold">ETH</span></td>
+                      <td>
+                        <p class="font-bold">16 488,25</p>
+                      </td>
+                      <td class="text-red-500 font-bold">20 <span class="text-white">|</span> <span
+                          class="text-green-600">2000</span></td>
+                    </tr>
+                    <tr class="border-t-[1px] border-[#545B71] hover:bg-[#2C2F3A]">
+                      <td class="flex px-6 py-[10px] text-left md:py-[20px]">
+                        <p
+                          class="flex w-20 justify-center rounded-lg bg-[#471A2A] px-3 py-1 align-middle text-xs text-[#E90035]">
+                          Скам</p>
+                      </td>
+                      <td class="text-left text-sm">LigaBTC</td>
+                      <td class="text-left font-extrabold">
+                        1 <span class="text-[#545B71]">BTC <span class="text-xs font-bold"> от 0.2</span> </span>
+                      </td>
+                      <td>12.228699 <span class="text-[#545B71] font-extrabold">ETH</span></td>
+                      <td>
+                        <p class="font-bold">16 488,25</p>
+                      </td>
+                      <td class="text-red-500 font-bold">20 <span class="text-white">|</span> <span
+                          class="text-green-600">2000</span></td>
+                    </tr>
+                    <tr class="whitespace-normal border-t-[1px] border-[#545B71] hover:bg-[#2C2F3A]">
+                      <td class="flex px-6 py-[10px] text-left md:py-[20px]">
+                        <p
+                          class="flex w-20 justify-center rounded-lg bg-[#FBA72A] bg-opacity-20 px-3 py-1 align-middle text-xs text-[#FBA72A]">
+                          Нейтр</p>
+                      </td>
+                      <td class="text-left text-sm">LigaBTC</td>
+                      <td class="text-left font-extrabold">
+                        1 <span class="text-[#545B71]">BTC <span class="text-xs font-bold"> от 0.2</span> </span>
+                      </td>
+                      <td>12.228699 <span class="text-[#545B71] font-extrabold">ETH</span></td>
+                      <td>
+                        <p class="font-bold">16 488,25</p>
+                      </td>
+                      <td class="text-red-500 font-bold">20 <span class="text-white">|</span> <span
+                          class="text-green-600">2000</span></td>
+                    </tr>
+                    <tr class="border-t-[1px] border-[#545B71] hover:bg-[#2C2F3A]">
+                      <td class="flex px-6 py-[10px] text-left md:py-[20px]">
+                        <p
+                          class="flex w-20 justify-center rounded-lg bg-[#2F491F] px-3 py-1 align-middle text-xs text-[#74E900]">
+                          Честный</p>
+                      </td>
+                      <td class="text-left text-sm">LigaBTC</td>
+                      <td class="text-left font-extrabold">
+                        1 <span class="text-[#545B71]">BTC <span class="text-xs font-bold"> от 0.2</span> </span>
+                      </td>
+                      <td>12.228699 <span class="text-[#545B71] font-extrabold">ETH</span></td>
+                      <td>
+                        <p class="font-bold">16 488,25</p>
+                      </td>
+                      <td class="text-red-500 font-bold">20 <span class="text-white">|</span> <span
+                          class="text-green-600">2000</span></td>
+                    </tr>
+                    <tr class="border-t-[1px] border-[#545B71] hover:bg-[#2C2F3A]">
+                      <td class="flex px-6 py-[10px] text-left md:py-[20px]">
+                        <p
+                          class="flex w-20 justify-center rounded-lg bg-[#471A2A] px-3 py-1 align-middle text-xs text-[#E90035]">
+                          Скам</p>
+                      </td>
+                      <td class="text-left text-sm">LigaBTC</td>
+                      <td class="text-left font-extrabold">
+                        1 <span class="text-[#545B71]">BTC <span class="text-xs font-bold"> от 0.2</span> </span>
+                      </td>
+                      <td>12.228699 <span class="text-[#545B71] font-extrabold">ETH</span></td>
+                      <td>
+                        <p class="font-bold">16 488,25</p>
+                      </td>
+                      <td class="text-red-500 font-bold">20 <span class="text-white">|</span> <span
+                          class="text-green-600">2000</span></td>
+                    </tr>
+                    <tr class="whitespace-normal border-t-[1px] border-[#545B71] hover:bg-[#2C2F3A]">
+                      <td class="flex px-6 py-[10px] text-left md:py-[20px]">
+                        <p
+                          class="flex w-20 justify-center rounded-lg bg-[#FBA72A] bg-opacity-20 px-3 py-1 align-middle text-xs text-[#FBA72A]">
+                          Нейтр</p>
+                      </td>
+                      <td class="text-left text-sm">LigaBTC</td>
+                      <td class="text-left font-extrabold">
+                        1 <span class="text-[#545B71]">BTC <span class="text-xs font-bold"> от 0.2</span> </span>
+                      </td>
+                      <td>12.228699 <span class="text-[#545B71] font-extrabold">ETH</span></td>
+                      <td>
+                        <p class="font-bold">16 488,25</p>
+                      </td>
+                      <td class="text-red-500 font-bold">20 <span class="text-white">|</span> <span
+                          class="text-green-600">2000</span></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div id="desc" class="mb-10"> <!--блок AntiSwap с описанием-->
             <div class="rounded-xl bg-[#1E2027] text-white">
               <div class="flex flex-col md:flex-row">
                 <div class="p-10 hidden md:block"> <!--Текст-->
@@ -1025,33 +1144,41 @@
                     Сервис анализирующий прозрачность и безопасность <br />
                     обменников благодаря отзывам пользователей
                   </p>
-                  <button class="rounded bg-[#00A3FF] px-5 py-3 font-bold text-white hover:bg-blue-600">Подробнее -</button>
+                  <button class="rounded bg-[#00A3FF] px-5 py-3 font-bold text-white hover:bg-blue-600">Подробнее
+                    -</button>
                 </div>
                 <div class="flex align-bottom"> <!--Картинки-->
-                  <img class="hidden md:hidden lg:block object-right-bottom object-contain w-full h-full flex-shrink-0 transition-all duration-300 ease-in-out" src="https://antiswap.info/images/main/bg-desktop.png" alt="Десктопная Картинка" />
-                  <img class="block md:block lg:hidden mb-4" src="https://antiswap.info/images/main/bg-mobile.png" alt="Мобильная Картинка" />
+                  <img
+                    class="hidden md:hidden lg:block object-right-bottom object-contain w-full h-full flex-shrink-0 transition-all duration-300 ease-in-out"
+                    src="https://antiswap.info/images/main/bg-desktop.png" alt="Десктопная Картинка" />
+                  <img class="block md:block lg:hidden mb-4" src="https://antiswap.info/images/main/bg-mobile.png"
+                    alt="Мобильная Картинка" />
                 </div>
                 <div class="md:hidden p-10">
-                   <h1 class="mb-2 text-xl font-bold ">AntiSwap</h1>
+                  <h1 class="mb-2 text-xl font-bold ">AntiSwap</h1>
                   <p class="mb-8">
                     Сервис анализирующий прозрачность и безопасность <br />
                     обменников благодаря отзывам пользователей
                   </p>
                   <div class="flex">
-                    <button class="rounded bg-[#00A3FF] px-8 py-3 font-bold text-xl text-white hover:bg-blue-600 flex items-center">
-                    <span class="mr-4">Подробнее</span>
-                    <svg class="w-5 h-5" viewBox="0 0 29 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path fill-rule="evenodd" clip-rule="evenodd" d="M20.0833 0.324148C20.5017 -0.102146 21.1868 -0.108834 21.6135 0.309208L28.6756 7.22813C28.8831 7.43144 29 7.70962 29 8C29 8.29038 28.8831 8.56856 28.6756 8.77187L21.6135 15.6908C21.1868 16.1088 20.5017 16.1021 20.0833 15.6759C19.6648 15.2496 19.6715 14.5651 20.0982 14.147L25.269 9.08108H1.08209C0.484468 9.08108 0 8.59706 0 8C0 7.40293 0.484468 6.91892 1.08209 6.91892H25.269L20.0982 1.85295C19.6715 1.43491 19.6648 0.750441 20.0833 0.324148Z" fill="white"/>
-                    </svg>
+                    <button
+                      class="rounded bg-[#00A3FF] px-8 py-3 font-bold text-xl text-white hover:bg-blue-600 flex items-center">
+                      <span class="mr-4">Подробнее</span>
+                      <svg class="w-5 h-5" viewBox="0 0 29 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                          d="M20.0833 0.324148C20.5017 -0.102146 21.1868 -0.108834 21.6135 0.309208L28.6756 7.22813C28.8831 7.43144 29 7.70962 29 8C29 8.29038 28.8831 8.56856 28.6756 8.77187L21.6135 15.6908C21.1868 16.1088 20.5017 16.1021 20.0833 15.6759C19.6648 15.2496 19.6715 14.5651 20.0982 14.147L25.269 9.08108H1.08209C0.484468 9.08108 0 8.59706 0 8C0 7.40293 0.484468 6.91892 1.08209 6.91892H25.269L20.0982 1.85295C19.6715 1.43491 19.6648 0.750441 20.0833 0.324148Z"
+                          fill="white" />
+                      </svg>
                     </button>
                   </div>
                 </div>
+              </div>
             </div>
-        </div>
-        </div>
-        <div id="table_scam" class="mb-10"> <!--таблица СКАМ-->
+          </div>
+          <div id="table_scam" class="mb-10"> <!--таблица СКАМ-->
             <div class="rounded-xl border-2 border-red-600 bg-[#1E2027]">
-              <h1 class= "mr-3 p-10 text-lg font-extrabold text-white md:mr-14 lg:text-2xl"> <span class="text-red-600 lg:text-2xl text-lg">СКАМ </span> обменники</h1>
+              <h1 class="mr-3 p-10 text-lg font-extrabold text-white md:mr-14 lg:text-2xl"> <span
+                  class="text-red-600 lg:text-2xl text-lg">СКАМ </span> обменники</h1>
               <div class="h-[370px] md:h-[556px] overflow-y-auto">
 
                 <table class="rounded-xl overflow-hidden mr-0 pr-0 w-full h-full md:h-[556px] table-fixed">
@@ -1061,12 +1188,16 @@
                       <th class="w-2/10 ease-in-out lg:w-[20vw] py-2 pl-4 text-left">Рейтинг</th>
                       <th class="w-2/10 py-2 px-4">
                         <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path d="M14.0013 27.3334C21.3533 27.3334 27.3346 21.3521 27.3346 14.0001C27.3346 6.64808 21.3533 0.666748 14.0013 0.666748C6.6493 0.666748 0.667969 6.64808 0.667969 14.0001C0.667969 21.3521 6.6493 27.3334 14.0013 27.3334ZM18.6586 10.0001C18.9245 9.99329 19.189 10.0398 19.4366 10.1369C19.6842 10.2339 19.9098 10.3796 20.1002 10.5652C20.2906 10.7509 20.4419 10.9728 20.5452 11.2179C20.6484 11.4629 20.7016 11.7262 20.7015 11.9921C20.7014 12.258 20.6481 12.5212 20.5446 12.7662C20.4412 13.0112 20.2898 13.233 20.0992 13.4186C19.9087 13.6041 19.683 13.7496 19.4353 13.8465C19.1877 13.9434 18.9231 13.9897 18.6573 13.9827C18.1381 13.9691 17.6447 13.7533 17.2824 13.3812C16.92 13.0091 16.7173 12.5102 16.7175 11.9908C16.7177 11.4714 16.9207 10.9726 17.2833 10.6007C17.6459 10.2289 18.1394 10.0133 18.6586 10.0001ZM12.924 19.2254C13.6351 19.3681 14.3675 19.3681 15.0786 19.2254C15.416 19.1561 15.752 19.0507 16.0786 18.9147C16.3906 18.7814 16.6973 18.6161 16.984 18.4241C17.2613 18.2347 17.5266 18.0161 17.772 17.7721C18.016 17.5294 18.2346 17.2641 18.424 16.9827L20.6346 18.4721C20.0599 19.3239 19.3271 20.0576 18.476 20.6334C17.6088 21.2186 16.6353 21.6281 15.6106 21.8387C14.5483 22.0521 13.4541 22.0517 12.392 21.8374C11.367 21.6298 10.3934 21.2205 9.52797 20.6334C8.67683 20.0562 7.94333 19.3222 7.36664 18.4707L9.5773 16.9814C9.76797 17.2627 9.98664 17.5281 10.228 17.7681C10.9641 18.5079 11.9018 19.0148 12.924 19.2254ZM9.33463 10.0001C9.59737 10.0002 9.85751 10.052 10.1002 10.1526C10.3429 10.2533 10.5634 10.4007 10.7491 10.5865C10.9348 10.7724 11.0821 10.993 11.1826 11.2357C11.2831 11.4785 11.3347 11.7387 11.3346 12.0014C11.3345 12.2641 11.2827 12.5243 11.1821 12.767C11.0815 13.0097 10.934 13.2302 10.7482 13.4159C10.5623 13.6016 10.3417 13.7489 10.099 13.8494C9.85621 13.9498 9.59603 14.0015 9.3333 14.0014C8.80269 14.0012 8.29388 13.7903 7.91881 13.415C7.54374 13.0396 7.33313 12.5307 7.3333 12.0001C7.33348 11.4695 7.54443 10.9607 7.91975 10.5856C8.29508 10.2105 8.80402 9.9999 9.33463 10.0001Z" fill="#75E900"/>
+                          <path
+                            d="M14.0013 27.3334C21.3533 27.3334 27.3346 21.3521 27.3346 14.0001C27.3346 6.64808 21.3533 0.666748 14.0013 0.666748C6.6493 0.666748 0.667969 6.64808 0.667969 14.0001C0.667969 21.3521 6.6493 27.3334 14.0013 27.3334ZM18.6586 10.0001C18.9245 9.99329 19.189 10.0398 19.4366 10.1369C19.6842 10.2339 19.9098 10.3796 20.1002 10.5652C20.2906 10.7509 20.4419 10.9728 20.5452 11.2179C20.6484 11.4629 20.7016 11.7262 20.7015 11.9921C20.7014 12.258 20.6481 12.5212 20.5446 12.7662C20.4412 13.0112 20.2898 13.233 20.0992 13.4186C19.9087 13.6041 19.683 13.7496 19.4353 13.8465C19.1877 13.9434 18.9231 13.9897 18.6573 13.9827C18.1381 13.9691 17.6447 13.7533 17.2824 13.3812C16.92 13.0091 16.7173 12.5102 16.7175 11.9908C16.7177 11.4714 16.9207 10.9726 17.2833 10.6007C17.6459 10.2289 18.1394 10.0133 18.6586 10.0001ZM12.924 19.2254C13.6351 19.3681 14.3675 19.3681 15.0786 19.2254C15.416 19.1561 15.752 19.0507 16.0786 18.9147C16.3906 18.7814 16.6973 18.6161 16.984 18.4241C17.2613 18.2347 17.5266 18.0161 17.772 17.7721C18.016 17.5294 18.2346 17.2641 18.424 16.9827L20.6346 18.4721C20.0599 19.3239 19.3271 20.0576 18.476 20.6334C17.6088 21.2186 16.6353 21.6281 15.6106 21.8387C14.5483 22.0521 13.4541 22.0517 12.392 21.8374C11.367 21.6298 10.3934 21.2205 9.52797 20.6334C8.67683 20.0562 7.94333 19.3222 7.36664 18.4707L9.5773 16.9814C9.76797 17.2627 9.98664 17.5281 10.228 17.7681C10.9641 18.5079 11.9018 19.0148 12.924 19.2254ZM9.33463 10.0001C9.59737 10.0002 9.85751 10.052 10.1002 10.1526C10.3429 10.2533 10.5634 10.4007 10.7491 10.5865C10.9348 10.7724 11.0821 10.993 11.1826 11.2357C11.2831 11.4785 11.3347 11.7387 11.3346 12.0014C11.3345 12.2641 11.2827 12.5243 11.1821 12.767C11.0815 13.0097 10.934 13.2302 10.7482 13.4159C10.5623 13.6016 10.3417 13.7489 10.099 13.8494C9.85621 13.9498 9.59603 14.0015 9.3333 14.0014C8.80269 14.0012 8.29388 13.7903 7.91881 13.415C7.54374 13.0396 7.33313 12.5307 7.3333 12.0001C7.33348 11.4695 7.54443 10.9607 7.91975 10.5856C8.29508 10.2105 8.80402 9.9999 9.33463 10.0001Z"
+                            fill="#75E900" />
                         </svg>
                       </th>
                       <th class="w-2/10 py-3 px-4">
                         <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path fill-rule="evenodd" clip-rule="evenodd" d="M13 0C10.4288 0 7.91543 0.762437 5.77759 2.1909C3.63975 3.61935 1.97351 5.64968 0.989572 8.02512C0.00563271 10.4006 -0.251811 13.0144 0.249797 15.5362C0.751405 18.0579 1.98954 20.3743 3.80762 22.1924C5.6257 24.0105 7.94208 25.2486 10.4638 25.7502C12.9856 26.2518 15.5995 25.9944 17.9749 25.0104C20.3503 24.0265 22.3807 22.3603 23.8091 20.2224C25.2376 18.0846 26 15.5712 26 13C25.9934 9.55422 24.6216 6.25145 22.1851 3.81491C19.7486 1.37837 16.4458 0.00660747 13 0ZM18.2192 8.15643C17.9815 8.06324 17.7275 8.0186 17.4723 8.02512C16.9739 8.03785 16.5001 8.24476 16.152 8.60174C15.8039 8.95873 15.609 9.43756 15.6088 9.93617C15.6087 10.4348 15.8033 10.9137 16.1511 11.271C16.499 11.6282 16.9726 11.8354 17.4711 11.8485C17.7263 11.8552 17.9802 11.8107 18.218 11.7177C18.4557 11.6246 18.6724 11.485 18.8553 11.3069C19.0382 11.1287 19.1836 10.9158 19.2829 10.6806C19.3822 10.4454 19.4334 10.1927 19.4335 9.93745C19.4336 9.68216 19.3825 9.42943 19.2834 9.19418C19.1842 8.95892 19.039 8.7459 18.8562 8.56767C18.6734 8.38944 18.4568 8.24961 18.2192 8.15643ZM9.25624 8.17156C9.02325 8.07496 8.77351 8.0252 8.52129 8.02512C8.0119 8.02495 7.52332 8.22714 7.16301 8.5872C6.8027 8.94728 6.60018 9.43573 6.60001 9.94512C6.59984 10.4545 6.80203 10.9431 7.1621 11.3034C7.52217 11.6637 8.01062 11.8662 8.52001 11.8664C8.77223 11.8665 9.022 11.8169 9.25506 11.7204C9.48811 11.624 9.69989 11.4826 9.8783 11.3043C10.0567 11.126 10.1982 10.9143 10.2948 10.6813C10.3914 10.4484 10.4412 10.1986 10.4413 9.9464C10.4414 9.69417 10.3918 9.4444 10.2953 9.21135C10.1989 8.97829 10.0575 8.76652 9.8792 8.58811C9.70091 8.4097 9.48923 8.26816 9.25624 8.17156ZM11.9658 17.3893C12.6485 17.2524 13.3516 17.2524 14.0342 17.3893C15.0156 17.5916 15.9157 18.0781 16.6224 18.7884C16.8541 19.0188 17.064 19.2735 17.247 19.5436L19.3693 18.1138C18.8157 17.2964 18.1115 16.5918 17.2944 16.0376C16.4636 15.474 15.529 15.0811 14.545 14.8818C13.5253 14.6761 12.4749 14.6757 11.455 14.8805C10.4713 15.0828 9.53681 15.4759 8.70433 16.0376C7.88725 16.5904 7.18377 17.2948 6.63201 18.1125L8.75425 19.5423C8.93601 19.2722 9.14593 19.0175 9.38017 18.7845C9.61569 18.5503 9.87041 18.3404 10.1366 18.1586C10.4118 17.9743 10.7062 17.8156 11.0058 17.6876C11.3194 17.557 11.6419 17.4559 11.9658 17.3893Z" fill="#E90035"/>
+                          <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M13 0C10.4288 0 7.91543 0.762437 5.77759 2.1909C3.63975 3.61935 1.97351 5.64968 0.989572 8.02512C0.00563271 10.4006 -0.251811 13.0144 0.249797 15.5362C0.751405 18.0579 1.98954 20.3743 3.80762 22.1924C5.6257 24.0105 7.94208 25.2486 10.4638 25.7502C12.9856 26.2518 15.5995 25.9944 17.9749 25.0104C20.3503 24.0265 22.3807 22.3603 23.8091 20.2224C25.2376 18.0846 26 15.5712 26 13C25.9934 9.55422 24.6216 6.25145 22.1851 3.81491C19.7486 1.37837 16.4458 0.00660747 13 0ZM18.2192 8.15643C17.9815 8.06324 17.7275 8.0186 17.4723 8.02512C16.9739 8.03785 16.5001 8.24476 16.152 8.60174C15.8039 8.95873 15.609 9.43756 15.6088 9.93617C15.6087 10.4348 15.8033 10.9137 16.1511 11.271C16.499 11.6282 16.9726 11.8354 17.4711 11.8485C17.7263 11.8552 17.9802 11.8107 18.218 11.7177C18.4557 11.6246 18.6724 11.485 18.8553 11.3069C19.0382 11.1287 19.1836 10.9158 19.2829 10.6806C19.3822 10.4454 19.4334 10.1927 19.4335 9.93745C19.4336 9.68216 19.3825 9.42943 19.2834 9.19418C19.1842 8.95892 19.039 8.7459 18.8562 8.56767C18.6734 8.38944 18.4568 8.24961 18.2192 8.15643ZM9.25624 8.17156C9.02325 8.07496 8.77351 8.0252 8.52129 8.02512C8.0119 8.02495 7.52332 8.22714 7.16301 8.5872C6.8027 8.94728 6.60018 9.43573 6.60001 9.94512C6.59984 10.4545 6.80203 10.9431 7.1621 11.3034C7.52217 11.6637 8.01062 11.8662 8.52001 11.8664C8.77223 11.8665 9.022 11.8169 9.25506 11.7204C9.48811 11.624 9.69989 11.4826 9.8783 11.3043C10.0567 11.126 10.1982 10.9143 10.2948 10.6813C10.3914 10.4484 10.4412 10.1986 10.4413 9.9464C10.4414 9.69417 10.3918 9.4444 10.2953 9.21135C10.1989 8.97829 10.0575 8.76652 9.8792 8.58811C9.70091 8.4097 9.48923 8.26816 9.25624 8.17156ZM11.9658 17.3893C12.6485 17.2524 13.3516 17.2524 14.0342 17.3893C15.0156 17.5916 15.9157 18.0781 16.6224 18.7884C16.8541 19.0188 17.064 19.2735 17.247 19.5436L19.3693 18.1138C18.8157 17.2964 18.1115 16.5918 17.2944 16.0376C16.4636 15.474 15.529 15.0811 14.545 14.8818C13.5253 14.6761 12.4749 14.6757 11.455 14.8805C10.4713 15.0828 9.53681 15.4759 8.70433 16.0376C7.88725 16.5904 7.18377 17.2948 6.63201 18.1125L8.75425 19.5423C8.93601 19.2722 9.14593 19.0175 9.38017 18.7845C9.61569 18.5503 9.87041 18.3404 10.1366 18.1586C10.4118 17.9743 10.7062 17.8156 11.0058 17.6876C11.3194 17.557 11.6419 17.4559 11.9658 17.3893Z"
+                            fill="#E90035" />
                         </svg>
                       </th>
                     </tr>
@@ -1142,12 +1273,14 @@
                 </table>
               </div>
             </div>
-            <h1 class= "m-2 text-xs font-extrabold text-[#545B71]">*Всего <span class="text-red-600">*VALUE*</span> мошеннических обменных пунктов</h1>
-        </div>
+            <h1 class="m-2 text-xs font-extrabold text-[#545B71]">*Всего <span class="text-red-600">*VALUE*</span>
+              мошеннических обменных пунктов</h1>
+          </div>
         </div>
         <div id="table_true" class="mb-10"> <!--таблица честн-->
           <div class="rounded-xl border-2 border-[#74E900] bg-[#1E2027]">
-            <h1 class= "mr-3 p-10 text-lg font-extrabold text-white md:mr-14 lg:text-2xl"><span class="text-[#74E900] lg:text-2xl text-lg">Честные </span> обменники</h1>
+            <h1 class="mr-3 p-10 text-lg font-extrabold text-white md:mr-14 lg:text-2xl"><span
+                class="text-[#74E900] lg:text-2xl text-lg">Честные </span> обменники</h1>
             <div class="h-[370px] md:h-[556px] overflow-y-auto">
 
               <table class="rounded-xl overflow-hidden mr-0 pr-0 w-full h-full md:h-[556px] table-fixed">
@@ -1157,12 +1290,16 @@
                     <th class="w-2/10 py-2 pl-4 md:w-[30vw] text-left">Рейтинг</th>
                     <th class="w-2/10 py-2 px-4">
                       <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M14.0013 27.3334C21.3533 27.3334 27.3346 21.3521 27.3346 14.0001C27.3346 6.64808 21.3533 0.666748 14.0013 0.666748C6.6493 0.666748 0.667969 6.64808 0.667969 14.0001C0.667969 21.3521 6.6493 27.3334 14.0013 27.3334ZM18.6586 10.0001C18.9245 9.99329 19.189 10.0398 19.4366 10.1369C19.6842 10.2339 19.9098 10.3796 20.1002 10.5652C20.2906 10.7509 20.4419 10.9728 20.5452 11.2179C20.6484 11.4629 20.7016 11.7262 20.7015 11.9921C20.7014 12.258 20.6481 12.5212 20.5446 12.7662C20.4412 13.0112 20.2898 13.233 20.0992 13.4186C19.9087 13.6041 19.683 13.7496 19.4353 13.8465C19.1877 13.9434 18.9231 13.9897 18.6573 13.9827C18.1381 13.9691 17.6447 13.7533 17.2824 13.3812C16.92 13.0091 16.7173 12.5102 16.7175 11.9908C16.7177 11.4714 16.9207 10.9726 17.2833 10.6007C17.6459 10.2289 18.1394 10.0133 18.6586 10.0001ZM12.924 19.2254C13.6351 19.3681 14.3675 19.3681 15.0786 19.2254C15.416 19.1561 15.752 19.0507 16.0786 18.9147C16.3906 18.7814 16.6973 18.6161 16.984 18.4241C17.2613 18.2347 17.5266 18.0161 17.772 17.7721C18.016 17.5294 18.2346 17.2641 18.424 16.9827L20.6346 18.4721C20.0599 19.3239 19.3271 20.0576 18.476 20.6334C17.6088 21.2186 16.6353 21.6281 15.6106 21.8387C14.5483 22.0521 13.4541 22.0517 12.392 21.8374C11.367 21.6298 10.3934 21.2205 9.52797 20.6334C8.67683 20.0562 7.94333 19.3222 7.36664 18.4707L9.5773 16.9814C9.76797 17.2627 9.98664 17.5281 10.228 17.7681C10.9641 18.5079 11.9018 19.0148 12.924 19.2254ZM9.33463 10.0001C9.59737 10.0002 9.85751 10.052 10.1002 10.1526C10.3429 10.2533 10.5634 10.4007 10.7491 10.5865C10.9348 10.7724 11.0821 10.993 11.1826 11.2357C11.2831 11.4785 11.3347 11.7387 11.3346 12.0014C11.3345 12.2641 11.2827 12.5243 11.1821 12.767C11.0815 13.0097 10.934 13.2302 10.7482 13.4159C10.5623 13.6016 10.3417 13.7489 10.099 13.8494C9.85621 13.9498 9.59603 14.0015 9.3333 14.0014C8.80269 14.0012 8.29388 13.7903 7.91881 13.415C7.54374 13.0396 7.33313 12.5307 7.3333 12.0001C7.33348 11.4695 7.54443 10.9607 7.91975 10.5856C8.29508 10.2105 8.80402 9.9999 9.33463 10.0001Z" fill="#75E900"/>
+                        <path
+                          d="M14.0013 27.3334C21.3533 27.3334 27.3346 21.3521 27.3346 14.0001C27.3346 6.64808 21.3533 0.666748 14.0013 0.666748C6.6493 0.666748 0.667969 6.64808 0.667969 14.0001C0.667969 21.3521 6.6493 27.3334 14.0013 27.3334ZM18.6586 10.0001C18.9245 9.99329 19.189 10.0398 19.4366 10.1369C19.6842 10.2339 19.9098 10.3796 20.1002 10.5652C20.2906 10.7509 20.4419 10.9728 20.5452 11.2179C20.6484 11.4629 20.7016 11.7262 20.7015 11.9921C20.7014 12.258 20.6481 12.5212 20.5446 12.7662C20.4412 13.0112 20.2898 13.233 20.0992 13.4186C19.9087 13.6041 19.683 13.7496 19.4353 13.8465C19.1877 13.9434 18.9231 13.9897 18.6573 13.9827C18.1381 13.9691 17.6447 13.7533 17.2824 13.3812C16.92 13.0091 16.7173 12.5102 16.7175 11.9908C16.7177 11.4714 16.9207 10.9726 17.2833 10.6007C17.6459 10.2289 18.1394 10.0133 18.6586 10.0001ZM12.924 19.2254C13.6351 19.3681 14.3675 19.3681 15.0786 19.2254C15.416 19.1561 15.752 19.0507 16.0786 18.9147C16.3906 18.7814 16.6973 18.6161 16.984 18.4241C17.2613 18.2347 17.5266 18.0161 17.772 17.7721C18.016 17.5294 18.2346 17.2641 18.424 16.9827L20.6346 18.4721C20.0599 19.3239 19.3271 20.0576 18.476 20.6334C17.6088 21.2186 16.6353 21.6281 15.6106 21.8387C14.5483 22.0521 13.4541 22.0517 12.392 21.8374C11.367 21.6298 10.3934 21.2205 9.52797 20.6334C8.67683 20.0562 7.94333 19.3222 7.36664 18.4707L9.5773 16.9814C9.76797 17.2627 9.98664 17.5281 10.228 17.7681C10.9641 18.5079 11.9018 19.0148 12.924 19.2254ZM9.33463 10.0001C9.59737 10.0002 9.85751 10.052 10.1002 10.1526C10.3429 10.2533 10.5634 10.4007 10.7491 10.5865C10.9348 10.7724 11.0821 10.993 11.1826 11.2357C11.2831 11.4785 11.3347 11.7387 11.3346 12.0014C11.3345 12.2641 11.2827 12.5243 11.1821 12.767C11.0815 13.0097 10.934 13.2302 10.7482 13.4159C10.5623 13.6016 10.3417 13.7489 10.099 13.8494C9.85621 13.9498 9.59603 14.0015 9.3333 14.0014C8.80269 14.0012 8.29388 13.7903 7.91881 13.415C7.54374 13.0396 7.33313 12.5307 7.3333 12.0001C7.33348 11.4695 7.54443 10.9607 7.91975 10.5856C8.29508 10.2105 8.80402 9.9999 9.33463 10.0001Z"
+                          fill="#75E900" />
                       </svg>
                     </th>
                     <th class="w-3/10 py-3 px-4">
                       <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd" clip-rule="evenodd" d="M13 0C10.4288 0 7.91543 0.762437 5.77759 2.1909C3.63975 3.61935 1.97351 5.64968 0.989572 8.02512C0.00563271 10.4006 -0.251811 13.0144 0.249797 15.5362C0.751405 18.0579 1.98954 20.3743 3.80762 22.1924C5.6257 24.0105 7.94208 25.2486 10.4638 25.7502C12.9856 26.2518 15.5995 25.9944 17.9749 25.0104C20.3503 24.0265 22.3807 22.3603 23.8091 20.2224C25.2376 18.0846 26 15.5712 26 13C25.9934 9.55422 24.6216 6.25145 22.1851 3.81491C19.7486 1.37837 16.4458 0.00660747 13 0ZM18.2192 8.15643C17.9815 8.06324 17.7275 8.0186 17.4723 8.02512C16.9739 8.03785 16.5001 8.24476 16.152 8.60174C15.8039 8.95873 15.609 9.43756 15.6088 9.93617C15.6087 10.4348 15.8033 10.9137 16.1511 11.271C16.499 11.6282 16.9726 11.8354 17.4711 11.8485C17.7263 11.8552 17.9802 11.8107 18.218 11.7177C18.4557 11.6246 18.6724 11.485 18.8553 11.3069C19.0382 11.1287 19.1836 10.9158 19.2829 10.6806C19.3822 10.4454 19.4334 10.1927 19.4335 9.93745C19.4336 9.68216 19.3825 9.42943 19.2834 9.19418C19.1842 8.95892 19.039 8.7459 18.8562 8.56767C18.6734 8.38944 18.4568 8.24961 18.2192 8.15643ZM9.25624 8.17156C9.02325 8.07496 8.77351 8.0252 8.52129 8.02512C8.0119 8.02495 7.52332 8.22714 7.16301 8.5872C6.8027 8.94728 6.60018 9.43573 6.60001 9.94512C6.59984 10.4545 6.80203 10.9431 7.1621 11.3034C7.52217 11.6637 8.01062 11.8662 8.52001 11.8664C8.77223 11.8665 9.022 11.8169 9.25506 11.7204C9.48811 11.624 9.69989 11.4826 9.8783 11.3043C10.0567 11.126 10.1982 10.9143 10.2948 10.6813C10.3914 10.4484 10.4412 10.1986 10.4413 9.9464C10.4414 9.69417 10.3918 9.4444 10.2953 9.21135C10.1989 8.97829 10.0575 8.76652 9.8792 8.58811C9.70091 8.4097 9.48923 8.26816 9.25624 8.17156ZM11.9658 17.3893C12.6485 17.2524 13.3516 17.2524 14.0342 17.3893C15.0156 17.5916 15.9157 18.0781 16.6224 18.7884C16.8541 19.0188 17.064 19.2735 17.247 19.5436L19.3693 18.1138C18.8157 17.2964 18.1115 16.5918 17.2944 16.0376C16.4636 15.474 15.529 15.0811 14.545 14.8818C13.5253 14.6761 12.4749 14.6757 11.455 14.8805C10.4713 15.0828 9.53681 15.4759 8.70433 16.0376C7.88725 16.5904 7.18377 17.2948 6.63201 18.1125L8.75425 19.5423C8.93601 19.2722 9.14593 19.0175 9.38017 18.7845C9.61569 18.5503 9.87041 18.3404 10.1366 18.1586C10.4118 17.9743 10.7062 17.8156 11.0058 17.6876C11.3194 17.557 11.6419 17.4559 11.9658 17.3893Z" fill="#E90035"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                          d="M13 0C10.4288 0 7.91543 0.762437 5.77759 2.1909C3.63975 3.61935 1.97351 5.64968 0.989572 8.02512C0.00563271 10.4006 -0.251811 13.0144 0.249797 15.5362C0.751405 18.0579 1.98954 20.3743 3.80762 22.1924C5.6257 24.0105 7.94208 25.2486 10.4638 25.7502C12.9856 26.2518 15.5995 25.9944 17.9749 25.0104C20.3503 24.0265 22.3807 22.3603 23.8091 20.2224C25.2376 18.0846 26 15.5712 26 13C25.9934 9.55422 24.6216 6.25145 22.1851 3.81491C19.7486 1.37837 16.4458 0.00660747 13 0ZM18.2192 8.15643C17.9815 8.06324 17.7275 8.0186 17.4723 8.02512C16.9739 8.03785 16.5001 8.24476 16.152 8.60174C15.8039 8.95873 15.609 9.43756 15.6088 9.93617C15.6087 10.4348 15.8033 10.9137 16.1511 11.271C16.499 11.6282 16.9726 11.8354 17.4711 11.8485C17.7263 11.8552 17.9802 11.8107 18.218 11.7177C18.4557 11.6246 18.6724 11.485 18.8553 11.3069C19.0382 11.1287 19.1836 10.9158 19.2829 10.6806C19.3822 10.4454 19.4334 10.1927 19.4335 9.93745C19.4336 9.68216 19.3825 9.42943 19.2834 9.19418C19.1842 8.95892 19.039 8.7459 18.8562 8.56767C18.6734 8.38944 18.4568 8.24961 18.2192 8.15643ZM9.25624 8.17156C9.02325 8.07496 8.77351 8.0252 8.52129 8.02512C8.0119 8.02495 7.52332 8.22714 7.16301 8.5872C6.8027 8.94728 6.60018 9.43573 6.60001 9.94512C6.59984 10.4545 6.80203 10.9431 7.1621 11.3034C7.52217 11.6637 8.01062 11.8662 8.52001 11.8664C8.77223 11.8665 9.022 11.8169 9.25506 11.7204C9.48811 11.624 9.69989 11.4826 9.8783 11.3043C10.0567 11.126 10.1982 10.9143 10.2948 10.6813C10.3914 10.4484 10.4412 10.1986 10.4413 9.9464C10.4414 9.69417 10.3918 9.4444 10.2953 9.21135C10.1989 8.97829 10.0575 8.76652 9.8792 8.58811C9.70091 8.4097 9.48923 8.26816 9.25624 8.17156ZM11.9658 17.3893C12.6485 17.2524 13.3516 17.2524 14.0342 17.3893C15.0156 17.5916 15.9157 18.0781 16.6224 18.7884C16.8541 19.0188 17.064 19.2735 17.247 19.5436L19.3693 18.1138C18.8157 17.2964 18.1115 16.5918 17.2944 16.0376C16.4636 15.474 15.529 15.0811 14.545 14.8818C13.5253 14.6761 12.4749 14.6757 11.455 14.8805C10.4713 15.0828 9.53681 15.4759 8.70433 16.0376C7.88725 16.5904 7.18377 17.2948 6.63201 18.1125L8.75425 19.5423C8.93601 19.2722 9.14593 19.0175 9.38017 18.7845C9.61569 18.5503 9.87041 18.3404 10.1366 18.1586C10.4118 17.9743 10.7062 17.8156 11.0058 17.6876C11.3194 17.557 11.6419 17.4559 11.9658 17.3893Z"
+                          fill="#E90035" />
                       </svg>
                     </th>
                   </tr>
@@ -1238,11 +1375,13 @@
               </table>
             </div>
           </div>
-          <h1 class= "m-2 text-xs font-extrabold text-[#545B71]">*Всего <span class="text-[#74E900]">*VALUE*</span> надежных обменных пунктов</h1>
+          <h1 class="m-2 text-xs font-extrabold text-[#545B71]">*Всего <span class="text-[#74E900]">*VALUE*</span>
+            надежных обменных пунктов</h1>
         </div>
         <div id="table_hz" class="mb-4"> <!--таблица нейтраль-->
           <div class="rounded-xl border-2 border-[#FBA72A] bg-[#1E2027]">
-            <h1 class= "mr-3 p-10 text-lg font-extrabold text-white md:mr-14 lg:text-2xl"><span class="text-[#FBA72A]">Нейтральные</span> обменники</h1>
+            <h1 class="mr-3 p-10 text-lg font-extrabold text-white md:mr-14 lg:text-2xl"><span
+                class="text-[#FBA72A]">Нейтральные</span> обменники</h1>
             <div class="h-[370px] md:h-[556px] overflow-y-auto">
 
               <table class="rounded-xl overflow-hidden mr-0 pr-0 w-full h-full md:h-[556px] table-fixed">
@@ -1252,12 +1391,16 @@
                     <th class="w-2/10 py-2 pl-4 md:w-[30vw] text-left">Рейтинг</th>
                     <th class="w-2/10 py-2 px-4">
                       <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M14.0013 27.3334C21.3533 27.3334 27.3346 21.3521 27.3346 14.0001C27.3346 6.64808 21.3533 0.666748 14.0013 0.666748C6.6493 0.666748 0.667969 6.64808 0.667969 14.0001C0.667969 21.3521 6.6493 27.3334 14.0013 27.3334ZM18.6586 10.0001C18.9245 9.99329 19.189 10.0398 19.4366 10.1369C19.6842 10.2339 19.9098 10.3796 20.1002 10.5652C20.2906 10.7509 20.4419 10.9728 20.5452 11.2179C20.6484 11.4629 20.7016 11.7262 20.7015 11.9921C20.7014 12.258 20.6481 12.5212 20.5446 12.7662C20.4412 13.0112 20.2898 13.233 20.0992 13.4186C19.9087 13.6041 19.683 13.7496 19.4353 13.8465C19.1877 13.9434 18.9231 13.9897 18.6573 13.9827C18.1381 13.9691 17.6447 13.7533 17.2824 13.3812C16.92 13.0091 16.7173 12.5102 16.7175 11.9908C16.7177 11.4714 16.9207 10.9726 17.2833 10.6007C17.6459 10.2289 18.1394 10.0133 18.6586 10.0001ZM12.924 19.2254C13.6351 19.3681 14.3675 19.3681 15.0786 19.2254C15.416 19.1561 15.752 19.0507 16.0786 18.9147C16.3906 18.7814 16.6973 18.6161 16.984 18.4241C17.2613 18.2347 17.5266 18.0161 17.772 17.7721C18.016 17.5294 18.2346 17.2641 18.424 16.9827L20.6346 18.4721C20.0599 19.3239 19.3271 20.0576 18.476 20.6334C17.6088 21.2186 16.6353 21.6281 15.6106 21.8387C14.5483 22.0521 13.4541 22.0517 12.392 21.8374C11.367 21.6298 10.3934 21.2205 9.52797 20.6334C8.67683 20.0562 7.94333 19.3222 7.36664 18.4707L9.5773 16.9814C9.76797 17.2627 9.98664 17.5281 10.228 17.7681C10.9641 18.5079 11.9018 19.0148 12.924 19.2254ZM9.33463 10.0001C9.59737 10.0002 9.85751 10.052 10.1002 10.1526C10.3429 10.2533 10.5634 10.4007 10.7491 10.5865C10.9348 10.7724 11.0821 10.993 11.1826 11.2357C11.2831 11.4785 11.3347 11.7387 11.3346 12.0014C11.3345 12.2641 11.2827 12.5243 11.1821 12.767C11.0815 13.0097 10.934 13.2302 10.7482 13.4159C10.5623 13.6016 10.3417 13.7489 10.099 13.8494C9.85621 13.9498 9.59603 14.0015 9.3333 14.0014C8.80269 14.0012 8.29388 13.7903 7.91881 13.415C7.54374 13.0396 7.33313 12.5307 7.3333 12.0001C7.33348 11.4695 7.54443 10.9607 7.91975 10.5856C8.29508 10.2105 8.80402 9.9999 9.33463 10.0001Z" fill="#75E900"/>
+                        <path
+                          d="M14.0013 27.3334C21.3533 27.3334 27.3346 21.3521 27.3346 14.0001C27.3346 6.64808 21.3533 0.666748 14.0013 0.666748C6.6493 0.666748 0.667969 6.64808 0.667969 14.0001C0.667969 21.3521 6.6493 27.3334 14.0013 27.3334ZM18.6586 10.0001C18.9245 9.99329 19.189 10.0398 19.4366 10.1369C19.6842 10.2339 19.9098 10.3796 20.1002 10.5652C20.2906 10.7509 20.4419 10.9728 20.5452 11.2179C20.6484 11.4629 20.7016 11.7262 20.7015 11.9921C20.7014 12.258 20.6481 12.5212 20.5446 12.7662C20.4412 13.0112 20.2898 13.233 20.0992 13.4186C19.9087 13.6041 19.683 13.7496 19.4353 13.8465C19.1877 13.9434 18.9231 13.9897 18.6573 13.9827C18.1381 13.9691 17.6447 13.7533 17.2824 13.3812C16.92 13.0091 16.7173 12.5102 16.7175 11.9908C16.7177 11.4714 16.9207 10.9726 17.2833 10.6007C17.6459 10.2289 18.1394 10.0133 18.6586 10.0001ZM12.924 19.2254C13.6351 19.3681 14.3675 19.3681 15.0786 19.2254C15.416 19.1561 15.752 19.0507 16.0786 18.9147C16.3906 18.7814 16.6973 18.6161 16.984 18.4241C17.2613 18.2347 17.5266 18.0161 17.772 17.7721C18.016 17.5294 18.2346 17.2641 18.424 16.9827L20.6346 18.4721C20.0599 19.3239 19.3271 20.0576 18.476 20.6334C17.6088 21.2186 16.6353 21.6281 15.6106 21.8387C14.5483 22.0521 13.4541 22.0517 12.392 21.8374C11.367 21.6298 10.3934 21.2205 9.52797 20.6334C8.67683 20.0562 7.94333 19.3222 7.36664 18.4707L9.5773 16.9814C9.76797 17.2627 9.98664 17.5281 10.228 17.7681C10.9641 18.5079 11.9018 19.0148 12.924 19.2254ZM9.33463 10.0001C9.59737 10.0002 9.85751 10.052 10.1002 10.1526C10.3429 10.2533 10.5634 10.4007 10.7491 10.5865C10.9348 10.7724 11.0821 10.993 11.1826 11.2357C11.2831 11.4785 11.3347 11.7387 11.3346 12.0014C11.3345 12.2641 11.2827 12.5243 11.1821 12.767C11.0815 13.0097 10.934 13.2302 10.7482 13.4159C10.5623 13.6016 10.3417 13.7489 10.099 13.8494C9.85621 13.9498 9.59603 14.0015 9.3333 14.0014C8.80269 14.0012 8.29388 13.7903 7.91881 13.415C7.54374 13.0396 7.33313 12.5307 7.3333 12.0001C7.33348 11.4695 7.54443 10.9607 7.91975 10.5856C8.29508 10.2105 8.80402 9.9999 9.33463 10.0001Z"
+                          fill="#75E900" />
                       </svg>
                     </th>
                     <th class="w-3/10 py-3 px-4">
                       <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd" clip-rule="evenodd" d="M13 0C10.4288 0 7.91543 0.762437 5.77759 2.1909C3.63975 3.61935 1.97351 5.64968 0.989572 8.02512C0.00563271 10.4006 -0.251811 13.0144 0.249797 15.5362C0.751405 18.0579 1.98954 20.3743 3.80762 22.1924C5.6257 24.0105 7.94208 25.2486 10.4638 25.7502C12.9856 26.2518 15.5995 25.9944 17.9749 25.0104C20.3503 24.0265 22.3807 22.3603 23.8091 20.2224C25.2376 18.0846 26 15.5712 26 13C25.9934 9.55422 24.6216 6.25145 22.1851 3.81491C19.7486 1.37837 16.4458 0.00660747 13 0ZM18.2192 8.15643C17.9815 8.06324 17.7275 8.0186 17.4723 8.02512C16.9739 8.03785 16.5001 8.24476 16.152 8.60174C15.8039 8.95873 15.609 9.43756 15.6088 9.93617C15.6087 10.4348 15.8033 10.9137 16.1511 11.271C16.499 11.6282 16.9726 11.8354 17.4711 11.8485C17.7263 11.8552 17.9802 11.8107 18.218 11.7177C18.4557 11.6246 18.6724 11.485 18.8553 11.3069C19.0382 11.1287 19.1836 10.9158 19.2829 10.6806C19.3822 10.4454 19.4334 10.1927 19.4335 9.93745C19.4336 9.68216 19.3825 9.42943 19.2834 9.19418C19.1842 8.95892 19.039 8.7459 18.8562 8.56767C18.6734 8.38944 18.4568 8.24961 18.2192 8.15643ZM9.25624 8.17156C9.02325 8.07496 8.77351 8.0252 8.52129 8.02512C8.0119 8.02495 7.52332 8.22714 7.16301 8.5872C6.8027 8.94728 6.60018 9.43573 6.60001 9.94512C6.59984 10.4545 6.80203 10.9431 7.1621 11.3034C7.52217 11.6637 8.01062 11.8662 8.52001 11.8664C8.77223 11.8665 9.022 11.8169 9.25506 11.7204C9.48811 11.624 9.69989 11.4826 9.8783 11.3043C10.0567 11.126 10.1982 10.9143 10.2948 10.6813C10.3914 10.4484 10.4412 10.1986 10.4413 9.9464C10.4414 9.69417 10.3918 9.4444 10.2953 9.21135C10.1989 8.97829 10.0575 8.76652 9.8792 8.58811C9.70091 8.4097 9.48923 8.26816 9.25624 8.17156ZM11.9658 17.3893C12.6485 17.2524 13.3516 17.2524 14.0342 17.3893C15.0156 17.5916 15.9157 18.0781 16.6224 18.7884C16.8541 19.0188 17.064 19.2735 17.247 19.5436L19.3693 18.1138C18.8157 17.2964 18.1115 16.5918 17.2944 16.0376C16.4636 15.474 15.529 15.0811 14.545 14.8818C13.5253 14.6761 12.4749 14.6757 11.455 14.8805C10.4713 15.0828 9.53681 15.4759 8.70433 16.0376C7.88725 16.5904 7.18377 17.2948 6.63201 18.1125L8.75425 19.5423C8.93601 19.2722 9.14593 19.0175 9.38017 18.7845C9.61569 18.5503 9.87041 18.3404 10.1366 18.1586C10.4118 17.9743 10.7062 17.8156 11.0058 17.6876C11.3194 17.557 11.6419 17.4559 11.9658 17.3893Z" fill="#E90035"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                          d="M13 0C10.4288 0 7.91543 0.762437 5.77759 2.1909C3.63975 3.61935 1.97351 5.64968 0.989572 8.02512C0.00563271 10.4006 -0.251811 13.0144 0.249797 15.5362C0.751405 18.0579 1.98954 20.3743 3.80762 22.1924C5.6257 24.0105 7.94208 25.2486 10.4638 25.7502C12.9856 26.2518 15.5995 25.9944 17.9749 25.0104C20.3503 24.0265 22.3807 22.3603 23.8091 20.2224C25.2376 18.0846 26 15.5712 26 13C25.9934 9.55422 24.6216 6.25145 22.1851 3.81491C19.7486 1.37837 16.4458 0.00660747 13 0ZM18.2192 8.15643C17.9815 8.06324 17.7275 8.0186 17.4723 8.02512C16.9739 8.03785 16.5001 8.24476 16.152 8.60174C15.8039 8.95873 15.609 9.43756 15.6088 9.93617C15.6087 10.4348 15.8033 10.9137 16.1511 11.271C16.499 11.6282 16.9726 11.8354 17.4711 11.8485C17.7263 11.8552 17.9802 11.8107 18.218 11.7177C18.4557 11.6246 18.6724 11.485 18.8553 11.3069C19.0382 11.1287 19.1836 10.9158 19.2829 10.6806C19.3822 10.4454 19.4334 10.1927 19.4335 9.93745C19.4336 9.68216 19.3825 9.42943 19.2834 9.19418C19.1842 8.95892 19.039 8.7459 18.8562 8.56767C18.6734 8.38944 18.4568 8.24961 18.2192 8.15643ZM9.25624 8.17156C9.02325 8.07496 8.77351 8.0252 8.52129 8.02512C8.0119 8.02495 7.52332 8.22714 7.16301 8.5872C6.8027 8.94728 6.60018 9.43573 6.60001 9.94512C6.59984 10.4545 6.80203 10.9431 7.1621 11.3034C7.52217 11.6637 8.01062 11.8662 8.52001 11.8664C8.77223 11.8665 9.022 11.8169 9.25506 11.7204C9.48811 11.624 9.69989 11.4826 9.8783 11.3043C10.0567 11.126 10.1982 10.9143 10.2948 10.6813C10.3914 10.4484 10.4412 10.1986 10.4413 9.9464C10.4414 9.69417 10.3918 9.4444 10.2953 9.21135C10.1989 8.97829 10.0575 8.76652 9.8792 8.58811C9.70091 8.4097 9.48923 8.26816 9.25624 8.17156ZM11.9658 17.3893C12.6485 17.2524 13.3516 17.2524 14.0342 17.3893C15.0156 17.5916 15.9157 18.0781 16.6224 18.7884C16.8541 19.0188 17.064 19.2735 17.247 19.5436L19.3693 18.1138C18.8157 17.2964 18.1115 16.5918 17.2944 16.0376C16.4636 15.474 15.529 15.0811 14.545 14.8818C13.5253 14.6761 12.4749 14.6757 11.455 14.8805C10.4713 15.0828 9.53681 15.4759 8.70433 16.0376C7.88725 16.5904 7.18377 17.2948 6.63201 18.1125L8.75425 19.5423C8.93601 19.2722 9.14593 19.0175 9.38017 18.7845C9.61569 18.5503 9.87041 18.3404 10.1366 18.1586C10.4118 17.9743 10.7062 17.8156 11.0058 17.6876C11.3194 17.557 11.6419 17.4559 11.9658 17.3893Z"
+                          fill="#E90035" />
                       </svg>
                     </th>
                   </tr>
@@ -1333,162 +1476,172 @@
               </table>
             </div>
           </div>
-          <h1 class= "m-2 text-xs font-extrabold text-[#545B71]">*Всего <span class="text-[#FBA72A]">*VALUE*</span> нейтральных обменных пунктов</h1>
+          <h1 class="m-2 text-xs font-extrabold text-[#545B71]">*Всего <span class="text-[#FBA72A]">*VALUE*</span>
+            нейтральных обменных пунктов</h1>
         </div>
       </div>
     </div>
   </div>
-    <div class="mb-28"> <!--вопросы? не пашет 5xl на lg втф-->
-      <div class="flex flex-col items-center text-center break words">
-        <h1 class="p-8 font-extrabold text-white md:text-2xl lg:text-5xl ">У Вас есть вопросы или предложения?</h1>
-        <h1 class="lg:text-lg font-bold text-[#545B71] mb-8"> Свяжитесь с нами, и мы ответим Вам так скоро, как сможем. </h1>
-        <button class="flex justify-center mt-2 gap-3 items-center rounded bg-[#00A3FF] w-[60%] lg:w-8 md:w-[20%] min-w-[200px] min-h-[50px] px-5 py-3 font-bold text-white hover:bg-blue-600">
-                  <svg class="w-auto h-auto max-w-none max-h-none min-w-23 min-h-20" width="23" height="20" viewBox="0 0 23 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M21.1328 0.716923L0.755912 8.46884C-0.0640911 8.82984 -0.341439 9.55276 0.557717 9.94511L5.78527 11.584L18.4248 3.87777C19.115 3.39398 19.8215 3.52298 19.2135 4.05518L8.35786 13.7518L8.01686 17.8554C8.3327 18.489 8.91103 18.4919 9.27992 18.177L12.2833 15.3735L17.4271 19.1733C18.6218 19.8711 19.2718 19.4208 19.5289 18.1419L22.9027 2.38158C23.253 0.807392 22.6557 0.113791 21.1328 0.716923Z" fill="white"/>
-                  </svg>
-              Telegram
-          </button>
-      </div>
+  <div class="mb-28"> <!--вопросы? не пашет 5xl на lg втф-->
+    <div class="flex flex-col items-center text-center break words">
+      <h1 class="p-8 font-extrabold text-white md:text-2xl lg:text-5xl ">У Вас есть вопросы или предложения?</h1>
+      <h1 class="lg:text-lg font-bold text-[#545B71] mb-8"> Свяжитесь с нами, и мы ответим Вам так скоро, как сможем.
+      </h1>
+      <button
+        class="flex justify-center mt-2 gap-3 items-center rounded bg-[#00A3FF] w-[60%] lg:w-8 md:w-[20%] min-w-[200px] min-h-[50px] px-5 py-3 font-bold text-white hover:bg-blue-600">
+        <svg class="w-auto h-auto max-w-none max-h-none min-w-23 min-h-20" width="23" height="20" viewBox="0 0 23 20"
+          fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M21.1328 0.716923L0.755912 8.46884C-0.0640911 8.82984 -0.341439 9.55276 0.557717 9.94511L5.78527 11.584L18.4248 3.87777C19.115 3.39398 19.8215 3.52298 19.2135 4.05518L8.35786 13.7518L8.01686 17.8554C8.3327 18.489 8.91103 18.4919 9.27992 18.177L12.2833 15.3735L17.4271 19.1733C18.6218 19.8711 19.2718 19.4208 19.5289 18.1419L22.9027 2.38158C23.253 0.807392 22.6557 0.113791 21.1328 0.716923Z"
+            fill="white" />
+        </svg>
+        Telegram
+      </button>
     </div>
+  </div>
   </div>
 </body>
-  <footer> <!--каблук сайта || FONTS DONE-->
-    <div class="h-[401px] bg-[#1E2027] md:hidden"> <!--мобилка футер-->
-      <h1 class="text-white font-extrabold flex justify-center pt-10">AntiSwap</h1>
-      <div class="h-[1px] bg-[#545B71] my-10"></div>
-      <h2 class="text-white font-bold flex justify-center mt-[1px] mb-5">Обменники</h2>
-      <h2 class="text-white font-bold flex justify-center m-16 mt-[1px]">О нас</h2>
-      <div class="text-white flex mb-10 justify-center">
-        <h2 class="mr-5">AntiSwap@gmail.com</h2>
-        <svg width="31" height="27" viewBox="0 0 31 27" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M28.4834 0.798923L1.01884 11.4068C-0.0863836 11.9008 -0.4602 12.8901 0.751706 13.427L7.79754 15.6697L24.8335 5.12429C25.7637 4.46227 26.7159 4.6388 25.8965 5.36706L11.2649 18.6361L10.8053 24.2516C11.231 25.1186 12.0105 25.1226 12.5077 24.6917L16.5558 20.8552L23.4887 26.0551C25.0989 27.0099 25.9751 26.3937 26.3215 24.6437L30.8689 3.07687C31.3411 0.922724 30.5359 -0.0264154 28.4834 0.798923Z" fill="white" />
-        </svg>
-      </div>
-      <div class="h-[1px] bg-[#545B71]"></div> <!--разделитель-->
-      <div class="flex justify-between">
-        <h1 class="text-[#545B71] text-xs m-5">© 2023 AntiSwap</h1>
-        <h1 class="text-[#545B71] text-xs m-5">Все права защищены.</h1>
-      </div>
+<footer> <!--каблук сайта || FONTS DONE-->
+  <div class="h-[401px] bg-[#1E2027] md:hidden"> <!--мобилка футер-->
+    <h1 class="text-white font-extrabold flex justify-center pt-10">AntiSwap</h1>
+    <div class="h-[1px] bg-[#545B71] my-10"></div>
+    <h2 class="text-white font-bold flex justify-center mt-[1px] mb-5">Обменники</h2>
+    <h2 class="text-white font-bold flex justify-center m-16 mt-[1px]">О нас</h2>
+    <div class="text-white flex mb-10 justify-center">
+      <h2 class="mr-5">AntiSwap@gmail.com</h2>
+      <svg width="31" height="27" viewBox="0 0 31 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M28.4834 0.798923L1.01884 11.4068C-0.0863836 11.9008 -0.4602 12.8901 0.751706 13.427L7.79754 15.6697L24.8335 5.12429C25.7637 4.46227 26.7159 4.6388 25.8965 5.36706L11.2649 18.6361L10.8053 24.2516C11.231 25.1186 12.0105 25.1226 12.5077 24.6917L16.5558 20.8552L23.4887 26.0551C25.0989 27.0099 25.9751 26.3937 26.3215 24.6437L30.8689 3.07687C31.3411 0.922724 30.5359 -0.0264154 28.4834 0.798923Z"
+          fill="white" />
+      </svg>
     </div>
-    <div class="hidden md:block bg-[#1E2027] h-[166px] pt-10"> <!--компик и планшет футер-->
-      <div class="flex flex-col px-10 md:px-0">
-      <div class="flex items-center justify-start px-10 md:px-0">
-      <h1 class= "mr-3 text-lg text-white md:ml-20 md:mr-14 lg:text-2xl font-extrabold">AntiSwap</h1>
-      <h2 class= "text-white md:ml-6 font-bold">Обменники</h2>
-      <h2 class= "text-sm text-white md:ml-4 lg:text-lg font-bold">О нас</h2>
-      <div class="flex ml-auto md:mr-6 lg:mr-20">
-        <h1 class="flex gap-2 text-white font-[600] text-sm md:mr-14 md:flex lg:mr-24">AntiSwap@gmail.com
-          <svg width="31" height="27" viewBox="0 0 31 27" fill="none" xmlns="http://www.w3.org/2000/svg%22%3E" class="ml-10">
-          <path d="M28.4834 0.798923L1.01884 11.4068C-0.0863836 11.9008 -0.4602 12.8901 0.751706 13.427L7.79754 15.6697L24.8335 5.12429C25.7637 4.46227 26.7159 4.6388 25.8965 5.36706L11.2649 18.6361L10.8053 24.2516C11.231 25.1186 12.0105 25.1226 12.5077 24.6917L16.5558 20.8552L23.4887 26.0551C25.0989 27.0099 25.9751 26.3937 26.3215 24.6437L30.8689 3.07687C31.3411 0.922724 30.5359 -0.0264154 28.4834 0.798923Z" fill="white" />
-        </svg>
-        </h1>
-      </div>
-    </div>
-    <div class="md:my-5 md:flex lg:mr-28 md:mr-20 h-[1px] bg-[#545B71] md:ml-20"></div>
-    <div class="flex justify-between md:flex font-[600] text-xs">
-      <h1 class="text-[#545B71] lg:mr-28 md:mr-20 md:ml-20">© 2023 AntiSwap</h1>
-      <h1 class="text-[#545B71] lg:mr-28 md:mr-20 md:ml-20">Все права защищены</h1>
+    <div class="h-[1px] bg-[#545B71]"></div> <!--разделитель-->
+    <div class="flex justify-between">
+      <h1 class="text-[#545B71] text-xs m-5">© 2023 AntiSwap</h1>
+      <h1 class="text-[#545B71] text-xs m-5">Все права защищены.</h1>
     </div>
   </div>
+  <div class="hidden md:block bg-[#1E2027] h-[166px] pt-10"> <!--компик и планшет футер-->
+    <div class="flex flex-col px-10 md:px-0">
+      <div class="flex items-center justify-start px-10 md:px-0">
+        <h1 class="mr-3 text-lg text-white md:ml-20 md:mr-14 lg:text-2xl font-extrabold">AntiSwap</h1>
+        <h2 class="text-white md:ml-6 font-bold">Обменники</h2>
+        <h2 class="text-sm text-white md:ml-4 lg:text-lg font-bold">О нас</h2>
+        <div class="flex ml-auto md:mr-6 lg:mr-20">
+          <h1 class="flex gap-2 text-white font-[600] text-sm md:mr-14 md:flex lg:mr-24">AntiSwap@gmail.com
+            <svg width="31" height="27" viewBox="0 0 31 27" fill="none" xmlns="http://www.w3.org/2000/svg%22%3E"
+              class="ml-10">
+              <path
+                d="M28.4834 0.798923L1.01884 11.4068C-0.0863836 11.9008 -0.4602 12.8901 0.751706 13.427L7.79754 15.6697L24.8335 5.12429C25.7637 4.46227 26.7159 4.6388 25.8965 5.36706L11.2649 18.6361L10.8053 24.2516C11.231 25.1186 12.0105 25.1226 12.5077 24.6917L16.5558 20.8552L23.4887 26.0551C25.0989 27.0099 25.9751 26.3937 26.3215 24.6437L30.8689 3.07687C31.3411 0.922724 30.5359 -0.0264154 28.4834 0.798923Z"
+                fill="white" />
+            </svg>
+          </h1>
+        </div>
+      </div>
+      <div class="md:my-5 md:flex lg:mr-28 md:mr-20 h-[1px] bg-[#545B71] md:ml-20"></div>
+      <div class="flex justify-between md:flex font-[600] text-xs">
+        <h1 class="text-[#545B71] lg:mr-28 md:mr-20 md:ml-20">© 2023 AntiSwap</h1>
+        <h1 class="text-[#545B71] lg:mr-28 md:mr-20 md:ml-20">Все права защищены</h1>
+      </div>
     </div>
+  </div>
 </footer>
 <script> // скриптецкий на Кнопку, Бургер и Выборку двух значений в обменнике
-function checkInputValues() {
-  var giveInputValue = document.getElementById('give-input').value;
-  var receiveInputValue = document.getElementById('receive-input').value;
+  function checkInputValues() {
+    var giveInputValue = document.getElementById('give-input').value;
+    var receiveInputValue = document.getElementById('receive-input').value;
 
-  if (giveInputValue && receiveInputValue) {
-    document.getElementById('table_scam').classList.add('hidden');
-    document.getElementById('table_true').classList.add('hidden');
-    document.getElementById('table_hz').classList.add('hidden');
-    document.getElementById('desc').classList.add('hidden');
-    document.getElementById('trade_desc').classList.remove('hidden');
-    document.getElementById('mobile_trade_table').classList.remove('hidden');
-    document.getElementById('mobile_trade_table').classList.add('lg:hidden', 'block');
-    document.getElementById('desktop_trade_table').classList.add('md:block');
-  }
-}
-
-var buttons = document.querySelectorAll('button[data-table]');
-
-buttons.forEach(function(button) {
-  button.addEventListener('click', function() {
-    button.classList.add('focused');
-    var table = this.getAttribute('data-table').split('-')[1];
-    if (table === '1') {
-      document.getElementById('give-input').value = button.querySelectorAll('span')[1].innerHTML;
-    } else {
-      document.getElementById('receive-input').value = button.querySelectorAll('span')[1].innerHTML;
+    if (giveInputValue && receiveInputValue) {
+      document.getElementById('table_scam').classList.add('hidden');
+      document.getElementById('table_true').classList.add('hidden');
+      document.getElementById('table_hz').classList.add('hidden');
+      document.getElementById('desc').classList.add('hidden');
+      document.getElementById('trade_desc').classList.remove('hidden');
+      document.getElementById('mobile_trade_table').classList.remove('hidden');
+      document.getElementById('mobile_trade_table').classList.add('lg:hidden', 'block');
+      document.getElementById('desktop_trade_table').classList.add('md:block');
     }
-
-    var btns = document.querySelectorAll(`button[data-table]`);
-
-    btns.forEach(function(btn) {
-      if (btn !== button && btn.getAttribute('data-table').split('-')[1] === table) {
-        btn.classList.remove('focused');
-      }
-    });
-
-    checkInputValues();
-  });
-});
-
-var button_extend = document.getElementById('extend_button');
-//var banking = document.getElementById('banking');
-//var balance = document.getElementById('balance');
-
-function extend() {
-  //banking.classList.toggle('hidden');
-  //banking.classList.toggle('md:block');
-  //balance.classList.toggle('hidden');
-  //balance.classList.toggle('lg:block');
-  let tableContainers = document.getElementsByClassName('left-tables')[0].getElementsByClassName('table-container');
-  for (let tc = 1; tc < tableContainers.length; tc++) {
-    let classList = tableContainers[tc].classList;
-    classList.toggle('hidden');
-    for (let c = 0; c < classList.length; c++)
-      if (classList[c].includes('block')) block = classList[c];
-    console.log(block);
-    classList.toggle(block);
-    console.log(tableContainers[tc].classList);
   }
-}
 
-button_extend.addEventListener('click', extend);
+  var buttons = document.querySelectorAll('button[data-table]');
 
-checkInputValues();
+  buttons.forEach(function (button) {
+    button.addEventListener('click', function () {
+      button.classList.add('focused');
+      var table = this.getAttribute('data-table').split('-')[1];
+      if (table === '1') {
+        document.getElementById('give-input').value = button.querySelectorAll('span')[1].innerHTML;
+      } else {
+        document.getElementById('receive-input').value = button.querySelectorAll('span')[1].innerHTML;
+      }
 
-var burgerBtn = document.getElementById('burger-btn');
-var menu = document.getElementById('menu');
+      var btns = document.querySelectorAll(`button[data-table]`);
 
-burgerBtn.addEventListener('click', function() {
-  burgerBtn.classList.toggle('active');
-  menu.classList.toggle('hidden');
-});
+      btns.forEach(function (btn) {
+        if (btn !== button && btn.getAttribute('data-table').split('-')[1] === table) {
+          btn.classList.remove('focused');
+        }
+      });
+
+      checkInputValues();
+    });
+  });
+
+  var button_extend = document.getElementById('extend_button');
+  //var banking = document.getElementById('banking');
+  //var balance = document.getElementById('balance');
+
+  function extend() {
+    //banking.classList.toggle('hidden');
+    //banking.classList.toggle('md:block');
+    //balance.classList.toggle('hidden');
+    //balance.classList.toggle('lg:block');
+    let tableContainers = document.getElementsByClassName('left-tables')[0].getElementsByClassName('table-container');
+    for (let tc = 1; tc < tableContainers.length; tc++) {
+      let classList = tableContainers[tc].classList;
+      classList.toggle('hidden');
+      for (let c = 0; c < classList.length; c++)
+        if (classList[c].includes('block')) block = classList[c];
+      console.log(block);
+      classList.toggle(block);
+      console.log(tableContainers[tc].classList);
+    }
+  }
+
+  button_extend.addEventListener('click', extend);
+
+  checkInputValues();
+
+  var burgerBtn = document.getElementById('burger-btn');
+  var menu = document.getElementById('menu');
+
+  burgerBtn.addEventListener('click', function () {
+    burgerBtn.classList.toggle('active');
+    menu.classList.toggle('hidden');
+  });
 
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"> //flowbitejs либа для модалок
 </script>
 <script>
-  
+
   function showModal() {
     document.getElementById('modal').classList.toggle('hidden');
-
   }
 </script>
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-  var citySelector = document.getElementById('city-selector');
-  var modal = document.getElementById('modal');
-  var closeButton = document.querySelector('#modal .close-button');
-  citySelector.addEventListener('click', function() {
-    modal.classList.remove('hidden');
-  });
+  document.addEventListener('DOMContentLoaded', function () {
+    var citySelector = document.getElementById('city-selector');
+    var modal = document.getElementById('modal');
+    var closeButton = document.querySelector('#modal .close-button');
+    citySelector.addEventListener('click', function () {
+      modal.classList.remove('hidden');
+    });
 
-  closeButton.addEventListener('click', function() {
-    modal.classList.add('hidden');
+    closeButton.addEventListener('click', function () {
+      modal.classList.add('hidden');
+    });
   });
-});
 
 </script>
 
@@ -1497,7 +1650,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const countryList = document.getElementById("country-list");
   const mainTitle = document.getElementById("main-title");
 
-  extendButton.addEventListener("click", function() {
+  extendButton.addEventListener("click", function () {
     countryList.classList.toggle("hidden");
   });
 
@@ -1508,36 +1661,36 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   const extendCityButton = document.getElementById("extend-city-list");
-const cityList = document.getElementById("city-list");
-const mainCity = document.getElementById("main-city");
+  const cityList = document.getElementById("city-list");
+  const mainCity = document.getElementById("main-city");
 
-extendCityButton.addEventListener("click", function() {
-  cityList.classList.toggle("hidden");
-});
-
-function updateCity(element) {
-  const cityName = element.querySelector("span:first-child");
-  mainCity.innerText = cityName.innerText;
-  cityList.classList.add("hidden");
-}
-
-function turnRowsIntoLinks() {
-  let tables = [
-    document.getElementById('table_true'), 
-    document.getElementById('table_scam'), 
-    document.getElementById('table_hz')
-  ].forEach((table) => {
-    let rows = Array.from(table.getElementsByTagName('tbody')[0].getElementsByTagName('tr'));
-    console.log(rows);
-    rows.forEach((row) => {
-      console.log(row);
-      row.addEventListener('click', () => {
-        window.location.href = 'exchange.html';
-      });
-    })
+  extendCityButton.addEventListener("click", function () {
+    cityList.classList.toggle("hidden");
   });
-}
-turnRowsIntoLinks();
+
+  function updateCity(element) {
+    const cityName = element.querySelector("span:first-child");
+    mainCity.innerText = cityName.innerText;
+    cityList.classList.add("hidden");
+  }
+
+  function turnRowsIntoLinks() {
+    let tables = [
+      document.getElementById('table_true'),
+      document.getElementById('table_scam'),
+      document.getElementById('table_hz')
+    ].forEach((table) => {
+      let rows = Array.from(table.getElementsByTagName('tbody')[0].getElementsByTagName('tr'));
+      console.log(rows);
+      rows.forEach((row) => {
+        console.log(row);
+        row.addEventListener('click', () => {
+          window.location.href = 'exchange.html';
+        });
+      })
+    });
+  }
+  turnRowsIntoLinks();
 </script>
 
 </html>
