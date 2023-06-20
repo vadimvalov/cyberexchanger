@@ -2,6 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+button:focus {
+  outline: none;
+}
+
+input:invalid {
+  border-color: red;
+}
+
 @font-face {
   font-family: "Mont";
   src: url("/fonts/Mont-Regular.woff2") format("woff2");
