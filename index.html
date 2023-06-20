@@ -12,7 +12,7 @@
   <style>
   </style>
 </head>
-<header class="h-20 max-w-screen bg-[#1E2027] pt-[28px]"> <!--лого ниже чем надо-->
+<header class="h-20 max-w-screen bg-[#1E2027] pt-[28px]">
   <div class="flex justify-start items-center px-10 md:px-0">
     <a href="" class="text-white text-lg font-extrabold mr-3 lg:text-2xl md:mr-14 md:ml-20">AntiSwap</a>
     <div class="md:hidden ml-auto flex flex-col items-center">
@@ -753,7 +753,7 @@
             </div>
           </div>
           <div id="mobile_trade_table" class="mb-10 hidden">
-            <!--Карточки Курсы Обмена (Mobile) баг Город Москва на md (1024) не center-->
+            <!--Карточки Курсы Обмена-->
             <div class="rounded-xl bg-[#1E2027] md:h-full">
               <div class="flex justify-between items-center text-white flex-col md:flex-row">
                 <h1 class="mr-3 px-2 pb-4 pt-10 text-xl font-extrabold text-white">Курсы обмена</h1>
@@ -1239,7 +1239,7 @@
             <div class="rounded-xl bg-[#1E2027] text-white">
               <div class="flex flex-col md:flex-row">
                 <div class="p-10 hidden md:block"> <!--Текст-->
-                  <h1 class="mb-2 text-xl font-bold ">AntiSwap</h1>
+                  <h1 class="mb-6 text-4xl font-bold ">AntiSwap</h1>
                   <p class="mb-8">
                     Сервис анализирующий прозрачность и безопасность <br />
                     обменников благодаря отзывам пользователей
@@ -1604,11 +1604,7 @@
     <h2 class="text-white font-bold flex justify-center m-16 mt-[1px]">О нас</h2>
     <div class="text-white flex mb-10 justify-center">
       <h2 class="mr-5">AntiSwap@gmail.com</h2>
-      <svg width="31" height="27" viewBox="0 0 31 27" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path
-          d="M28.4834 0.798923L1.01884 11.4068C-0.0863836 11.9008 -0.4602 12.8901 0.751706 13.427L7.79754 15.6697L24.8335 5.12429C25.7637 4.46227 26.7159 4.6388 25.8965 5.36706L11.2649 18.6361L10.8053 24.2516C11.231 25.1186 12.0105 25.1226 12.5077 24.6917L16.5558 20.8552L23.4887 26.0551C25.0989 27.0099 25.9751 26.3937 26.3215 24.6437L30.8689 3.07687C31.3411 0.922724 30.5359 -0.0264154 28.4834 0.798923Z"
-          fill="white" />
-      </svg>
+      <svg width="31" height="27" viewBox="0 0 31 27" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M28.4834 0.798923L1.01884 11.4068C-0.0863836 11.9008 -0.4602 12.8901 0.751706 13.427L7.79754 15.6697L24.8335 5.12429C25.7637 4.46227 26.7159 4.6388 25.8965 5.36706L11.2649 18.6361L10.8053 24.2516C11.231 25.1186 12.0105 25.1226 12.5077 24.6917L16.5558 20.8552L23.4887 26.0551C25.0989 27.0099 25.9751 26.3937 26.3215 24.6437L30.8689 3.07687C31.3411 0.922724 30.5359 -0.0264154 28.4834 0.798923Z" fill="white" /></svg>
     </div>
     <div class="h-[1px] bg-[#545B71]"></div> <!--разделитель-->
     <div class="flex justify-between">
@@ -1713,7 +1709,6 @@
   });
 
 </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"> //flowbitejs либа для модалок
 </script>
 <script>
 
@@ -1737,7 +1732,6 @@
   });
 
 </script>
-
 <script> // модалка
   const extendButton = document.getElementById("extend-country-list");
   const countryList = document.getElementById("country-list");
@@ -1842,5 +1836,4 @@
     });
   }
 </script>
-
 </html>

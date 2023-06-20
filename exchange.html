@@ -144,7 +144,7 @@
               <h3 class="lg:text-xl text-[#545B71] flex gap-1">Отзывы <p
                   class="flex justify-start items-start mt-[-10px] text-[0.8rem]">62640</p>
               </h3>
-              <button class="hidden md:flex gap-1 border-blue-500 border-2 p-2 rounded-lg text-sm text-blue-500 hover:text-blue-700 flex items-center" onclick="showModal()">
+              <button class="md:flex gap-1 border-blue-500 border-2 p-2 rounded-lg text-xs md:text-sm text-blue-500 hover:text-blue-700 flex items-center" onclick="showModal()">
                   <!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -156,7 +156,7 @@
                   Оставить отзыв
                 </button>
             </div>
-            <div class="flex items-center border-b pt-2"> <!-- SOLID BORDER -->
+            <div class="flex items-center border-b pt-2"> 
               <ul class="flex items-center lg:gap-10">
                 <li>
                   <button
@@ -176,7 +176,7 @@
                   </button>
                 </li>
               </ul>
-              <div class="ml-auto flex-col gap-1">
+              <div class="ml-auto flex-col gap-1 hidden md:block">
                 <button id="new" class="gap-1 hover:text-blue-500 flex items-center" onclick="sortReviews('newFirst')">
                   <svg fill="#FFFFFF" width="20px" height="20px" viewBox="0 0 1920 1920"
                     xmlns="http://www.w3.org/2000/svg">
@@ -198,21 +198,23 @@
                 
               </div>
             </div>
-            <button class="md:hidden p-4 gap-1 hover:text-blue-500 flex items-center" onclick="showModal()">
-                  <!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
-                  <svg class="text-blue-500" width="20px" height="20px" viewBox="0 -0.5 21 21" version="1.1"
-                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                      <g id="Dribbble-Light-Preview" transform="translate(-419.000000, -359.000000)" fill="#FFFFFF">
-                        <g id="icons" transform="translate(56.000000, 160.000000)">
-                          <path
-                            d="M384,209.210475 L384,219 L363,219 L363,199.42095 L373.5,199.42095 L373.5,201.378855 L365.1,201.378855 L365.1,217.042095 L381.9,217.042095 L381.9,209.210475 L384,209.210475 Z M370.35,209.51395 L378.7731,201.64513 L380.4048,203.643172 L371.88195,212.147332 L370.35,212.147332 L370.35,209.51395 Z M368.25,214.105237 L372.7818,214.105237 L383.18415,203.64513 L378.8298,199 L368.25,208.687714 L368.25,214.105237 Z"
-                            id="edit_cover-[#1481]"></path>
-                        </g>
-                      </g>
-                    </g>
+            <button id="new" class=" md:hidden pt-4 gap-1 hover:text-blue-500 flex items-center" onclick="sortReviews('newFirst')">
+                  <svg fill="#FFFFFF" width="20px" height="20px" viewBox="0 0 1920 1920"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M1539.045 215.441v1249.74l299.206-299.206L1920 1247.84l-438.966 438.966-438.85-438.966 81.864-81.865 299.206 299.206V215.44h115.791ZM438.966 160l438.967 439.082-81.865 81.749-299.206-299.206v1249.74H381.186V381.625L81.981 680.831 0 599.082 438.966 160Z"
+                      fill-rule="evenodd" />
                   </svg>
-                  Оставить отзыв
+                  Сначала новые
+                </button>
+                <button id="old" class="gap-1 hidden hover:text-blue-500 flex items-center" onclick="sortReviews('oldFirst')">
+                  <svg fill="#FFFFFF" width="20px" height="20px" viewBox="0 0 1920 1920"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M1539.045 215.441v1249.74l299.206-299.206L1920 1247.84l-438.966 438.966-438.85-438.966 81.864-81.865 299.206 299.206V215.44h115.791ZM438.966 160l438.967 439.082-81.865 81.749-299.206-299.206v1249.74H381.186V381.625L81.981 680.831 0 599.082 438.966 160Z"
+                      fill-rule="evenodd" />
+                  </svg>
+                  Сначала старые
                 </button>
             <div id="reviews"> <!-- отзыв -->
               <div class="m-4 review border-t-[1px] border-[#2C2F3A]" data-date="2021-02-15">
