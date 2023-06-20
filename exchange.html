@@ -16,14 +16,20 @@
     <a href="/" class="text-white text-lg font-extrabold mr-3 lg:text-2xl md:mr-14 md:ml-20">AntiSwap</a>
     <div class="relative md:hidden ml-auto flex flex-col items-center">
       <button id="burger-btn" class="w-8 h-8 flex items-center text-white justify-center focus:outline-none">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-          class="w-6 h-6">
+        <svg id="open-burger-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+          stroke="currentColor" class="w-6 h-6">
           <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 9h16.5m-16.5 6.75h16.5" />
+        </svg>
+        <svg id="close-burger-icon" class="h-5 w-5 hidden" fill="currentColor" viewBox="0 0 20 20"
+          xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd"
+            d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+            clip-rule="evenodd"></path>
         </svg>
         <path class="burger-line" d="M2,5h20M2,12h20M2,19h20"></path>
 
       </button>
-      <nav id="menu" class="p-3  rounded-lg text-white menu hidden absolute left-[-3rem] top-14 bg-[#2C2F3A]">
+      <nav id="menu" class="p-3 rounded-lg text-white menu absolute left-[-3rem] top-14 bg-[#2C2F3A]">
         <ul class="menu-items flex flex-col gap-2">
           <li><a href="#about" class="hover:text-blue-500">О нас</a></li>
           <li><a href="#exchanges" class="hover:text-blue-500">Обменники</a></li>
@@ -45,8 +51,8 @@
     <div id="modal" class="hidden fixed inset-0 text-white items-center justify-center bg-black bg-opacity-80">
       <!--модалка-->
 
-      <div
-        class="absolute py-50 top-[40px] text-white left-20 right-20 bg-[#1E2027] rounded-lg z-50 lg:top-[40px] lg:left-[30%] lg:right-[30%] p-10">
+      <div id="modal-content"
+        class="absolute top-[40px] text-white left-20 right-20 bg-[#1E2027] rounded-lg z-50 lg:top-[20px] lg:left-[30%] lg:right-[30%] py-3 px-10">
         <div class="rounded-lg text-white bg-[#1E2027] flex-col">
           <div class="flex">
             <button type="button"
@@ -64,46 +70,48 @@
             <h3 class="mb-4 text-xl font-medium text-white dark:text-white">Оставить отзыв</h3>
             <div class="flex">
               <div class="flex-col flex gap-2 w-1/2">
-                <label for="email" class="text-sm font-medium text-white dark:text-white">Имя</label>
-                <input type="" name="email" id="input1"
+                <label for="name-input" class="text-sm font-medium text-white dark:text-white">Имя</label>
+                <input id="name-input"
                   class="outline-none w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-500 dark:bg-gray-600 dark:text-white dark:placeholder-gray-400"
                   placeholder="" required />
-                <label for="password" class="mt-4 text-sm font-medium text-white dark:text-white">Номер
+                <label for="number-input" class="mt-4 text-sm font-medium text-white dark:text-white">Номер
                   обмена</label>
-                <input type="" id="input2"
+                <input type="" id="number-input"
                   class="outline-none w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-500 dark:bg-gray-600 dark:text-white"
                   required />
               </div>
               <div class="flex-col flex gap-2 w-1/2 ml-4">
-                <label type="email" for="additional-info" class="text-sm font-medium text-white dark:text-white"
-                  required>Email</label>
-                <input type="text" name="additional-info" id="input3"
-                  class="outline-none block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-500 dark:bg-gray-600 dark:text-white dark:placeholder-gray-400" />
+                <label for="email-input" class="text-sm font-medium text-white dark:text-white" required>Email</label>
+                <input type="email" id="email-input"
+                  class="outline-none block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-500 dark:bg-gray-600 dark:text-white dark:placeholder-gray-400"
+                  required />
                 <label for="rating" class="mt-4 text-sm font-medium text-white dark:text-white">Оценка</label>
-                <div class="flex">
+                <div class="flex rounded-sm" id="rating-container">
                   <button type="button"
-                    class="rounded-l w-full bg-green-500 px-5 py-2.5 text-sm font-medium text-white hover:bg-green-600 focus:outline-none focus:ring-4 focus:ring-green-300">+</button>
+                    class="rounded-l w-full bg-green-500 px-5 py-2.5 text-sm font-medium text-white hover:bg-green-600 ring-green-600 ring-1 focus:outline-none focus:ring-1 focus:ring-green-300 "
+                    onclick="setRating('positive')">+</button>
                   <button type="button"
-                    class="rounded-r w-full bg-red-500 px-5 py-2.5 text-sm font-medium text-white hover:bg-red-600 focus:outline-none focus:ring-4 focus:ring-red-300">-</button>
+                    class="rounded-r w-full bg-red-500 px-5 py-2.5 text-sm font-medium text-white hover:bg-red-600 focus:outline-none ring-1 ring-red-600 focus:ring-1 focus:ring-red-300 ml-0."
+                    onclick="setRating('negative')">-</button>
                 </div>
               </div>
             </div>
           </div>
           <div class="mt-4 flex flex-col mb-0">
-            <label for="message" class="mb-3 text-sm font-medium text-white dark:text-white">Напишите
+            <label for="message-textarea" class="mb-3 text-sm font-medium text-white dark:text-white">Напишите
               отзыв</label>
-            <textarea name="message" id="input4" rows="4" maxlength="2000"
+            <textarea name="message-textarea" id="input4" rows="4" maxlength="2000"
               class="outline-none w-full resize-none rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-500 dark:bg-gray-600 dark:text-white dark:placeholder-gray-400"
               required></textarea>
             <p class="mb-6"></p>
           </div>
           <div class="flex gap-1">
-            <input type="checkbox" id="checkbox" />
+            <input type="checkbox" id="terms-checkbox" class="w-[15px] h-[15px] " required />
             <p class="break-words text-sm">Я прочитал и принимаю условия Политики конфиденциальности</p>
           </div>
-          <button class="bg-blue-500 hover:bg-blue-400 rounded-lg mt-2 text-center w-full py-2"
-            id="submit">Отправить</button>
-            <div id="error" class="p-2 hidden text-red-600">*Не все поля заполнены!</div>
+          <button onclick="handleSubmit()" type="submit"
+            class="bg-blue-500 hover:bg-blue-400 rounded-lg mt-2 text-center w-full py-2" id="submit">Отправить</button>
+          <div id="error" class="p-2 hidden text-red-600">*Не все поля заполнены!</div>
         </div>
       </div>
     </div>
@@ -127,11 +135,13 @@
             </li>
             <li class="flex-col ml-auto">
               <h3 class="lg:text-xl text-[#545B71] lg:mb-4 mb-2">Рейтинг</h3>
-              <span class='text-[#E90035] font-extrabold text-2xl md:text-3xl lg:text-5xl'>5.0</span> <!--text-[#75E900] if norm, text-[#FBA72A] if hz-->
+              <span class='text-[#E90035] font-extrabold text-2xl md:text-3xl lg:text-5xl'>5.0</span>
+              <!--text-[#75E900] if norm, text-[#FBA72A] if hz-->
             </li>
             <li class="ml-10 flex-col">
               <h3 class="lg:text-xl text-[#545B71] lg:mb-4 mb-2">Статус</h3>
-              <span class='text-[#E90035] font-extrabold text-2xl md:text-3xl lg:text-5xl'>СКАМ</span> <!--text-[#75E900] if norm, text-[#FBA72A] if hz-->
+              <span class='text-[#E90035] font-extrabold text-2xl md:text-3xl lg:text-5xl'>СКАМ</span>
+              <!--text-[#75E900] if norm, text-[#FBA72A] if hz-->
             </li>
           </ul>
           <div class="w-full max-w-[600px] mt-10">
@@ -144,24 +154,28 @@
               <h3 class="lg:text-xl text-[#545B71] flex gap-1">Отзывы <p
                   class="flex justify-start items-start mt-[-10px] text-[0.8rem]">62640</p>
               </h3>
-              <button class="md:flex gap-1 border-blue-500 border-2 p-2 rounded-lg text-xs md:text-sm text-blue-500 hover:text-blue-700 flex items-center" onclick="showModal()">
-                  <!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+              <button
+                class="md:flex gap-1 border-blue-500 border-2 p-2 rounded-lg text-xs md:text-sm text-blue-500 hover:text-blue-700 flex items-center"
+                onclick="showModal()">
+                <!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                   <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
                   <g id="SVGRepo_iconCarrier">
-                    <path fill-rule="evenodd" clip-rule="evenodd" d="M19.186 2.09c.521.25 1.136.612 1.625 1.101.49.49.852 1.104 1.1 1.625.313.654.11 1.408-.401 1.92l-7.214 7.213c-.31.31-.688.541-1.105.675l-4.222 1.353a.75.75 0 0 1-.943-.944l1.353-4.221a2.75 2.75 0 0 1 .674-1.105l7.214-7.214c.512-.512 1.266-.714 1.92-.402zm.211 2.516a3.608 3.608 0 0 0-.828-.586l-6.994 6.994a1.002 1.002 0 0 0-.178.241L9.9 14.102l2.846-1.496c.09-.047.171-.107.242-.178l6.994-6.994a3.61 3.61 0 0 0-.586-.828zM4.999 5.5A.5.5 0 0 1 5.47 5l5.53.005a1 1 0 0 0 0-2L5.5 3A2.5 2.5 0 0 0 3 5.5v12.577c0 .76.082 1.185.319 1.627.224.419.558.754.977.978.442.236.866.318 1.627.318h12.154c.76 0 1.185-.082 1.627-.318.42-.224.754-.559.978-.978.236-.442.318-.866.318-1.627V13a1 1 0 1 0-2 0v5.077c0 .459-.021.571-.082.684a.364.364 0 0 1-.157.157c-.113.06-.225.082-.684.082H5.923c-.459 0-.57-.022-.684-.082a.363.363 0 0 1-.157-.157c-.06-.113-.082-.225-.082-.684V5.5z" fill="#00A3FF"/>
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M19.186 2.09c.521.25 1.136.612 1.625 1.101.49.49.852 1.104 1.1 1.625.313.654.11 1.408-.401 1.92l-7.214 7.213c-.31.31-.688.541-1.105.675l-4.222 1.353a.75.75 0 0 1-.943-.944l1.353-4.221a2.75 2.75 0 0 1 .674-1.105l7.214-7.214c.512-.512 1.266-.714 1.92-.402zm.211 2.516a3.608 3.608 0 0 0-.828-.586l-6.994 6.994a1.002 1.002 0 0 0-.178.241L9.9 14.102l2.846-1.496c.09-.047.171-.107.242-.178l6.994-6.994a3.61 3.61 0 0 0-.586-.828zM4.999 5.5A.5.5 0 0 1 5.47 5l5.53.005a1 1 0 0 0 0-2L5.5 3A2.5 2.5 0 0 0 3 5.5v12.577c0 .76.082 1.185.319 1.627.224.419.558.754.977.978.442.236.866.318 1.627.318h12.154c.76 0 1.185-.082 1.627-.318.42-.224.754-.559.978-.978.236-.442.318-.866.318-1.627V13a1 1 0 1 0-2 0v5.077c0 .459-.021.571-.082.684a.364.364 0 0 1-.157.157c-.113.06-.225.082-.684.082H5.923c-.459 0-.57-.022-.684-.082a.363.363 0 0 1-.157-.157c-.06-.113-.082-.225-.082-.684V5.5z"
+                      fill="#00A3FF" />
                   </g>
                 </svg>
-                  Оставить отзыв
-                </button>
+                Оставить отзыв
+              </button>
             </div>
-            <div class="flex items-center border-b pt-2"> 
+            <div class="flex items-center border-b pt-2">
               <ul class="flex items-center lg:gap-10">
                 <li>
-                  <button
-                    id="positive"
-                    class="lg:flex focus:border-b-4 pt-2 focus:border-b-gray lg:flex-row items-center lg:gap-4 active flex-col flex text-sm lg:text-base">
+                  <button id="positive"
+                    class="lg:flex border-b-4 border-b-gray focus:border-b-4 pt-2 focus:border-b-gray lg:flex-row items-center lg:gap-4 active flex-col flex text-sm lg:text-base"
+                    onclick="toggleBorder()">
                     <h1 class="bg-green-500 mb-2 rounded-xl px-2 py-1 text-[#000000]" data-total="2426">
                       2426
                     </h1>
@@ -170,7 +184,8 @@
                 </li>
                 <li>
                   <button
-                    class="lg:flex focus:border-b-4 pt-2 focus:border-b-gray lg:flex-row items-center lg:gap-4 active flex-col flex text-sm lg:text-base">
+                    class="lg:flex focus:border-b-4 pt-2 focus:border-b-gray lg:flex-row items-center lg:gap-4 active flex-col flex text-sm lg:text-base"
+                    onclick="toggleBorder()">
                     <span class="bg-red-600 mb-2 rounded-xl px-2 py-1 text-black" data-total="60214">60214</span>
                     <span>Отрицательных</span>
                   </button>
@@ -186,7 +201,8 @@
                   </svg>
                   Сначала новые
                 </button>
-                <button id="old" class="gap-1 hidden hover:text-blue-500 flex items-center" onclick="sortReviews('oldFirst')">
+                <button id="old" class="gap-1 hidden hover:text-blue-500 flex items-center"
+                  onclick="sortReviews('oldFirst')">
                   <svg fill="#FFFFFF" width="20px" height="20px" viewBox="0 0 1920 1920"
                     xmlns="http://www.w3.org/2000/svg">
                     <path
@@ -195,27 +211,27 @@
                   </svg>
                   Сначала старые
                 </button>
-                
+
               </div>
             </div>
-            <button id="new" class=" md:hidden pt-4 gap-1 hover:text-blue-500 flex items-center" onclick="sortReviews('newFirst')">
-                  <svg fill="#FFFFFF" width="20px" height="20px" viewBox="0 0 1920 1920"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      d="M1539.045 215.441v1249.74l299.206-299.206L1920 1247.84l-438.966 438.966-438.85-438.966 81.864-81.865 299.206 299.206V215.44h115.791ZM438.966 160l438.967 439.082-81.865 81.749-299.206-299.206v1249.74H381.186V381.625L81.981 680.831 0 599.082 438.966 160Z"
-                      fill-rule="evenodd" />
-                  </svg>
-                  Сначала новые
-                </button>
-                <button id="old" class="gap-1 hidden hover:text-blue-500 flex items-center" onclick="sortReviews('oldFirst')">
-                  <svg fill="#FFFFFF" width="20px" height="20px" viewBox="0 0 1920 1920"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      d="M1539.045 215.441v1249.74l299.206-299.206L1920 1247.84l-438.966 438.966-438.85-438.966 81.864-81.865 299.206 299.206V215.44h115.791ZM438.966 160l438.967 439.082-81.865 81.749-299.206-299.206v1249.74H381.186V381.625L81.981 680.831 0 599.082 438.966 160Z"
-                      fill-rule="evenodd" />
-                  </svg>
-                  Сначала старые
-                </button>
+            <button id="new" class=" md:hidden pt-4 gap-1 hover:text-blue-500 flex items-center"
+              onclick="sortReviews('newFirst')">
+              <svg fill="#FFFFFF" width="20px" height="20px" viewBox="0 0 1920 1920" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M1539.045 215.441v1249.74l299.206-299.206L1920 1247.84l-438.966 438.966-438.85-438.966 81.864-81.865 299.206 299.206V215.44h115.791ZM438.966 160l438.967 439.082-81.865 81.749-299.206-299.206v1249.74H381.186V381.625L81.981 680.831 0 599.082 438.966 160Z"
+                  fill-rule="evenodd" />
+              </svg>
+              Сначала новые
+            </button>
+            <button id="old" class="gap-1 hidden hover:text-blue-500 flex items-center"
+              onclick="sortReviews('oldFirst')">
+              <svg fill="#FFFFFF" width="20px" height="20px" viewBox="0 0 1920 1920" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M1539.045 215.441v1249.74l299.206-299.206L1920 1247.84l-438.966 438.966-438.85-438.966 81.864-81.865 299.206 299.206V215.44h115.791ZM438.966 160l438.967 439.082-81.865 81.749-299.206-299.206v1249.74H381.186V381.625L81.981 680.831 0 599.082 438.966 160Z"
+                  fill-rule="evenodd" />
+              </svg>
+              Сначала старые
+            </button>
             <div id="reviews"> <!-- отзыв -->
               <div class="m-4 review border-t-[1px] border-[#2C2F3A]" data-date="2021-02-15">
                 <h1>Олег <span class="text-[#545B71] pl-4">15 февраля 2021 года</span></h1>
@@ -229,7 +245,7 @@
                       2024 года</span></h1>
                   <p>Мы рады что вы пользуетесь нашим обменником!</p>
                 </div>
-                <section id="comment" class="flex items-center mb-4">
+                <section id="comment" class="focus:border-blue-500 focus:border-2 flex items-center mb-4">
                   <input class="outline-none w-full text-left bg-[#2C2F3A] py-4 pl-4 rounded-l-xl"
                     placeholder="Текст комментария">
                   <button class="flex items-center justify-center py-4 pr-4 bg-[#2C2F3A] rounded-r-xl">
@@ -321,23 +337,24 @@
         </div>
         <div class="mb-20 mt-20"> <!--вопросы?-->
           <div class="flex flex-col items-center text-center break words">
-          <h1 class="p-8 font-extrabold text-white md:text-2xl lg:text-5xl ">У Вас есть вопросы или предложения?</h1>
-          <h1 class="lg:text-lg font-bold text-[#545B71] mb-8"> Свяжитесь с нами, и мы ответим Вам так скоро, как сможем.
-          </h1>
-          <button
-            class="flex justify-center mt-2 gap-3 items-center rounded bg-[#00A3FF] w-[60%] lg:w-8 md:w-[20%] min-w-[200px] min-h-[50px] px-5 py-3 font-bold text-white hover:bg-blue-600">
-            <svg class="w-auto h-auto max-w-none max-h-none min-w-23 min-h-20" width="23" height="20" viewBox="0 0 23 20"
-              fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M21.1328 0.716923L0.755912 8.46884C-0.0640911 8.82984 -0.341439 9.55276 0.557717 9.94511L5.78527 11.584L18.4248 3.87777C19.115 3.39398 19.8215 3.52298 19.2135 4.05518L8.35786 13.7518L8.01686 17.8554C8.3327 18.489 8.91103 18.4919 9.27992 18.177L12.2833 15.3735L17.4271 19.1733C18.6218 19.8711 19.2718 19.4208 19.5289 18.1419L22.9027 2.38158C23.253 0.807392 22.6557 0.113791 21.1328 0.716923Z"
-                fill="white" />
-            </svg>
-            Telegram
-          </button>
-    </div>
-       </div>
+            <h1 class="p-8 font-extrabold text-white md:text-2xl lg:text-5xl ">У Вас есть вопросы или предложения?</h1>
+            <h1 class="lg:text-lg font-bold text-[#545B71] mb-8"> Свяжитесь с нами, и мы ответим Вам так скоро, как
+              сможем.
+            </h1>
+            <button
+              class="flex justify-center mt-2 gap-3 items-center rounded bg-[#00A3FF] w-[60%] lg:w-8 md:w-[20%] min-w-[200px] min-h-[50px] px-5 py-3 font-bold text-white hover:bg-blue-600">
+              <svg class="w-auto h-auto max-w-none max-h-none min-w-23 min-h-20" width="23" height="20"
+                viewBox="0 0 23 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M21.1328 0.716923L0.755912 8.46884C-0.0640911 8.82984 -0.341439 9.55276 0.557717 9.94511L5.78527 11.584L18.4248 3.87777C19.115 3.39398 19.8215 3.52298 19.2135 4.05518L8.35786 13.7518L8.01686 17.8554C8.3327 18.489 8.91103 18.4919 9.27992 18.177L12.2833 15.3735L17.4271 19.1733C18.6218 19.8711 19.2718 19.4208 19.5289 18.1419L22.9027 2.38158C23.253 0.807392 22.6557 0.113791 21.1328 0.716923Z"
+                  fill="white" />
+              </svg>
+              Telegram
+            </button>
+          </div>
+        </div>
     </section>
-    
+
   </main>
 </body>
 <script>
@@ -395,12 +412,15 @@
 
   function showModal() {
     document.getElementById('modal').classList.toggle('hidden');
+    document.getElementById('modal-content').classList.toggle('scale-in-center');
+    document.getElementById('modal-content').offsetWidth;
   }
 
   var closeButton = document.querySelector('#modal .close-button');
 
   closeButton.addEventListener('click', function () {
     modal.classList.add('hidden');
+    document.getElementById('modal-content').classList.toggle('scale-in-center');
   });
 </script>
 <footer>
@@ -449,48 +469,91 @@
   </div>
 </footer>
 <script>
-const newButton = document.getElementById('new');
-const oldButton = document.getElementById('old');
-const positiveButton = document.getElementById('positive');
+  const newButton = document.getElementById('new');
+  const oldButton = document.getElementById('old');
+  const positiveButton = document.getElementById('positive');
 
-newButton.addEventListener('click', () => {
-  newButton.classList.toggle('hidden'); // Скрыть кнопку "Сначала новые"
-  oldButton.classList.toggle('hidden'); // Показать кнопку "Сначала старые"
-});
-oldButton.addEventListener('click', () => {
-  newButton.classList.toggle('hidden'); // Скрыть кнопку "Сначала новые"
-  oldButton.classList.toggle('hidden'); // Показать кнопку "Сначала старые"
-});
-window.addEventListener('DOMContentLoaded', () => {
-  positiveButton.focus(); // Установить фокус на кнопке "Сначала новые" при загрузке страницы
-});
+  newButton.addEventListener('click', () => {
+    newButton.classList.toggle('hidden'); // Скрыть кнопку "Сначала новые"
+    oldButton.classList.toggle('hidden'); // Показать кнопку "Сначала старые"
+  });
+  oldButton.addEventListener('click', () => {
+    newButton.classList.toggle('hidden'); // Скрыть кнопку "Сначала новые"
+    oldButton.classList.toggle('hidden'); // Показать кнопку "Сначала старые"
+  });
+  window.addEventListener('DOMContentLoaded', () => {
+    positiveButton.focus(); // Установить фокус на кнопке "Сначала новые" при загрузке страницы
+  });
 
 </script>
 <script>
-  const input1 = document.getElementById('input1');
-  const input2 = document.getElementById('input2');
-  const input3 = document.getElementById('input3');
-  const input4 = document.getElementById('input4');
-  const checkbox = document.getElementById('checkbox');
-  const submitBtn = document.getElementById('submit');
-  const error = document.getElementById('error');
-  const modal = document.getElementById('modal');
-
-  function checkInputs() {
-  if (input1.value && input2.value && input3.value && input4.value && checkbox.checked) {
-    document.getElementById('modal').classList.add('hidden');
-  } else {
-    error.classList.remove('hidden');
+  function toggleBorder() {
+    let element = document.getElementById('positive');
+    element.classList.remove('border-b-4');
+    element.classList.remove('border-b-gray');
   }
-}
-  submitBtn.addEventListener('click', checkInputs);
-
+</script>
+<script>
   var burgerBtn = document.getElementById('burger-btn');
   var menu = document.getElementById('menu');
-
+  menu.style.cssText = `transform: scaleY(0); transform-origin: top; transition: transform 0.26s ease;`
   burgerBtn.addEventListener('click', function () {
     burgerBtn.classList.toggle('active');
-    menu.classList.toggle('hidden');
+    document.getElementById('open-burger-icon').classList.toggle('hidden');
+    document.getElementById('close-burger-icon').classList.toggle('hidden');
+    // menu.classList.toggle('hidden');
+    if (menu.style.cssText.includes('scaleY(0)')) {
+      console.log('true');
+      menu.style.cssText = menu.style.cssText.replace('transform: scaleY(0);', 'transform: scaleY(1);');
+    } else {
+      menu.style.cssText = menu.style.cssText.replace('transform: scaleY(1);', 'transform: scaleY(0);');
+    }
   });
 </script>
+<script>
+  const modal = document.getElementById('modal');
+  const errorMessage = document.getElementById('error');
+  let rating = undefined;
+
+  function handleSubmit() {
+    let termsCheckbox = document.getElementById('terms-checkbox');
+    let ratingContainer = document.getElementById('rating-container');
+    const errorInputs = [...modal.querySelectorAll('input:invalid')]
+      .concat([...modal.querySelectorAll('textarea:invalid')]);
+
+    errorInputs.forEach((input) => {
+      input.addEventListener('keyup', () => {
+        input.style.cssText = 'outline: none';
+      })
+    });
+
+    termsCheckbox.addEventListener('change', () => {
+      termsCheckbox.style.cssText = 'outline: none';
+    });
+
+    if (errorInputs.length === 0 && rating && termsCheckbox.checked) {
+      modal.classList.toggle('hidden');
+      return;
+    }
+
+    if (rating === undefined)
+      errorInputs.push(ratingContainer);
+
+    errorInputs.forEach((input) => {
+      let thickness = (input !== termsCheckbox && input !== ratingContainer) ? '1.5px' : '1.5px';
+      let offset = (input !== termsCheckbox) ? '0px' : '-1.9px';
+      input.style.cssText = `outline: ${thickness} solid rgba(255, 0, 0, 0.75); outline-offset: ${offset};`;
+    });
+
+    errorMessage.classList.toggle('hidden');
+
+  }
+
+  function setRating(userRating) {
+    rating = userRating;
+    console.log(document.getElementById('rating-container'));
+    document.getElementById('rating-container').style.cssText = 'outline: none';
+  }
+</script>
+
 </html>
