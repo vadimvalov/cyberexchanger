@@ -8,8 +8,6 @@
   <!-- <link href="https://fonts.cdnfonts.co" rel="stylesheet"> -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AntiSwap- про скам-обменники</title>
-  <style>
-  </style>
 </head>
 <header class="h-20 max-w-screen bg-[#1E2027] pt-[28px]">
   <div class="flex justify-start items-center px-10 md:px-0">
@@ -288,73 +286,10 @@
     </section>
 
   </main>
+  <script src="./src/js/exchange.js"></script>
 </body>
-<script>
-  const section = document.getElementById('mySection');
-  const inputs = section.getElementsByTagName('input');
-  let elementsInsideSection = [];
-
-  elementsInsideSection.forEach((element) => {
-    element.addEventListener('focus', () => {
-      section.classList.add('outline-blue');
-    });
-
-    element.addEventListener('blur', () => {
-      section.classList.remove('outline-blue');
-    });
-  });
-</script>
 <!-- <script>
-  function sortReviews(order) {
-    var reviewsList = document.getElementById('reviews');
-    console.log(reviewsList);
-    console.log(reviewsList.children.length);
-    var reviews = Array.from(reviewsList.children);
-
-    // Sort comments by date
-    if (order === 'newFirst') {
-      reviews.sort(function (a, b) {
-        var dateA = new Date(a.getAttribute('data-date'));
-        var dateB = new Date(b.getAttribute('data-date'));
-        return dateA - dateB;
-      });
-    } else {
-      reviews.sort(function (a, b) {
-        var dateA = new Date(a.getAttribute('data-date'));
-        var dateB = new Date(b.getAttribute('data-date'));
-        return dateB - dateA;
-      });
-    }
-
-
-    for (var i = 0; i < reviews.length; i++) {
-      reviewsList.removeChild(reviews[i]);
-    }
-
-
-    // Update the comments list
-    for (var i = 0; i < reviews.length; i++) {
-      reviewsList.appendChild(reviews[i]);
-    }
-    // Call the sort function
-  } -->
-
-</script>
-<script>
-
-  function showModal() {
-    document.getElementById('modal').classList.toggle('hidden');
-    document.getElementById('modal-content').classList.toggle('scale-in-center');
-    document.getElementById('modal-content').offsetWidth;
-  }
-
-  var closeButton = document.querySelector('#modal .close-button');
-
-  closeButton.addEventListener('click', function () {
-    modal.classList.add('hidden');
-    document.getElementById('modal-content').classList.toggle('scale-in-center');
-  });
-</script>
+   -->
 <footer>
   <div class="h-[401px] bg-[#1E2027] md:hidden"> <!--мобилка футер-->
     <h1 class="text-white font-extrabold flex justify-center pt-10">AntiSwap</h1>
@@ -391,123 +326,5 @@
     </div>
   </div>
 </footer>
-<script>
-  const newButton = document.getElementById('new');
-  const oldButton = document.getElementById('old');
-  const newButtonMobile = document.getElementById('newMobile');
-  const oldButtonMobile = document.getElementById('oldMobile');
-  const positiveButton = document.getElementById('positive');
-
-  newButton.addEventListener('click', () => {
-    newButton.classList.toggle('hidden'); // Скрыть кнопку "Сначала новые"
-    oldButton.classList.toggle('hidden'); // Показать кнопку "Сначала старые"
-  });
-
-  oldButton.addEventListener('click', () => {
-    newButton.classList.toggle('hidden'); // Скрыть кнопку "Сначала новые"
-    oldButton.classList.toggle('hidden'); // Показать кнопку "Сначала старые"
-  });
-
-  newButtonMobile.addEventListener('click', () => {
-    newButtonMobile.classList.toggle('hidden'); // Скрыть кнопку "Сначала новые" (мобильная версия)
-    oldButtonMobile.classList.toggle('hidden'); // Показать кнопку "Сначала старые" (мобильная версия)
-  });
-
-  oldButtonMobile.addEventListener('click', () => {
-    newButtonMobile.classList.toggle('hidden'); // Скрыть кнопку "Сначала новые" (мобильная версия)
-    oldButtonMobile.classList.toggle('hidden'); // Показать кнопку "Сначала старые" (мобильная версия)
-  });
-
-  window.addEventListener('DOMContentLoaded', () => {
-    positiveButton.focus(); // Установить фокус на кнопке "Сначала новые" при загрузке страницы
-    document.getElementById('positive').classList.toggle('border-b-4');
-    document.getElementById('positive').classList.toggle('border-b-gray');
-  });
-
-</script>
-<script>
-  function toggleBorder(element) {
-    element.classList.add('border-b-4');
-    element.classList.add('border-b-gray');
-    if (element.id === 'positive') {
-      document.getElementById('negative').classList.remove('border-b-4');
-      document.getElementById('negative').classList.remove('border-b-gray');
-    } else {
-      document.getElementById('positive').classList.remove('border-b-4');
-      document.getElementById('positive').classList.remove('border-b-gray');
-    }
-  }
-</script>
-<script>
-  var burgerBtn = document.getElementById('burger-btn');
-  var menu = document.getElementById('menu');
-  menu.style.cssText = `transform: scaleY(0); transform-origin: top; transition: transform 0.26s ease;`
-  burgerBtn.addEventListener('click', function () {
-    burgerBtn.classList.toggle('active');
-    // menu.classList.toggle('hidden');
-    if (menu.style.cssText.includes('scaleY(0)')) {
-      console.log('true');
-      menu.style.cssText = menu.style.cssText.replace('transform: scaleY(0);', 'transform: scaleY(1);');
-    } else {
-      menu.style.cssText = menu.style.cssText.replace('transform: scaleY(1);', 'transform: scaleY(0);');
-    }
-  });
-</script>
-<script>
-  const modal = document.getElementById('modal');
-  const errorMessage = document.getElementById('error');
-  let rating = undefined;
-
-  function handleSubmit() {
-    let termsCheckbox = document.getElementById('terms-checkbox');
-    let ratingContainer = document.getElementById('rating-container');
-    const errorInputs = [...modal.querySelectorAll('input:invalid')]
-      .concat([...modal.querySelectorAll('textarea:invalid')]);
-
-    errorInputs.forEach((input) => {
-      input.addEventListener('keyup', () => {
-        input.style.cssText = 'outline: none';
-      })
-    });
-
-    termsCheckbox.addEventListener('change', () => {
-      termsCheckbox.style.cssText = 'outline: none';
-    });
-
-    if (errorInputs.length === 0 && rating && termsCheckbox.checked) {
-      modal.classList.toggle('hidden');
-      return;
-    }
-
-    if (rating === undefined)
-      errorInputs.push(ratingContainer);
-
-    errorInputs.forEach((input) => {
-      let thickness = (input !== termsCheckbox && input !== ratingContainer) ? '1.5px' : '1.5px';
-      let offset = (input !== termsCheckbox) ? '0px' : '-1.9px';
-      input.style.cssText = `outline: ${thickness} solid rgba(255, 0, 0, 0.75); outline-offset: ${offset};`;
-    });
-
-    errorMessage.classList.toggle('hidden');
-
-  }
-
-  function setRating(userRating) {
-    rating = userRating;
-    console.log(document.getElementById('rating-container'));
-    document.getElementById('rating-container').style.cssText = 'outline: none';
-  }
-
-  const inputsComments = [...document.getElementsByClassName('input-comment')];
-  inputsComments.forEach((input) => {
-    input.addEventListener('click', () => {
-      input.parentElement.style.outline = '2px solid #00A3FF';
-      const otherInputs = inputsComments.filter((inp) => inp !== input);
-      otherInputs.forEach((other) => {
-        other.parentElement.style.outline = 'none';
-      })
-    });
-  })
-</script>
 
 </html>
