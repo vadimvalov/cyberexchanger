@@ -174,19 +174,30 @@
                   <img src="/svg/sortReviews.svg" title="sort reviews" />
                   Сначала старые
                 </button>
-
               </div>
             </div>
-            <button id="new" class=" md:hidden pt-4 gap-1 hover:text-blue-500 flex items-center"
-              onclick="sortReviews('newFirst')">
-              <img src="/svg/sortReviews.svg" title="sort reviews" />
-              Сначала новые
-            </button>
-            <button id="old" class="gap-1 hidden hover:text-blue-500 flex items-center"
-              onclick="sortReviews('oldFirst')">
-              <img src="/svg/sortReviews.svg" title="sort reviews" />
-              Сначала старые
-            </button>
+            <div class="md:hidden pt-4">
+              <button id="newMobile" class=" gap-1 hover:text-blue-500 flex items-center"
+                onclick="sortReviews('newFirst')">
+                <svg fill="#FFFFFF" width="20px" height="20px" viewBox="0 0 1920 1920"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M1539.045 215.441v1249.74l299.206-299.206L1920 1247.84l-438.966 438.966-438.85-438.966 81.864-81.865 299.206 299.206V215.44h115.791ZM438.966 160l438.967 439.082-81.865 81.749-299.206-299.206v1249.74H381.186V381.625L81.981 680.831 0 599.082 438.966 160Z"
+                    fill-rule="evenodd" />
+                </svg>
+                Сначала новые
+              </button>
+              <button id="oldMobile" class="gap-1 hidden hover:text-blue-500 flex items-center"
+                onclick="sortReviews('oldFirst')">
+                <svg fill="#FFFFFF" width="20px" height="20px" viewBox="0 0 1920 1920"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M1539.045 215.441v1249.74l299.206-299.206L1920 1247.84l-438.966 438.966-438.85-438.966 81.864-81.865 299.206 299.206V215.44h115.791ZM438.966 160l438.967 439.082-81.865 81.749-299.206-299.206v1249.74H381.186V381.625L81.981 680.831 0 599.082 438.966 160Z"
+                    fill-rule="evenodd" />
+                </svg>
+                Сначала старые
+              </button>
+            </div>
             <div id="reviews"> <!-- отзыв -->
               <div class="m-4 review border-t-[1px] border-[#2C2F3A]" data-date="2021-02-15">
                 <h1>Олег <span class="text-[#545B71] pl-4">15 февраля 2021 года</span></h1>
@@ -389,16 +400,30 @@
 <script>
   const newButton = document.getElementById('new');
   const oldButton = document.getElementById('old');
+  const newButtonMobile = document.getElementById('newMobile');
+  const oldButtonMobile = document.getElementById('oldMobile');
   const positiveButton = document.getElementById('positive');
 
   newButton.addEventListener('click', () => {
     newButton.classList.toggle('hidden'); // Скрыть кнопку "Сначала новые"
     oldButton.classList.toggle('hidden'); // Показать кнопку "Сначала старые"
   });
+
   oldButton.addEventListener('click', () => {
     newButton.classList.toggle('hidden'); // Скрыть кнопку "Сначала новые"
     oldButton.classList.toggle('hidden'); // Показать кнопку "Сначала старые"
   });
+
+  newButtonMobile.addEventListener('click', () => {
+    newButtonMobile.classList.toggle('hidden'); // Скрыть кнопку "Сначала новые" (мобильная версия)
+    oldButtonMobile.classList.toggle('hidden'); // Показать кнопку "Сначала старые" (мобильная версия)
+  });
+
+  oldButtonMobile.addEventListener('click', () => {
+    newButtonMobile.classList.toggle('hidden'); // Скрыть кнопку "Сначала новые" (мобильная версия)
+    oldButtonMobile.classList.toggle('hidden'); // Показать кнопку "Сначала старые" (мобильная версия)
+  });
+
   window.addEventListener('DOMContentLoaded', () => {
     positiveButton.focus(); // Установить фокус на кнопке "Сначала новые" при загрузке страницы
   });
