@@ -15,19 +15,9 @@
   <div class="flex justify-start items-center px-10 md:px-0">
     <a href="/" class="text-white text-lg font-extrabold mr-3 lg:text-2xl md:mr-14 md:ml-20">AntiSwap</a>
     <div class="relative md:hidden ml-auto flex flex-col items-center">
-      <button id="burger-btn" class="w-8 h-8 flex items-center text-white justify-center focus:outline-none">
-        <svg id="open-burger-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-          stroke="currentColor" class="w-6 h-6">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 9h16.5m-16.5 6.75h16.5" />
-        </svg>
-        <svg id="close-burger-icon" class="h-5 w-5 hidden" fill="currentColor" viewBox="0 0 20 20"
-          xmlns="http://www.w3.org/2000/svg">
-          <path fill-rule="evenodd"
-            d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-            clip-rule="evenodd"></path>
-        </svg>
-        <path class="burger-line" d="M2,5h20M2,12h20M2,19h20"></path>
-
+      <button id="burger-btn" class="w-8 h-8 text-white focus:outline-none">
+        <span></span>
+        <span></span>
       </button>
       <nav id="menu" class="p-3 rounded-lg text-white menu absolute left-[-3rem] top-14 bg-[#2C2F3A]">
         <ul class="menu-items flex flex-col gap-2">
@@ -58,11 +48,7 @@
             <button type="button"
               class="close-button right-2.5 top-3 ml-auto inline-flex items-center rounded-lg bg-transparent p-1.5 text-sm text-gray-400 hover:bg-gray-200 hover:text-gray-900 dark:hover:bg-gray-800 dark:hover:text-white"
               data-modal-hide="authentication-modal">
-              <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd"
-                  d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                  clip-rule="evenodd"></path>
-              </svg>
+              <img src="/svg/modalCloseButton.svg" class="h-5 w-5" />
               <span class="sr-only">Close modal</span>
             </button>
           </div>
@@ -120,11 +106,7 @@
         <div class="bg-[#1E2027] rounded-xl md:p-14 p-4 pt-10">
           <div class="flex hidden lg:flex">
             <a class="bg-[#2C2F3A] flex items-center px-8 py-5 rounded-xl mb-10" href="/">
-              <svg width="29" height="16" viewBox="0 0 29 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" clip-rule="evenodd"
-                  d="M8.91674 15.6758C8.49831 16.1021 7.8132 16.1088 7.38651 15.6908L0.324451 8.77187C0.116928 8.56855 2.02199e-06 8.29038 2.09815e-06 7.99999C2.1743e-06 7.70961 0.116928 7.43144 0.324452 7.22812L7.38651 0.309203C7.8132 -0.108839 8.49831 -0.10215 8.91674 0.324144C9.33518 0.750437 9.32848 1.43491 8.90179 1.85295L3.73102 6.91891L27.9179 6.91892C28.5155 6.91892 29 7.40294 29 8C29 8.59707 28.5155 9.08108 27.9179 9.08108L3.73102 9.08108L8.90179 14.147C9.32848 14.5651 9.33517 15.2496 8.91674 15.6758Z"
-                  fill="#545B71" />
-              </svg>
+              <img title="return arrow" src="/svg/returnArrow.svg" />
               <span class="ml-4 text-[#545B71]"> На Главную</span>
             </a>
           </div>
@@ -157,16 +139,7 @@
               <button
                 class="md:flex gap-1 border-blue-500 border-2 p-2 rounded-lg text-xs md:text-sm text-blue-500 hover:text-blue-700 flex items-center"
                 onclick="showModal()">
-                <!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                  <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                  <g id="SVGRepo_iconCarrier">
-                    <path fill-rule="evenodd" clip-rule="evenodd"
-                      d="M19.186 2.09c.521.25 1.136.612 1.625 1.101.49.49.852 1.104 1.1 1.625.313.654.11 1.408-.401 1.92l-7.214 7.213c-.31.31-.688.541-1.105.675l-4.222 1.353a.75.75 0 0 1-.943-.944l1.353-4.221a2.75 2.75 0 0 1 .674-1.105l7.214-7.214c.512-.512 1.266-.714 1.92-.402zm.211 2.516a3.608 3.608 0 0 0-.828-.586l-6.994 6.994a1.002 1.002 0 0 0-.178.241L9.9 14.102l2.846-1.496c.09-.047.171-.107.242-.178l6.994-6.994a3.61 3.61 0 0 0-.586-.828zM4.999 5.5A.5.5 0 0 1 5.47 5l5.53.005a1 1 0 0 0 0-2L5.5 3A2.5 2.5 0 0 0 3 5.5v12.577c0 .76.082 1.185.319 1.627.224.419.558.754.977.978.442.236.866.318 1.627.318h12.154c.76 0 1.185-.082 1.627-.318.42-.224.754-.559.978-.978.236-.442.318-.866.318-1.627V13a1 1 0 1 0-2 0v5.077c0 .459-.021.571-.082.684a.364.364 0 0 1-.157.157c-.113.06-.225.082-.684.082H5.923c-.459 0-.57-.022-.684-.082a.363.363 0 0 1-.157-.157c-.06-.113-.082-.225-.082-.684V5.5z"
-                      fill="#00A3FF" />
-                  </g>
-                </svg>
+                <img src="/svg/leaveReview.svg" title="leave review icon" />
                 Оставить отзыв
               </button>
             </div>
@@ -193,22 +166,12 @@
               </ul>
               <div class="ml-auto flex-col gap-1 hidden md:block">
                 <button id="new" class="gap-1 hover:text-blue-500 flex items-center" onclick="sortReviews('newFirst')">
-                  <svg fill="#FFFFFF" width="20px" height="20px" viewBox="0 0 1920 1920"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      d="M1539.045 215.441v1249.74l299.206-299.206L1920 1247.84l-438.966 438.966-438.85-438.966 81.864-81.865 299.206 299.206V215.44h115.791ZM438.966 160l438.967 439.082-81.865 81.749-299.206-299.206v1249.74H381.186V381.625L81.981 680.831 0 599.082 438.966 160Z"
-                      fill-rule="evenodd" />
-                  </svg>
+                  <img src="/svg/sortReviews.svg" title="sort reviews" />
                   Сначала новые
                 </button>
                 <button id="old" class="gap-1 hidden hover:text-blue-500 flex items-center"
                   onclick="sortReviews('oldFirst')">
-                  <svg fill="#FFFFFF" width="20px" height="20px" viewBox="0 0 1920 1920"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      d="M1539.045 215.441v1249.74l299.206-299.206L1920 1247.84l-438.966 438.966-438.85-438.966 81.864-81.865 299.206 299.206V215.44h115.791ZM438.966 160l438.967 439.082-81.865 81.749-299.206-299.206v1249.74H381.186V381.625L81.981 680.831 0 599.082 438.966 160Z"
-                      fill-rule="evenodd" />
-                  </svg>
+                  <img src="/svg/sortReviews.svg" title="sort reviews" />
                   Сначала старые
                 </button>
 
@@ -216,20 +179,12 @@
             </div>
             <button id="new" class=" md:hidden pt-4 gap-1 hover:text-blue-500 flex items-center"
               onclick="sortReviews('newFirst')">
-              <svg fill="#FFFFFF" width="20px" height="20px" viewBox="0 0 1920 1920" xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M1539.045 215.441v1249.74l299.206-299.206L1920 1247.84l-438.966 438.966-438.85-438.966 81.864-81.865 299.206 299.206V215.44h115.791ZM438.966 160l438.967 439.082-81.865 81.749-299.206-299.206v1249.74H381.186V381.625L81.981 680.831 0 599.082 438.966 160Z"
-                  fill-rule="evenodd" />
-              </svg>
+              <img src="/svg/sortReviews.svg" title="sort reviews" />
               Сначала новые
             </button>
             <button id="old" class="gap-1 hidden hover:text-blue-500 flex items-center"
               onclick="sortReviews('oldFirst')">
-              <svg fill="#FFFFFF" width="20px" height="20px" viewBox="0 0 1920 1920" xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M1539.045 215.441v1249.74l299.206-299.206L1920 1247.84l-438.966 438.966-438.85-438.966 81.864-81.865 299.206 299.206V215.44h115.791ZM438.966 160l438.967 439.082-81.865 81.749-299.206-299.206v1249.74H381.186V381.625L81.981 680.831 0 599.082 438.966 160Z"
-                  fill-rule="evenodd" />
-              </svg>
+              <img src="/svg/sortReviews.svg" title="sort reviews" />
               Сначала старые
             </button>
             <div id="reviews"> <!-- отзыв -->
@@ -245,16 +200,11 @@
                       2024 года</span></h1>
                   <p>Мы рады что вы пользуетесь нашим обменником!</p>
                 </div>
-                <section id="comment" class="focus:border-blue-500 focus:border-2 flex items-center mb-4">
-                  <input class="outline-none w-full text-left bg-[#2C2F3A] py-4 pl-4 rounded-l-xl"
+                <section id="comment-1" class="rounded-xl focus:border-blue-500 focus:border-2 flex items-center mb-4">
+                  <input class="input-comment outline-none w-full text-left bg-[#2C2F3A] py-4 pl-4 rounded-l-xl"
                     placeholder="Текст комментария">
                   <button class="flex items-center justify-center py-4 pr-4 bg-[#2C2F3A] rounded-r-xl">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" class=""
-                      xmlns="http://www.w3.org/2000/svg">
-                      <path
-                        d="M1.95729 0.146499C0.885103 -0.389323 -0.301684 0.63372 0.0697115 1.77317L2.47809 9.15648C2.5462 9.36507 2.6702 9.55099 2.8366 9.69401C3.003 9.83704 3.20543 9.93171 3.42187 9.96771L12.9378 11.5536C13.4388 11.6376 13.4388 12.3576 12.9378 12.4416L3.42247 14.0275C3.20603 14.0635 3.0036 14.1582 2.8372 14.3012C2.6708 14.4442 2.5468 14.6301 2.47868 14.8387L0.0697115 22.2262C-0.302284 23.3663 0.885103 24.3893 1.95729 23.8535L23.2535 13.2079C24.2488 12.7098 24.2488 11.2896 23.2535 10.7921L1.95729 0.146499Z"
-                        fill="#00A3FF" />
-                    </svg>
+                    <img src="/svg/sendReview.svg" title="send review" />
                   </button>
                 </section>
               </div>
@@ -271,16 +221,11 @@
                       2024 года</span></h1>
                   <p>Мы рады что вы пользуетесь нашим обменником!</p>
                 </div>
-                <section id="comment" class="flex items-center mb-4">
-                  <input class="outline-none w-full text-left bg-[#2C2F3A] py-4 pl-4 rounded-l-xl"
+                <section id="comment-2" class="rounded-xl flex items-center mb-4">
+                  <input class="input-comment outline-none w-full text-left bg-[#2C2F3A] py-4 pl-4 rounded-l-xl"
                     placeholder="Текст комментария">
                   <button class="flex items-center justify-center py-4 pr-4 bg-[#2C2F3A] rounded-r-xl">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" class=""
-                      xmlns="http://www.w3.org/2000/svg">
-                      <path
-                        d="M1.95729 0.146499C0.885103 -0.389323 -0.301684 0.63372 0.0697115 1.77317L2.47809 9.15648C2.5462 9.36507 2.6702 9.55099 2.8366 9.69401C3.003 9.83704 3.20543 9.93171 3.42187 9.96771L12.9378 11.5536C13.4388 11.6376 13.4388 12.3576 12.9378 12.4416L3.42247 14.0275C3.20603 14.0635 3.0036 14.1582 2.8372 14.3012C2.6708 14.4442 2.5468 14.6301 2.47868 14.8387L0.0697115 22.2262C-0.302284 23.3663 0.885103 24.3893 1.95729 23.8535L23.2535 13.2079C24.2488 12.7098 24.2488 11.2896 23.2535 10.7921L1.95729 0.146499Z"
-                        fill="#00A3FF" />
-                    </svg>
+                    <img src="/svg/sendReview.svg" title="send review" />
                   </button>
                 </section>
               </div>
@@ -297,27 +242,18 @@
                       2024 года</span></h1>
                   <p>Мы рады что вы пользуетесь нашим обменником!</p>
                 </div>
-                <section id="comment" class="flex items-center mb-4">
-                  <input class="outline-none w-full text-left bg-[#2C2F3A] py-4 pl-4 rounded-l-xl"
+                <section id="comment-3" class="rounded-xl flex items-center mb-4">
+                  <input class="input-comment outline-none w-full text-left bg-[#2C2F3A] py-4 pl-4 rounded-l-xl"
                     placeholder="Текст комментария">
                   <button class="flex items-center justify-center py-4 pr-4 bg-[#2C2F3A] rounded-r-xl">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" class=""
-                      xmlns="http://www.w3.org/2000/svg">
-                      <path
-                        d="M1.95729 0.146499C0.885103 -0.389323 -0.301684 0.63372 0.0697115 1.77317L2.47809 9.15648C2.5462 9.36507 2.6702 9.55099 2.8366 9.69401C3.003 9.83704 3.20543 9.93171 3.42187 9.96771L12.9378 11.5536C13.4388 11.6376 13.4388 12.3576 12.9378 12.4416L3.42247 14.0275C3.20603 14.0635 3.0036 14.1582 2.8372 14.3012C2.6708 14.4442 2.5468 14.6301 2.47868 14.8387L0.0697115 22.2262C-0.302284 23.3663 0.885103 24.3893 1.95729 23.8535L23.2535 13.2079C24.2488 12.7098 24.2488 11.2896 23.2535 10.7921L1.95729 0.146499Z"
-                        fill="#00A3FF" />
-                    </svg>
+                    <img src="/svg/sendReview.svg" title="send review" />
                   </button>
                 </section>
               </div>
             </div>
             <div class="p-4 flex justify-center text-sm">
-              <button class="p-2 mx-">
-                <svg width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path fill-rule="evenodd" clip-rule="evenodd"
-                    d="M7.70711 13.7071C7.31658 14.0976 6.68342 14.0976 6.29289 13.7071L0.292893 7.70711C-0.097632 7.31658 -0.0976321 6.68342 0.292893 6.29289L6.29289 0.292894C6.68342 -0.0976313 7.31658 -0.0976314 7.70711 0.292893C8.09763 0.683417 8.09763 1.31658 7.70711 1.70711L2.41421 7L7.70711 12.2929C8.09763 12.6834 8.09763 13.3166 7.70711 13.7071Z"
-                    fill="#545B71" />
-                </svg>
+              <button class="p-2 mx-1">
+                <img src="/svg/leftArrow.svg" title="left arrow" />
               </button>
               <button class="mx-1 bg-[#545B71] px-3 py-2 rounded-lg hover:bg-[#545b71a0]">1</button>
               <button class="mx-1 bg-[#2C2F3A] px-3 py-2 rounded-lg hover:bg-[#545b71a0]">2</button>
@@ -325,12 +261,8 @@
               <button class="mx-1 bg-[#2C2F3A] px-3 py-2 rounded-lg hover:bg-[#545b71a0]">4</button>
               <button class="mx-1 bg-[#2C2F3A] px-3 py-2 rounded-lg hover:bg-[#545b71a0]">...</button>
               <button class="mx-1 bg-[#2C2F3A] px-3 py-2 rounded-lg hover:bg-[#545b71a0]">86</button>
-              <button class="mx-1">
-                <svg width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path fill-rule="evenodd" clip-rule="evenodd"
-                    d="M0.292893 0.292893C0.683417 -0.0976311 1.31658 -0.0976311 1.70711 0.292893L7.70711 6.29289C8.09763 6.68342 8.09763 7.31658 7.70711 7.70711L1.70711 13.7071C1.31658 14.0976 0.683417 14.0976 0.292893 13.7071C-0.0976311 13.3166 -0.0976311 12.6834 0.292893 12.2929L5.58579 7L0.292893 1.70711C-0.0976311 1.31658 -0.0976311 0.683417 0.292893 0.292893Z"
-                    fill="#545B71" />
-                </svg>
+              <button class="p-2 mx-1">
+                <img src="/svg/rightArrow.svg" title="right arrow" />
               </button>
             </div>
           </div>
@@ -343,12 +275,7 @@
             </h1>
             <button
               class="flex justify-center mt-2 gap-3 items-center rounded bg-[#00A3FF] w-[60%] lg:w-8 md:w-[20%] min-w-[200px] min-h-[50px] px-5 py-3 font-bold text-white hover:bg-blue-600">
-              <svg class="w-auto h-auto max-w-none max-h-none min-w-23 min-h-20" width="23" height="20"
-                viewBox="0 0 23 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M21.1328 0.716923L0.755912 8.46884C-0.0640911 8.82984 -0.341439 9.55276 0.557717 9.94511L5.78527 11.584L18.4248 3.87777C19.115 3.39398 19.8215 3.52298 19.2135 4.05518L8.35786 13.7518L8.01686 17.8554C8.3327 18.489 8.91103 18.4919 9.27992 18.177L12.2833 15.3735L17.4271 19.1733C18.6218 19.8711 19.2718 19.4208 19.5289 18.1419L22.9027 2.38158C23.253 0.807392 22.6557 0.113791 21.1328 0.716923Z"
-                  fill="white" />
-              </svg>
+              <img src="svg/telegram.svg" title="telegram" />
               Telegram
             </button>
           </div>
@@ -431,11 +358,7 @@
     <h2 class="text-white font-bold flex justify-center m-16 mt-[1px]">О нас</h2>
     <div class="text-white flex mb-10 justify-center">
       <h2 class="mr-5">AntiSwap@gmail.com</h2>
-      <svg width="31" height="27" viewBox="0 0 31 27" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path
-          d="M28.4834 0.798923L1.01884 11.4068C-0.0863836 11.9008 -0.4602 12.8901 0.751706 13.427L7.79754 15.6697L24.8335 5.12429C25.7637 4.46227 26.7159 4.6388 25.8965 5.36706L11.2649 18.6361L10.8053 24.2516C11.231 25.1186 12.0105 25.1226 12.5077 24.6917L16.5558 20.8552L23.4887 26.0551C25.0989 27.0099 25.9751 26.3937 26.3215 24.6437L30.8689 3.07687C31.3411 0.922724 30.5359 -0.0264154 28.4834 0.798923Z"
-          fill="white" />
-      </svg>
+      <img src="/svg/telegramFooter.svg" title="telegram footer" />
     </div>
     <div class="h-[1px] bg-[#545B71]"></div> <!--разделитель-->
     <div class="flex justify-between">
@@ -450,13 +373,8 @@
         <h2 class="text-white md:ml-6 font-bold">Обменники</h2>
         <h2 class="text-sm text-white md:ml-4 lg:text-lg font-bold">О нас</h2>
         <div class="flex ml-auto md:mr-6 lg:mr-20">
-          <h1 class="flex gap-2 text-white font-[600] text-sm md:mr-14 md:flex lg:mr-24">AntiSwap@gmail.com
-            <svg width="31" height="27" viewBox="0 0 31 27" fill="none" xmlns="http://www.w3.org/2000/svg%22%3E"
-              class="ml-10">
-              <path
-                d="M28.4834 0.798923L1.01884 11.4068C-0.0863836 11.9008 -0.4602 12.8901 0.751706 13.427L7.79754 15.6697L24.8335 5.12429C25.7637 4.46227 26.7159 4.6388 25.8965 5.36706L11.2649 18.6361L10.8053 24.2516C11.231 25.1186 12.0105 25.1226 12.5077 24.6917L16.5558 20.8552L23.4887 26.0551C25.0989 27.0099 25.9751 26.3937 26.3215 24.6437L30.8689 3.07687C31.3411 0.922724 30.5359 -0.0264154 28.4834 0.798923Z"
-                fill="white" />
-            </svg>
+          <h1 class="flex gap-10 text-white font-[600] text-sm md:mr-14 md:flex lg:mr-24">AntiSwap@gmail.com
+            <img src="/svg/telegramFooter.svg" title="telegram footer" />
           </h1>
         </div>
       </div>
@@ -499,8 +417,6 @@
   menu.style.cssText = `transform: scaleY(0); transform-origin: top; transition: transform 0.26s ease;`
   burgerBtn.addEventListener('click', function () {
     burgerBtn.classList.toggle('active');
-    document.getElementById('open-burger-icon').classList.toggle('hidden');
-    document.getElementById('close-burger-icon').classList.toggle('hidden');
     // menu.classList.toggle('hidden');
     if (menu.style.cssText.includes('scaleY(0)')) {
       console.log('true');
@@ -554,6 +470,17 @@
     console.log(document.getElementById('rating-container'));
     document.getElementById('rating-container').style.cssText = 'outline: none';
   }
+
+  const inputsComments = [...document.getElementsByClassName('input-comment')];
+  inputsComments.forEach((input) => {
+    input.addEventListener('click', () => {
+      input.parentElement.style.outline = '2px solid #00A3FF';
+      const otherInputs = inputsComments.filter((inp) => inp !== input);
+      otherInputs.forEach((other) => {
+        other.parentElement.style.outline = 'none';
+      })
+    });
+  })
 </script>
 
 </html>
