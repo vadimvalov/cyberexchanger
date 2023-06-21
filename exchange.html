@@ -37,8 +37,8 @@
 </header>
 
 <body class="h-full bg-[#101115] text-white font-bold font-mont">
-  <main class=" font-bold text-white ">
-    <div id="modal" class="hidden fixed inset-0 text-white items-center justify-center bg-black bg-opacity-80">
+  <main class="font-bold text-white">
+    <div id="modal" class="hidden fixed inset-0 text-white items-center justify-center color-change-2x">
       <!--модалка-->
 
       <div id="modal-content"
@@ -74,11 +74,15 @@
                 <label for="rating" class="mt-4 text-sm font-medium text-white dark:text-white">Оценка</label>
                 <div class="flex rounded-sm" id="rating-container">
                   <button type="button"
-                    class="rounded-l w-full bg-green-500 px-5 py-2.5 text-sm font-medium text-white hover:bg-green-600 ring-green-600 ring-1 focus:outline-none focus:ring-1 focus:ring-green-300 "
-                    onclick="setRating('positive')">+</button>
+                    class="rounded-l flex justify-center bg-gray-800 w-full hover:bg-green-500 hover:bg-opacity-20 px-5 py-2.5 text-sm font-medium text-white focus:bg-green-600 focus:bg-opacity-40 focus:outline-none"
+                    onclick="setRating('positive')">
+                    <img src="/svg/happy.svg" title="happy" />
+                  </button>
                   <button type="button"
-                    class="rounded-r w-full bg-red-500 px-5 py-2.5 text-sm font-medium text-white hover:bg-red-600 focus:outline-none ring-1 ring-red-600 focus:ring-1 focus:ring-red-300 ml-0."
-                    onclick="setRating('negative')">-</button>
+                    class="flex justify-center bg-gray-800 rounded-r w-full hover:bg-red-300 hover:bg-opacity-20 px-5 py-2.5 text-sm font-medium text-white focus:bg-red-600 focus:bg-opacity-40 focus:outline-none"
+                    onclick="setRating('negative')">
+                    <img src="/svg/angry.svg" title="angry" />
+                  </button>
                 </div>
               </div>
             </div>
@@ -147,8 +151,8 @@
               <ul class="flex items-center lg:gap-10">
                 <li>
                   <button id="positive"
-                    class="lg:flex border-b-4 border-b-gray focus:border-b-4 pt-2 focus:border-b-gray lg:flex-row items-center lg:gap-4 active flex-col flex text-sm lg:text-base"
-                    onclick="toggleBorder()">
+                    class="lg:flex lg:flex-row items-center lg:gap-4 active flex-col flex text-sm lg:text-base"
+                    onclick="toggleBorder(this)">
                     <h1 class="bg-green-500 mb-2 rounded-xl px-2 py-1 text-[#000000]" data-total="2426">
                       2426
                     </h1>
@@ -156,9 +160,9 @@
                   </button>
                 </li>
                 <li>
-                  <button
-                    class="lg:flex focus:border-b-4 pt-2 focus:border-b-gray lg:flex-row items-center lg:gap-4 active flex-col flex text-sm lg:text-base"
-                    onclick="toggleBorder()">
+                  <button id="negative"
+                    class="lg:flex lg:flex-row items-center lg:gap-4 active flex-col flex text-sm lg:text-base"
+                    onclick="toggleBorder(this)">
                     <span class="bg-red-600 mb-2 rounded-xl px-2 py-1 text-black" data-total="60214">60214</span>
                     <span>Отрицательных</span>
                   </button>
@@ -179,22 +183,12 @@
             <div class="md:hidden pt-4">
               <button id="newMobile" class=" gap-1 hover:text-blue-500 flex items-center"
                 onclick="sortReviews('newFirst')">
-                <svg fill="#FFFFFF" width="20px" height="20px" viewBox="0 0 1920 1920"
-                  xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M1539.045 215.441v1249.74l299.206-299.206L1920 1247.84l-438.966 438.966-438.85-438.966 81.864-81.865 299.206 299.206V215.44h115.791ZM438.966 160l438.967 439.082-81.865 81.749-299.206-299.206v1249.74H381.186V381.625L81.981 680.831 0 599.082 438.966 160Z"
-                    fill-rule="evenodd" />
-                </svg>
+                <img src="/svg/sortReviews.svg" title="sort reviews" />
                 Сначала новые
               </button>
               <button id="oldMobile" class="gap-1 hidden hover:text-blue-500 flex items-center"
                 onclick="sortReviews('oldFirst')">
-                <svg fill="#FFFFFF" width="20px" height="20px" viewBox="0 0 1920 1920"
-                  xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M1539.045 215.441v1249.74l299.206-299.206L1920 1247.84l-438.966 438.966-438.85-438.966 81.864-81.865 299.206 299.206V215.44h115.791ZM438.966 160l438.967 439.082-81.865 81.749-299.206-299.206v1249.74H381.186V381.625L81.981 680.831 0 599.082 438.966 160Z"
-                    fill-rule="evenodd" />
-                </svg>
+                <img src="/svg/sortReviews.svg" title="sort reviews" />
                 Сначала старые
               </button>
             </div>
@@ -426,14 +420,22 @@
 
   window.addEventListener('DOMContentLoaded', () => {
     positiveButton.focus(); // Установить фокус на кнопке "Сначала новые" при загрузке страницы
+    document.getElementById('positive').classList.toggle('border-b-4');
+    document.getElementById('positive').classList.toggle('border-b-gray');
   });
 
 </script>
 <script>
-  function toggleBorder() {
-    let element = document.getElementById('positive');
-    element.classList.remove('border-b-4');
-    element.classList.remove('border-b-gray');
+  function toggleBorder(element) {
+    element.classList.add('border-b-4');
+    element.classList.add('border-b-gray');
+    if (element.id === 'positive') {
+      document.getElementById('negative').classList.remove('border-b-4');
+      document.getElementById('negative').classList.remove('border-b-gray');
+    } else {
+      document.getElementById('positive').classList.remove('border-b-4');
+      document.getElementById('positive').classList.remove('border-b-gray');
+    }
   }
 </script>
 <script>
