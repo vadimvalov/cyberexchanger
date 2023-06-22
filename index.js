@@ -83,7 +83,7 @@ function updateTitle(element) {
     .forEach((country) => {
       country.style.backgroundColor = "#2C2F3A";
     });
-  // countryList.classList.add("hidden");
+  countryList.classList.add("hidden");
 }
 
 function updateCity(element) {
@@ -95,7 +95,7 @@ function updateCity(element) {
     .forEach((city) => {
       city.style.backgroundColor = "#2C2F3A";
     });
-  // cityList.classList.add("hidden");
+  cityList.classList.add("hidden");
 }
 
 function turnRowsIntoLinks() {
