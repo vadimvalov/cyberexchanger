@@ -1,250 +1,281 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="./svg/logo.svg" /> <!--фавикон сюда (желательно путь к svg)-->
-  <link rel="stylesheet" href="./src/index.css" />
-  <!-- <link href="https://fonts.cdnfonts.co" rel="stylesheet"> -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.css" rel="stylesheet" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AntiSwap- про скам-обменники</title>
-  <style>
-  </style>
-</head>
-<header class="h-20 max-w-screen bg-[#1E2027] pt-[28px]">
-  <div class="flex justify-start items-center px-10 md:px-0">
-    <a href="" class="text-white text-lg font-extrabold mr-3 lg:text-2xl md:mr-14 md:ml-20">AntiSwap</a>
-    <div class="md:hidden ml-auto flex flex-col items-center">
-      <button id="burger-btn" class="w-8 h-8 text-white focus:outline-none">
-        <span></span>
-        <span></span>
-      </button>
-      <nav id="menu" class="p-3 rounded-lg text-white menu fixed right-[0rem] top-[5.5rem] bg-[#2C2F3A]">
-        <ul class="menu-items flex flex-col gap-2">
-          <li><a href="#about" class="hover:text-blue-500">О нас</a></li>
-          <li><a href="#exchanges" class="hover:text-blue-500">Обменники</a></li>
-        </ul>
-      </nav>
-
-    </div>
-    <a href="" class="hidden md:block text-white text-sm font-[700] lg:text-sm md:ml-6">Обменники</a>
-    <a href="" class="hidden md:block text-white text-sm font-[700] lg:text-sm md:ml-4">О нас</a>
-    <div class="hidden md:flex ml-auto lg:mr-20 md:mr-20 gap-1 font-[700] text-sm">
-      <h1 class="text-[#00A3FF]">*VALUE*</h1>
-      <p class="text-[#545B71]">Обменников проверено</p>
-    </div>
-  </div>
-</header>
-
-<body class="max-w-screen bg-[#101115] font-mont"> <!--камон еврибади-->
-
-  <div id="modal" class="hidden fixed inset-0 text-white items-center justify-center color-change-2x">
-    <!--модалка-->
-    <div id="modal-content"
-      class="absolute h-[85%] py-50 top-[10%] left-5 right-5 bg-[#1E2027] rounded-lg z-50 lg:top-[10%] lg:left-40 lg:right-40">
-
-      <h1 class="text-xl lg:text-4xl font-bold text-left p-6 font-etrabold">Выберите город</h1>
-      <div class="px-6 py-4">
-        <p class="text-sm font-bold">Выберите страну, а затем город, в котором необходимо найти обменные пункты,
-          работающие с наличными деньгами.</p>
-      </div>
-
-      <button
-        class="close-button absolute top-6 right-6 w-6 h-6 bg-[#1E2027] rounded-full flex items-center justify-center">
-        <img src="/svg/modalCloseButton.svg" title="close modal" />
-      </button>
-
-      <div class="flex justify-between items-center gap-10">
-        <div class="ml-auto">
-          <div class="flex items-center mb-5 border-b-2 border-b-[#545B71]">
-            <input id="country-input" class="w-full bg-[#1E2027] py-1 pl-1 pr-1 text-[#545B71] outline-none"
-              placeholder="Страна" />
-            <img class="h-4 w-4" src="/svg/search.svg" title="search icon" />
-          </div>
-          <div class="w-[500px] max-w-3xl rounded-lg bg-[#2C2F3A] pb-4 overflow-y-auto mx-auto">
-            <div id="extend-country-list" class="flex items-center">
-              <button id="main-title" class="flex text-left hidden font-bold border-1 border-[#545B71]">Выберите
-                страну</button>
-            </div>
-            <ul id="country-list" class="flex flex-col h-[270px] justify-start font-bold w-full">
-              <li class="flex items-center gap-1 hover:bg-[#353845] focus:bg-[#1A5D89] py-2 px-4 cursor-pointer"
-                onclick="updateTitle(this)">
-                <span class="mr-auto">Россия</span>
-                <span class="text-[#00A3FF]">х</span>
-                <span class="text-[#ABACB0] text-sm">обменников</span>
-                </span>
-              </li>
-              <li class="flex items-center gap-1 hover:bg-[#353845] focus:bg-[#1A5D89] py-2 px-4 cursor-pointer"
-                onclick="updateTitle(this)">
-                <span class="mr-auto">Казахстан</span>
-                <span class="text-[#00A3FF]">х</span>
-                <span class="text-[#ABACB0] text-sm">обменников</span>
-                </span>
-              </li>
-              <li class="flex items-center gap-1 hover:bg-[#353845] focus:bg-[#1A5D89] py-2 px-4 cursor-pointer"
-                onclick="updateTitle(this)">
-                <span class="mr-auto">Грузия</span>
-                <span class="text-[#00A3FF]">х</span>
-                <span class="text-[#ABACB0] text-sm">обменников</span>
-                </span>
-              </li>
-              <li class="flex items-center gap-1 hover:bg-[#353845] focus:bg-[#1A5D89] py-2 px-4 cursor-pointer"
-                onclick="updateTitle(this)">
-                <span class="mr-auto">Страна</span>
-                <span class="text-[#00A3FF]">х</span>
-                <span class="text-[#ABACB0] text-sm">обменников</span>
-                </span>
-              </li>
-              <li class="flex items-center gap-1 hover:bg-[#353845] focus:bg-[#1A5D89] py-2 px-4 cursor-pointer"
-                onclick="updateTitle(this)">
-                <span class="mr-auto">Страна</span>
-                <span class="text-[#00A3FF]">х</span>
-                <span class="text-[#ABACB0] text-sm">обменников</span>
-                </span>
-              </li>
-              <li class="flex items-center gap-1 hover:bg-[#353845] focus:bg-[#1A5D89] py-2 px-4 cursor-pointer"
-                onclick="updateTitle(this)">
-                <span class="mr-auto">Страна</span>
-                <span class="text-[#00A3FF]">х</span>
-                <span class="text-[#ABACB0] text-sm">обменников</span>
-                </span>
-              </li>
-              <li class="flex items-center gap-1 hover:bg-[#353845] focus:bg-[#1A5D89] py-2 px-4 cursor-pointer"
-                onclick="updateTitle(this)">
-                <span class="mr-auto">Страна</span>
-                <span class="text-[#00A3FF]">х</span>
-                <span class="text-[#ABACB0] text-sm">обменников</span>
-                </span>
-              </li>
-              <li class="flex items-center gap-1 hover:bg-[#353845] focus:bg-[#1A5D89] py-2 px-4 cursor-pointer"
-                onclick="updateTitle(this)">
-                <span class="mr-auto">Страна</span>
-                <span class="text-[#00A3FF]">х</span>
-                <span class="text-[#ABACB0] text-sm">обменников</span>
-                </span>
-              </li>
-              <li class="flex items-center gap-1 hover:bg-[#353845] focus:bg-[#1A5D89] py-2 px-4 cursor-pointer"
-                onclick="updateTitle(this)">
-                <span class="mr-auto">Страна</span>
-                <span class="text-[#00A3FF]">х</span>
-                <span class="text-[#ABACB0] text-sm">обменников</span>
-                </span>
-              </li>
-              <li class="flex items-center gap-1 hover:bg-[#353845] focus:bg-[#1A5D89] py-2 px-4 cursor-pointer"
-                onclick="updateTitle(this)">
-                <span class="mr-auto">Страна</span>
-                <span class="text-[#00A3FF]">х</span>
-                <span class="text-[#ABACB0] text-sm">обменников</span>
-                </span>
-              </li>
-              <li class="flex items-center gap-1 hover:bg-[#353845] focus:bg-[#1A5D89] py-2 px-4 cursor-pointer"
-                onclick="updateTitle(this)">
-                <span class="mr-auto">Страна</span>
-                <span class="text-[#00A3FF]">х</span>
-                <span class="text-[#ABACB0] text-sm">обменников</span>
-                </span>
-              </li>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="./svg/logo.svg" /> <!--фавикон сюда (желательно путь к svg)-->
+    <link rel="stylesheet" href="./index.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.css" rel="stylesheet" />
+    <script defer src="./index.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AntiSwap- про скам-обменники</title>
+    <style>
+    </style>
+  </head>
+  <body class="max-w-screen bg-[#101115] font-mont"> <!--камон еврибади-->
+    <header class="h-20 max-w-screen bg-[#1E2027] pt-[28px]">
+      <div class="flex justify-start items-center px-10 md:px-0">
+        <a href="" class="text-white text-lg font-extrabold mr-3 lg:text-2xl md:mr-14 md:ml-20">AntiSwap</a>
+        <div class="md:hidden ml-auto flex flex-col items-center">
+          <button id="burger-btn" class="w-8 h-8 text-white focus:outline-none">
+            <span></span>
+            <span></span>
+          </button>
+          <nav id="menu" class="p-3 rounded-lg text-white menu fixed right-[0rem] top-[5.5rem] bg-[#2C2F3A]">
+            <ul class="menu-items flex flex-col gap-2">
+              <li><a href="#about" class="hover:text-blue-500">О нас</a></li>
+              <li><a href="#exchanges" class="hover:text-blue-500">Обменники</a></li>
             </ul>
-          </div>
+          </nav>
+    
         </div>
-        <img src="/svg/betweenArrow.svg" title="arrow between" />
-        <div class="mr-auto">
-          <div class="flex items-center mb-5 border-b-2 border-b-[#545B71]">
-            <input id="city-input" class="w-full bg-[#1E2027] py-1 pl-1 pr-1 text-[#545B71] outline-none"
-              placeholder="Город" />
-            <img class="h-4 w-4" src="/svg/search.svg" title="search icon" />
-          </div>
-          <div class="w-[500px] max-w-3xl rounded-lg bg-[#2C2F3A] pb-4 overflow-y-auto mx-auto">
-            <div id="extend-country-list" class="flex items-center">
-              <button id="main-city" class="flex text-left hidden font-bold border-1 border-[#545B71]">Выберите
-                город</button>
-            </div>
-            <ul id="city-list" class="flex flex-col h-[270px] justify-start font-bold w-full">
-              <li class="flex items-center gap-1 hover:bg-[#353845] focus:bg-[#1A5D89] py-2 px-4 cursor-pointer"
-                onclick="updateCity(this)">
-                <span class="mr-auto">Город-1</span>
-                <span class="text-[#00A3FF]">х</span>
-                <span class="text-[#ABACB0] text-sm">обменников</span>
-                </span>
-              </li>
-              <li class="flex items-center gap-1 hover:bg-[#353845] focus:bg-[#1A5D89] py-2 px-4 cursor-pointer"
-                onclick="updateCity(this)">
-                <span class="mr-auto">Город-230204</span>
-                <span class="text-[#00A3FF]">х</span>
-                <span class="text-[#ABACB0] text-sm">обменников</span>
-                </span>
-              </li>
-              <li class="flex items-center gap-1 hover:bg-[#353845] focus:bg-[#1A5D89] py-2 px-4 cursor-pointer"
-                onclick="updateCity(this)">
-                <span class="mr-auto">Город-240241</span>
-                <span class="text-[#00A3FF]">х</span>
-                <span class="text-[#ABACB0] text-sm">обменников</span>
-                </span>
-              </li>
-              <li class="flex items-center gap-1 hover:bg-[#353845] focus:bg-[#1A5D89] py-2 px-4 cursor-pointer"
-                onclick="updateCity(this)">
-                <span class="mr-auto">Город-15</span>
-                <span class="text-[#00A3FF]">х</span>
-                <span class="text-[#ABACB0] text-sm">обменников</span>
-                </span>
-              </li>
-              <li class="flex items-center gap-1 hover:bg-[#353845] focus:bg-[#1A5D89] py-2 px-4 cursor-pointer"
-                onclick="updateCity(this)">
-                <span class="mr-auto">Город</span>
-                <span class="text-[#00A3FF]">х</span>
-                <span class="text-[#ABACB0] text-sm">обменников</span>
-                </span>
-              </li>
-              <li class="flex items-center gap-1 hover:bg-[#353845] focus:bg-[#1A5D89] py-2 px-4 cursor-pointer"
-                onclick="updateCity(this)">
-                <span class="mr-auto">Город-10</span>
-                <span class="text-[#00A3FF]">х</span>
-                <span class="text-[#ABACB0] text-sm">обменников</span>
-                </span>
-              </li>
-              <li class="flex items-center gap-1 hover:bg-[#353845] focus:bg-[#1A5D89] py-2 px-4 cursor-pointer"
-                onclick="updateCity(this)">
-                <span class="mr-auto">Город</span>
-                <span class="text-[#00A3FF]">х</span>
-                <span class="text-[#ABACB0] text-sm">обменников</span>
-                </span>
-              </li>
-            </ul>
-          </div>
+        <a href="" class="hidden md:block text-white text-sm font-[700] lg:text-sm md:ml-6">Обменники</a>
+        <a href="" class="hidden md:block text-white text-sm font-[700] lg:text-sm md:ml-4">О нас</a>
+        <div class="hidden md:flex ml-auto lg:mr-20 md:mr-20 gap-1 font-[700] text-sm">
+          <h1 class="text-[#00A3FF]">*VALUE*</h1>
+          <p class="text-[#545B71]">Обменников проверено</p>
         </div>
       </div>
-      <div class="pt-6"></div>
+    </header>
+    <div id="modal" class="hidden fixed inset-0 text-white items-center justify-center color-change-2x">
+      <!--модалка-->
+      <div id="modal-content"
+        class="absolute h-[85%] py-50 top-[10%] left-5 right-5 bg-[#1E2027] rounded-lg z-50 lg:top-[10%] lg:left-40 lg:right-40">
+
+        <h1 class="text-xl lg:text-4xl font-bold text-left p-6 font-etrabold">Выберите город</h1>
+        <div class="px-6 py-4">
+          <p class="text-sm font-bold">Выберите страну, а затем город, в котором необходимо найти обменные пункты,
+            работающие с наличными деньгами.</p>
+        </div>
+
+        <button
+          class="close-button absolute top-6 right-6 w-6 h-6 bg-[#1E2027] rounded-full flex items-center justify-center">
+          <img src="/svg/modalCloseButton.svg" title="close modal" />
+        </button>
+
+        <div class="flex justify-between items-center gap-10">
+          <div class="ml-auto">
+            <div class="flex items-center mb-5 border-b-2 border-b-[#545B71]">
+              <input id="country-input" class="w-full bg-[#1E2027] py-1 pl-1 pr-1 text-[#545B71] outline-none"
+                placeholder="Страна" />
+              <img class="h-4 w-4" src="/svg/search.svg" title="search icon" />
+            </div>
+            <div class="w-[500px] max-w-3xl rounded-lg bg-[#2C2F3A] pb-4 overflow-y-auto mx-auto">
+              <div id="extend-country-list" class="flex items-center">
+                <button id="main-title" class="flex text-left hidden font-bold border-1 border-[#545B71]">Выберите
+                  страну</button>
+              </div>
+              <ul id="country-list" class="flex flex-col h-[270px] justify-start font-bold w-full">
+                <li class="flex items-center gap-1 hover:bg-[#353845] focus:bg-[#1A5D89] py-2 px-4 cursor-pointer"
+                  onclick="updateTitle(this)">
+                  <span class="mr-auto">Россия</span>
+                  <span class="text-[#00A3FF]">х</span>
+                  <span class="text-[#ABACB0] text-sm">обменников</span>
+                  </span>
+                </li>
+                <li class="flex items-center gap-1 hover:bg-[#353845] focus:bg-[#1A5D89] py-2 px-4 cursor-pointer"
+                  onclick="updateTitle(this)">
+                  <span class="mr-auto">Казахстан</span>
+                  <span class="text-[#00A3FF]">х</span>
+                  <span class="text-[#ABACB0] text-sm">обменников</span>
+                  </span>
+                </li>
+                <li class="flex items-center gap-1 hover:bg-[#353845] focus:bg-[#1A5D89] py-2 px-4 cursor-pointer"
+                  onclick="updateTitle(this)">
+                  <span class="mr-auto">Грузия</span>
+                  <span class="text-[#00A3FF]">х</span>
+                  <span class="text-[#ABACB0] text-sm">обменников</span>
+                  </span>
+                </li>
+                <li class="flex items-center gap-1 hover:bg-[#353845] focus:bg-[#1A5D89] py-2 px-4 cursor-pointer"
+                  onclick="updateTitle(this)">
+                  <span class="mr-auto">Страна</span>
+                  <span class="text-[#00A3FF]">х</span>
+                  <span class="text-[#ABACB0] text-sm">обменников</span>
+                  </span>
+                </li>
+                <li class="flex items-center gap-1 hover:bg-[#353845] focus:bg-[#1A5D89] py-2 px-4 cursor-pointer"
+                  onclick="updateTitle(this)">
+                  <span class="mr-auto">Страна</span>
+                  <span class="text-[#00A3FF]">х</span>
+                  <span class="text-[#ABACB0] text-sm">обменников</span>
+                  </span>
+                </li>
+                <li class="flex items-center gap-1 hover:bg-[#353845] focus:bg-[#1A5D89] py-2 px-4 cursor-pointer"
+                  onclick="updateTitle(this)">
+                  <span class="mr-auto">Страна</span>
+                  <span class="text-[#00A3FF]">х</span>
+                  <span class="text-[#ABACB0] text-sm">обменников</span>
+                  </span>
+                </li>
+                <li class="flex items-center gap-1 hover:bg-[#353845] focus:bg-[#1A5D89] py-2 px-4 cursor-pointer"
+                  onclick="updateTitle(this)">
+                  <span class="mr-auto">Страна</span>
+                  <span class="text-[#00A3FF]">х</span>
+                  <span class="text-[#ABACB0] text-sm">обменников</span>
+                  </span>
+                </li>
+                <li class="flex items-center gap-1 hover:bg-[#353845] focus:bg-[#1A5D89] py-2 px-4 cursor-pointer"
+                  onclick="updateTitle(this)">
+                  <span class="mr-auto">Страна</span>
+                  <span class="text-[#00A3FF]">х</span>
+                  <span class="text-[#ABACB0] text-sm">обменников</span>
+                  </span>
+                </li>
+                <li class="flex items-center gap-1 hover:bg-[#353845] focus:bg-[#1A5D89] py-2 px-4 cursor-pointer"
+                  onclick="updateTitle(this)">
+                  <span class="mr-auto">Страна</span>
+                  <span class="text-[#00A3FF]">х</span>
+                  <span class="text-[#ABACB0] text-sm">обменников</span>
+                  </span>
+                </li>
+                <li class="flex items-center gap-1 hover:bg-[#353845] focus:bg-[#1A5D89] py-2 px-4 cursor-pointer"
+                  onclick="updateTitle(this)">
+                  <span class="mr-auto">Страна</span>
+                  <span class="text-[#00A3FF]">х</span>
+                  <span class="text-[#ABACB0] text-sm">обменников</span>
+                  </span>
+                </li>
+                <li class="flex items-center gap-1 hover:bg-[#353845] focus:bg-[#1A5D89] py-2 px-4 cursor-pointer"
+                  onclick="updateTitle(this)">
+                  <span class="mr-auto">Страна</span>
+                  <span class="text-[#00A3FF]">х</span>
+                  <span class="text-[#ABACB0] text-sm">обменников</span>
+                  </span>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <img src="/svg/betweenArrow.svg" title="arrow between" />
+          <div class="mr-auto">
+            <div class="flex items-center mb-5 border-b-2 border-b-[#545B71]">
+              <input id="city-input" class="w-full bg-[#1E2027] py-1 pl-1 pr-1 text-[#545B71] outline-none"
+                placeholder="Город" />
+              <img class="h-4 w-4" src="/svg/search.svg" title="search icon" />
+            </div>
+            <div class="w-[500px] max-w-3xl rounded-lg bg-[#2C2F3A] pb-4 overflow-y-auto mx-auto">
+              <div id="extend-country-list" class="flex items-center">
+                <button id="main-city" class="flex text-left hidden font-bold border-1 border-[#545B71]">Выберите
+                  город</button>
+              </div>
+              <ul id="city-list" class="flex flex-col h-[270px] justify-start font-bold w-full">
+                <li class="flex items-center gap-1 hover:bg-[#353845] focus:bg-[#1A5D89] py-2 px-4 cursor-pointer"
+                  onclick="updateCity(this)">
+                  <span class="mr-auto">Город-1</span>
+                  <span class="text-[#00A3FF]">х</span>
+                  <span class="text-[#ABACB0] text-sm">обменников</span>
+                  </span>
+                </li>
+                <li class="flex items-center gap-1 hover:bg-[#353845] focus:bg-[#1A5D89] py-2 px-4 cursor-pointer"
+                  onclick="updateCity(this)">
+                  <span class="mr-auto">Город-230204</span>
+                  <span class="text-[#00A3FF]">х</span>
+                  <span class="text-[#ABACB0] text-sm">обменников</span>
+                  </span>
+                </li>
+                <li class="flex items-center gap-1 hover:bg-[#353845] focus:bg-[#1A5D89] py-2 px-4 cursor-pointer"
+                  onclick="updateCity(this)">
+                  <span class="mr-auto">Город-240241</span>
+                  <span class="text-[#00A3FF]">х</span>
+                  <span class="text-[#ABACB0] text-sm">обменников</span>
+                  </span>
+                </li>
+                <li class="flex items-center gap-1 hover:bg-[#353845] focus:bg-[#1A5D89] py-2 px-4 cursor-pointer"
+                  onclick="updateCity(this)">
+                  <span class="mr-auto">Город-15</span>
+                  <span class="text-[#00A3FF]">х</span>
+                  <span class="text-[#ABACB0] text-sm">обменников</span>
+                  </span>
+                </li>
+                <li class="flex items-center gap-1 hover:bg-[#353845] focus:bg-[#1A5D89] py-2 px-4 cursor-pointer"
+                  onclick="updateCity(this)">
+                  <span class="mr-auto">Город</span>
+                  <span class="text-[#00A3FF]">х</span>
+                  <span class="text-[#ABACB0] text-sm">обменников</span>
+                  </span>
+                </li>
+                <li class="flex items-center gap-1 hover:bg-[#353845] focus:bg-[#1A5D89] py-2 px-4 cursor-pointer"
+                  onclick="updateCity(this)">
+                  <span class="mr-auto">Город-10</span>
+                  <span class="text-[#00A3FF]">х</span>
+                  <span class="text-[#ABACB0] text-sm">обменников</span>
+                  </span>
+                </li>
+                <li class="flex items-center gap-1 hover:bg-[#353845] focus:bg-[#1A5D89] py-2 px-4 cursor-pointer"
+                  onclick="updateCity(this)">
+                  <span class="mr-auto">Город</span>
+                  <span class="text-[#00A3FF]">х</span>
+                  <span class="text-[#ABACB0] text-sm">обменников</span>
+                  </span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="pt-6"></div>
+      </div>
     </div>
-  </div>
-
-  <div class="max-w-screen bg-[#101115]">
-    <div class="flex justify-between flex-col lg:flex-row">
-      <div class="m-10 lg:m-20 h-full text-center lg:mr-0 lg:w-[372px] flex">
-        <div class="w-screen">
-          <div class="left-tables rounded-xl bg-[#1E2027] text-white"> <!--таблица левая-->
-            <h1 class="mb-2 text-center text-xl p-8 font-[800]">Направления обмена</h1>
-            <div class="mb-3 flex w-full items-center justify-between gap-5 p-1 px-3">
-              <div class="flex items-center border-b-2 border-b-[#545B71]">
-                <input id='give-input' class="w-full bg-[#1E2027] py-1 pl-1 pr-1 text-[#545B71] outline-none"
-                  placeholder="Отдаете" />
-                <img class="h-4 w-4" src="/svg/search.svg" title="search" />
+    <div class="max-w-screen bg-[#101115]">
+      <div class="flex justify-between flex-col lg:flex-row">
+        <div class="m-10 lg:m-20 h-full text-center lg:mr-0 lg:w-[372px] flex">
+          <div class="w-screen">
+            <div class="left-tables rounded-xl bg-[#1E2027] text-white"> <!--таблица левая-->
+              <h1 class="mb-2 text-center text-xl p-8 font-[800]">Направления обмена</h1>
+              <div class="mb-3 flex w-full items-center justify-between gap-5 p-1 px-3">
+                <div class="flex items-center border-b-2 border-b-[#545B71]">
+                  <input id='give-input' class="w-full bg-[#1E2027] py-1 pl-1 pr-1 text-[#545B71] outline-none"
+                    placeholder="Отдаете" />
+                  <img class="h-4 w-4" src="/svg/search.svg" title="search" />
+                </div>
+                <div class="flex items-center border-b-2 border-b-[#545B71]">
+                  <input id='receive-input' class="w-full bg-[#1E2027] py-1 pl-1 pr-1 text-[#545B71] outline-none"
+                    placeholder="Получаете" />
+                  <img class="h-4 w-4" src="/svg/search.svg" title="search" />
+                </div>
               </div>
-              <div class="flex items-center border-b-2 border-b-[#545B71]">
-                <input id='receive-input' class="w-full bg-[#1E2027] py-1 pl-1 pr-1 text-[#545B71] outline-none"
-                  placeholder="Получаете" />
-                <img class="h-4 w-4" src="/svg/search.svg" title="search" />
-              </div>
-            </div>
 
-            <div id="crypto" class="table-container">
-              <h1 class="bg-[#545B71] px-4 py-2 text-white font-extrabold text-xl">Криптовалюта</h1>
-              <div class='flex gap-1.5'>
-                <table class="w-[50%]">
-                  <tbody>
-                    <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
+              <div id="crypto" class="table-container">
+                <h1 class="bg-[#545B71] px-4 py-2 text-white font-extrabold text-xl">Криптовалюта</h1>
+                <div class='flex gap-1.5'>
+                  <table class="w-[50%]">
+                    <tbody>
+                      <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
+                        <td class="p-0">
+                          <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="crypto-1">
+                            <span>Bitcoin</span>
+                            <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
+                          </button>
+                        </td>
+                      </tr>
+                      <tr class="p-0 hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
+                        <td class="p-0">
+                          <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="crypto-1">
+                            <span>Bitcoin</span>
+                            <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
+                          </button>
+                        </td>
+                      </tr>
+                      <tr class="p-0 hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
+                        <td class="p-0">
+                          <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="crypto-1">
+                            <span>Bitcoin</span>
+                            <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
+                          </button>
+                        </td>
+                      </tr>
+                      <tr class="p-0 hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
+                        <td class="p-0">
+                          <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="crypto-1">
+                            <span>Bitcoin</span>
+                            <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
+                          </button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <table class="w-[50%]">
+                    <tr class="p-0 hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
                       <td class="p-0">
-                        <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="crypto-1">
+                        <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="crypto-2">
                           <span>Bitcoin</span>
                           <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
                         </button>
@@ -252,7 +283,7 @@
                     </tr>
                     <tr class="p-0 hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
                       <td class="p-0">
-                        <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="crypto-1">
+                        <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="crypto-2">
                           <span>Bitcoin</span>
                           <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
                         </button>
@@ -260,7 +291,7 @@
                     </tr>
                     <tr class="p-0 hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
                       <td class="p-0">
-                        <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="crypto-1">
+                        <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="crypto-2">
                           <span>Bitcoin</span>
                           <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
                         </button>
@@ -268,59 +299,59 @@
                     </tr>
                     <tr class="p-0 hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
                       <td class="p-0">
-                        <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="crypto-1">
+                        <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="crypto-2">
                           <span>Bitcoin</span>
                           <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
                         </button>
                       </td>
                     </tr>
-                  </tbody>
-                </table>
-                <table class="w-[50%]">
-                  <tr class="p-0 hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
-                    <td class="p-0">
-                      <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="crypto-2">
-                        <span>Bitcoin</span>
-                        <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
-                      </button>
-                    </td>
-                  </tr>
-                  <tr class="p-0 hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
-                    <td class="p-0">
-                      <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="crypto-2">
-                        <span>Bitcoin</span>
-                        <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
-                      </button>
-                    </td>
-                  </tr>
-                  <tr class="p-0 hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
-                    <td class="p-0">
-                      <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="crypto-2">
-                        <span>Bitcoin</span>
-                        <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
-                      </button>
-                    </td>
-                  </tr>
-                  <tr class="p-0 hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
-                    <td class="p-0">
-                      <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="crypto-2">
-                        <span>Bitcoin</span>
-                        <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
-                      </button>
-                    </td>
-                  </tr>
-                </table>
+                  </table>
+                </div>
               </div>
-            </div>
 
-            <div id="balance" class='table-container hidden md:block'> <!--Баланс криптобирж-->
-              <h1 class="bg-[#545B71] px-4 py-2 text-white font-extrabold text-xl" colspan="4">Баланс криптобирж</h1>
-              <div class='flex gap-1.5'>
-                <table class="w-[50%]">
-                  <tbody>
+              <div id="balance" class='table-container hidden md:block'> <!--Баланс криптобирж-->
+                <h1 class="bg-[#545B71] px-4 py-2 text-white font-extrabold text-xl" colspan="4">Баланс криптобирж</h1>
+                <div class='flex gap-1.5'>
+                  <table class="w-[50%]">
+                    <tbody>
+                      <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
+                        <td class="p-0">
+                          <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="balance-1">
+                            <span>Bitcoin</span>
+                            <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
+                          </button>
+                        </td>
+                      </tr>
+                      <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
+                        <td class="p-0">
+                          <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="balance-1">
+                            <span>Bitcoin</span>
+                            <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
+                          </button>
+                        </td>
+                      </tr>
+                      <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
+                        <td class="p-0">
+                          <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="balance-1">
+                            <span>Bitcoin</span>
+                            <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
+                          </button>
+                        </td>
+                      </tr>
+                      <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
+                        <td class="p-0">
+                          <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="balance-1">
+                            <span>Bitcoin</span>
+                            <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
+                          </button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <table class="w-[50%]">
                     <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
                       <td class="p-0">
-                        <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="balance-1">
+                        <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="balance-2">
                           <span>Bitcoin</span>
                           <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
                         </button>
@@ -328,7 +359,7 @@
                     </tr>
                     <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
                       <td class="p-0">
-                        <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="balance-1">
+                        <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="balance-2">
                           <span>Bitcoin</span>
                           <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
                         </button>
@@ -336,7 +367,7 @@
                     </tr>
                     <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
                       <td class="p-0">
-                        <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="balance-1">
+                        <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="balance-2">
                           <span>Bitcoin</span>
                           <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
                         </button>
@@ -344,59 +375,59 @@
                     </tr>
                     <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
                       <td class="p-0">
-                        <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="balance-1">
+                        <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="balance-2">
                           <span>Bitcoin</span>
                           <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
                         </button>
                       </td>
                     </tr>
-                  </tbody>
-                </table>
-                <table class="w-[50%]">
-                  <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
-                    <td class="p-0">
-                      <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="balance-2">
-                        <span>Bitcoin</span>
-                        <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
-                      </button>
-                    </td>
-                  </tr>
-                  <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
-                    <td class="p-0">
-                      <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="balance-2">
-                        <span>Bitcoin</span>
-                        <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
-                      </button>
-                    </td>
-                  </tr>
-                  <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
-                    <td class="p-0">
-                      <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="balance-2">
-                        <span>Bitcoin</span>
-                        <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
-                      </button>
-                    </td>
-                  </tr>
-                  <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
-                    <td class="p-0">
-                      <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="balance-2">
-                        <span>Bitcoin</span>
-                        <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
-                      </button>
-                    </td>
-                  </tr>
-                </table>
+                  </table>
+                </div>
               </div>
-            </div>
 
-            <div id="banking" class='table-container hidden lg:block'> <!--Интернет банкинг-->
-              <h1 class="bg-[#545B71] px-4 py-2 text-white text-xl font-extrabold" colspan="4">Интернет банкинг</h1>
-              <div class='flex gap-1.5'>
-                <table class="w-[50%]">
-                  <tbody>
+              <div id="banking" class='table-container hidden lg:block'> <!--Интернет банкинг-->
+                <h1 class="bg-[#545B71] px-4 py-2 text-white text-xl font-extrabold" colspan="4">Интернет банкинг</h1>
+                <div class='flex gap-1.5'>
+                  <table class="w-[50%]">
+                    <tbody>
+                      <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
+                        <td class="p-0">
+                          <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="banking-1">
+                            <span>Bitcoin</span>
+                            <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
+                          </button>
+                        </td>
+                      </tr>
+                      <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
+                        <td class="p-0">
+                          <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="banking-1">
+                            <span>Bitcoin</span>
+                            <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
+                          </button>
+                        </td>
+                      </tr>
+                      <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
+                        <td class="p-0">
+                          <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="banking-1">
+                            <span>Bitcoin</span>
+                            <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
+                          </button>
+                        </td>
+                      </tr>
+                      <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
+                        <td class="p-0">
+                          <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="banking-1">
+                            <span>Bitcoin</span>
+                            <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
+                          </button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <table class="w-[50%]">
                     <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
                       <td class="p-0">
-                        <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="banking-1">
+                        <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="banking-2">
                           <span>Bitcoin</span>
                           <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
                         </button>
@@ -404,7 +435,7 @@
                     </tr>
                     <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
                       <td class="p-0">
-                        <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="banking-1">
+                        <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="banking-2">
                           <span>Bitcoin</span>
                           <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
                         </button>
@@ -412,7 +443,7 @@
                     </tr>
                     <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
                       <td class="p-0">
-                        <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="banking-1">
+                        <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="banking-2">
                           <span>Bitcoin</span>
                           <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
                         </button>
@@ -420,59 +451,59 @@
                     </tr>
                     <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
                       <td class="p-0">
-                        <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="banking-1">
+                        <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="banking-2">
                           <span>Bitcoin</span>
                           <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
                         </button>
                       </td>
                     </tr>
-                  </tbody>
-                </table>
-                <table class="w-[50%]">
-                  <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
-                    <td class="p-0">
-                      <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="banking-2">
-                        <span>Bitcoin</span>
-                        <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
-                      </button>
-                    </td>
-                  </tr>
-                  <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
-                    <td class="p-0">
-                      <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="banking-2">
-                        <span>Bitcoin</span>
-                        <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
-                      </button>
-                    </td>
-                  </tr>
-                  <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
-                    <td class="p-0">
-                      <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="banking-2">
-                        <span>Bitcoin</span>
-                        <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
-                      </button>
-                    </td>
-                  </tr>
-                  <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
-                    <td class="p-0">
-                      <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="banking-2">
-                        <span>Bitcoin</span>
-                        <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
-                      </button>
-                    </td>
-                  </tr>
-                </table>
+                  </table>
+                </div>
               </div>
-            </div>
 
-            <div id="eMoney" class='table-container hidden lg:block'> <!--Электронные деньги-->
-              <h1 class="bg-[#545B71] px-4 py-2 text-white text-xl font-extrabold" colspan="4">Электронные деньги</h1>
-              <div class='flex gap-1.5'>
-                <table class="w-[50%]">
-                  <tbody>
+              <div id="eMoney" class='table-container hidden lg:block'> <!--Электронные деньги-->
+                <h1 class="bg-[#545B71] px-4 py-2 text-white text-xl font-extrabold" colspan="4">Электронные деньги</h1>
+                <div class='flex gap-1.5'>
+                  <table class="w-[50%]">
+                    <tbody>
+                      <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
+                        <td class="p-0">
+                          <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="eMoney-1">
+                            <span>Bitcoin</span>
+                            <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
+                          </button>
+                        </td>
+                      </tr>
+                      <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
+                        <td class="p-0">
+                          <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="eMoney-1">
+                            <span>Bitcoin</span>
+                            <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
+                          </button>
+                        </td>
+                      </tr>
+                      <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
+                        <td class="p-0">
+                          <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="eMoney-1">
+                            <span>Bitcoin</span>
+                            <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
+                          </button>
+                        </td>
+                      </tr>
+                      <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
+                        <td class="p-0">
+                          <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="banking-1">
+                            <span>Bitcoin</span>
+                            <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
+                          </button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <table class="w-[50%]">
                     <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
                       <td class="p-0">
-                        <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="eMoney-1">
+                        <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="eMoney-2">
                           <span>Bitcoin</span>
                           <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
                         </button>
@@ -480,7 +511,7 @@
                     </tr>
                     <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
                       <td class="p-0">
-                        <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="eMoney-1">
+                        <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="eMoney-2">
                           <span>Bitcoin</span>
                           <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
                         </button>
@@ -488,7 +519,7 @@
                     </tr>
                     <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
                       <td class="p-0">
-                        <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="eMoney-1">
+                        <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="eMoney-2">
                           <span>Bitcoin</span>
                           <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
                         </button>
@@ -496,59 +527,59 @@
                     </tr>
                     <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
                       <td class="p-0">
-                        <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="banking-1">
+                        <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="eMoney-2">
                           <span>Bitcoin</span>
                           <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
                         </button>
                       </td>
                     </tr>
-                  </tbody>
-                </table>
-                <table class="w-[50%]">
-                  <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
-                    <td class="p-0">
-                      <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="eMoney-2">
-                        <span>Bitcoin</span>
-                        <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
-                      </button>
-                    </td>
-                  </tr>
-                  <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
-                    <td class="p-0">
-                      <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="eMoney-2">
-                        <span>Bitcoin</span>
-                        <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
-                      </button>
-                    </td>
-                  </tr>
-                  <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
-                    <td class="p-0">
-                      <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="eMoney-2">
-                        <span>Bitcoin</span>
-                        <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
-                      </button>
-                    </td>
-                  </tr>
-                  <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
-                    <td class="p-0">
-                      <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="eMoney-2">
-                        <span>Bitcoin</span>
-                        <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
-                      </button>
-                    </td>
-                  </tr>
-                </table>
+                  </table>
+                </div>
               </div>
-            </div>
 
-            <div id="transactions" class='table-container hidden lg:block'> <!--Денежные переводы-->
-              <h1 class="bg-[#545B71] px-4 py-2 text-white text-xl font-extrabold" colspan="4">Денежные переводы</h1>
-              <div class='flex gap-1.5'>
-                <table class="w-[50%]">
-                  <tbody>
+              <div id="transactions" class='table-container hidden lg:block'> <!--Денежные переводы-->
+                <h1 class="bg-[#545B71] px-4 py-2 text-white text-xl font-extrabold" colspan="4">Денежные переводы</h1>
+                <div class='flex gap-1.5'>
+                  <table class="w-[50%]">
+                    <tbody>
+                      <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
+                        <td class="p-0">
+                          <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="transactions-1">
+                            <span>Bitcoin</span>
+                            <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
+                          </button>
+                        </td>
+                      </tr>
+                      <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
+                        <td class="p-0">
+                          <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="transactions-1">
+                            <span>Bitcoin</span>
+                            <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
+                          </button>
+                        </td>
+                      </tr>
+                      <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
+                        <td class="p-0">
+                          <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="transactions-1">
+                            <span>Bitcoin</span>
+                            <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
+                          </button>
+                        </td>
+                      </tr>
+                      <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
+                        <td class="p-0">
+                          <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="transactions-1">
+                            <span>Bitcoin</span>
+                            <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
+                          </button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <table class="w-[50%]">
                     <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
                       <td class="p-0">
-                        <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="transactions-1">
+                        <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="transactions-2">
                           <span>Bitcoin</span>
                           <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
                         </button>
@@ -556,7 +587,7 @@
                     </tr>
                     <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
                       <td class="p-0">
-                        <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="transactions-1">
+                        <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="transactions-2">
                           <span>Bitcoin</span>
                           <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
                         </button>
@@ -564,7 +595,7 @@
                     </tr>
                     <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
                       <td class="p-0">
-                        <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="transactions-1">
+                        <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="transactions-2">
                           <span>Bitcoin</span>
                           <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
                         </button>
@@ -572,59 +603,59 @@
                     </tr>
                     <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
                       <td class="p-0">
-                        <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="transactions-1">
+                        <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="transactions-2">
                           <span>Bitcoin</span>
                           <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
                         </button>
                       </td>
                     </tr>
-                  </tbody>
-                </table>
-                <table class="w-[50%]">
-                  <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
-                    <td class="p-0">
-                      <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="transactions-2">
-                        <span>Bitcoin</span>
-                        <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
-                      </button>
-                    </td>
-                  </tr>
-                  <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
-                    <td class="p-0">
-                      <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="transactions-2">
-                        <span>Bitcoin</span>
-                        <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
-                      </button>
-                    </td>
-                  </tr>
-                  <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
-                    <td class="p-0">
-                      <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="transactions-2">
-                        <span>Bitcoin</span>
-                        <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
-                      </button>
-                    </td>
-                  </tr>
-                  <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
-                    <td class="p-0">
-                      <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="transactions-2">
-                        <span>Bitcoin</span>
-                        <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
-                      </button>
-                    </td>
-                  </tr>
-                </table>
+                  </table>
+                </div>
               </div>
-            </div>
 
-            <div id="cash" class='table-container hidden lg:block'> <!--Наличные деньги-->
-              <h1 class="bg-[#545B71] px-4 py-2 text-white text-xl font-extrabold" colspan="4">Наличные деньги</h1>
-              <div class='flex gap-1.5'>
-                <table class="w-[50%]">
-                  <tbody>
+              <div id="cash" class='table-container hidden lg:block'> <!--Наличные деньги-->
+                <h1 class="bg-[#545B71] px-4 py-2 text-white text-xl font-extrabold" colspan="4">Наличные деньги</h1>
+                <div class='flex gap-1.5'>
+                  <table class="w-[50%]">
+                    <tbody>
+                      <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
+                        <td class="p-0">
+                          <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="cash-1">
+                            <span>Bitcoin</span>
+                            <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
+                          </button>
+                        </td>
+                      </tr>
+                      <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
+                        <td class="p-0">
+                          <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="cash-1">
+                            <span>Bitcoin</span>
+                            <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
+                          </button>
+                        </td>
+                      </tr>
+                      <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
+                        <td class="p-0">
+                          <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="cash-1">
+                            <span>Bitcoin</span>
+                            <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
+                          </button>
+                        </td>
+                      </tr>
+                      <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
+                        <td class="p-0">
+                          <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="cash-1">
+                            <span>Bitcoin</span>
+                            <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
+                          </button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <table class="w-[50%]">
                     <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
                       <td class="p-0">
-                        <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="cash-1">
+                        <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="cash-2">
                           <span>Bitcoin</span>
                           <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
                         </button>
@@ -632,7 +663,7 @@
                     </tr>
                     <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
                       <td class="p-0">
-                        <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="cash-1">
+                        <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="cash-2">
                           <span>Bitcoin</span>
                           <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
                         </button>
@@ -640,7 +671,7 @@
                     </tr>
                     <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
                       <td class="p-0">
-                        <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="cash-1">
+                        <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="cash-2">
                           <span>Bitcoin</span>
                           <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
                         </button>
@@ -648,605 +679,664 @@
                     </tr>
                     <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
                       <td class="p-0">
-                        <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="cash-1">
+                        <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="cash-2">
                           <span>Bitcoin</span>
                           <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
                         </button>
                       </td>
                     </tr>
-                  </tbody>
-                </table>
-                <table class="w-[50%]">
-                  <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
-                    <td class="p-0">
-                      <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="cash-2">
-                        <span>Bitcoin</span>
-                        <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
-                      </button>
-                    </td>
-                  </tr>
-                  <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
-                    <td class="p-0">
-                      <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="cash-2">
-                        <span>Bitcoin</span>
-                        <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
-                      </button>
-                    </td>
-                  </tr>
-                  <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
-                    <td class="p-0">
-                      <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="cash-2">
-                        <span>Bitcoin</span>
-                        <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
-                      </button>
-                    </td>
-                  </tr>
-                  <tr class="hover:bg-[#1E2027] odd:bg-[#353845] even:bg-[#2C2F3A]">
-                    <td class="p-0">
-                      <button class="w-full flex items-center text-xs font-bold p-3 px-4" data-table="cash-2">
-                        <span>Bitcoin</span>
-                        <span class='ml-auto text-[#FFFFFF99]'>BTC</span>
-                      </button>
-                    </td>
-                  </tr>
-                </table>
+                  </table>
+                </div>
               </div>
-            </div>
 
-            <button id='extend_button'
-              class="mt-4px-5 w-full bg-[#00A3FF] py-3 font-bold text-white hover:bg-blue-600 rounded-b-2xl flex justify-center">
-              <img src="/svg/extend.svg" title="extend" />
-            </button>
+              <button id='extend_button'
+                class="mt-4px-5 w-full bg-[#00A3FF] py-3 font-bold text-white hover:bg-blue-600 rounded-b-2xl flex justify-center">
+                <img src="/svg/extend.svg" title="extend" />
+              </button>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="lg:w-[1028px] lg:m-20 m-10"> <!--правая часть-->
-        <div class="flex flex-col">
-          <div id="trade_desc" class="mb-10 hidden"> <!--блок Обмен А на Б -->
-            <div class="rounded-xl bg-[#1E2027] text-white">
-              <div class="flex">
-                <div class="p-8">
-                  <h1 class="mb-2 lg:text-3xl text-2xl font-extrabold">Обмен Bitcoin (BTC) на Etherium (ETH)</h1>
-                  <p class="mt-6 font-bold leading-8 lg:text-xl hidden md:block">
-                    Мы предлагаем вам список пунктов обмена, в которых вы можете довольно просто менять A(a) → B(b) по
-                    выгодным курсам в сети Интернет. При определении оптимального курса, обратите внимание также и на
-                    резерв валюты Ethereum. Все пункты обмена, представленные на сайте, были тщательно проверены
-                    администраторами.
-                  </p>
-                  <p class="text-sm md:hidden leading-4">
-                    Мы предлагаем вам список пунктов обмена, в которых вы можете довольно просто менять Bitcoin (BTC) →
-                    Ethereum (ETH) по выгодным курсам в сети Интернет.
-                  </p>
+        <div class="lg:w-[1028px] lg:m-20 m-10"> <!--правая часть-->
+          <div class="flex flex-col">
+            <div id="trade_desc" class="mb-10 hidden"> <!--блок Обмен А на Б -->
+              <div class="rounded-xl bg-[#1E2027] text-white">
+                <div class="flex">
+                  <div class="p-8">
+                    <h1 class="mb-2 lg:text-3xl text-2xl font-extrabold">Обмен Bitcoin (BTC) на Etherium (ETH)</h1>
+                    <p class="mt-6 font-bold leading-8 lg:text-xl hidden md:block">
+                      Мы предлагаем вам список пунктов обмена, в которых вы можете довольно просто менять A(a) → B(b) по
+                      выгодным курсам в сети Интернет. При определении оптимального курса, обратите внимание также и на
+                      резерв валюты Ethereum. Все пункты обмена, представленные на сайте, были тщательно проверены
+                      администраторами.
+                    </p>
+                    <p class="text-sm md:hidden leading-4">
+                      Мы предлагаем вам список пунктов обмена, в которых вы можете довольно просто менять Bitcoin (BTC) →
+                      Ethereum (ETH) по выгодным курсам в сети Интернет.
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div id="mobile_trade_table" class="mb-10 hidden">
-            <!--Карточки Курсы Обмена-->
-            <div class="rounded-xl bg-[#1E2027] md:h-full">
-              <div class="flex justify-between items-center text-white flex-col md:flex-row">
-                <h1 class="mr-3 px-2 pb-4 pt-10 text-xl font-extrabold text-white">Курсы обмена</h1>
-                <div class="flex items-center">
-                  <h1 class="m-auto text-lg">
+            <div id="mobile_trade_table" class="mb-10 hidden">
+              <!--Карточки Курсы Обмена-->
+              <div class="rounded-xl bg-[#1E2027] md:h-full">
+                <div class="flex justify-between items-center text-white flex-col md:flex-row">
+                  <h1 class="mr-3 px-2 pb-4 pt-10 text-xl font-extrabold text-white">Курсы обмена</h1>
+                  <div class="flex items-center">
+                    <h1 class="m-auto text-lg">
+                      Город:
+                      <button class="my-10 rounded-lg  p-1 text-[#00A3FF] cursor-pointer underline"
+                        id="city-selector">Выбрать город</button>
+                      <!--BG не виден пока нет города bg-[#00A3FF] bg-opacity-20-->
+                    </h1>
+                    <img class="ml-4" src="/svg/closeRed.svg" title="red close icon" />
+                  </div>
+                </div>
+
+
+                <section class="mx-0 my-4 border-t-2 border-[#545B71] bg-[#1E2027] text-white">
+
+                  <div class="flex justify-between p-4">
+                    <div>
+                      <h1 class="text-xs font-bold text-[#545B71]">Обменник</h1>
+                      <p>Шахта</p>
+                    </div>
+                    <p class="flex w-20 items-center justify-center rounded-lg bg-[#2F491F] px-3 py-0 text-sm
+                                                          text-[#74E900]">
+                      Честный
+                    </p>
+                  </div>
+                  <div class="flex justify-between p-4">
+                    <div>
+                      <h1 class="text-xs font-bold text-[#545B71]">Отдаёте</h1>
+                      <p>
+                        1
+                        <span class=" text-[#545B71] font-extrabold"> BTC <span class="text-sm text-[#545B71]">от
+                            0.2</span> </span>
+                      </p>
+                    </div>
+                    <div class="ml-auto">
+                      <h1 class="text-xs font-bold text-[#545B71]">Получаете</h1>
+                      <p>12.545454 <span class=" text-[#545B71] font-extrabold">ETH</span></p>
+                    </div>
+                  </div>
+                  <div class="flex justify-between p-4">
+                    <div>
+                      <h1 class="text-xs font-bold text-[#545B71]">Резерв</h1>
+                      <p>16 484.25</p>
+                    </div>
+                    <div class="ml-auto">
+                      <h1 class="text-xs font-bold text-[#545B71]">Отзывы</h1>
+                      <p class="text-red-500">20 <span class="text-white"> | </span> <span
+                          class="text-green-600">2000</span></p>
+                    </div>
+                  </div>
+                </section>
+
+                <section class="mx-0 my-4 border-t-2 border-[#545B71] bg-[#1E2027] text-white">
+
+                  <div class="flex justify-between p-4">
+                    <div>
+                      <h1 class="text-xs font-bold text-[#545B71]">Обменник</h1>
+                      <p>Шахта</p>
+                    </div>
+                    <p
+                      class="flex w-20 items-center justify-center rounded-lg bg-[#471A2A] px-3 py-0 text-sm text-[#E90035]">
+                      Скам</p>
+                  </div>
+                  <div class="flex justify-between p-4">
+                    <div>
+                      <h1 class="text-xs font-bold text-[#545B71]">Отдаёте</h1>
+                      <p>
+                        1
+                        <span class=" text-[#545B71] font-extrabold"> BTC <span class="text-sm text-[#545B71]">от
+                            0.2</span> </span>
+                      </p>
+                    </div>
+                    <div class="ml-auto">
+                      <h1 class="text-xs font-bold text-[#545B71]">Получаете</h1>
+                      <p>12.545454 <span class=" text-[#545B71] font-extrabold">ETH</span></p>
+                    </div>
+                  </div>
+                  <div class="flex justify-between p-4">
+                    <div>
+                      <h1 class="text-xs font-bold text-[#545B71]">Резерв</h1>
+                      <p>16 484.25</p>
+                    </div>
+                    <div class="ml-auto">
+                      <h1 class="text-xs font-bold text-[#545B71]">Отзывы</h1>
+                      <p class="text-red-500">20 <span class="text-white"> | </span> <span
+                          class="text-green-600">2000</span></p>
+                    </div>
+                  </div>
+                </section>
+
+                <section class="mx-0 my-4 border-t-2 border-[#545B71] bg-[#1E2027] text-white">
+                  <div class="flex justify-between p-4">
+                    <div>
+                      <h1 class="text-xs font-bold text-[#545B71]">Обменник</h1>
+                      <p>Шахта</p>
+                    </div>
+                    <p
+                      class="flex w-20 items-center justify-center rounded-lg bg-[#FBA72A] bg-opacity-20 px-3 py-0 text-sm text-[#FBA72A]">
+                      Нейтр</p>
+                  </div>
+                  <div class="flex justify-between p-4">
+                    <div>
+                      <h1 class="text-xs font-bold text-[#545B71]">Отдаёте</h1>
+                      <p>
+                        1
+                        <span class=" text-[#545B71] font-extrabold"> BTC <span class="text-sm text-[#545B71]">от
+                            0.2</span> </span>
+                      </p>
+                    </div>
+                    <div class="ml-auto">
+                      <h1 class="text-xs font-bold text-[#545B71]">Получаете</h1>
+                      <p>12.545454 <span class=" text-[#545B71] font-extrabold">ETH</span></p>
+                    </div>
+                  </div>
+                  <div class="flex justify-between p-4">
+                    <div>
+                      <h1 class="text-xs font-bold text-[#545B71]">Резерв</h1>
+                      <p>16 484.25</p>
+                    </div>
+                    <div class="ml-auto">
+                      <h1 class="text-xs font-bold text-[#545B71]">Отзывы</h1>
+                      <p class="text-red-500">20 <span class="text-white"> | </span> <span
+                          class="text-green-600">2000</span></p>
+                    </div>
+                  </div>
+                </section>
+
+                <div class="mx-0 my-4 border-t-2 border-[#545B71] bg-[#1E2027] text-white">
+                  <div class="flex justify-between p-4">
+                    <section>
+                      <h1 class="text-xs font-bold text-[#545B71]">Обменник</h1>
+                      <p>Шахта</p>
+                    </section>
+                    <p
+                      class="flex w-20 items-center justify-center rounded-lg bg-[#FBA72A] bg-opacity-20 px-3 py-0 text-sm text-[#FBA72A]">
+                      Нейтр</p>
+                  </div>
+                  <div class="flex justify-between p-4">
+                    <section>
+                      <h1 class="text-xs font-bold text-[#545B71]">Отдаёте</h1>
+                      <p>
+                        1
+                        <span class=" text-[#545B71] font-extrabold"> BTC <span class="text-sm text-[#545B71]">от
+                            0.2</span> </span>
+                      </p>
+                    </section>
+                    <section class="ml-auto">
+                      <h1 class="text-xs font-bold  text-[#545B71]">Получаете</h1>
+                      <p>12.545454 <span class=" text-[#545B71] font-extrabold">ETH</span></p>
+                    </section>
+                  </div>
+                  <div class="flex justify-between p-4">
+                    <section>
+                      <h1 class="text-xs font-bold text-[#545B71]">Резерв</h1>
+                      <p>16 484.25</p>
+                    </section>
+                    <section class="ml-auto">
+                      <h1 class="text-xs font-bold text-[#545B71]">Отзывы</h1>
+                      <p class="text-red-500">20 <span class="text-white"> | </span> <span
+                          class="text-green-600">2000</span></p>
+                    </section>
+                  </div>
+                </div>
+                <div class="mx-0 my-4 border-t-2 border-[#545B71] bg-[#1E2027] text-white">
+                  <div class="flex justify-between p-4">
+                    <section>
+                      <h1 class="text-xs font-bold text-[#545B71]">Обменник</h1>
+                      <p>Шахта</p>
+                    </section>
+                    <p
+                      class="flex w-20 items-center justify-center rounded-lg bg-[#FBA72A] bg-opacity-20 px-3 py-0 text-sm text-[#FBA72A]">
+                      Нейтр</p>
+                  </div>
+                  <div class="flex justify-between p-4">
+                    <section>
+                      <h1 class="text-xs font-bold text-[#545B71]">Отдаёте</h1>
+                      <p>
+                        1
+                        <span class=" text-[#545B71] font-extrabold"> BTC <span class="text-sm text-[#545B71]">от
+                            0.2</span> </span>
+                      </p>
+                    </section>
+                    <section class="ml-auto">
+                      <h1 class="text-xs font-bold  text-[#545B71]">Получаете</h1>
+                      <p>12.545454 <span class=" text-[#545B71] font-extrabold">ETH</span></p>
+                    </section>
+                  </div>
+                  <div class="flex justify-between p-4">
+                    <section>
+                      <h1 class="text-xs font-bold  text-[#545B71]">Резерв</h1>
+                      <p>16 484.25</p>
+                    </section>
+                    <section class="ml-auto">
+                      <h1 class="text-xs font-bold  text-[#545B71]">Отзывы</h1>
+                      <p class="text-red-500">20 <span class="text-white"> | </span> <span
+                          class="text-green-600">2000</span></p>
+                    </section>
+                  </div>
+                </div>
+                <div class="mx-0 my-4 border-t-2 border-[#545B71] bg-[#1E2027] text-white">
+                  <div class="flex justify-between p-4">
+                    <section>
+                      <h1 class="text-xs font-bold text-[#545B71]">Обменник</h1>
+                      <p>Шахта</p>
+                    </section>
+                    <p
+                      class="flex w-20 items-center justify-center rounded-lg bg-[#FBA72A] bg-opacity-20 px-3 py-0 text-sm text-[#FBA72A]">
+                      Нейтр</p>
+                  </div>
+                  <div class="flex justify-between p-4">
+                    <section>
+                      <h1 class="text-xs font-bold text-[#545B71]">Отдаёте</h1>
+                      <p>
+                        1
+                        <span class=" text-[#545B71] font-extrabold"> BTC <span class="text-sm text-[#545B71]">от
+                            0.2</span> </span>
+                      </p>
+                    </section>
+                    <section class="ml-auto">
+                      <h1 class="text-xs font-bold text-[#545B71]">Получаете</h1>
+                      <p>12.545454 <span class=" text-[#545B71] font-extrabold">ETH</span></p>
+                    </section>
+                  </div>
+                  <div class="flex justify-between p-4">
+                    <section>
+                      <h1 class="text-xs font-bold text-[#545B71]">Резерв</h1>
+                      <p>16 484.25</p>
+                    </section>
+                    <section class="ml-auto">
+                      <h1 class="text-xs font-bold text-[#545B71]">Отзывы</h1>
+                      <p class="text-red-500">20 <span class="text-white"> | </span> <span
+                          class="text-green-600">2000</span></p>
+                    </section>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="desktop_trade_table" class="mb-10 hidden"> <!--Таблица Курсы Обмена (Desktop)-->
+              <div class="rounded-xl bg-[#1E2027]">
+                <div class="flex items-center justify-normal text-white">
+                  <h1 class="pl-8 flex-1 text-4xl font-extrabold mb-8">Курсы обмена</h1>
+                  <h1 class="ml-auto flex gap-0.5 items-center pr-8 mb-8 text-xl font-bold text-[#545B71]">
                     Город:
-                    <button class="my-10 rounded-lg  p-1 text-[#00A3FF] cursor-pointer underline"
-                      id="city-selector">Выбрать город</button>
-                    <!--BG не виден пока нет города bg-[#00A3FF] bg-opacity-20-->
+                    <button class="my-10 rounded-lg  p-1 text-[#00A3FF] cursor-pointer underline underline-offset-[4px]"
+                      onclick="showModal()">Выбрать город</button>
+                    <img class="ml-2" src="/svg/closeRed.svg" title="red close icon" />
                   </h1>
-                  <img class="ml-4" src="/svg/closeRed.svg" title="red close icon" />
                 </div>
-              </div>
-
-
-              <section class="mx-0 my-4 border-t-2 border-[#545B71] bg-[#1E2027] text-white">
-
-                <div class="flex justify-between p-4">
-                  <div>
-                    <h1 class="text-xs font-bold text-[#545B71]">Обменник</h1>
-                    <p>Шахта</p>
-                  </div>
-                  <p class="flex w-20 items-center justify-center rounded-lg bg-[#2F491F] px-3 py-0 text-sm
-                                                        text-[#74E900]">
-                    Честный
-                  </p>
-                </div>
-                <div class="flex justify-between p-4">
-                  <div>
-                    <h1 class="text-xs font-bold text-[#545B71]">Отдаёте</h1>
-                    <p>
-                      1
-                      <span class=" text-[#545B71] font-extrabold"> BTC <span class="text-sm text-[#545B71]">от
-                          0.2</span> </span>
-                    </p>
-                  </div>
-                  <div class="ml-auto">
-                    <h1 class="text-xs font-bold text-[#545B71]">Получаете</h1>
-                    <p>12.545454 <span class=" text-[#545B71] font-extrabold">ETH</span></p>
-                  </div>
-                </div>
-                <div class="flex justify-between p-4">
-                  <div>
-                    <h1 class="text-xs font-bold text-[#545B71]">Резерв</h1>
-                    <p>16 484.25</p>
-                  </div>
-                  <div class="ml-auto">
-                    <h1 class="text-xs font-bold text-[#545B71]">Отзывы</h1>
-                    <p class="text-red-500">20 <span class="text-white"> | </span> <span
-                        class="text-green-600">2000</span></p>
-                  </div>
-                </div>
-              </section>
-
-              <section class="mx-0 my-4 border-t-2 border-[#545B71] bg-[#1E2027] text-white">
-
-                <div class="flex justify-between p-4">
-                  <div>
-                    <h1 class="text-xs font-bold text-[#545B71]">Обменник</h1>
-                    <p>Шахта</p>
-                  </div>
-                  <p
-                    class="flex w-20 items-center justify-center rounded-lg bg-[#471A2A] px-3 py-0 text-sm text-[#E90035]">
-                    Скам</p>
-                </div>
-                <div class="flex justify-between p-4">
-                  <div>
-                    <h1 class="text-xs font-bold text-[#545B71]">Отдаёте</h1>
-                    <p>
-                      1
-                      <span class=" text-[#545B71] font-extrabold"> BTC <span class="text-sm text-[#545B71]">от
-                          0.2</span> </span>
-                    </p>
-                  </div>
-                  <div class="ml-auto">
-                    <h1 class="text-xs font-bold text-[#545B71]">Получаете</h1>
-                    <p>12.545454 <span class=" text-[#545B71] font-extrabold">ETH</span></p>
-                  </div>
-                </div>
-                <div class="flex justify-between p-4">
-                  <div>
-                    <h1 class="text-xs font-bold text-[#545B71]">Резерв</h1>
-                    <p>16 484.25</p>
-                  </div>
-                  <div class="ml-auto">
-                    <h1 class="text-xs font-bold text-[#545B71]">Отзывы</h1>
-                    <p class="text-red-500">20 <span class="text-white"> | </span> <span
-                        class="text-green-600">2000</span></p>
-                  </div>
-                </div>
-              </section>
-
-              <section class="mx-0 my-4 border-t-2 border-[#545B71] bg-[#1E2027] text-white">
-                <div class="flex justify-between p-4">
-                  <div>
-                    <h1 class="text-xs font-bold text-[#545B71]">Обменник</h1>
-                    <p>Шахта</p>
-                  </div>
-                  <p
-                    class="flex w-20 items-center justify-center rounded-lg bg-[#FBA72A] bg-opacity-20 px-3 py-0 text-sm text-[#FBA72A]">
-                    Нейтр</p>
-                </div>
-                <div class="flex justify-between p-4">
-                  <div>
-                    <h1 class="text-xs font-bold text-[#545B71]">Отдаёте</h1>
-                    <p>
-                      1
-                      <span class=" text-[#545B71] font-extrabold"> BTC <span class="text-sm text-[#545B71]">от
-                          0.2</span> </span>
-                    </p>
-                  </div>
-                  <div class="ml-auto">
-                    <h1 class="text-xs font-bold text-[#545B71]">Получаете</h1>
-                    <p>12.545454 <span class=" text-[#545B71] font-extrabold">ETH</span></p>
-                  </div>
-                </div>
-                <div class="flex justify-between p-4">
-                  <div>
-                    <h1 class="text-xs font-bold text-[#545B71]">Резерв</h1>
-                    <p>16 484.25</p>
-                  </div>
-                  <div class="ml-auto">
-                    <h1 class="text-xs font-bold text-[#545B71]">Отзывы</h1>
-                    <p class="text-red-500">20 <span class="text-white"> | </span> <span
-                        class="text-green-600">2000</span></p>
-                  </div>
-                </div>
-              </section>
-
-              <div class="mx-0 my-4 border-t-2 border-[#545B71] bg-[#1E2027] text-white">
-                <div class="flex justify-between p-4">
-                  <section>
-                    <h1 class="text-xs font-bold text-[#545B71]">Обменник</h1>
-                    <p>Шахта</p>
-                  </section>
-                  <p
-                    class="flex w-20 items-center justify-center rounded-lg bg-[#FBA72A] bg-opacity-20 px-3 py-0 text-sm text-[#FBA72A]">
-                    Нейтр</p>
-                </div>
-                <div class="flex justify-between p-4">
-                  <section>
-                    <h1 class="text-xs font-bold text-[#545B71]">Отдаёте</h1>
-                    <p>
-                      1
-                      <span class=" text-[#545B71] font-extrabold"> BTC <span class="text-sm text-[#545B71]">от
-                          0.2</span> </span>
-                    </p>
-                  </section>
-                  <section class="ml-auto">
-                    <h1 class="text-xs font-bold  text-[#545B71]">Получаете</h1>
-                    <p>12.545454 <span class=" text-[#545B71] font-extrabold">ETH</span></p>
-                  </section>
-                </div>
-                <div class="flex justify-between p-4">
-                  <section>
-                    <h1 class="text-xs font-bold text-[#545B71]">Резерв</h1>
-                    <p>16 484.25</p>
-                  </section>
-                  <section class="ml-auto">
-                    <h1 class="text-xs font-bold text-[#545B71]">Отзывы</h1>
-                    <p class="text-red-500">20 <span class="text-white"> | </span> <span
-                        class="text-green-600">2000</span></p>
-                  </section>
-                </div>
-              </div>
-              <div class="mx-0 my-4 border-t-2 border-[#545B71] bg-[#1E2027] text-white">
-                <div class="flex justify-between p-4">
-                  <section>
-                    <h1 class="text-xs font-bold text-[#545B71]">Обменник</h1>
-                    <p>Шахта</p>
-                  </section>
-                  <p
-                    class="flex w-20 items-center justify-center rounded-lg bg-[#FBA72A] bg-opacity-20 px-3 py-0 text-sm text-[#FBA72A]">
-                    Нейтр</p>
-                </div>
-                <div class="flex justify-between p-4">
-                  <section>
-                    <h1 class="text-xs font-bold text-[#545B71]">Отдаёте</h1>
-                    <p>
-                      1
-                      <span class=" text-[#545B71] font-extrabold"> BTC <span class="text-sm text-[#545B71]">от
-                          0.2</span> </span>
-                    </p>
-                  </section>
-                  <section class="ml-auto">
-                    <h1 class="text-xs font-bold  text-[#545B71]">Получаете</h1>
-                    <p>12.545454 <span class=" text-[#545B71] font-extrabold">ETH</span></p>
-                  </section>
-                </div>
-                <div class="flex justify-between p-4">
-                  <section>
-                    <h1 class="text-xs font-bold  text-[#545B71]">Резерв</h1>
-                    <p>16 484.25</p>
-                  </section>
-                  <section class="ml-auto">
-                    <h1 class="text-xs font-bold  text-[#545B71]">Отзывы</h1>
-                    <p class="text-red-500">20 <span class="text-white"> | </span> <span
-                        class="text-green-600">2000</span></p>
-                  </section>
-                </div>
-              </div>
-              <div class="mx-0 my-4 border-t-2 border-[#545B71] bg-[#1E2027] text-white">
-                <div class="flex justify-between p-4">
-                  <section>
-                    <h1 class="text-xs font-bold text-[#545B71]">Обменник</h1>
-                    <p>Шахта</p>
-                  </section>
-                  <p
-                    class="flex w-20 items-center justify-center rounded-lg bg-[#FBA72A] bg-opacity-20 px-3 py-0 text-sm text-[#FBA72A]">
-                    Нейтр</p>
-                </div>
-                <div class="flex justify-between p-4">
-                  <section>
-                    <h1 class="text-xs font-bold text-[#545B71]">Отдаёте</h1>
-                    <p>
-                      1
-                      <span class=" text-[#545B71] font-extrabold"> BTC <span class="text-sm text-[#545B71]">от
-                          0.2</span> </span>
-                    </p>
-                  </section>
-                  <section class="ml-auto">
-                    <h1 class="text-xs font-bold text-[#545B71]">Получаете</h1>
-                    <p>12.545454 <span class=" text-[#545B71] font-extrabold">ETH</span></p>
-                  </section>
-                </div>
-                <div class="flex justify-between p-4">
-                  <section>
-                    <h1 class="text-xs font-bold text-[#545B71]">Резерв</h1>
-                    <p>16 484.25</p>
-                  </section>
-                  <section class="ml-auto">
-                    <h1 class="text-xs font-bold text-[#545B71]">Отзывы</h1>
-                    <p class="text-red-500">20 <span class="text-white"> | </span> <span
-                        class="text-green-600">2000</span></p>
-                  </section>
+                <div class="h-[370px] overflow-y-auto md:h-[556px]">
+                  <table class="mr-0 h-full w-full table-auto overflow-hidden rounded-xl pr-0">
+                    <thead class="border-b-[1px] border-[#545B71]">
+                      <tr class="text-white text-left font-bold">
+                        <th class="first-column px-6 pb-4">Статус</th>
+                        <th class="pb-4">Обменник</th>
+                        <th class="pb-4">Отдаёте</th>
+                        <th class="pb-4">Получаете</th>
+                        <th class="pb-4">Резерв</th>
+                        <th class="last-column pb-4">Отзывы</th>
+                      </tr>
+                    </thead>
+                    <tbody class="text-white">
+                      <tr class="border-t-[1px] border-[#545B71] hover:bg-[#2C2F3A]">
+                        <td class="flex px-6 py-[10px] text-left md:py-[20px]">
+                          <p
+                            class="flex w-20 justify-center rounded-lg bg-[#2F491F] px-3 py-1 align-middle text-xs text-[#74E900]">
+                            Честный</p>
+                        </td>
+                        <td class="text-left text-sm">LigaBTC</td>
+                        <td class="text-left font-extrabold">
+                          1 <span class="text-[#545B71]">BTC <span class="text-xs font-bold"> от 0.2</span> </span>
+                        </td>
+                        <td>12.228699 <span class="text-[#545B71] font-extrabold">ETH</span></td>
+                        <td>
+                          <p class="font-bold">16 488,25</p>
+                        </td>
+                        <td class="text-red-500 font-bold">20 <span class="text-white">|</span> <span
+                            class="text-green-600">2000</span></td>
+                      </tr>
+                      <tr class="border-t-[1px] border-[#545B71] hover:bg-[#2C2F3A]">
+                        <td class="flex px-6 py-[10px] text-left md:py-[20px]">
+                          <p
+                            class="flex w-20 justify-center rounded-lg bg-[#471A2A] px-3 py-1 align-middle text-xs text-[#E90035]">
+                            Скам</p>
+                        </td>
+                        <td class="text-left text-sm">LigaBTC</td>
+                        <td class="text-left font-extrabold">
+                          1 <span class="text-[#545B71]">BTC <span class="text-xs font-bold"> от 0.2</span> </span>
+                        </td>
+                        <td>12.228699 <span class="text-[#545B71] font-extrabold">ETH</span></td>
+                        <td>
+                          <p class="font-bold">16 488,25</p>
+                        </td>
+                        <td class="text-red-500 font-bold">20 <span class="text-white">|</span> <span
+                            class="text-green-600">2000</span></td>
+                      </tr>
+                      <tr class="whitespace-normal border-t-[1px] border-[#545B71] hover:bg-[#2C2F3A]">
+                        <td class="flex px-6 py-[10px] text-left md:py-[20px]">
+                          <p
+                            class="flex w-20 justify-center rounded-lg bg-[#FBA72A] bg-opacity-20 px-3 py-1 align-middle text-xs text-[#FBA72A]">
+                            Нейтр</p>
+                        </td>
+                        <td class="text-left text-sm">LigaBTC</td>
+                        <td class="text-left font-extrabold">
+                          1 <span class="text-[#545B71]">BTC <span class="text-xs font-bold"> от 0.2</span> </span>
+                        </td>
+                        <td>12.228699 <span class="text-[#545B71] font-extrabold">ETH</span></td>
+                        <td>
+                          <p class="font-bold">16 488,25</p>
+                        </td>
+                        <td class="text-red-500 font-bold">20 <span class="text-white">|</span> <span
+                            class="text-green-600">2000</span></td>
+                      </tr>
+                      <tr class="border-t-[1px] border-[#545B71] hover:bg-[#2C2F3A]">
+                        <td class="flex px-6 py-[10px] text-left md:py-[20px]">
+                          <p
+                            class="flex w-20 justify-center rounded-lg bg-[#2F491F] px-3 py-1 align-middle text-xs text-[#74E900]">
+                            Честный</p>
+                        </td>
+                        <td class="text-left text-sm">LigaBTC</td>
+                        <td class="text-left font-extrabold">
+                          1 <span class="text-[#545B71]">BTC <span class="text-xs font-bold"> от 0.2</span> </span>
+                        </td>
+                        <td>12.228699 <span class="text-[#545B71] font-extrabold">ETH</span></td>
+                        <td>
+                          <p class="font-bold">16 488,25</p>
+                        </td>
+                        <td class="text-red-500 font-bold">20 <span class="text-white">|</span> <span
+                            class="text-green-600">2000</span></td>
+                      </tr>
+                      <tr class="border-t-[1px] border-[#545B71] hover:bg-[#2C2F3A]">
+                        <td class="flex px-6 py-[10px] text-left md:py-[20px]">
+                          <p
+                            class="flex w-20 justify-center rounded-lg bg-[#471A2A] px-3 py-1 align-middle text-xs text-[#E90035]">
+                            Скам</p>
+                        </td>
+                        <td class="text-left text-sm">LigaBTC</td>
+                        <td class="text-left font-extrabold">
+                          1 <span class="text-[#545B71]">BTC <span class="text-xs font-bold"> от 0.2</span> </span>
+                        </td>
+                        <td>12.228699 <span class="text-[#545B71] font-extrabold">ETH</span></td>
+                        <td>
+                          <p class="font-bold">16 488,25</p>
+                        </td>
+                        <td class="text-red-500 font-bold">20 <span class="text-white">|</span> <span
+                            class="text-green-600">2000</span></td>
+                      </tr>
+                      <tr class="whitespace-normal border-t-[1px] border-[#545B71] hover:bg-[#2C2F3A]">
+                        <td class="flex px-6 py-[10px] text-left md:py-[20px]">
+                          <p
+                            class="flex w-20 justify-center rounded-lg bg-[#FBA72A] bg-opacity-20 px-3 py-1 align-middle text-xs text-[#FBA72A]">
+                            Нейтр</p>
+                        </td>
+                        <td class="text-left text-sm">LigaBTC</td>
+                        <td class="text-left font-extrabold">
+                          1 <span class="text-[#545B71]">BTC <span class="text-xs font-bold"> от 0.2</span> </span>
+                        </td>
+                        <td>12.228699 <span class="text-[#545B71] font-extrabold">ETH</span></td>
+                        <td>
+                          <p class="font-bold">16 488,25</p>
+                        </td>
+                        <td class="text-red-500 font-bold">20 <span class="text-white">|</span> <span
+                            class="text-green-600">2000</span></td>
+                      </tr>
+                      <tr class="border-t-[1px] border-[#545B71] hover:bg-[#2C2F3A]">
+                        <td class="flex px-6 py-[10px] text-left md:py-[20px]">
+                          <p
+                            class="flex w-20 justify-center rounded-lg bg-[#2F491F] px-3 py-1 align-middle text-xs text-[#74E900]">
+                            Честный</p>
+                        </td>
+                        <td class="text-left text-sm">LigaBTC</td>
+                        <td class="text-left font-extrabold">
+                          1 <span class="text-[#545B71]">BTC <span class="text-xs font-bold"> от 0.2</span> </span>
+                        </td>
+                        <td>12.228699 <span class="text-[#545B71] font-extrabold">ETH</span></td>
+                        <td>
+                          <p class="font-bold">16 488,25</p>
+                        </td>
+                        <td class="text-red-500 font-bold">20 <span class="text-white">|</span> <span
+                            class="text-green-600">2000</span></td>
+                      </tr>
+                      <tr class="border-t-[1px] border-[#545B71] hover:bg-[#2C2F3A]">
+                        <td class="flex px-6 py-[10px] text-left md:py-[20px]">
+                          <p
+                            class="flex w-20 justify-center rounded-lg bg-[#471A2A] px-3 py-1 align-middle text-xs text-[#E90035]">
+                            Скам</p>
+                        </td>
+                        <td class="text-left text-sm">LigaBTC</td>
+                        <td class="text-left font-extrabold">
+                          1 <span class="text-[#545B71]">BTC <span class="text-xs font-bold"> от 0.2</span> </span>
+                        </td>
+                        <td>12.228699 <span class="text-[#545B71] font-extrabold">ETH</span></td>
+                        <td>
+                          <p class="font-bold">16 488,25</p>
+                        </td>
+                        <td class="text-red-500 font-bold">20 <span class="text-white">|</span> <span
+                            class="text-green-600">2000</span></td>
+                      </tr>
+                      <tr class="whitespace-normal border-t-[1px] border-[#545B71] hover:bg-[#2C2F3A]">
+                        <td class="flex px-6 py-[10px] text-left md:py-[20px]">
+                          <p
+                            class="flex w-20 justify-center rounded-lg bg-[#FBA72A] bg-opacity-20 px-3 py-1 align-middle text-xs text-[#FBA72A]">
+                            Нейтр</p>
+                        </td>
+                        <td class="text-left text-sm">LigaBTC</td>
+                        <td class="text-left font-extrabold">
+                          1 <span class="text-[#545B71]">BTC <span class="text-xs font-bold"> от 0.2</span> </span>
+                        </td>
+                        <td>12.228699 <span class="text-[#545B71] font-extrabold">ETH</span></td>
+                        <td>
+                          <p class="font-bold">16 488,25</p>
+                        </td>
+                        <td class="text-red-500 font-bold">20 <span class="text-white">|</span> <span
+                            class="text-green-600">2000</span></td>
+                      </tr>
+                      <tr class="border-t-[1px] border-[#545B71] hover:bg-[#2C2F3A]">
+                        <td class="flex px-6 py-[10px] text-left md:py-[20px]">
+                          <p
+                            class="flex w-20 justify-center rounded-lg bg-[#2F491F] px-3 py-1 align-middle text-xs text-[#74E900]">
+                            Честный</p>
+                        </td>
+                        <td class="text-left text-sm">LigaBTC</td>
+                        <td class="text-left font-extrabold">
+                          1 <span class="text-[#545B71]">BTC <span class="text-xs font-bold"> от 0.2</span> </span>
+                        </td>
+                        <td>12.228699 <span class="text-[#545B71] font-extrabold">ETH</span></td>
+                        <td>
+                          <p class="font-bold">16 488,25</p>
+                        </td>
+                        <td class="text-red-500 font-bold">20 <span class="text-white">|</span> <span
+                            class="text-green-600">2000</span></td>
+                      </tr>
+                      <tr class="border-t-[1px] border-[#545B71] hover:bg-[#2C2F3A]">
+                        <td class="flex px-6 py-[10px] text-left md:py-[20px]">
+                          <p
+                            class="flex w-20 justify-center rounded-lg bg-[#471A2A] px-3 py-1 align-middle text-xs text-[#E90035]">
+                            Скам</p>
+                        </td>
+                        <td class="text-left text-sm">LigaBTC</td>
+                        <td class="text-left font-extrabold">
+                          1 <span class="text-[#545B71]">BTC <span class="text-xs font-bold"> от 0.2</span> </span>
+                        </td>
+                        <td>12.228699 <span class="text-[#545B71] font-extrabold">ETH</span></td>
+                        <td>
+                          <p class="font-bold">16 488,25</p>
+                        </td>
+                        <td class="text-red-500 font-bold">20 <span class="text-white">|</span> <span
+                            class="text-green-600">2000</span></td>
+                      </tr>
+                      <tr class="whitespace-normal border-t-[1px] border-[#545B71] hover:bg-[#2C2F3A]">
+                        <td class="flex px-6 py-[10px] text-left md:py-[20px]">
+                          <p
+                            class="flex w-20 justify-center rounded-lg bg-[#FBA72A] bg-opacity-20 px-3 py-1 align-middle text-xs text-[#FBA72A]">
+                            Нейтр</p>
+                        </td>
+                        <td class="text-left text-sm">LigaBTC</td>
+                        <td class="text-left font-extrabold">
+                          1 <span class="text-[#545B71]">BTC <span class="text-xs font-bold"> от 0.2</span> </span>
+                        </td>
+                        <td>12.228699 <span class="text-[#545B71] font-extrabold">ETH</span></td>
+                        <td>
+                          <p class="font-bold">16 488,25</p>
+                        </td>
+                        <td class="text-red-500 font-bold">20 <span class="text-white">|</span> <span
+                            class="text-green-600">2000</span></td>
+                      </tr>
+                    </tbody>
+                  </table>
                 </div>
               </div>
             </div>
-          </div>
-          <div id="desktop_trade_table" class="mb-10 hidden"> <!--Таблица Курсы Обмена (Desktop)-->
-            <div class="rounded-xl bg-[#1E2027]">
-              <div class="flex items-center justify-normal text-white">
-                <h1 class="pl-8 flex-1 text-4xl font-extrabold mb-8">Курсы обмена</h1>
-                <h1 class="ml-auto flex gap-0.5 items-center pr-8 mb-8 text-xl font-bold text-[#545B71]">
-                  Город:
-                  <button class="my-10 rounded-lg  p-1 text-[#00A3FF] cursor-pointer underline underline-offset-[4px]"
-                    onclick="showModal()">Выбрать город</button>
-                  <img class="ml-2" src="/svg/closeRed.svg" title="red close icon" />
-                </h1>
-              </div>
-              <div class="h-[370px] overflow-y-auto md:h-[556px]">
-                <table class="mr-0 h-full w-full table-auto overflow-hidden rounded-xl pr-0">
-                  <thead class="border-b-[1px] border-[#545B71]">
-                    <tr class="text-white text-left font-bold">
-                      <th class="first-column px-6 pb-4">Статус</th>
-                      <th class="pb-4">Обменник</th>
-                      <th class="pb-4">Отдаёте</th>
-                      <th class="pb-4">Получаете</th>
-                      <th class="pb-4">Резерв</th>
-                      <th class="last-column pb-4">Отзывы</th>
-                    </tr>
-                  </thead>
-                  <tbody class="text-white">
-                    <tr class="border-t-[1px] border-[#545B71] hover:bg-[#2C2F3A]">
-                      <td class="flex px-6 py-[10px] text-left md:py-[20px]">
-                        <p
-                          class="flex w-20 justify-center rounded-lg bg-[#2F491F] px-3 py-1 align-middle text-xs text-[#74E900]">
-                          Честный</p>
-                      </td>
-                      <td class="text-left text-sm">LigaBTC</td>
-                      <td class="text-left font-extrabold">
-                        1 <span class="text-[#545B71]">BTC <span class="text-xs font-bold"> от 0.2</span> </span>
-                      </td>
-                      <td>12.228699 <span class="text-[#545B71] font-extrabold">ETH</span></td>
-                      <td>
-                        <p class="font-bold">16 488,25</p>
-                      </td>
-                      <td class="text-red-500 font-bold">20 <span class="text-white">|</span> <span
-                          class="text-green-600">2000</span></td>
-                    </tr>
-                    <tr class="border-t-[1px] border-[#545B71] hover:bg-[#2C2F3A]">
-                      <td class="flex px-6 py-[10px] text-left md:py-[20px]">
-                        <p
-                          class="flex w-20 justify-center rounded-lg bg-[#471A2A] px-3 py-1 align-middle text-xs text-[#E90035]">
-                          Скам</p>
-                      </td>
-                      <td class="text-left text-sm">LigaBTC</td>
-                      <td class="text-left font-extrabold">
-                        1 <span class="text-[#545B71]">BTC <span class="text-xs font-bold"> от 0.2</span> </span>
-                      </td>
-                      <td>12.228699 <span class="text-[#545B71] font-extrabold">ETH</span></td>
-                      <td>
-                        <p class="font-bold">16 488,25</p>
-                      </td>
-                      <td class="text-red-500 font-bold">20 <span class="text-white">|</span> <span
-                          class="text-green-600">2000</span></td>
-                    </tr>
-                    <tr class="whitespace-normal border-t-[1px] border-[#545B71] hover:bg-[#2C2F3A]">
-                      <td class="flex px-6 py-[10px] text-left md:py-[20px]">
-                        <p
-                          class="flex w-20 justify-center rounded-lg bg-[#FBA72A] bg-opacity-20 px-3 py-1 align-middle text-xs text-[#FBA72A]">
-                          Нейтр</p>
-                      </td>
-                      <td class="text-left text-sm">LigaBTC</td>
-                      <td class="text-left font-extrabold">
-                        1 <span class="text-[#545B71]">BTC <span class="text-xs font-bold"> от 0.2</span> </span>
-                      </td>
-                      <td>12.228699 <span class="text-[#545B71] font-extrabold">ETH</span></td>
-                      <td>
-                        <p class="font-bold">16 488,25</p>
-                      </td>
-                      <td class="text-red-500 font-bold">20 <span class="text-white">|</span> <span
-                          class="text-green-600">2000</span></td>
-                    </tr>
-                    <tr class="border-t-[1px] border-[#545B71] hover:bg-[#2C2F3A]">
-                      <td class="flex px-6 py-[10px] text-left md:py-[20px]">
-                        <p
-                          class="flex w-20 justify-center rounded-lg bg-[#2F491F] px-3 py-1 align-middle text-xs text-[#74E900]">
-                          Честный</p>
-                      </td>
-                      <td class="text-left text-sm">LigaBTC</td>
-                      <td class="text-left font-extrabold">
-                        1 <span class="text-[#545B71]">BTC <span class="text-xs font-bold"> от 0.2</span> </span>
-                      </td>
-                      <td>12.228699 <span class="text-[#545B71] font-extrabold">ETH</span></td>
-                      <td>
-                        <p class="font-bold">16 488,25</p>
-                      </td>
-                      <td class="text-red-500 font-bold">20 <span class="text-white">|</span> <span
-                          class="text-green-600">2000</span></td>
-                    </tr>
-                    <tr class="border-t-[1px] border-[#545B71] hover:bg-[#2C2F3A]">
-                      <td class="flex px-6 py-[10px] text-left md:py-[20px]">
-                        <p
-                          class="flex w-20 justify-center rounded-lg bg-[#471A2A] px-3 py-1 align-middle text-xs text-[#E90035]">
-                          Скам</p>
-                      </td>
-                      <td class="text-left text-sm">LigaBTC</td>
-                      <td class="text-left font-extrabold">
-                        1 <span class="text-[#545B71]">BTC <span class="text-xs font-bold"> от 0.2</span> </span>
-                      </td>
-                      <td>12.228699 <span class="text-[#545B71] font-extrabold">ETH</span></td>
-                      <td>
-                        <p class="font-bold">16 488,25</p>
-                      </td>
-                      <td class="text-red-500 font-bold">20 <span class="text-white">|</span> <span
-                          class="text-green-600">2000</span></td>
-                    </tr>
-                    <tr class="whitespace-normal border-t-[1px] border-[#545B71] hover:bg-[#2C2F3A]">
-                      <td class="flex px-6 py-[10px] text-left md:py-[20px]">
-                        <p
-                          class="flex w-20 justify-center rounded-lg bg-[#FBA72A] bg-opacity-20 px-3 py-1 align-middle text-xs text-[#FBA72A]">
-                          Нейтр</p>
-                      </td>
-                      <td class="text-left text-sm">LigaBTC</td>
-                      <td class="text-left font-extrabold">
-                        1 <span class="text-[#545B71]">BTC <span class="text-xs font-bold"> от 0.2</span> </span>
-                      </td>
-                      <td>12.228699 <span class="text-[#545B71] font-extrabold">ETH</span></td>
-                      <td>
-                        <p class="font-bold">16 488,25</p>
-                      </td>
-                      <td class="text-red-500 font-bold">20 <span class="text-white">|</span> <span
-                          class="text-green-600">2000</span></td>
-                    </tr>
-                    <tr class="border-t-[1px] border-[#545B71] hover:bg-[#2C2F3A]">
-                      <td class="flex px-6 py-[10px] text-left md:py-[20px]">
-                        <p
-                          class="flex w-20 justify-center rounded-lg bg-[#2F491F] px-3 py-1 align-middle text-xs text-[#74E900]">
-                          Честный</p>
-                      </td>
-                      <td class="text-left text-sm">LigaBTC</td>
-                      <td class="text-left font-extrabold">
-                        1 <span class="text-[#545B71]">BTC <span class="text-xs font-bold"> от 0.2</span> </span>
-                      </td>
-                      <td>12.228699 <span class="text-[#545B71] font-extrabold">ETH</span></td>
-                      <td>
-                        <p class="font-bold">16 488,25</p>
-                      </td>
-                      <td class="text-red-500 font-bold">20 <span class="text-white">|</span> <span
-                          class="text-green-600">2000</span></td>
-                    </tr>
-                    <tr class="border-t-[1px] border-[#545B71] hover:bg-[#2C2F3A]">
-                      <td class="flex px-6 py-[10px] text-left md:py-[20px]">
-                        <p
-                          class="flex w-20 justify-center rounded-lg bg-[#471A2A] px-3 py-1 align-middle text-xs text-[#E90035]">
-                          Скам</p>
-                      </td>
-                      <td class="text-left text-sm">LigaBTC</td>
-                      <td class="text-left font-extrabold">
-                        1 <span class="text-[#545B71]">BTC <span class="text-xs font-bold"> от 0.2</span> </span>
-                      </td>
-                      <td>12.228699 <span class="text-[#545B71] font-extrabold">ETH</span></td>
-                      <td>
-                        <p class="font-bold">16 488,25</p>
-                      </td>
-                      <td class="text-red-500 font-bold">20 <span class="text-white">|</span> <span
-                          class="text-green-600">2000</span></td>
-                    </tr>
-                    <tr class="whitespace-normal border-t-[1px] border-[#545B71] hover:bg-[#2C2F3A]">
-                      <td class="flex px-6 py-[10px] text-left md:py-[20px]">
-                        <p
-                          class="flex w-20 justify-center rounded-lg bg-[#FBA72A] bg-opacity-20 px-3 py-1 align-middle text-xs text-[#FBA72A]">
-                          Нейтр</p>
-                      </td>
-                      <td class="text-left text-sm">LigaBTC</td>
-                      <td class="text-left font-extrabold">
-                        1 <span class="text-[#545B71]">BTC <span class="text-xs font-bold"> от 0.2</span> </span>
-                      </td>
-                      <td>12.228699 <span class="text-[#545B71] font-extrabold">ETH</span></td>
-                      <td>
-                        <p class="font-bold">16 488,25</p>
-                      </td>
-                      <td class="text-red-500 font-bold">20 <span class="text-white">|</span> <span
-                          class="text-green-600">2000</span></td>
-                    </tr>
-                    <tr class="border-t-[1px] border-[#545B71] hover:bg-[#2C2F3A]">
-                      <td class="flex px-6 py-[10px] text-left md:py-[20px]">
-                        <p
-                          class="flex w-20 justify-center rounded-lg bg-[#2F491F] px-3 py-1 align-middle text-xs text-[#74E900]">
-                          Честный</p>
-                      </td>
-                      <td class="text-left text-sm">LigaBTC</td>
-                      <td class="text-left font-extrabold">
-                        1 <span class="text-[#545B71]">BTC <span class="text-xs font-bold"> от 0.2</span> </span>
-                      </td>
-                      <td>12.228699 <span class="text-[#545B71] font-extrabold">ETH</span></td>
-                      <td>
-                        <p class="font-bold">16 488,25</p>
-                      </td>
-                      <td class="text-red-500 font-bold">20 <span class="text-white">|</span> <span
-                          class="text-green-600">2000</span></td>
-                    </tr>
-                    <tr class="border-t-[1px] border-[#545B71] hover:bg-[#2C2F3A]">
-                      <td class="flex px-6 py-[10px] text-left md:py-[20px]">
-                        <p
-                          class="flex w-20 justify-center rounded-lg bg-[#471A2A] px-3 py-1 align-middle text-xs text-[#E90035]">
-                          Скам</p>
-                      </td>
-                      <td class="text-left text-sm">LigaBTC</td>
-                      <td class="text-left font-extrabold">
-                        1 <span class="text-[#545B71]">BTC <span class="text-xs font-bold"> от 0.2</span> </span>
-                      </td>
-                      <td>12.228699 <span class="text-[#545B71] font-extrabold">ETH</span></td>
-                      <td>
-                        <p class="font-bold">16 488,25</p>
-                      </td>
-                      <td class="text-red-500 font-bold">20 <span class="text-white">|</span> <span
-                          class="text-green-600">2000</span></td>
-                    </tr>
-                    <tr class="whitespace-normal border-t-[1px] border-[#545B71] hover:bg-[#2C2F3A]">
-                      <td class="flex px-6 py-[10px] text-left md:py-[20px]">
-                        <p
-                          class="flex w-20 justify-center rounded-lg bg-[#FBA72A] bg-opacity-20 px-3 py-1 align-middle text-xs text-[#FBA72A]">
-                          Нейтр</p>
-                      </td>
-                      <td class="text-left text-sm">LigaBTC</td>
-                      <td class="text-left font-extrabold">
-                        1 <span class="text-[#545B71]">BTC <span class="text-xs font-bold"> от 0.2</span> </span>
-                      </td>
-                      <td>12.228699 <span class="text-[#545B71] font-extrabold">ETH</span></td>
-                      <td>
-                        <p class="font-bold">16 488,25</p>
-                      </td>
-                      <td class="text-red-500 font-bold">20 <span class="text-white">|</span> <span
-                          class="text-green-600">2000</span></td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
 
-          <div id="desc" class="mb-10"> <!--блок AntiSwap с описанием-->
-            <div class="rounded-xl bg-[#1E2027] text-white">
-              <div class="flex flex-col md:flex-row">
-                <div class="p-10 hidden md:block"> <!--Текст-->
-                  <h1 class="mb-6 text-4xl font-bold ">AntiSwap</h1>
-                  <p class="mb-8">
-                    Сервис анализирующий прозрачность и безопасность <br />
-                    обменников благодаря отзывам пользователей
-                  </p>
-                  <button class="rounded bg-[#00A3FF] px-5 py-3 font-bold text-white hover:bg-blue-600">Подробнее
-                    -</button>
-                </div>
-                <div class="flex align-bottom"> <!--Картинки-->
-                  <img
-                    class="hidden md:hidden lg:block object-right-bottom object-contain w-full h-full flex-shrink-0 transition-all duration-300 ease-in-out"
-                    src="https://antiswap.info/images/main/bg-desktop.png" alt="Десктопная Картинка" />
-                  <img class="block md:block lg:hidden mb-4" src="https://antiswap.info/images/main/bg-mobile.png"
-                    alt="Мобильная Картинка" />
-                </div>
-                <div class="md:hidden p-10">
-                  <h1 class="mb-2 text-xl font-bold ">AntiSwap</h1>
-                  <p class="mb-8">
-                    Сервис анализирующий прозрачность и безопасность <br />
-                    обменников благодаря отзывам пользователей
-                  </p>
-                  <div class="flex">
-                    <button
-                      class="rounded bg-[#00A3FF] px-8 py-3 font-bold text-xl text-white hover:bg-blue-600 flex items-center">
-                      <span class="mr-4">Подробнее</span>
-                      <img class="w-5 h-5" src="/svg/line.svg" title="line" />
-                    </button>
+            <div id="desc" class="mb-10"> <!--блок AntiSwap с описанием-->
+              <div class="rounded-xl bg-[#1E2027] text-white">
+                <div class="flex flex-col md:flex-row">
+                  <div class="p-10 hidden md:block"> <!--Текст-->
+                    <h1 class="mb-6 text-4xl font-bold ">AntiSwap</h1>
+                    <p class="mb-8">
+                      Сервис анализирующий прозрачность и безопасность <br />
+                      обменников благодаря отзывам пользователей
+                    </p>
+                    <button class="rounded bg-[#00A3FF] px-5 py-3 font-bold text-white hover:bg-blue-600">Подробнее
+                      -</button>
+                  </div>
+                  <div class="flex align-bottom"> <!--Картинки-->
+                    <img
+                      class="hidden md:hidden lg:block object-right-bottom object-contain w-full h-full flex-shrink-0 transition-all duration-300 ease-in-out"
+                      src="https://antiswap.info/images/main/bg-desktop.png" alt="Десктопная Картинка" />
+                    <img class="block md:block lg:hidden mb-4" src="https://antiswap.info/images/main/bg-mobile.png"
+                      alt="Мобильная Картинка" />
+                  </div>
+                  <div class="md:hidden p-10">
+                    <h1 class="mb-2 text-xl font-bold ">AntiSwap</h1>
+                    <p class="mb-8">
+                      Сервис анализирующий прозрачность и безопасность <br />
+                      обменников благодаря отзывам пользователей
+                    </p>
+                    <div class="flex">
+                      <button
+                        class="rounded bg-[#00A3FF] px-8 py-3 font-bold text-xl text-white hover:bg-blue-600 flex items-center">
+                        <span class="mr-4">Подробнее</span>
+                        <img class="w-5 h-5" src="/svg/line.svg" title="line" />
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
+            <div id="table_scam" class="mb-10"> <!--таблица СКАМ-->
+              <div class="rounded-xl border-2 border-red-600 bg-[#1E2027]">
+                <h1 class="mr-3 p-10 text-lg font-extrabold text-white md:mr-14 lg:text-2xl"> <span
+                    class="text-red-600 lg:text-2xl text-lg">СКАМ </span> обменники</h1>
+                <div class="h-[370px] md:h-[556px] overflow-y-auto">
+
+                  <table class="rounded-xl overflow-hidden mr-0 pr-0 w-full h-full md:h-[556px] table-fixed">
+                    <thead class="border-b-[1px] border-[#545B71]">
+                      <tr class="text-white text-sm md:text-sm lg:text-xl font-bold">
+                        <th class="w-[30vw] md:w-[22.5vw] py-2">Название</th>
+                        <th class="w-[17vw] ease-in-out lg:w-[30vw] py-2 text-left">Рейтинг</th>
+                        <th class="w-[15vw] lg:w-[5vw] py-2 px-4">
+                          <img src="/svg/happy.svg" title="happy face" />
+                        </th>
+                        <th class="w-[15vw] lg:w-[9vw] py-3 px-4">
+                          <img src="/svg/angry.svg" title="angry face" />
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody class="text-white text-xs md:text-base font-bold">
+                      <tr class="hover:bg-[#2C2F3A] border-t-[1px] border-[#545B71]">
+                        <td class="py-[10px] md:py-5 px-4">НЕСКАМ</td>
+                        <td class="px-4">0%</td>
+                        <td class="px-4 text-green-600">0%</td>
+                        <td class="px-4 text-red-600">100%</td>
+                      </tr>
+                      <tr class="hover:bg-[#2C2F3A] border-t-[1px] border-[#545B71]">
+                        <td class="py-[10px] md:py-5 px-4">*NAME*</td>
+                        <td class="px-4">*RT*</td>
+                        <td class="px-4 text-green-600">*+*</td>
+                        <td class="px-4 text-red-600">*-*</td>
+                      </tr>
+                      <tr class="hover:bg-[#2C2F3A] border-t-[1px] border-[#545B71] whitespace-normal">
+                        <td class="py-[10px] md:py-[20px] px-4">*LOONG NAME*</td>
+                        <td class="px-4">*RT*</td>
+                        <td class="px-4 text-green-600">*+*</td>
+                        <td class="px-4 text-red-600">*-*</td>
+                      </tr>
+                      <tr class="hover:bg-[#2C2F3A] border-t-[1px] border-[#545B71]">
+                        <td class="py-[10px] md:py-[20px] px-4">*NAME*</td>
+                        <td class="px-4">*RT*</td>
+                        <td class="px-4 text-green-600">*+*</td>
+                        <td class="px-4 text-red-600">*-*</td>
+                      </tr>
+                      <tr class="hover:bg-[#2C2F3A] border-t-[1px] border-[#545B71]">
+                        <td class="py-[10px] md:py-[20px] px-4">*NAME*</td>
+                        <td class="px-4">*RT*</td>
+                        <td class="px-4 text-green-600">*+*</td>
+                        <td class="px-4 text-red-600">*-*</td>
+                      </tr>
+                      <tr class="hover:bg-[#2C2F3A] border-t-[1px] border-[#545B71]">
+                        <td class="py-[10px] md:py-[20px] px-4">*NAME*</td>
+                        <td class="px-4">*RT*</td>
+                        <td class="px-4 text-green-600">*+*</td>
+                        <td class="px-4 text-red-600">*-*</td>
+                      </tr>
+                      <tr class="hover:bg-[#2C2F3A] border-t-[1px] border-[#545B71]">
+                        <td class="py-[10px] md:py-[20px] px-4">*NAME*</td>
+                        <td class="px-4">*RT*</td>
+                        <td class="px-4 text-green-600">*+*</td>
+                        <td class="px-4 text-red-600">*-*</td>
+                      </tr>
+                      <tr class="hover:bg-[#2C2F3A] border-t-[1px] border-[#545B71]">
+                        <td class="py-[10px] md:py-[20px] px-4">*NAME*</td>
+                        <td class="px-4">*RT*</td>
+                        <td class="px-4 text-green-600">*+*</td>
+                        <td class="px-4 text-red-600">*-*</td>
+                      </tr>
+                      <tr class="hover:bg-[#2C2F3A] border-t-[1px] border-[#545B71]">
+                        <td class="py-[10px] md:py-[20px] px-4">*NAME*</td>
+                        <td class="px-4">*RT*</td>
+                        <td class="px-4 text-green-600">*+*</td>
+                        <td class="px-4 text-red-600">*-*</td>
+                      </tr>
+                      <tr class="hover:bg-[#2C2F3A] border-t-[1px] border-[#545B71]">
+                        <td class="py-[10px] md:py-[20px] px-4">*NAME*</td>
+                        <td class="px-4">*RT*</td>
+                        <td class="px-4 text-green-600">*+*</td>
+                        <td class="px-4 text-red-600">*-*</td>
+                      </tr>
+                      <tr class="hover:bg-[#2C2F3A] border-t-[1px] border-[#545B71]">
+                        <td class="py-[10px] md:py-[20px] px-4">*NAME*</td>
+                        <td class="px-4">*RT*</td>
+                        <td class="px-4 text-green-600">*+*</td>
+                        <td class="px-4 text-red-600">*-*</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <h1 class="m-2 text-xs font-extrabold text-[#545B71]">*Всего <span class="text-red-600">*VALUE*</span>
+                мошеннических обменных пунктов</h1>
+            </div>
           </div>
-          <div id="table_scam" class="mb-10"> <!--таблица СКАМ-->
-            <div class="rounded-xl border-2 border-red-600 bg-[#1E2027]">
-              <h1 class="mr-3 p-10 text-lg font-extrabold text-white md:mr-14 lg:text-2xl"> <span
-                  class="text-red-600 lg:text-2xl text-lg">СКАМ </span> обменники</h1>
+          <div id="table_true" class="mb-10"> <!--таблица честн-->
+            <div class="rounded-xl border-2 border-[#74E900] bg-[#1E2027]">
+              <h1 class="mr-3 p-10 text-lg font-extrabold text-white md:mr-14 lg:text-2xl"><span
+                  class="text-[#74E900] lg:text-2xl text-lg">Честные </span> обменники</h1>
               <div class="h-[370px] md:h-[556px] overflow-y-auto">
 
                 <table class="rounded-xl overflow-hidden mr-0 pr-0 w-full h-full md:h-[556px] table-fixed">
                   <thead class="border-b-[1px] border-[#545B71]">
                     <tr class="text-white text-sm md:text-sm lg:text-xl font-bold">
-                      <th class="w-[30vw] md:w-[22.5vw] py-2">Название</th>
-                      <th class="w-[17vw] ease-in-out lg:w-[30vw] py-2 text-left">Рейтинг</th>
-                      <th class="w-[15vw] lg:w-[5vw] py-2 px-4">
+                      <th class="w-28 md:w-56 py-2 pr-24">Название</th>
+                      <th class="w-2/10 ease-in-out lg:w-[20vw] py-2 pl-4 text-left">Рейтинг</th>
+                      <th class="w-2/10 py-2 px-4">
                         <img src="/svg/happy.svg" title="happy face" />
                       </th>
-                      <th class="w-[15vw] lg:w-[9vw] py-3 px-4">
+                      <th class="w-2/10 py-3 px-4">
                         <img src="/svg/angry.svg" title="angry face" />
                       </th>
                     </tr>
@@ -1322,249 +1412,153 @@
                 </table>
               </div>
             </div>
-            <h1 class="m-2 text-xs font-extrabold text-[#545B71]">*Всего <span class="text-red-600">*VALUE*</span>
-              мошеннических обменных пунктов</h1>
+            <h1 class="m-2 text-xs font-extrabold text-[#545B71]">*Всего <span class="text-[#74E900]">*VALUE*</span>
+              надежных обменных пунктов</h1>
+          </div>
+          <div id="table_hz" class="mb-4"> <!--таблица нейтраль-->
+            <div class="rounded-xl border-2 border-[#FBA72A] bg-[#1E2027]">
+              <h1 class="mr-3 p-10 text-lg font-extrabold text-white md:mr-14 lg:text-2xl"><span
+                  class="text-[#FBA72A]">Нейтральные</span> обменники</h1>
+              <div class="h-[370px] md:h-[556px] overflow-y-auto">
+
+                <table class="rounded-xl overflow-hidden mr-0 pr-0 w-full h-full md:h-[556px] table-fixed">
+                  <thead class="border-b-[1px] border-[#545B71]">
+                    <tr class="text-white text-sm md:text-sm lg:text-xl font-bold">
+                      <th class="w-28 md:w-56 py-2 pr-24">Название</th>
+                      <th class="w-2/10 ease-in-out lg:w-[20vw] py-2 pl-4 text-left">Рейтинг</th>
+                      <th class="w-2/10 py-2 px-4">
+                        <img src="/svg/happy.svg" title="happy face" />
+                      </th>
+                      <th class="w-2/10 py-3 px-4">
+                        <img src="/svg/angry.svg" title="angry face" />
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody class="text-white text-xs md:text-base font-bold">
+                    <tr class="hover:bg-[#2C2F3A] border-t-[1px] border-[#545B71]">
+                      <td class="py-[10px] md:py-5 px-4">НЕСКАМ</td>
+                      <td class="px-4">0%</td>
+                      <td class="px-4 text-green-600">0%</td>
+                      <td class="px-4 text-red-600">100%</td>
+                    </tr>
+                    <tr class="hover:bg-[#2C2F3A] border-t-[1px] border-[#545B71]">
+                      <td class="py-[10px] px-4 md:py-5">*NAME*</td>
+                      <td class="px-4">*RT*</td>
+                      <td class="px-4 text-green-600">*+*</td>
+                      <td class="px-4 text-red-600">*-*</td>
+                    </tr>
+                    <tr class="hover:bg-[#2C2F3A] border-t-[1px] border-[#545B71] whitespace-normal">
+                      <td class="py-[10px] md:py-[20px] px-4">*LOONG NAME*</td>
+                      <td class="px-4">*RT*</td>
+                      <td class="px-4 text-green-600">*+*</td>
+                      <td class="px-4 text-red-600">*-*</td>
+                    </tr>
+                    <tr class="hover:bg-[#2C2F3A] border-t-[1px] border-[#545B71]">
+                      <td class="py-[10px] md:py-[20px] px-4">*NAME*</td>
+                      <td class="px-4">*RT*</td>
+                      <td class="px-4 text-green-600">*+*</td>
+                      <td class="px-4 text-red-600">*-*</td>
+                    </tr>
+                    <tr class="hover:bg-[#2C2F3A] border-t-[1px] border-[#545B71]">
+                      <td class="py-[10px] md:py-[20px] px-4">*NAME*</td>
+                      <td class="px-4">*RT*</td>
+                      <td class="px-4 text-green-600">*+*</td>
+                      <td class="px-4 text-red-600">*-*</td>
+                    </tr>
+                    <tr class="hover:bg-[#2C2F3A] border-t-[1px] border-[#545B71]">
+                      <td class="py-[10px] md:py-[20px] px-4">*NAME*</td>
+                      <td class="px-4">*RT*</td>
+                      <td class="px-4 text-green-600">*+*</td>
+                      <td class="px-4 text-red-600">*-*</td>
+                    </tr>
+                    <tr class="hover:bg-[#2C2F3A] border-t-[1px] border-[#545B71]">
+                      <td class="py-[10px] md:py-[20px] px-4">*NAME*</td>
+                      <td class="px-4">*RT*</td>
+                      <td class="px-4 text-green-600">*+*</td>
+                      <td class="px-4 text-red-600">*-*</td>
+                    </tr>
+                    <tr class="hover:bg-[#2C2F3A] border-t-[1px] border-[#545B71]">
+                      <td class="py-[10px] md:py-[20px] px-4">*NAME*</td>
+                      <td class="px-4">*RT*</td>
+                      <td class="px-4 text-green-600">*+*</td>
+                      <td class="px-4 text-red-600">*-*</td>
+                    </tr>
+                    <tr class="hover:bg-[#2C2F3A] border-t-[1px] border-[#545B71]">
+                      <td class="py-[10px] md:py-[20px] px-4">*NAME*</td>
+                      <td class="px-4">*RT*</td>
+                      <td class="px-4 text-green-600">*+*</td>
+                      <td class="px-4 text-red-600">*-*</td>
+                    </tr>
+                    <tr class="hover:bg-[#2C2F3A] border-t-[1px] border-[#545B71]">
+                      <td class="py-[10px] md:py-[20px] px-4">*NAME*</td>
+                      <td class="px-4">*RT*</td>
+                      <td class="px-4 text-green-600">*+*</td>
+                      <td class="px-4 text-red-600">*-*</td>
+                    </tr>
+                    <tr class="hover:bg-[#2C2F3A] border-t-[1px] border-[#545B71]">
+                      <td class="py-[10px] md:py-[20px] px-4">*NAME*</td>
+                      <td class="px-4">*RT*</td>
+                      <td class="px-4 text-green-600">*+*</td>
+                      <td class="px-4 text-red-600">*-*</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <h1 class="m-2 text-xs font-extrabold text-[#545B71]">*Всего <span class="text-[#FBA72A]">*VALUE*</span>
+              нейтральных обменных пунктов</h1>
           </div>
         </div>
-        <div id="table_true" class="mb-10"> <!--таблица честн-->
-          <div class="rounded-xl border-2 border-[#74E900] bg-[#1E2027]">
-            <h1 class="mr-3 p-10 text-lg font-extrabold text-white md:mr-14 lg:text-2xl"><span
-                class="text-[#74E900] lg:text-2xl text-lg">Честные </span> обменники</h1>
-            <div class="h-[370px] md:h-[556px] overflow-y-auto">
-
-              <table class="rounded-xl overflow-hidden mr-0 pr-0 w-full h-full md:h-[556px] table-fixed">
-                <thead class="border-b-[1px] border-[#545B71]">
-                  <tr class="text-white text-sm md:text-sm lg:text-xl font-bold">
-                    <th class="w-28 md:w-56 py-2 pr-24">Название</th>
-                    <th class="w-2/10 ease-in-out lg:w-[20vw] py-2 pl-4 text-left">Рейтинг</th>
-                    <th class="w-2/10 py-2 px-4">
-                      <img src="/svg/happy.svg" title="happy face" />
-                    </th>
-                    <th class="w-2/10 py-3 px-4">
-                      <img src="/svg/angry.svg" title="angry face" />
-                    </th>
-                  </tr>
-                </thead>
-                <tbody class="text-white text-xs md:text-base font-bold">
-                  <tr class="hover:bg-[#2C2F3A] border-t-[1px] border-[#545B71]">
-                    <td class="py-[10px] md:py-5 px-4">НЕСКАМ</td>
-                    <td class="px-4">0%</td>
-                    <td class="px-4 text-green-600">0%</td>
-                    <td class="px-4 text-red-600">100%</td>
-                  </tr>
-                  <tr class="hover:bg-[#2C2F3A] border-t-[1px] border-[#545B71]">
-                    <td class="py-[10px] md:py-5 px-4">*NAME*</td>
-                    <td class="px-4">*RT*</td>
-                    <td class="px-4 text-green-600">*+*</td>
-                    <td class="px-4 text-red-600">*-*</td>
-                  </tr>
-                  <tr class="hover:bg-[#2C2F3A] border-t-[1px] border-[#545B71] whitespace-normal">
-                    <td class="py-[10px] md:py-[20px] px-4">*LOONG NAME*</td>
-                    <td class="px-4">*RT*</td>
-                    <td class="px-4 text-green-600">*+*</td>
-                    <td class="px-4 text-red-600">*-*</td>
-                  </tr>
-                  <tr class="hover:bg-[#2C2F3A] border-t-[1px] border-[#545B71]">
-                    <td class="py-[10px] md:py-[20px] px-4">*NAME*</td>
-                    <td class="px-4">*RT*</td>
-                    <td class="px-4 text-green-600">*+*</td>
-                    <td class="px-4 text-red-600">*-*</td>
-                  </tr>
-                  <tr class="hover:bg-[#2C2F3A] border-t-[1px] border-[#545B71]">
-                    <td class="py-[10px] md:py-[20px] px-4">*NAME*</td>
-                    <td class="px-4">*RT*</td>
-                    <td class="px-4 text-green-600">*+*</td>
-                    <td class="px-4 text-red-600">*-*</td>
-                  </tr>
-                  <tr class="hover:bg-[#2C2F3A] border-t-[1px] border-[#545B71]">
-                    <td class="py-[10px] md:py-[20px] px-4">*NAME*</td>
-                    <td class="px-4">*RT*</td>
-                    <td class="px-4 text-green-600">*+*</td>
-                    <td class="px-4 text-red-600">*-*</td>
-                  </tr>
-                  <tr class="hover:bg-[#2C2F3A] border-t-[1px] border-[#545B71]">
-                    <td class="py-[10px] md:py-[20px] px-4">*NAME*</td>
-                    <td class="px-4">*RT*</td>
-                    <td class="px-4 text-green-600">*+*</td>
-                    <td class="px-4 text-red-600">*-*</td>
-                  </tr>
-                  <tr class="hover:bg-[#2C2F3A] border-t-[1px] border-[#545B71]">
-                    <td class="py-[10px] md:py-[20px] px-4">*NAME*</td>
-                    <td class="px-4">*RT*</td>
-                    <td class="px-4 text-green-600">*+*</td>
-                    <td class="px-4 text-red-600">*-*</td>
-                  </tr>
-                  <tr class="hover:bg-[#2C2F3A] border-t-[1px] border-[#545B71]">
-                    <td class="py-[10px] md:py-[20px] px-4">*NAME*</td>
-                    <td class="px-4">*RT*</td>
-                    <td class="px-4 text-green-600">*+*</td>
-                    <td class="px-4 text-red-600">*-*</td>
-                  </tr>
-                  <tr class="hover:bg-[#2C2F3A] border-t-[1px] border-[#545B71]">
-                    <td class="py-[10px] md:py-[20px] px-4">*NAME*</td>
-                    <td class="px-4">*RT*</td>
-                    <td class="px-4 text-green-600">*+*</td>
-                    <td class="px-4 text-red-600">*-*</td>
-                  </tr>
-                  <tr class="hover:bg-[#2C2F3A] border-t-[1px] border-[#545B71]">
-                    <td class="py-[10px] md:py-[20px] px-4">*NAME*</td>
-                    <td class="px-4">*RT*</td>
-                    <td class="px-4 text-green-600">*+*</td>
-                    <td class="px-4 text-red-600">*-*</td>
-                  </tr>
-                </tbody>
-              </table>
+      </div>
+    </div>
+    <div class="mb-28"> <!--вопросы?-->
+      <div class="flex flex-col items-center text-center break words">
+        <h1 class="p-8 font-extrabold text-white md:text-2xl lg:text-5xl ">У Вас есть вопросы или предложения?</h1>
+        <h1 class="lg:text-lg font-bold text-[#545B71] mb-8"> Свяжитесь с нами, и мы ответим Вам так скоро, как сможем.
+        </h1>
+        <button
+          class="flex justify-center mt-2 gap-3 items-center rounded bg-[#00A3FF] w-[60%] lg:w-8 md:w-[20%] min-w-[200px] min-h-[50px] px-5 py-3 font-bold text-white hover:bg-blue-600">
+          <img src="./svg/telegram.svg">
+          Telegram
+        </button>
+      </div>
+    </div>
+    </div>
+    <footer> <!--каблук сайта || FONTS DONE-->
+      <div class="h-[401px] bg-[#1E2027] md:hidden"> <!--мобилка футер-->
+        <h1 class="text-white font-extrabold flex justify-center pt-10">AntiSwap</h1>
+        <div class="h-[1px] bg-[#545B71] my-10"></div>
+        <h2 class="text-white font-bold flex justify-center mt-[1px] mb-5">Обменники</h2>
+        <h2 class="text-white font-bold flex justify-center m-16 mt-[1px]">О нас</h2>
+        <div class="text-white flex mb-10 justify-center">
+          <h2 class="mr-5">AntiSwap@gmail.com</h2>
+          <img class="ml-10" src="/svg/telegramFooter.svg" title="telegram foooter" />
+        </div>
+        <div class="h-[1px] bg-[#545B71]"></div> <!--разделитель-->
+        <div class="flex justify-between">
+          <h1 class="text-[#545B71] text-xs m-5">© 2023 AntiSwap</h1>
+          <h1 class="text-[#545B71] text-xs m-5">Все права защищены.</h1>
+        </div>
+      </div>
+      <div class="hidden md:block bg-[#1E2027] h-[166px] pt-10"> <!--компик и планшет футер-->
+        <div class="flex flex-col px-10 md:px-0">
+          <div class="flex items-center justify-start px-10 md:px-0">
+            <h1 class="mr-3 text-lg text-white md:ml-20 md:mr-14 lg:text-2xl font-extrabold">AntiSwap</h1>
+            <h2 class="text-white md:ml-6 font-bold">Обменники</h2>
+            <h2 class="text-sm text-white md:ml-4 lg:text-lg font-bold">О нас</h2>
+            <div class="flex ml-auto md:mr-6 lg:mr-20">
+              <h1 class="flex gap-2 text-white font-[600] text-sm md:mr-14 md:flex lg:mr-24">AntiSwap@gmail.com
+                <img class="ml-10" src="/svg/telegramFooter.svg" title="telegram foooter" />
+              </h1>
             </div>
           </div>
-          <h1 class="m-2 text-xs font-extrabold text-[#545B71]">*Всего <span class="text-[#74E900]">*VALUE*</span>
-            надежных обменных пунктов</h1>
-        </div>
-        <div id="table_hz" class="mb-4"> <!--таблица нейтраль-->
-          <div class="rounded-xl border-2 border-[#FBA72A] bg-[#1E2027]">
-            <h1 class="mr-3 p-10 text-lg font-extrabold text-white md:mr-14 lg:text-2xl"><span
-                class="text-[#FBA72A]">Нейтральные</span> обменники</h1>
-            <div class="h-[370px] md:h-[556px] overflow-y-auto">
-
-              <table class="rounded-xl overflow-hidden mr-0 pr-0 w-full h-full md:h-[556px] table-fixed">
-                <thead class="border-b-[1px] border-[#545B71]">
-                  <tr class="text-white text-sm md:text-sm lg:text-xl font-bold">
-                    <th class="w-28 md:w-56 py-2 pr-24">Название</th>
-                    <th class="w-2/10 ease-in-out lg:w-[20vw] py-2 pl-4 text-left">Рейтинг</th>
-                    <th class="w-2/10 py-2 px-4">
-                      <img src="/svg/happy.svg" title="happy face" />
-                    </th>
-                    <th class="w-2/10 py-3 px-4">
-                      <img src="/svg/angry.svg" title="angry face" />
-                    </th>
-                  </tr>
-                </thead>
-                <tbody class="text-white text-xs md:text-base font-bold">
-                  <tr class="hover:bg-[#2C2F3A] border-t-[1px] border-[#545B71]">
-                    <td class="py-[10px] md:py-5 px-4">НЕСКАМ</td>
-                    <td class="px-4">0%</td>
-                    <td class="px-4 text-green-600">0%</td>
-                    <td class="px-4 text-red-600">100%</td>
-                  </tr>
-                  <tr class="hover:bg-[#2C2F3A] border-t-[1px] border-[#545B71]">
-                    <td class="py-[10px] px-4 md:py-5">*NAME*</td>
-                    <td class="px-4">*RT*</td>
-                    <td class="px-4 text-green-600">*+*</td>
-                    <td class="px-4 text-red-600">*-*</td>
-                  </tr>
-                  <tr class="hover:bg-[#2C2F3A] border-t-[1px] border-[#545B71] whitespace-normal">
-                    <td class="py-[10px] md:py-[20px] px-4">*LOONG NAME*</td>
-                    <td class="px-4">*RT*</td>
-                    <td class="px-4 text-green-600">*+*</td>
-                    <td class="px-4 text-red-600">*-*</td>
-                  </tr>
-                  <tr class="hover:bg-[#2C2F3A] border-t-[1px] border-[#545B71]">
-                    <td class="py-[10px] md:py-[20px] px-4">*NAME*</td>
-                    <td class="px-4">*RT*</td>
-                    <td class="px-4 text-green-600">*+*</td>
-                    <td class="px-4 text-red-600">*-*</td>
-                  </tr>
-                  <tr class="hover:bg-[#2C2F3A] border-t-[1px] border-[#545B71]">
-                    <td class="py-[10px] md:py-[20px] px-4">*NAME*</td>
-                    <td class="px-4">*RT*</td>
-                    <td class="px-4 text-green-600">*+*</td>
-                    <td class="px-4 text-red-600">*-*</td>
-                  </tr>
-                  <tr class="hover:bg-[#2C2F3A] border-t-[1px] border-[#545B71]">
-                    <td class="py-[10px] md:py-[20px] px-4">*NAME*</td>
-                    <td class="px-4">*RT*</td>
-                    <td class="px-4 text-green-600">*+*</td>
-                    <td class="px-4 text-red-600">*-*</td>
-                  </tr>
-                  <tr class="hover:bg-[#2C2F3A] border-t-[1px] border-[#545B71]">
-                    <td class="py-[10px] md:py-[20px] px-4">*NAME*</td>
-                    <td class="px-4">*RT*</td>
-                    <td class="px-4 text-green-600">*+*</td>
-                    <td class="px-4 text-red-600">*-*</td>
-                  </tr>
-                  <tr class="hover:bg-[#2C2F3A] border-t-[1px] border-[#545B71]">
-                    <td class="py-[10px] md:py-[20px] px-4">*NAME*</td>
-                    <td class="px-4">*RT*</td>
-                    <td class="px-4 text-green-600">*+*</td>
-                    <td class="px-4 text-red-600">*-*</td>
-                  </tr>
-                  <tr class="hover:bg-[#2C2F3A] border-t-[1px] border-[#545B71]">
-                    <td class="py-[10px] md:py-[20px] px-4">*NAME*</td>
-                    <td class="px-4">*RT*</td>
-                    <td class="px-4 text-green-600">*+*</td>
-                    <td class="px-4 text-red-600">*-*</td>
-                  </tr>
-                  <tr class="hover:bg-[#2C2F3A] border-t-[1px] border-[#545B71]">
-                    <td class="py-[10px] md:py-[20px] px-4">*NAME*</td>
-                    <td class="px-4">*RT*</td>
-                    <td class="px-4 text-green-600">*+*</td>
-                    <td class="px-4 text-red-600">*-*</td>
-                  </tr>
-                  <tr class="hover:bg-[#2C2F3A] border-t-[1px] border-[#545B71]">
-                    <td class="py-[10px] md:py-[20px] px-4">*NAME*</td>
-                    <td class="px-4">*RT*</td>
-                    <td class="px-4 text-green-600">*+*</td>
-                    <td class="px-4 text-red-600">*-*</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
+          <div class="md:my-5 md:flex lg:mr-28 md:mr-20 h-[1px] bg-[#545B71] md:ml-20"></div>
+          <div class="flex justify-between md:flex font-[600] text-xs">
+            <h1 class="text-[#545B71] lg:mr-28 md:mr-20 md:ml-20">© 2023 AntiSwap</h1>
+            <h1 class="text-[#545B71] lg:mr-28 md:mr-20 md:ml-20">Все права защищены</h1>
           </div>
-          <h1 class="m-2 text-xs font-extrabold text-[#545B71]">*Всего <span class="text-[#FBA72A]">*VALUE*</span>
-            нейтральных обменных пунктов</h1>
         </div>
       </div>
-    </div>
-  </div>
-  <div class="mb-28"> <!--вопросы?-->
-    <div class="flex flex-col items-center text-center break words">
-      <h1 class="p-8 font-extrabold text-white md:text-2xl lg:text-5xl ">У Вас есть вопросы или предложения?</h1>
-      <h1 class="lg:text-lg font-bold text-[#545B71] mb-8"> Свяжитесь с нами, и мы ответим Вам так скоро, как сможем.
-      </h1>
-      <button
-        class="flex justify-center mt-2 gap-3 items-center rounded bg-[#00A3FF] w-[60%] lg:w-8 md:w-[20%] min-w-[200px] min-h-[50px] px-5 py-3 font-bold text-white hover:bg-blue-600">
-        <img src="./svg/telegram.svg">
-        Telegram
-      </button>
-    </div>
-  </div>
-  </div>
-  <script src="./src/js/index.js"></script>
-</body>
-<footer> <!--каблук сайта || FONTS DONE-->
-  <div class="h-[401px] bg-[#1E2027] md:hidden"> <!--мобилка футер-->
-    <h1 class="text-white font-extrabold flex justify-center pt-10">AntiSwap</h1>
-    <div class="h-[1px] bg-[#545B71] my-10"></div>
-    <h2 class="text-white font-bold flex justify-center mt-[1px] mb-5">Обменники</h2>
-    <h2 class="text-white font-bold flex justify-center m-16 mt-[1px]">О нас</h2>
-    <div class="text-white flex mb-10 justify-center">
-      <h2 class="mr-5">AntiSwap@gmail.com</h2>
-      <img class="ml-10" src="/svg/telegramFooter.svg" title="telegram foooter" />
-    </div>
-    <div class="h-[1px] bg-[#545B71]"></div> <!--разделитель-->
-    <div class="flex justify-between">
-      <h1 class="text-[#545B71] text-xs m-5">© 2023 AntiSwap</h1>
-      <h1 class="text-[#545B71] text-xs m-5">Все права защищены.</h1>
-    </div>
-  </div>
-  <div class="hidden md:block bg-[#1E2027] h-[166px] pt-10"> <!--компик и планшет футер-->
-    <div class="flex flex-col px-10 md:px-0">
-      <div class="flex items-center justify-start px-10 md:px-0">
-        <h1 class="mr-3 text-lg text-white md:ml-20 md:mr-14 lg:text-2xl font-extrabold">AntiSwap</h1>
-        <h2 class="text-white md:ml-6 font-bold">Обменники</h2>
-        <h2 class="text-sm text-white md:ml-4 lg:text-lg font-bold">О нас</h2>
-        <div class="flex ml-auto md:mr-6 lg:mr-20">
-          <h1 class="flex gap-2 text-white font-[600] text-sm md:mr-14 md:flex lg:mr-24">AntiSwap@gmail.com
-            <img class="ml-10" src="/svg/telegramFooter.svg" title="telegram foooter" />
-          </h1>
-        </div>
-      </div>
-      <div class="md:my-5 md:flex lg:mr-28 md:mr-20 h-[1px] bg-[#545B71] md:ml-20"></div>
-      <div class="flex justify-between md:flex font-[600] text-xs">
-        <h1 class="text-[#545B71] lg:mr-28 md:mr-20 md:ml-20">© 2023 AntiSwap</h1>
-        <h1 class="text-[#545B71] lg:mr-28 md:mr-20 md:ml-20">Все права защищены</h1>
-      </div>
-    </div>
-  </div>
-</footer>
-
+    </footer>
+  </body>
 </html>
