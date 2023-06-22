@@ -20,6 +20,9 @@ const inputsComments = [...document.getElementsByClassName('input-comment')];
 const errorMessage = document.getElementById('error');
 let rating = undefined;
 
+const ratingHappyButton = document.getElementById('rating-happy');
+const ratingAngryButton = document.getElementById('rating-angry');
+
 /*
 let elementsInsideSection = [];
 
@@ -128,8 +131,15 @@ function handleSubmit() {
 }
 
 function setRating(userRating) {
-    rating = userRating;
+    rating = userRating.id;
     document.getElementById('rating-container').style.cssText = 'outline: none';
+    if (userRating.id === 'rating-happy') {
+        ratingHappyButton.classList.add(`bg-green-600`);
+        ratingAngryButton.classList.remove(`bg-red-600`);
+    } else {
+        ratingAngryButton.classList.add(`bg-red-600`);
+        ratingHappyButton.classList.remove(`bg-green-600`);
+    }
 }
 
 window.addEventListener('DOMContentLoaded', () => {
