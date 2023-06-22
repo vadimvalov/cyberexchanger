@@ -741,14 +741,18 @@
             <div class="rounded-xl bg-[#1E2027] md:h-full">
               <div class="flex justify-between items-center text-white flex-col md:flex-row">
                 <h1 class="mr-3 px-2 pb-4 pt-10 text-xl font-extrabold text-white">Курсы обмена</h1>
-                <div class="flex items-center">
-                  <h1 class="m-auto text-lg">
+                <div class="flex-col md:flex-row items-center">
+                  <h1 class="m-auto flex-col md:flex-row text-lg">
                     Город:
-                    <button class="my-10 rounded-lg  p-1 text-[#00A3FF] cursor-pointer underline"
-                      id="city-selector">Выбрать город</button>
+                    <button class="my-10 flex flex-row items-center rounded-lg  p-1 text-[#00A3FF] cursor-pointer underline"
+                      id="city-selector">Выбрать город <img
+                        class="md:hidden
+                                                                                                                                   ml-4 mr-2" src="/svg/closeRed.svg"
+                        title="red close icon">
+                    </button>
                     <!--BG не виден пока нет города bg-[#00A3FF] bg-opacity-20-->
                   </h1>
-                  <img class="ml-4 mr-2" src="/svg/closeRed.svg" title="red close icon" />
+                  <img class="hidden md:block ml-4 mr-2" src="/svg/closeRed.svg" title="red close icon">
                 </div>
               </div>
 
@@ -1260,7 +1264,7 @@
                     Сервис анализирующий прозрачность и безопасность <br />
                     обменников благодаря отзывам пользователей
                   </p>
-                  <div class="flex">
+                  <div class="flex justify-center">
                     <button
                       class="rounded bg-[#00A3FF] px-8 py-3 font-bold text-xl text-white hover:bg-blue-600 flex items-center">
                       <span class="mr-4">Подробнее</span>
