@@ -6,7 +6,7 @@ export default defineConfig({
     rollupOptions: {
       input: {
         index: resolve(__dirname, "./index.js"),
-        exchange: resolve(__dirname, "./exchange.js"),
+        exchange: resolve(__dirname, "./exchange/exchange.js"),
       },
     },
   },
