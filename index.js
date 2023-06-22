@@ -68,7 +68,7 @@ function extend() {
 
 function showModal() {
     modal.classList.toggle('hidden');
-    modalContent.classList.toggle('scale-in-center');
+    modalContent.classList.add('scale-in-center');
     modalContent.offsetWidth;
 }
 
@@ -121,13 +121,13 @@ function turnRowsIntoLinks() {
 document.addEventListener('DOMContentLoaded', function () {
     citySelector.addEventListener('click', function () {
         modal.classList.remove('hidden');
+        modalContent.classList.toggle('scale-in-center');
     });
 
     menu.style.cssText = `transform: scaleY(0); transform-origin: top; transition: transform 0.26s ease;`
 
     closeButton.addEventListener('click', function () {
         modal.classList.add('hidden');
-        modalContent.classList.toggle('scale-in-center');
     });
 
     button_extend.addEventListener('click', extend);
