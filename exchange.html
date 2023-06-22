@@ -34,12 +34,12 @@
     </div>
   </header>
   <main class="font-bold text-white">
-    <div id="modal" class="hidden fixed flex inset-0 text-white items-center justify-center color-change-2x">
+    <div id="modal" class="hidden fixed color-change-2x inset-0 flex items-center justify-center text-white">
       <!--модалка-->
-
+    
       <div id="modal-content"
-        class="absolute left-8 right-8 top-8 bottom-8 text-white bg-[#1E2027] rounded-lg z-50 p-8">
-        <div class="rounded-lg text-white bg-[#1E2027] flex-col">
+        class="absolute bottom-8 left-8 right-8 top-8 z-50 h-[495px] overflow-y-auto rounded-lg bg-[#1E2027] p-8 text-white md:h-full">
+        <div class="flex-col rounded-lg bg-[#1E2027] text-white">
           <div class="flex">
             <button type="button"
               class="close-button right-2.5 top-3 ml-auto inline-flex items-center rounded-lg bg-transparent p-1.5 text-sm text-gray-400 hover:bg-gray-200 hover:text-gray-900 dark:hover:bg-gray-800 dark:hover:text-white"
@@ -50,27 +50,26 @@
           </div>
           <div>
             <h3 class="mb-4 text-xl font-medium">Оставить отзыв</h3>
-            <div class="flex">
-              <div class="flex-col flex gap-2 w-1/2">
+            <div class="flex flex-col md:flex-row">
+              <div class="flex w-full flex-col gap-2 md:w-1/2">
                 <label for="name-input" class="text-sm font-medium text-white dark:text-white">Имя</label>
                 <input id="name-input"
-                  class="bg-[#2C2F3A] text-[#545B71] outline-none w-full rounded-md border border-[#545B71] py-2.5 px-2 text-sm focus:border-blue-500 focus:ring-blue-500"
+                  class="w-full rounded-md border border-[#545B71] bg-[#2C2F3A] px-2 py-2.5 text-sm text-[#545B71] outline-none focus:border-blue-500 focus:ring-blue-500"
                   placeholder="" required />
-                <label for="number-input" class="mt-4 text-sm font-medium text-white dark:text-white">Номер
-                  обмена</label>
+                <label for="number-input" class="mt-4 text-sm font-medium text-white dark:text-white">Номер обмена</label>
                 <input type="" id="number-input"
-                  class="bg-[#2C2F3A] text-[#545B71] outline-none w-full rounded-md border border-[#545B71] py-2.5 px-2 text-sm focus:border-blue-500 focus:ring-blue-500"
+                  class="w-full rounded-md border border-[#545B71] bg-[#2C2F3A] px-2 py-2.5 text-sm text-[#545B71] outline-none focus:border-blue-500 focus:ring-blue-500"
                   required />
               </div>
-              <div class="flex-col flex gap-2 w-1/2 ml-4">
-                <label for="email-input" class="text-sm font-medium text-white dark:text-white" required>Email</label>
+              <div class="flex w-full flex-col gap-2 md:ml-4 md:w-1/2">
+                <label for="email-input" class="mt-4 md:mt-0 text-sm font-medium text-white dark:text-white" required>Email</label>
                 <input type="email" id="email-input"
-                  class="bg-[#2C2F3A] text-[#545B71] outline-none w-full rounded-md border border-[#545B71] py-2.5 px-2 text-sm focus:border-blue-500 focus:ring-blue-500"
+                  class="w-full rounded-md border border-[#545B71] bg-[#2C2F3A] px-2 py-2.5 text-sm text-[#545B71] outline-none focus:border-blue-500 focus:ring-blue-500"
                   required />
                 <label for="rating" class="mt-4 text-sm font-medium text-white dark:text-white">Оценка</label>
                 <div class="flex rounded-sm" id="rating-container">
                   <button type="button" id="rating-happy"
-                    class="rounded-l flex justify-center border-r border-[#545B71] py-2 items-center bg-[#545B71] w-full hover:bg-green-500 hover:bg-opacity-20 text-sm font-medium text-white bg-opacity-40 focus:outline-none"
+                    class="flex w-full items-center justify-center rounded-l border-r border-[#545B71] bg-[#545B71] bg-opacity-40 py-2 text-sm font-medium text-white hover:bg-green-500 hover:bg-opacity-20 focus:outline-none"
                     onclick="setRating(this)">
                     <svg id="happy-svg" width="28" height="28" viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg">
                       <path
@@ -78,9 +77,9 @@
                     </svg>
                   </button>
                   <button type="button" id="rating-angry"
-                    class="flex justify-center items-center py-2 bg-[#545B71] rounded-r w-full hover:bg-red-500 hover:bg-opacity-20 text-sm font-medium text-white bg-opacity-40 focus:outline-none"
+                    class="flex w-full items-center justify-center rounded-r bg-[#545B71] bg-opacity-40 py-2 text-sm font-medium text-white hover:bg-red-500 hover:bg-opacity-20 focus:outline-none"
                     onclick="setRating(this)">
-                    <svg id='angry-svg' width="26" height="26" viewBox="0 0 26 26" xmlns="http://www.w3.org/2000/svg">
+                    <svg id="angry-svg" width="26" height="26" viewBox="0 0 26 26" xmlns="http://www.w3.org/2000/svg">
                       <path fill-rule="evenodd" clip-rule="evenodd"
                         d="M13 0C10.4288 0 7.91543 0.762437 5.77759 2.1909C3.63975 3.61935 1.97351 5.64968 0.989572 8.02512C0.00563271 10.4006 -0.251811 13.0144 0.249797 15.5362C0.751405 18.0579 1.98954 20.3743 3.80762 22.1924C5.6257 24.0105 7.94208 25.2486 10.4638 25.7502C12.9856 26.2518 15.5995 25.9944 17.9749 25.0104C20.3503 24.0265 22.3807 22.3603 23.8091 20.2224C25.2376 18.0846 26 15.5712 26 13C25.9934 9.55422 24.6216 6.25145 22.1851 3.81491C19.7486 1.37837 16.4458 0.00660747 13 0ZM18.2192 8.15643C17.9815 8.06324 17.7275 8.0186 17.4723 8.02512C16.9739 8.03785 16.5001 8.24476 16.152 8.60174C15.8039 8.95873 15.609 9.43756 15.6088 9.93617C15.6087 10.4348 15.8033 10.9137 16.1511 11.271C16.499 11.6282 16.9726 11.8354 17.4711 11.8485C17.7263 11.8552 17.9802 11.8107 18.218 11.7177C18.4557 11.6246 18.6724 11.485 18.8553 11.3069C19.0382 11.1287 19.1836 10.9158 19.2829 10.6806C19.3822 10.4454 19.4334 10.1927 19.4335 9.93745C19.4336 9.68216 19.3825 9.42943 19.2834 9.19418C19.1842 8.95892 19.039 8.7459 18.8562 8.56767C18.6734 8.38944 18.4568 8.24961 18.2192 8.15643ZM9.25624 8.17156C9.02325 8.07496 8.77351 8.0252 8.52129 8.02512C8.0119 8.02495 7.52332 8.22714 7.16301 8.5872C6.8027 8.94728 6.60018 9.43573 6.60001 9.94512C6.59984 10.4545 6.80203 10.9431 7.1621 11.3034C7.52217 11.6637 8.01062 11.8662 8.52001 11.8664C8.77223 11.8665 9.022 11.8169 9.25506 11.7204C9.48811 11.624 9.69989 11.4826 9.8783 11.3043C10.0567 11.126 10.1982 10.9143 10.2948 10.6813C10.3914 10.4484 10.4412 10.1986 10.4413 9.9464C10.4414 9.69417 10.3918 9.4444 10.2953 9.21135C10.1989 8.97829 10.0575 8.76652 9.8792 8.58811C9.70091 8.4097 9.48923 8.26816 9.25624 8.17156ZM11.9658 17.3893C12.6485 17.2524 13.3516 17.2524 14.0342 17.3893C15.0156 17.5916 15.9157 18.0781 16.6224 18.7884C16.8541 19.0188 17.064 19.2735 17.247 19.5436L19.3693 18.1138C18.8157 17.2964 18.1115 16.5918 17.2944 16.0376C16.4636 15.474 15.529 15.0811 14.545 14.8818C13.5253 14.6761 12.4749 14.6757 11.455 14.8805C10.4713 15.0828 9.53681 15.4759 8.70433 16.0376C7.88725 16.5904 7.18377 17.2948 6.63201 18.1125L8.75425 19.5423C8.93601 19.2722 9.14593 19.0175 9.38017 18.7845C9.61569 18.5503 9.87041 18.3404 10.1366 18.1586C10.4118 17.9743 10.7062 17.8156 11.0058 17.6876C11.3194 17.557 11.6419 17.4559 11.9658 17.3893Z" />
                     </svg>
@@ -89,29 +88,29 @@
               </div>
             </div>
           </div>
-          <div class="mt-4 flex flex-col mb-0">
-            <label for="message-textarea" class="mb-3 text-sm font-medium text-white dark:text-white">Напишите
-              отзыв</label>
+          <div class="mb-0 mt-4 flex flex-col">
+            <label for="message-textarea" class="mb-3 text-sm font-medium text-white dark:text-white">Напишите отзыв</label>
             <div class="flex-col bg-[#2C2F3A]">
               <textarea id="review-textarea" name="message-textarea" id="input4" rows="4" maxlength="2000"
-                class="outline-none bg-[#2C2F3A] text-[#545B71] w-full resize-none rounded-lg p-2.5 text-sm focus:border-blue-500 focus:ring-blue-500"
+                class="w-full resize-none rounded-lg bg-[#2C2F3A] p-2.5 text-sm text-[#545B71] outline-none focus:border-blue-500 focus:ring-blue-500"
                 required></textarea>
-              <div class="ml-auto justify-end pr-2 flex gap-0.5">
+              <div class="ml-auto flex justify-end gap-0.5 pr-2">
                 <span id="character-count" class="text-sm text-[#545B71]"></span>
               </div>
             </div>
             <p class="mb-6"></p>
           </div>
           <div class="flex gap-1">
-            <input type="checkbox" id="terms-checkbox" class="w-[15px] h-[15px] " required />
+            <input type="checkbox" id="terms-checkbox" class="h-[15px] w-[15px]" required />
             <p class="break-words text-sm">Я прочитал и принимаю условия Политики конфиденциальности</p>
           </div>
           <button onclick="handleSubmit()" type="submit"
-            class="bg-blue-500 hover:bg-blue-400 rounded-lg mt-2 text-center w-full py-2" id="submit">Отправить</button>
-          <div id="error" class="p-2 hidden text-red-600">*Не все поля заполнены!</div>
+            class="mt-2 w-full rounded-lg bg-blue-500 py-2 text-center hover:bg-blue-400" id="submit">Отправить</button>
+          <div id="error" class="hidden p-2 text-red-600">*Не все поля заполнены!</div>
         </div>
       </div>
     </div>
+
     <section class="pt-[calc(20px + 100 * ((100vw - 375px) / 1545))]">
       <div class="w-full h-full mx-auto md:py-20 md:p-20 p-10">
         <div class="bg-[#1E2027] rounded-xl md:p-14 p-4 pt-10">
