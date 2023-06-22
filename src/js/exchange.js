@@ -23,6 +23,18 @@ let rating = undefined;
 const ratingHappyButton = document.getElementById('rating-happy');
 const ratingAngryButton = document.getElementById('rating-angry');
 
+const ratingHappySVG = document.getElementById('happy-svg');
+const ratingAngrySVG = document.getElementById('angry-svg');
+
+const textarea = document.getElementById('review-textarea');
+const characterCount = document.getElementById('character-count');
+
+textarea.addEventListener('input', () => {
+    const currentLength = textarea.value.length;
+    const maxLength = parseInt(textarea.getAttribute('maxlength'));
+    characterCount.textContent = `${currentLength}/${maxLength}`;
+});
+
 /*
 let elementsInsideSection = [];
 
@@ -108,6 +120,12 @@ function handleSubmit() {
         })
     });
 
+    errorInputs.forEach((input) => {
+        input.addEventListener('click', () => {
+            input.style.cssText = 'outline: none';
+        })
+    });
+
     termsCheckbox.addEventListener('change', () => {
         termsCheckbox.style.cssText = 'outline: none';
     });
@@ -136,9 +154,13 @@ function setRating(userRating) {
     if (userRating.id === 'rating-happy') {
         ratingHappyButton.classList.add(`bg-green-600`);
         ratingAngryButton.classList.remove(`bg-red-600`);
+        ratingHappySVG.style.fill = '#75E900';
+        ratingAngrySVG.style.fill = '#545B71';
     } else {
         ratingAngryButton.classList.add(`bg-red-600`);
         ratingHappyButton.classList.remove(`bg-green-600`);
+        ratingHappySVG.style.fill = '#545B71';
+        ratingAngrySVG.style.fill = '#E90035';
     }
 }
 
@@ -178,7 +200,6 @@ window.addEventListener('DOMContentLoaded', () => {
     newButtonMobile.addEventListener('click', toggleHiddenMobile);
 
     oldButtonMobile.addEventListener('click', toggleHiddenMobile);
-
 });
 
 /*

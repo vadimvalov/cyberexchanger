@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --angry-rating-fill: #545B71;
+  --happy-rating-fill: #545B71;
+}
+
 button:focus {
   outline: none;
 }
@@ -129,6 +134,22 @@ button:focus {
 .scale-in-center {
   -webkit-animation: scale-in-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
   animation: scale-in-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+#rating-angry:hover {
+  --angry-rating-fill: #E90035;
+}
+
+#rating-happy:hover {
+  --happy-rating-fill: #75E900;
+}
+
+#angry-svg {
+  fill: var(--angry-rating-fill);
+}
+
+#happy-svg {
+  fill: var(--happy-rating-fill);
 }
 
 /*
