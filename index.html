@@ -41,10 +41,10 @@
 <body class="max-w-screen bg-[#101115] font-mont"> <!--камон еврибади-->
 
   <div id="modal"
-    class="fixed hidden inset-0 text-white items-center overflow-y-auto lg:overflow-y-hidden justify-center color-change-2x">
+    class="fixed hidden inset-0 text-white flex items-center overflow-y-auto lg:overflow-y-hidden justify-center color-change-2x">
     <!--модалка-->
     <div id="modal-content"
-      class="absolute py-50 top-[10%] left-5 right-5 bg-[#1E2027] rounded-lg z-50 lg:top-[10%] lg:left-40 lg:right-40 scale-in-center">
+      class="absolute bg-[#1E2027] rounded-lg z-50 scale-in-center">
 
             <h1 class="text-xl lg:text-4xl font-bold text-left p-6 font-etrabold">Выберите город</h1>
             <div class="px-6 py-4">
@@ -66,7 +66,7 @@
                     <div class="w-full rounded-lg bg-[#2C2F3A] overflow-y-auto mx-auto">
                         <div id="extend-country-list" class="flex items-center">
                             <button id="main-title"
-                                class="flex text-left p-4 font-bold border-1 border-[#545B71]">Выберите страну</button>
+                                class="flex lg:hidden text-left p-4 font-bold border-1 border-[#545B71]">Выберите страну</button>
                         </div>
                         <ul id="country-list" class="hidden md:block flex flex-col h-[270px] justify-start font-bold w-full">
                             <li class="flex items-center gap-1 hover:bg-[#353845] focus:bg-[#1A5D89] py-2 px-4 cursor-pointer"
@@ -161,7 +161,7 @@
                     <div class="w-full rounded-lg bg-[#2C2F3A] overflow-y-auto mx-auto">
                         <div id="extend-city-list" class="flex items-center">
                             <button id="main-city"
-                                class="flex text-left p-4 font-bold border-1 border-[#545B71]">Выберите
+                                class="flex lg:hidden text-left p-4 font-bold border-1 border-[#545B71]">Выберите
                                 город</button>
                         </div>
                         <ul id="city-list" class="hidden md:block flex flex-col h-[270px] justify-start font-bold w-full">
