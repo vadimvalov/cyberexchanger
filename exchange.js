@@ -81,6 +81,7 @@ function sortReviews(order) {
 
 function showModal() {
   modal.classList.toggle("hidden");
+  modal.parentElement.classList.toggle("hidden");
   modalContent.classList.toggle("scale-in-center");
 }
 

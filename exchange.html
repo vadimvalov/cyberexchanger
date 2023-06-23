@@ -34,12 +34,10 @@
     </div>
   </header>
   <main class="font-bold text-white">
-    <div id="modal" class="hidden fixed color-change-2x inset-0 flex items-center justify-center text-white">
-      <!--модалка-->
-    
-      <div id="modal-content"
-        class="fixed transform -translate-x-1/2  h-full flex flex-1 overflow-y-auto rounded-lg bg-[#1E2027] text-white md:h-full mx-4 md:mx-0 md:ml-4 md:mr-4 flex-1">
-        <div class="flex-col rounded-lg bg-[#1E2027] p-8 text-white">
+    <div class="hidden fixed inset-0 flex color-change-2x justify-center">
+      <div id="modal" class="hidden p-10">
+        <div id="modal-content">
+        <div class="flex-col rounded-lg bg-[#1E2027] text-white p-8">
           <div class="flex">
             <button type="button"
               class="close-button right-2.5 top-3 ml-auto inline-flex items-center rounded-lg bg-transparent p-1.5 text-sm text-gray-400 hover:bg-gray-200 hover:text-gray-900 dark:hover:bg-gray-800 dark:hover:text-white"
@@ -101,7 +99,7 @@
             <p class="mb-6"></p>
           </div>
           <div class="flex gap-1">
-            <input class="regular-checkbox" type="checkbox" id="terms-checkbox" required />
+            <input class="regular-checkbox" type="checkbox" id="terms-checkbox" class="h-[15px] w-[15px] checked:bg-white-500" required />
             <p class="break-words text-sm">Я прочитал и принимаю условия 
               <a href="index.html" class="text-blue-500">Политики конфиденциальности</a>
               </p>
@@ -110,6 +108,8 @@
             class="mt-2 w-full rounded-lg bg-blue-500 py-2 text-center hover:bg-blue-400" id="submit">Отправить</button>
           <div id="error" class="hidden p-2 text-red-600">*Не все поля заполнены!</div>
         </div>
+      </div>
+        <button class="close-button"></button>
       </div>
     </div>
 
