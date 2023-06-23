@@ -34,11 +34,12 @@
     </div>
   </header>
   <main class="font-bold text-white">
-    <div class="hidden fixed inset-0 flex color-change-2x justify-center">
+    <div class="hidden fixed inset-0 flex color-change-2x items-center justify-center">
       <div id="modal" class="hidden p-10">
         <div id="modal-content">
-        <div class="flex-col rounded-lg bg-[#1E2027] text-white p-8">
-          <div class="flex">
+          <div class="flex-col rounded-lg bg-[#1E2027] text-white p-8">
+            <div class="mb-4 flex items-center">
+            <h3 class="text-xl font-medium">Оставить отзыв</h3>
             <button type="button"
               class="close-button right-2.5 top-3 ml-auto inline-flex items-center rounded-lg bg-transparent p-1.5 text-sm text-gray-400 hover:bg-gray-200 hover:text-gray-900 dark:hover:bg-gray-800 dark:hover:text-white"
               data-modal-hide="authentication-modal">
@@ -47,7 +48,6 @@
             </button>
           </div>
           <div>
-            <h3 class="mb-4 text-xl font-medium">Оставить отзыв</h3>
             <div class="flex flex-col md:flex-row">
               <div class="flex w-full flex-col gap-2 md:w-1/2">
                 <label for="name-input" class="text-sm font-medium text-white dark:text-white">Имя</label>
@@ -209,7 +209,7 @@
               </button>
             </div>
             <div id="reviews" class="mb-4 text-xs md:text-sm"> <!-- отзыв -->
-              <div class="md:m-4 review pt-4 border-t-[1px] border-[#2C2F3A] " data-date="2021-02-15">
+              <div class="md:m-4 review pt-4" data-date="2021-02-15">
                 <h1 class="mb-4">Олег <span class="text-[#545B71] pl-4">15 февраля 10:40</span></h1>
                 <p class="lg:pr-40 text-sm lg:text-base">При обмене используются надежные сервисы, а также безопасные
                   способы перевода денег. Все это делает процесс обмена безопасным и удобным. На основании моего личного
