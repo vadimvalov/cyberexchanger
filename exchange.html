@@ -7,6 +7,34 @@
   <script defer src="./exchange.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AntiSwap- про скам-обменники</title>
+  <style>
+    .regular-checkbox {
+	-webkit-appearance: none;
+	background-color: #fafafa;
+	border: 1px solid #cacece;
+	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);
+	padding: 9px;
+	border-radius: 3px;
+	display: inline-block;
+	position: relative;
+    }
+
+.regular-checkbox:checked {
+	background-color: #00A3FF;
+	border: 1px solid #00A3FF;
+	color: #000000;
+}
+
+.regular-checkbox:checked:after {
+	content: url('./svg/tick.svg');
+	font-size: 14px;
+	position: absolute;
+	top: 0px;
+	left: -2px;
+	color: #000000;
+}
+
+  </style>
 </head>
 <body class="h-full bg-[#101115] text-white font-bold font-mont">
   <header class="h-20 max-w-screen bg-[#1E2027] pt-[28px]">
@@ -101,7 +129,7 @@
             <p class="mb-6"></p>
           </div>
           <div class="flex gap-1">
-            <input type="checkbox" id="terms-checkbox" class="h-[15px] w-[15px]" required />
+            <input class="regular-checkbox" type="checkbox" id="terms-checkbox" class="h-[15px] w-[15px] checked:bg-white-500" required />
             <p class="break-words text-sm">Я прочитал и принимаю условия 
               <a href="index.html" class="text-blue-500">Политики конфиденциальности</a>
               </p>
@@ -164,10 +192,10 @@
               </button>
             </div>
             <div class="flex items-center border-b pt-2">
-              <ul class="flex items-center justify-between lg:gap-10">
+              <ul class="flex items-center gap-4 justify-between lg:gap-10">
                 <li>
                   <button id="positive"
-                    class="lg:flex lg:flex-row items-center lg:gap-4 active flex-col flex text-sm lg:text-base"
+                    class="lg:flex lg:flex-row text-xs md:text-sm items-center lg:gap-4 active flex-col flex text-sm lg:text-base"
                     onclick="toggleBorder(this)">
                     <h1 class="bg-green-500 mb-2 rounded-xl px-2 py-1 text-[#000000]" data-total="2426">
                       2426
@@ -177,7 +205,7 @@
                 </li>
                 <li>
                   <button id="negative"
-                    class="lg:flex lg:flex-row items-center lg:gap-4 active flex-col flex text-sm lg:text-base"
+                    class="lg:flex lg:flex-row text-xs md:text-sm items-center lg:gap-4 active flex-col flex lg:text-base"
                     onclick="toggleBorder(this)">
                     <span class="bg-red-600 mb-2 rounded-xl px-2 py-1 text-black" data-total="60214">60214</span>
                     <span>Отрицательных</span>
