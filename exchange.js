@@ -116,18 +116,26 @@ function handleSubmit() {
 
     errorInputs.forEach((input) => {
         input.addEventListener('keyup', () => {
-            input.style.cssText = 'outline: none';
+            if (input.id === 'review-textarea') {
+                input.parentElement.style.cssText = 'border: none';    
+            } else {
+                input.style.cssText = 'border: none';
+            }
         })
     });
 
     errorInputs.forEach((input) => {
         input.addEventListener('click', () => {
-            input.style.cssText = 'outline: none';
+            if (input.id === 'review-textarea') {
+                input.parentElement.style.cssText = 'border: none';    
+            } else {
+                input.style.cssText = 'border: none';
+            }
         })
     });
 
     termsCheckbox.addEventListener('change', () => {
-        termsCheckbox.style.cssText = 'outline: none';
+        termsCheckbox.style.cssText = 'border: none';
     });
 
     if (errorInputs.length === 0 && rating && termsCheckbox.checked) {
@@ -139,9 +147,14 @@ function handleSubmit() {
         errorInputs.push(ratingContainer);
 
     errorInputs.forEach((input) => {
-        let thickness = (input !== termsCheckbox && input !== ratingContainer) ? '1.5px' : '1.5px';
-        let offset = (input !== termsCheckbox) ? '0px' : '-1.9px';
-        input.style.cssText = `outline: ${thickness} solid rgba(255, 0, 0, 0.75); outline-offset: ${offset};`;
+        // let thickness = (input !== termsCheckbox && input !== ratingContainer) ? '1.5px' : '1.5px';
+        // let offset = (input !== termsCheckbox) ? '0px' : '-1.9px';
+        // input.style.cssText = `outline: ${thickness} solid rgba(255, 0, 0, 0.75); outline-offset: ${offset};`;
+        if (input.id === 'review-textarea') {
+                input.parentElement.style.cssText = `border: 1px solid red;`;
+            } else {
+                input.style.cssText = `border: 1px solid red;`;
+            }
     });
 
     errorMessage.classList.toggle('hidden');
@@ -150,7 +163,7 @@ function handleSubmit() {
 
 function setRating(userRating) {
     rating = userRating.id;
-    document.getElementById('rating-container').style.cssText = 'outline: none';
+    document.getElementById('rating-container').style.cssText = 'border: none';
     if (userRating.id === 'rating-happy') {
         ratingHappyButton.classList.add(`bg-green-600`);
         ratingAngryButton.classList.remove(`bg-red-600`);

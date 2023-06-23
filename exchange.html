@@ -67,7 +67,7 @@
                   class="w-full rounded-md border border-[#545B71] bg-[#2C2F3A] px-2 py-2.5 text-sm text-[#545B71] outline-none focus:border-blue-500 focus:ring-blue-500"
                   required />
                 <label for="rating" class="mt-4 text-sm font-medium text-white dark:text-white">Оценка</label>
-                <div class="flex rounded-sm" id="rating-container">
+                <div class="flex rounded-md" id="rating-container">
                   <button type="button" id="rating-happy"
                     class="flex w-full items-center justify-center rounded-l border-r border-[#545B71] bg-[#545B71] bg-opacity-40 py-2 text-sm font-medium text-white hover:bg-green-500 hover:bg-opacity-20 focus:outline-none"
                     onclick="setRating(this)">
@@ -89,10 +89,10 @@
             </div>
           </div>
           <div class="mb-0 mt-4 flex flex-col">
-            <label for="message-textarea" class="mb-3 text-sm font-medium text-white dark:text-white">Напишите отзыв</label>
-            <div class="flex-col bg-[#2C2F3A]">
+            <label for="message-textarea" class="rounded-md mb-3 text-sm font-medium text-white dark:text-white">Напишите отзыв</label>
+            <div class="flex-col bg-[#2C2F3A] rounded-md">
               <textarea id="review-textarea" name="message-textarea" id="input4" rows="4" maxlength="2000"
-                class="w-full resize-none rounded-lg bg-[#2C2F3A] p-2.5 text-sm text-[#545B71] outline-none focus:border-blue-500 focus:ring-blue-500"
+                class="w-full resize-none rounded-md bg-[#2C2F3A] p-2.5 text-sm text-[#545B71] outline-none focus:border-blue-500 focus:ring-blue-500"
                 required></textarea>
               <div class="ml-auto flex justify-end gap-0.5 pr-2">
                 <span id="character-count" class="text-sm text-[#545B71]"></span>
@@ -155,7 +155,7 @@
               </button>
             </div>
             <div class="flex items-center border-b pt-2">
-              <ul class="flex items-center gap-4 lg:gap-10">
+              <ul class="flex items-center justify-between lg:gap-10">
                 <li>
                   <button id="positive"
                     class="lg:flex lg:flex-row items-center lg:gap-4 active flex-col flex text-sm lg:text-base"
@@ -212,10 +212,10 @@
                       2024 года</span></h1>
                   <p>Мы рады что вы пользуетесь нашим обменником!</p>
                 </div>
-                <section id="comment-1" class="rounded-xl focus:border-blue-500 focus:border-2 flex items-center mb-4">
+                <section id="comment-1" class="bg-[#2C2F3A] rounded-xl focus:border-blue-500 focus:border-2 flex items-center mb-4">
                   <input class="input-comment outline-none w-full text-left bg-[#2C2F3A] py-4 pl-4 rounded-l-xl"
                     placeholder="Текст комментария">
-                  <button class="flex items-center justify-center py-4 pr-4 bg-[#2C2F3A] rounded-r-xl">
+                  <button class="flex items-center justify-center py-4 pr-4 rounded-r-xl">
                     <img src="/svg/sendReview.svg" title="send review" />
                   </button>
                 </section>
@@ -233,10 +233,10 @@
                       2024 года</span></h1>
                   <p>Мы рады что вы пользуетесь нашим обменником!</p>
                 </div>
-                <section id="comment-2" class="rounded-xl flex items-center mb-4">
+                <section id="comment-2" class="bg-[#2C2F3A] rounded-xl flex items-center mb-4">
                   <input class="input-comment outline-none w-full text-left bg-[#2C2F3A] py-4 pl-4 rounded-l-xl"
                     placeholder="Текст комментария">
-                  <button class="flex items-center justify-center py-4 pr-4 bg-[#2C2F3A] rounded-r-xl">
+                  <button class="flex items-center justify-center py-4 pr-4 rounded-r-xl">
                     <img src="/svg/sendReview.svg" title="send review" />
                   </button>
                 </section>
@@ -254,10 +254,10 @@
                       2024 года</span></h1>
                   <p>Мы рады что вы пользуетесь нашим обменником!</p>
                 </div>
-                <section id="comment-3" class="rounded-xl flex items-center mb-4">
+                <section id="comment-3" class="bg-[#2C2F3A] rounded-xl flex items-center mb-4">
                   <input class="input-comment outline-none w-full text-left bg-[#2C2F3A] py-4 pl-4 rounded-l-xl"
                     placeholder="Текст комментария">
-                  <button class="flex items-center justify-center py-4 pr-4 bg-[#2C2F3A] rounded-r-xl">
+                  <button class="flex items-center justify-center py-4 pr-4 rounded-r-xl">
                     <img src="/svg/sendReview.svg" title="send review" />
                   </button>
                 </section>
