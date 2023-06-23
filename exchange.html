@@ -102,7 +102,9 @@
           </div>
           <div class="flex gap-1">
             <input type="checkbox" id="terms-checkbox" class="h-[15px] w-[15px]" required />
-            <p class="break-words text-sm">Я прочитал и принимаю условия Политики конфиденциальности</p>
+            <p class="break-words text-sm">Я прочитал и принимаю условия 
+              <a href="index.html" class="text-blue-500">Политики конфиденциальности</a>
+              </p>
           </div>
           <button onclick="handleSubmit()" type="submit"
             class="mt-2 w-full rounded-lg bg-blue-500 py-2 text-center hover:bg-blue-400" id="submit">Отправить</button>
@@ -125,16 +127,22 @@
               <h3 class="lg:text-lg text-[#545b71] mb-4">Обменник</h3>
               <h1 class="text-2xl md:text-3xl lg:text-5xl title mr-4 mb-10">Шахта</h1>
             </li>
-            <li class="flex-col ml-0 md:ml-auto">
-              <h3 class="lg:text-xl text-[#545B71] lg:mb-4 mb-2">Рейтинг</h3>
-              <span class="text-[#E90035] font-extrabold text-2xl md:text-3xl lg:text-5xl">5.0</span>
+            <li class="flex gap-5 flex-row ml-0 md:ml-auto">
+              <div>
+                <h3 class="lg:text-xl text-[#545B71] lg:mb-4 mb-2">Рейтинг</h3>
+                <span class="text-[#E90035] font-extrabold text-2xl md:text-3xl lg:text-5xl">5.0</span>
+              </div>
+              <div>
+                <h3 class="lg:text-xl text-[#545B71] lg:mb-4 mb-2">Статус</h3>
+                <span class="text-[#E90035] font-extrabold text-2xl md:text-3xl lg:text-5xl">СКАМ</span>
+              </div>
               <!--text-[#75E900] if norm, text-[#FBA72A] if hz-->
             </li>
-            <li class="ml-0 md:ml-10 flex-col mt-8 md:mt-0">
-              <h3 class="lg:text-xl text-[#545B71] lg:mb-4 mb-2">Статус</h3>
-              <span class="text-[#E90035] font-extrabold text-2xl md:text-3xl lg:text-5xl">СКАМ</span>
-              <!--text-[#75E900] if norm, text-[#FBA72A] if hz-->
-            </li>
+            <!--
+              <li class="ml-0 md:ml-10 flex-col mt-8 md:mt-0">
+                text-[#75E900] if norm, text-[#FBA72A] if hz
+              </li>
+            -->
           </ul>
 
           <div class="w-full max-w-[600px] mt-10">
@@ -199,17 +207,17 @@
                 Сначала старые
               </button>
             </div>
-            <div id="reviews"> <!-- отзыв -->
-              <div class="m-4 review border-t-[1px] border-[#2C2F3A]" data-date="2021-02-15">
-                <h1>Олег <span class="text-[#545B71] pl-4">15 февраля 2021 года</span></h1>
+            <div id="reviews" class="mb-4 text-xs md:text-sm"> <!-- отзыв -->
+              <div class="md:m-4 review pt-4 border-t-[1px] border-[#2C2F3A] " data-date="2021-02-15">
+                <h1 class="mb-4">Олег <span class="text-[#545B71] pl-4">15 февраля 10:40</span></h1>
                 <p class="lg:pr-40 text-sm lg:text-base">При обмене используются надежные сервисы, а также безопасные
                   способы перевода денег. Все это делает процесс обмена безопасным и удобным. На основании моего личного
                   опыта я могу сказать, что обменник криптовалют отлично работает и предоставляет быстрые и надежные
                   услуги.</p>
-                <button class="text-[#545B71] pt-2">Ответитить</button>
+                <button class="text-[#545B71] pt-2 mb-4">Ответить</button>
                 <div id="answers" class="pl-10 mb-6">
-                  <h1><span class="text-blue-500">Админ </span>CoinDrop <span class="pl-4 text-[#545B71]">32 февраля
-                      2024 года</span></h1>
+                  <h1 class="font-xs md:font-sm"><span class="text-blue-500">Админ </span>CoinDrop <span class="pl-4 text-[#545B71]">32 февраля
+                      23:10</span></h1>
                   <p>Мы рады что вы пользуетесь нашим обменником!</p>
                 </div>
                 <section id="comment-1" class="bg-[#2C2F3A] rounded-xl focus:border-blue-500 focus:border-2 flex items-center mb-4">
@@ -221,16 +229,16 @@
                 </section>
               </div>
               <!-- отзыв -->
-              <div class="m-4 review border-t-[1px] border-[#2C2F3A]" data-date="2021-02-15">
-                <h1>Олег <span class="text-[#545B71] pl-4">5 февраля 2021 года</span></h1>
+              <div class="md:m-4 review pt-4 border-t-[1px] border-[#2C2F3A]" data-date="2021-02-15">
+                <h1 class="mb-4 text-xs md:text-sm">Олег <span class="text-[#545B71] pl-2 pl-4 font-xs md:font-sm">5 февраля 20:29</span></h1>
                 <p class="lg:pr-40 text-sm lg:text-base">При обмене используются надежные сервисы, а также безопасные
                   способы перевода денег. Все это делает процесс обмена безопасным и удобным. На основании моего
                   личного опыта я могу сказать, что обменник криптовалют отлично работает и предоставляет быстрые и
                   надежные услуги.</p>
-                <button class="text-[#545B71] pt-2">Ответитить</button>
-                <div id="answers" class="pl-10 mb-6">
-                  <h1><span class="text-blue-500">Админ </span>CoinDrop <span class="pl-4 text-[#545B71]">32 февраля
-                      2024 года</span></h1>
+                <button class="text-[#545B71] pt-2 mb-4">Ответить</button>
+                <div id="answers" class="pl-10 md:pl-10 mb-6">
+                  <h1 class="text-xs md:text-sm"><span class="text-blue-500">Админ </span>CoinDrop <span class="pl-4 text-[#545B71]">32 февраля
+                      10:15</span></h1>
                   <p>Мы рады что вы пользуетесь нашим обменником!</p>
                 </div>
                 <section id="comment-2" class="bg-[#2C2F3A] rounded-xl flex items-center mb-4">
@@ -242,16 +250,16 @@
                 </section>
               </div>
               <!-- отзыв -->
-              <div class="m-4 review border-t-[1px] border-[#2C2F3A]" data-date="2021-03-25">
-                <h1>Олег <span class="text-[#545B71] pl-4">25 марта 2021 года</span></h1>
+              <div class="md:m-4 review pt-4 border-t-[1px] border-[#2C2F3A]" data-date="2021-03-25">
+                <h1 class="mb-4 text-xs md:text-sm">Олег <span class="text-[#545B71] pl-4">25 марта 15:10</span></h1>
                 <p class="lg:pr-40 text-sm lg:text-base">При обмене используются надежные сервисы, а также
                   безопасные способы перевода денег. Все это делает процесс обмена безопасным и удобным. На
                   основании моего личного опыта я могу сказать, что обменник криптовалют отлично работает и
                   предоставляет быстрые и надежные услуги.</p>
-                <button class="text-[#545B71] pt-2">Ответитить</button>
+                <button class="text-[#545B71] pt-2 mb-4">Ответить</button>
                 <div id="answers" class="pl-10 mb-6">
                   <h1><span class="text-blue-500">Админ </span>CoinDrop <span class="pl-4 text-[#545B71]">32 февраля
-                      2024 года</span></h1>
+                      15:20</span></h1>
                   <p>Мы рады что вы пользуетесь нашим обменником!</p>
                 </div>
                 <section id="comment-3" class="bg-[#2C2F3A] rounded-xl flex items-center mb-4">
