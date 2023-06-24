@@ -8,35 +8,35 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AntiSwap- про скам-обменники</title>
 </head>
-<body class="h-full bg-[#101115] text-white font-bold font-mont">
-  <header class="h-20 max-w-screen bg-[#1E2027] pt-[28px]">
-    <div class="flex justify-start items-center px-10 md:px-0">
-      <a href="/" class="text-white text-lg font-extrabold mr-3 lg:text-2xl md:mr-14 md:ml-20">AntiSwap</a>
-      <div class="relative md:hidden ml-auto flex flex-col items-center">
-        <button id="burger-btn" class="w-8 h-8 text-white focus:outline-none">
-          <span></span>
-          <span></span>
-        </button>
-        <nav id="menu" class="p-3 rounded-lg text-white menu absolute left-[-3rem] top-14 bg-[#2C2F3A]">
-          <ul class="menu-items flex flex-col gap-2">
-            <li><a href="#about" class="hover:text-blue-500">О нас</a></li>
-            <li><a href="#exchanges" class="hover:text-blue-500">Обменники</a></li>
-          </ul>
-        </nav>
-  
-      </div>
-      <a href="" class="hidden md:block text-white text-sm font-[700] lg:text-sm md:ml-6">Обменники</a>
-      <a href="" class="hidden md:block text-white text-sm font-[700] lg:text-sm md:ml-4">О нас</a>
-      <div class="hidden md:flex ml-auto lg:mr-20 md:mr-20 gap-1 font-[700] text-sm">
-        <h1 class="text-[#00A3FF]">*VALUE*</h1>
-        <p class="text-[#545B71]">Обменников проверено</p>
-      </div>
+<header class="h-20 max-w-screen bg-[#1E2027] pt-[28px]">
+  <div class="flex justify-start items-center px-10 md:px-0">
+    <a href="" class="text-white text-lg font-extrabold mr-3 lg:text-2xl md:mr-14 md:ml-20">AntiSwap</a>
+    <div class="md:hidden ml-auto flex flex-col items-center">
+      <button id="burger-btn" class="w-8 h-8 text-white focus:outline-none">
+        <span></span>
+        <span></span>
+      </button>
+      <nav id="menu" class="p-3 rounded-lg text-white menu fixed right-[0rem] top-[5.5rem] bg-[#2C2F3A]">
+        <ul class="menu-items flex flex-col gap-2">
+          <li><a href="#about" class="hover:text-blue-500">О нас</a></li>
+          <li><a href="#exchanges" class="hover:text-blue-500">Обменники</a></li>
+        </ul>
+      </nav>
+
     </div>
-  </header>
+    <a href="" class="hidden md:block text-white text-sm font-[700] lg:text-sm md:ml-6">Обменники</a>
+    <a href="" class="hidden md:block text-white text-sm font-[700] lg:text-sm md:ml-4">О нас</a>
+    <div class="hidden md:flex ml-auto lg:mr-20 md:mr-20 gap-1 font-[700] text-sm">
+      <h1 class="text-[#00A3FF]">*VALUE*</h1>
+      <p class="text-[#545B71]">Обменников проверено</p>
+    </div>
+  </div>
+</header>
+<body class="h-full bg-[#101115] text-white font-bold font-mont">
   <main class="font-bold text-white">
     <div class="hidden fixed inset-0 flex color-change-2x lg:items-center justify-center">
-      <div id="modal" class="hidden h-full md:h-auto p-10 scale-in-center">
-        <div id="modal-content" class="h-full pt-8 md:h-auto scale-in-center">
+      <div id="modal" class="hidden m-auto scale-in-center px-5">
+        <div id="modal-content" class="scale-in-center">
           <div class="flex-col rounded-lg bg-[#1E2027] h-full md:h-auto overflow-y-auto text-white pt-8 px-8">
             <div class="mb-4 mt-4 flex items-center">
             <h3 class="text-xl font-medium">Оставить отзыв</h3>
@@ -49,13 +49,13 @@
             <div class="flex flex-col md:flex-row">
               <div class="flex w-full flex-col gap-2 md:w-1/2">
                 <label for="name-input" class="text-sm font-medium text-white dark:text-white">Имя</label>
-                <input id="name-input" class="w-full rounded-md border border-[#545B71] bg-[#2C2F3A] px-2 py-2.5 text-sm text-[#545B71] outline-none focus:border-blue-500 focus:ring-blue-500" placeholder="" required="">
+                <input id="name-input" class="w-full rounded-md border border-[#545B71] bg-[#2C2F3A] px-2 py-2.5 text-sm text-white outline-none focus:border-blue-500 focus:ring-blue-500" placeholder="" required="">
                 <label for="number-input" class="mt-4 text-sm font-medium text-white dark:text-white">Номер обмена</label>
-                <input type="" id="number-input" class="w-full rounded-md border border-[#545B71] bg-[#2C2F3A] px-2 py-2.5 text-sm text-[#545B71] outline-none focus:border-blue-500 focus:ring-blue-500" required="">
+                <input type="" id="number-input" class="w-full rounded-md border border-[#545B71] bg-[#2C2F3A] px-2 py-2.5 text-sm text-white outline-none focus:border-blue-500 focus:ring-blue-500" required="">
               </div>
               <div class="flex w-full flex-col gap-2 md:ml-4 md:w-1/2">
                 <label for="email-input" class="mt-4 md:mt-0 text-sm font-medium text-white dark:text-white" required="">Email</label>
-                <input type="email" id="email-input" class="w-full rounded-md border border-[#545B71] bg-[#2C2F3A] px-2 py-2.5 text-sm text-[#545B71] outline-none focus:border-blue-500 focus:ring-blue-500" required="">
+                <input type="email" id="email-input" class="w-full rounded-md border border-[#545B71] bg-[#2C2F3A] px-2 py-2.5 text-sm text-white outline-none focus:border-blue-500 focus:ring-blue-500" required="">
                 <label for="rating" class="mt-4 text-sm font-medium text-white dark:text-white">Оценка</label>
                 <div class="flex rounded-md" id="rating-container">
                   <button type="button" id="rating-happy" class="flex w-full items-center justify-center rounded-l border-r border-[#545B71] bg-[#545B71] bg-opacity-40 py-2 text-sm font-medium text-white hover:bg-green-500 hover:bg-opacity-20 focus:outline-none" onclick="setRating(this)">
@@ -74,8 +74,8 @@
           </div>
           <div class="mb-0 mt-4 flex flex-col">
             <label for="message-textarea" class="rounded-md mb-3 text-sm font-medium text-white dark:text-white">Напишите отзыв</label>
-            <div class="flex-col bg-[#2C2F3A] rounded-md">
-              <textarea id="review-textarea" name="message-textarea" rows="4" maxlength="2000" class="w-full resize-none rounded-md bg-[#2C2F3A] p-2.5 text-sm text-[#545B71] outline-none focus:border-blue-500 focus:ring-blue-500" required=""></textarea>
+            <div class="flex-col bg-[#2C2F3A] focus:border-blue-500 focus:ring-blue-500 rounded-md" onclick="">
+              <textarea id="review-textarea" name="message-textarea" rows="4" maxlength="2000" class="w-full resize-none rounded-md bg-[#2C2F3A] p-2.5 text-sm text-white outline-none focus:border-blue-500 focus:ring-blue-500" required=""></textarea>
               <div class="ml-auto flex justify-end gap-0.5 pr-2">
                 <span id="character-count" class="text-sm text-[#545B71]"></span>
               </div>
@@ -88,7 +88,7 @@
               <a href="index.html" class="text-blue-500">Политики конфиденциальности</a>
               </p>
           </div>
-          <button onclick="handleSubmit()" type="submit" class="mt-2 w-full rounded-lg bg-blue-500 py-2 text-center hover:bg-blue-400" id="submit">Отправить</button>
+          <button onclick="handleSubmit()" type="submit" class="mt-2 mb-8 w-full rounded-lg bg-blue-500 py-2 text-center hover:bg-blue-400" id="submit">Отправить</button>
           <div id="error" class="hidden p-2 text-red-600">*Не все поля заполнены!</div>
         </div>
       </div>
@@ -136,7 +136,7 @@
           <div id="mySection">
             <div class="flex items-center justify-between mb-10">
               <h3 class="lg:text-xl text-[#545B71] flex gap-1">Отзывы <p
-                  class="flex justify-start items-start mt-[-12px] text-sm">62640</p>
+                  class="flex justify-start items-start mt-[-10px] text-sm">62640</p>
                   
               </h3>
               <button

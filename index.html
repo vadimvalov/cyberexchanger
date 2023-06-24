@@ -15,13 +15,13 @@
 </head>
 <header class="h-20 max-w-screen bg-[#1E2027] pt-[28px]">
   <div class="flex justify-start items-center px-10 md:px-0">
-    <a href="" class="text-white text-lg font-extrabold mr-3 lg:text-2xl md:mr-14 md:ml-20">AntiSwap</a>
-    <div class="md:hidden ml-auto flex flex-col items-center">
+    <a href="/" class="text-white text-lg font-extrabold mr-10 lg:text-2xl md:mr-14 md:ml-20">AntiSwap</a>
+    <div class="relative md:hidden ml-auto flex flex-col items-center">
       <button id="burger-btn" class="w-8 h-8 text-white focus:outline-none">
         <span></span>
         <span></span>
       </button>
-      <nav id="menu" class="p-3 rounded-lg text-white menu fixed right-[0rem] top-[5.5rem] bg-[#2C2F3A]">
+      <nav id="menu" class="p-3 rounded-lg text-white menu absolute left-[-3rem] top-14 bg-[#2C2F3A]">
         <ul class="menu-items flex flex-col gap-2">
           <li><a href="#about" class="hover:text-blue-500">О нас</a></li>
           <li><a href="#exchanges" class="hover:text-blue-500">Обменники</a></li>
@@ -37,14 +37,13 @@
     </div>
   </div>
 </header>
-
 <body class="max-w-screen bg-[#101115] font-mont"> <!--камон еврибади-->
 
   <div id="modal"
     class="fixed hidden inset-0 text-white flex items-center overflow-y-auto lg:overflow-y-hidden justify-center color-change-2x">
     <!--модалка-->
     <div id="modal-content"
-      class="absolute bottom-8 left-5 right-5 md:mr-20 md:ml-20 top-8 z-50 overflow-y-auto rounded-lg bg-[#1E2027] p-8 text-white scale-in-center">
+      class="absolute z-50 overflow-y-auto rounded-lg m-8 bg-[#1E2027] lg:p-8 text-white scale-in-center">
     
       <h1 class="text-xl lg:text-4xl font-bold text-left p-6 font-etrabold">Выберите город</h1>
       <div class="px-6 py-4">
@@ -225,7 +224,7 @@
 
   <div class="max-w-screen bg-[#101115]">
     <div class="flex justify-between flex-col lg:flex-row">
-      <div class="m-10 lg:m-20 h-full text-center lg:mr-0 lg:w-[372px] flex">
+      <div class="m-10 mb-0 lg:m-20 h-full text-center lg:mr-0 lg:w-[372px] flex">
         <div class="w-screen">
           <div class="left-tables rounded-xl bg-[#1E2027] text-white"> <!--таблица левая-->
             <h1 class="mb-2 text-center text-xl p-8 font-[800]">Направления обмена</h1>
@@ -704,7 +703,7 @@
             </div>
 
             <button id='extend_button'
-              class="mt-4px-5 w-full bg-[#00A3FF] py-3 font-bold text-white hover:bg-blue-600 rounded-b-2xl flex justify-center">
+              class="w-full bg-[#00A3FF] py-3 font-bold text-white hover:bg-blue-600 rounded-b-2xl flex justify-center">
               <img src="/svg/extend.svg" title="extend" />
             </button>
           </div>
@@ -764,8 +763,7 @@
                     <h1 class="text-xs font-bold text-[#545B71]">Обменник</h1>
                     <p>Шахта</p>
                   </div>
-                  <p class="flex w-20 items-center justify-center rounded-lg bg-[#2F491F] px-3 py-0 text-sm
-                                                        text-[#74E900]">
+                  <p class="flex w-20 items-center justify-center rounded-lg bg-[#2F491F] px-3 py-0 text-sm text-[#74E900]">
                     Честный
                   </p>
                 </div>
@@ -789,9 +787,9 @@
                     <p>16 484.25</p>
                   </div>
                   <div class="ml-auto">
-                    <h1 class="text-xs font-bold text-[#545B71]">Отзывы</h1>
-                    <p class="text-red-500">20 <span class="text-white"> | </span> <span
-                        class="text-green-600">2000</span></p>
+                      <h1 class="text-xs font-bold text-[#545B71]">Отзывы</h1>
+                      <p class="text-[#E90035]">20 <span class="text-white"> | </span> <span
+                          class="text-[#74E900]">2000</span></p>
                   </div>
                 </div>
               </section>
@@ -828,8 +826,8 @@
                   </div>
                   <div class="ml-auto">
                     <h1 class="text-xs font-bold text-[#545B71]">Отзывы</h1>
-                    <p class="text-red-500">20 <span class="text-white"> | </span> <span
-                        class="text-green-600">2000</span></p>
+                    <p class="text-[#E90035]">20 <span class="text-white"> | </span> <span
+                        class="text-[#74E900]">2000</span></p>
                   </div>
                 </div>
               </section>
@@ -865,8 +863,8 @@
                   </div>
                   <div class="ml-auto">
                     <h1 class="text-xs font-bold text-[#545B71]">Отзывы</h1>
-                    <p class="text-red-500">20 <span class="text-white"> | </span> <span
-                        class="text-green-600">2000</span></p>
+                    <p class="text-[#E90035]">20 <span class="text-white"> | </span> <span
+                        class="text-[#74E900]">2000</span></p>
                   </div>
                 </div>
               </section>
@@ -902,8 +900,8 @@
                   </section>
                   <section class="ml-auto">
                     <h1 class="text-xs font-bold text-[#545B71]">Отзывы</h1>
-                    <p class="text-red-500">20 <span class="text-white"> | </span> <span
-                        class="text-green-600">2000</span></p>
+                    <p class="text-[#E90035]">20 <span class="text-white"> | </span> <span
+                        class="text-[#74E900]">2000</span></p>
                   </section>
                 </div>
               </div>
@@ -938,8 +936,8 @@
                   </section>
                   <section class="ml-auto">
                     <h1 class="text-xs font-bold  text-[#545B71]">Отзывы</h1>
-                    <p class="text-red-500">20 <span class="text-white"> | </span> <span
-                        class="text-green-600">2000</span></p>
+                    <p class="text-[#E90035]">20 <span class="text-white"> | </span> <span
+                        class="text-[#74E900]">2000</span></p>
                   </section>
                 </div>
               </div>
@@ -974,8 +972,8 @@
                   </section>
                   <section class="ml-auto">
                     <h1 class="text-xs font-bold text-[#545B71]">Отзывы</h1>
-                    <p class="text-red-500">20 <span class="text-white"> | </span> <span
-                        class="text-green-600">2000</span></p>
+                    <p class="text-[#E90035]">20 <span class="text-white"> | </span> <span
+                        class="text-[#74E900]">2000</span></p>
                   </section>
                 </div>
               </div>
@@ -996,7 +994,7 @@
                 <table class="mr-0 h-full w-full table-auto overflow-hidden rounded-xl pr-0">
                   <thead class="border-b-[1px] border-[#545B71]">
                     <tr class="text-white text-left font-bold">
-                      <th class="first-column px-6 pb-4">Статус</th>
+                      <th class="first-column px-10 pb-4">Статус</th>
                       <th class="pb-4">Обменник</th>
                       <th class="pb-4">Отдаёте</th>
                       <th class="pb-4">Получаете</th>
@@ -1006,7 +1004,7 @@
                   </thead>
                   <tbody class="text-white">
                     <tr class="border-t-[1px] border-[#545B71] hover:bg-[#2C2F3A]">
-                      <td class="flex px-6 py-[10px] text-left md:py-[20px]">
+                      <td class="flex px-10 py-[10px] text-left md:py-[20px]">
                         <p
                           class="flex w-20 justify-center rounded-lg bg-[#2F491F] px-3 py-1 align-middle text-xs text-[#74E900]">
                           Честный</p>
@@ -1025,7 +1023,7 @@
                       </td>
                     </tr>
                     <tr class="border-t-[1px] border-[#545B71] hover:bg-[#2C2F3A]">
-                      <td class="flex px-6 py-[10px] text-left md:py-[20px]">
+                      <td class="flex px-10 py-[10px] text-left md:py-[20px]">
                         <p
                           class="flex w-20 justify-center rounded-lg bg-[#471A2A] px-3 py-1 align-middle text-xs text-[#E90035]">
                           Скам</p>
@@ -1044,7 +1042,7 @@
                       </td>
                     </tr>
                     <tr class="whitespace-normal border-t-[1px] border-[#545B71] hover:bg-[#2C2F3A]">
-                      <td class="flex px-6 py-[10px] text-left md:py-[20px]">
+                      <td class="flex px-10 py-[10px] text-left md:py-[20px]">
                         <p
                           class="flex w-20 justify-center rounded-lg bg-[#FBA72A] bg-opacity-20 px-3 py-1 align-middle text-xs text-[#FBA72A]">
                           Нейтр</p>
@@ -1063,7 +1061,7 @@
                       </td>
                     </tr>
                     <tr class="border-t-[1px] border-[#545B71] hover:bg-[#2C2F3A]">
-                      <td class="flex px-6 py-[10px] text-left md:py-[20px]">
+                      <td class="flex px-10 py-[10px] text-left md:py-[20px]">
                         <p
                           class="flex w-20 justify-center rounded-lg bg-[#2F491F] px-3 py-1 align-middle text-xs text-[#74E900]">
                           Честный</p>
@@ -1082,7 +1080,7 @@
                       </td>
                     </tr>
                     <tr class="border-t-[1px] border-[#545B71] hover:bg-[#2C2F3A]">
-                      <td class="flex px-6 py-[10px] text-left md:py-[20px]">
+                      <td class="flex px-10 py-[10px] text-left md:py-[20px]">
                         <p
                           class="flex w-20 justify-center rounded-lg bg-[#471A2A] px-3 py-1 align-middle text-xs text-[#E90035]">
                           Скам</p>
@@ -1101,7 +1099,7 @@
                       </td>
                     </tr>
                     <tr class="whitespace-normal border-t-[1px] border-[#545B71] hover:bg-[#2C2F3A]">
-                      <td class="flex px-6 py-[10px] text-left md:py-[20px]">
+                      <td class="flex px-10 py-[10px] text-left md:py-[20px]">
                         <p
                           class="flex w-20 justify-center rounded-lg bg-[#FBA72A] bg-opacity-20 px-3 py-1 align-middle text-xs text-[#FBA72A]">
                           Нейтр</p>
@@ -1120,7 +1118,7 @@
                       </td>
                     </tr>
                     <tr class="border-t-[1px] border-[#545B71] hover:bg-[#2C2F3A]">
-                      <td class="flex px-6 py-[10px] text-left md:py-[20px]">
+                      <td class="flex px-10 py-[10px] text-left md:py-[20px]">
                         <p
                           class="flex w-20 justify-center rounded-lg bg-[#2F491F] px-3 py-1 align-middle text-xs text-[#74E900]">
                           Честный</p>
@@ -1139,7 +1137,7 @@
                       </td>
                     </tr>
                     <tr class="border-t-[1px] border-[#545B71] hover:bg-[#2C2F3A]">
-                      <td class="flex px-6 py-[10px] text-left md:py-[20px]">
+                      <td class="flex px-10 py-[10px] text-left md:py-[20px]">
                         <p
                           class="flex w-20 justify-center rounded-lg bg-[#471A2A] px-3 py-1 align-middle text-xs text-[#E90035]">
                           Скам</p>
@@ -1158,7 +1156,7 @@
                       </td>
                     </tr>
                     <tr class="whitespace-normal border-t-[1px] border-[#545B71] hover:bg-[#2C2F3A]">
-                      <td class="flex px-6 py-[10px] text-left md:py-[20px]">
+                      <td class="flex px-10 py-[10px] text-left md:py-[20px]">
                         <p
                           class="flex w-20 justify-center rounded-lg bg-[#FBA72A] bg-opacity-20 px-3 py-1 align-middle text-xs text-[#FBA72A]">
                           Нейтр</p>
@@ -1177,7 +1175,7 @@
                       </td>
                     </tr>
                     <tr class="border-t-[1px] border-[#545B71] hover:bg-[#2C2F3A]">
-                      <td class="flex px-6 py-[10px] text-left md:py-[20px]">
+                      <td class="flex px-10 py-[10px] text-left md:py-[20px]">
                         <p
                           class="flex w-20 justify-center rounded-lg bg-[#2F491F] px-3 py-1 align-middle text-xs text-[#74E900]">
                           Честный</p>
@@ -1196,7 +1194,7 @@
                       </td>
                     </tr>
                     <tr class="border-t-[1px] border-[#545B71] hover:bg-[#2C2F3A]">
-                      <td class="flex px-6 py-[10px] text-left md:py-[20px]">
+                      <td class="flex px-10 py-[10px] text-left md:py-[20px]">
                         <p
                           class="flex w-20 justify-center rounded-lg bg-[#471A2A] px-3 py-1 align-middle text-xs text-[#E90035]">
                           Скам</p>
@@ -1215,7 +1213,7 @@
                       </td>
                     </tr>
                     <tr class="whitespace-normal border-t-[1px] border-[#545B71] hover:bg-[#2C2F3A]">
-                      <td class="flex px-6 py-[10px] text-left md:py-[20px]">
+                      <td class="flex px-10 py-[10px] text-left md:py-[20px]">
                         <p
                           class="flex w-20 justify-center rounded-lg bg-[#FBA72A] bg-opacity-20 px-3 py-1 align-middle text-xs text-[#FBA72A]">
                           Нейтр</p>
@@ -1276,15 +1274,15 @@
             </div>
           </div>
           <div id="table_scam" class="mb-10"> <!--таблица СКАМ-->
-            <div class="rounded-xl border-2 border-red-600 bg-[#1E2027]">
-              <h1 class="mr-3 p-10 text-lg font-extrabold text-white md:mr-14 lg:text-2xl"> <span
-                  class="text-red-600 lg:text-2xl text-lg">СКАМ </span> обменники</h1>
+            <div class="rounded-xl border-2 border-red-700 bg-[#1E2027]"> <!--hex border-[#E90035], не читает, хотя регается-->
+              <h1 class="mr-3 p-10 text-lg font-extrabold text-white md:mr-14 md:text-4xl"> <span
+                  class="text-[#E90035] sm:text-xl md:text-4xl">СКАМ </span> обменники</h1>
               <div class="h-[370px] md:h-[556px] overflow-y-auto">
 
                 <table class="rounded-xl overflow-hidden mr-0 pr-0 w-full h-full md:h-[556px] table-fixed">
                   <thead class="border-b-[1px] border-[#545B71]">
                     <tr class="text-white text-sm md:text-sm lg:text-xl font-bold">
-                      <th class="w-28 md:w-25 py-2 pl-4 lg:pl-4 pr-24 md:pr-0 text-left first-column">
+                      <th class="w-28 md:w-25 py-2 pl-10 lg:pl-4 pr-24 md:pr-0 text-left first-column">
                         Название</th>
                       <th class="w-2/10 ease-in-out lg:w-[20vw] py-2 pl-10 flex justify-start">
                         Рейтинг</th>
@@ -1308,100 +1306,100 @@
                   </thead>
                   <tbody class="text-white text-xs md:text-base font-bold">
                     <tr class="hover:bg-[#2C2F3A] border-t-[1px] border-[#545B71]">
-                      <td class="py-[10px] md:py-5 px-4">НЕСКАМ</td>
+                      <td class="py-[10px] md:py-5 px-10">НЕСКАМ</td>
                       <td class="w-2/10 ease-in-out lg:w-[20vw] pl-10 flex-col justify-start">0%
                       </td>
                       <td class="px-2 text-green-600">0%</td>
-                      <td class="text-red-600">100%</td>
+                      <td class="text-[#E90035]">100%</td>
                     </tr>
                     <tr class="hover:bg-[#2C2F3A] border-t-[1px] border-[#545B71]">
-                      <td class="py-[10px] md:py-5 px-4">*NAME*</td>
+                      <td class="py-[10px] md:py-5 px-10">*NAME*</td>
                       <td class="w-2/10 ease-in-out lg:w-[20vw] pl-10 flex-col justify-start">0%
                       </td>
                       <td class="px-2 text-green-600">*+*</td>
-                      <td class="text-red-600">*-*</td>
+                      <td class="text-[#E90035]">*-*</td>
                     </tr>
                     <tr class="hover:bg-[#2C2F3A] border-t-[1px] border-[#545B71] whitespace-normal">
-                      <td class="py-[10px] md:py-[20px] px-4">*LOONG NAME*</td>
+                      <td class="py-[10px] md:py-[20px] px-10">*LOONG NAME*</td>
                       <td class="w-2/10 ease-in-out lg:w-[20vw] pl-10 flex-col justify-start">0%
                       </td>
                       <td class="px-2 text-green-600">*+*</td>
-                      <td class="text-red-600">*-*</td>
+                      <td class="text-[#E90035]">*-*</td>
                     </tr>
                     <tr class="hover:bg-[#2C2F3A] border-t-[1px] border-[#545B71]">
-                      <td class="py-[10px] md:py-[20px] px-4">*NAME*</td>
+                      <td class="py-[10px] md:py-[20px] px-10">*NAME*</td>
                       <td class="w-2/10 ease-in-out lg:w-[20vw] pl-10 flex-col justify-start">0%
                       </td>
                       <td class="px-2 text-green-600">*+*</td>
-                      <td class="text-red-600">*-*</td>
+                      <td class="text-[#E90035]">*-*</td>
                     </tr>
                     <tr class="hover:bg-[#2C2F3A] border-t-[1px] border-[#545B71]">
-                      <td class="py-[10px] md:py-[20px] px-4">*NAME*</td>
+                      <td class="py-[10px] md:py-[20px] px-10">*NAME*</td>
                       <td class="w-2/10 ease-in-out lg:w-[20vw] pl-10 flex-col justify-start">0%
                       </td>
                       <td class="px-2 text-green-600">*+*</td>
-                      <td class="text-red-600">*-*</td>
+                      <td class="text-[#E90035]">*-*</td>
                     </tr>
                     <tr class="hover:bg-[#2C2F3A] border-t-[1px] border-[#545B71]">
-                      <td class="py-[10px] md:py-[20px] px-4">*NAME*</td>
+                      <td class="py-[10px] md:py-[20px] px-10">*NAME*</td>
                       <td class="w-2/10 ease-in-out lg:w-[20vw] pl-10 flex-col justify-start">0%
                       </td>
                       <td class="px-2 text-green-600">*+*</td>
-                      <td class="text-red-600">*-*</td>
+                      <td class="text-[#E90035]">*-*</td>
                     </tr>
                     <tr class="hover:bg-[#2C2F3A] border-t-[1px] border-[#545B71]">
-                      <td class="py-[10px] md:py-[20px] px-4">*NAME*</td>
+                      <td class="py-[10px] md:py-[20px] px-10">*NAME*</td>
                       <td class="w-2/10 ease-in-out lg:w-[20vw] pl-10 flex-col justify-start">0%
                       </td>
                       <td class="px-2 text-green-600">*+*</td>
-                      <td class="text-red-600">*-*</td>
+                      <td class="text-[#E90035]">*-*</td>
                     </tr>
                     <tr class="hover:bg-[#2C2F3A] border-t-[1px] border-[#545B71]">
-                      <td class="py-[10px] md:py-[20px] px-4">*NAME*</td>
+                      <td class="py-[10px] md:py-[20px] px-10">*NAME*</td>
                       <td class="w-2/10 ease-in-out lg:w-[20vw] pl-10 flex-col justify-start">0%
                       </td>
                       <td class="px-2 text-green-600">*+*</td>
-                      <td class="text-red-600">*-*</td>
+                      <td class="text-[#E90035]">*-*</td>
                     </tr>
                     <tr class="hover:bg-[#2C2F3A] border-t-[1px] border-[#545B71]">
-                      <td class="py-[10px] md:py-[20px] px-4">*NAME*</td>
+                      <td class="py-[10px] md:py-[20px] px-10">*NAME*</td>
                       <td class="w-2/10 ease-in-out lg:w-[20vw] pl-10 flex-col justify-start">0%
                       </td>
                       <td class="px-2 text-green-600">*+*</td>
-                      <td class="text-red-600">*-*</td>
+                      <td class="text-[#E90035]">*-*</td>
                     </tr>
                     <tr class="hover:bg-[#2C2F3A] border-t-[1px] border-[#545B71]">
-                      <td class="py-[10px] md:py-[20px] px-4">*NAME*</td>
+                      <td class="py-[10px] md:py-[20px] px-10">*NAME*</td>
                       <td class="w-2/10 ease-in-out lg:w-[20vw] pl-10 flex-col justify-start">0%
                       </td>
                       <td class="px-2 text-green-600">*+*</td>
-                      <td class="text-red-600">*-*</td>
+                      <td class="text-[#E90035]">*-*</td>
                     </tr>
                     <tr class="hover:bg-[#2C2F3A] border-t-[1px] border-[#545B71]">
-                      <td class="py-[10px] md:py-[20px] px-4">*NAME*</td>
+                      <td class="py-[10px] md:py-[20px] px-10">*NAME*</td>
                       <td class="w-2/10 ease-in-out lg:w-[20vw] pl-10 flex-col justify-start">0%
                       </td>
                       <td class="px-2 text-green-600">*+*</td>
-                      <td class="text-red-600">*-*</td>
+                      <td class="text-[#E90035]">*-*</td>
                     </tr>
                   </tbody>
                 </table>
               </div>
             </div>
-            <h1 class="m-2 text-xs font-extrabold text-[#545B71]">*Всего <span class="text-red-600">*VALUE*</span>
+            <h1 class="m-2 text-xs font-extrabold text-[#545B71]">*Всего <span class="text-[#E90035]">*VALUE*</span>
               мошеннических обменных пунктов</h1>
           </div>
         </div>
         <div id="table_true" class="mb-10"> <!--таблица честн-->
           <div class="rounded-xl border-2 border-[#74E900] bg-[#1E2027]">
-            <h1 class="mr-3 p-10 text-lg font-extrabold text-white md:mr-14 lg:text-2xl"><span
-                class="text-[#74E900] lg:text-2xl text-lg">Честные </span> обменники</h1>
+            <h1 class="mr-3 p-10 text-lg font-extrabold text-white md:mr-14 md:text-4xl"><span
+                class="text-[#74E900] sm:text-xl md:text-4xl">Честные </span> обменники</h1>
             <div class="h-[370px] md:h-[556px] overflow-y-auto">
 
               <table class="rounded-xl overflow-hidden mr-0 pr-0 w-full h-full md:h-[556px] table-fixed">
                 <thead class="border-b-[1px] border-[#545B71]">
                   <tr class="text-white text-sm md:text-sm lg:text-xl font-bold">
-                    <th class="w-28 md:w-25 py-2 pl-4 lg:pl-4 pr-24 md:pr-0 text-left first-column">
+                    <th class="w-28 md:w-25 py-2 pl-10 lg:pl-4 pr-24 md:pr-0 text-left first-column">
                       Название</th>
                     <th class="w-2/10 ease-in-out lg:w-[20vw] py-2 pl-10 flex justify-start">Рейтинг
                     </th>
@@ -1425,67 +1423,67 @@
                 </thead>
                 <tbody class="text-white text-xs md:text-base font-bold">
                   <tr class="hover:bg-[#2C2F3A] border-t-[1px] border-[#545B71]">
-                    <td class="py-[10px] md:py-5 px-4">НЕСКАМ</td>
+                    <td class="py-[10px] md:py-5 px-10">НЕСКАМ</td>
                     <td class="w-2/10 ease-in-out lg:w-[20vw] pl-10 flex-col justify-start">0%</td>
                     <td class="px-2 text-green-600">0%</td>
                     <td class="text-red-600">100%</td>
                   </tr>
                   <tr class="hover:bg-[#2C2F3A] border-t-[1px] border-[#545B71]">
-                    <td class="py-[10px] md:py-5 px-4">*NAME*</td>
+                    <td class="py-[10px] md:py-5 px-10">*NAME*</td>
                     <td class="w-2/10 ease-in-out lg:w-[20vw] pl-10 flex-col justify-start">0%</td>
                     <td class="px-2 text-green-600">*+*</td>
                     <td class="text-red-600">*-*</td>
                   </tr>
                   <tr class="hover:bg-[#2C2F3A] border-t-[1px] border-[#545B71] whitespace-normal">
-                    <td class="py-[10px] md:py-[20px] px-4">*LOONG NAME*</td>
+                    <td class="py-[10px] md:py-[20px] px-10">*LOONG NAME*</td>
                     <td class="w-2/10 ease-in-out lg:w-[20vw] pl-10 flex-col justify-start">0%</td>
                     <td class="px-2 text-green-600">*+*</td>
                     <td class="text-red-600">*-*</td>
                   </tr>
                   <tr class="hover:bg-[#2C2F3A] border-t-[1px] border-[#545B71]">
-                    <td class="py-[10px] md:py-[20px] px-4">*NAME*</td>
+                    <td class="py-[10px] md:py-[20px] px-10">*NAME*</td>
                     <td class="w-2/10 ease-in-out lg:w-[20vw] pl-10 flex-col justify-start">0%</td>
                     <td class="px-2 text-green-600">*+*</td>
                     <td class="text-red-600">*-*</td>
                   </tr>
                   <tr class="hover:bg-[#2C2F3A] border-t-[1px] border-[#545B71]">
-                    <td class="py-[10px] md:py-[20px] px-4">*NAME*</td>
+                    <td class="py-[10px] md:py-[20px] px-10">*NAME*</td>
                     <td class="w-2/10 ease-in-out lg:w-[20vw] pl-10 flex-col justify-start">0%</td>
                     <td class="px-2 text-green-600">*+*</td>
                     <td class="text-red-600">*-*</td>
                   </tr>
                   <tr class="hover:bg-[#2C2F3A] border-t-[1px] border-[#545B71]">
-                    <td class="py-[10px] md:py-[20px] px-4">*NAME*</td>
+                    <td class="py-[10px] md:py-[20px] px-10">*NAME*</td>
                     <td class="w-2/10 ease-in-out lg:w-[20vw] pl-10 flex-col justify-start">0%</td>
                     <td class="px-2 text-green-600">*+*</td>
                     <td class="text-red-600">*-*</td>
                   </tr>
                   <tr class="hover:bg-[#2C2F3A] border-t-[1px] border-[#545B71]">
-                    <td class="py-[10px] md:py-[20px] px-4">*NAME*</td>
+                    <td class="py-[10px] md:py-[20px] px-10">*NAME*</td>
                     <td class="w-2/10 ease-in-out lg:w-[20vw] pl-10 flex-col justify-start">0%</td>
                     <td class="px-2 text-green-600">*+*</td>
                     <td class="text-red-600">*-*</td>
                   </tr>
                   <tr class="hover:bg-[#2C2F3A] border-t-[1px] border-[#545B71]">
-                    <td class="py-[10px] md:py-[20px] px-4">*NAME*</td>
+                    <td class="py-[10px] md:py-[20px] px-10">*NAME*</td>
                     <td class="w-2/10 ease-in-out lg:w-[20vw] pl-10 flex-col justify-start">0%</td>
                     <td class="px-2 text-green-600">*+*</td>
                     <td class="text-red-600">*-*</td>
                   </tr>
                   <tr class="hover:bg-[#2C2F3A] border-t-[1px] border-[#545B71]">
-                    <td class="py-[10px] md:py-[20px] px-4">*NAME*</td>
+                    <td class="py-[10px] md:py-[20px] px-10">*NAME*</td>
                     <td class="w-2/10 ease-in-out lg:w-[20vw] pl-10 flex-col justify-start">0%</td>
                     <td class="px-2 text-green-600">*+*</td>
                     <td class="text-red-600">*-*</td>
                   </tr>
                   <tr class="hover:bg-[#2C2F3A] border-t-[1px] border-[#545B71]">
-                    <td class="py-[10px] md:py-[20px] px-4">*NAME*</td>
+                    <td class="py-[10px] md:py-[20px] px-10">*NAME*</td>
                     <td class="w-2/10 ease-in-out lg:w-[20vw] pl-10 flex-col justify-start">0%</td>
                     <td class="px-2 text-green-600">*+*</td>
                     <td class="text-red-600">*-*</td>
                   </tr>
                   <tr class="hover:bg-[#2C2F3A] border-t-[1px] border-[#545B71]">
-                    <td class="py-[10px] md:py-[20px] px-4">*NAME*</td>
+                    <td class="py-[10px] md:py-[20px] px-10">*NAME*</td>
                     <td class="w-2/10 ease-in-out lg:w-[20vw] pl-10 flex-col justify-start">0%</td>
                     <td class="px-2 text-green-600">*+*</td>
                     <td class="text-red-600">*-*</td>
@@ -1499,14 +1497,14 @@
         </div>
         <div id="table_hz" class="mb-4"> <!--таблица нейтраль-->
           <div class="rounded-xl border-2 border-[#FBA72A] bg-[#1E2027]">
-            <h1 class="mr-3 p-10 text-lg font-extrabold text-white md:mr-14 lg:text-2xl"><span
-                class="text-[#FBA72A]">Нейтральные</span> обменники</h1>
+            <h1 class="mr-3 p-10 text-lg font-extrabold text-white md:mr-14 md:text-4xl"><span
+                class="text-[#FBA72A] sm:text-xl md:text-4xl">Нейтральные</span> обменники</h1>
             <div class="h-[370px] md:h-[556px] overflow-y-auto">
 
               <table class="rounded-xl overflow-hidden mr-0 pr-0 w-full h-full md:h-[556px] table-fixed">
                 <thead class="border-b-[1px] border-[#545B71]">
                   <tr class="text-white text-sm md:text-sm lg:text-xl font-bold">
-                    <th class="w-28 md:w-25 py-2 pl-4 lg:pl-4 pr-24 md:pr-0 text-left first-column">
+                    <th class="w-28 md:w-25 py-2 pl-10 lg:pl-4 pr-24 md:pr-0 text-left first-column">
                       Название</th>
                     <th class="w-2/10 ease-in-out lg:w-[20vw] py-2 pl-10 flex justify-start">Рейтинг
                     </th>
@@ -1530,67 +1528,67 @@
                 </thead>
                 <tbody class="text-white text-xs md:text-base font-bold">
                   <tr class="hover:bg-[#2C2F3A] border-t-[1px] border-[#545B71]">
-                    <td class="py-[10px] md:py-5 px-4">НЕСКАМ</td>
+                    <td class="py-[10px] md:py-5 px-10">НЕСКАМ</td>
                     <td class="w-2/10 ease-in-out lg:w-[20vw] pl-10 flex-col justify-start">0%</td>
                     <td class="px-2 text-green-600">0%</td>
                     <td class="text-red-600">100%</td>
                   </tr>
                   <tr class="hover:bg-[#2C2F3A] border-t-[1px] border-[#545B71]">
-                    <td class="py-[10px] md:py-5 px-4">*NAME*</td>
+                    <td class="py-[10px] md:py-5 px-10">*NAME*</td>
                     <td class="w-2/10 ease-in-out lg:w-[20vw] pl-10 flex-col justify-start">0%</td>
                     <td class="px-2 text-green-600">*+*</td>
                     <td class="text-red-600">*-*</td>
                   </tr>
                   <tr class="hover:bg-[#2C2F3A] border-t-[1px] border-[#545B71] whitespace-normal">
-                    <td class="py-[10px] md:py-[20px] px-4">*LOONG NAME*</td>
+                    <td class="py-[10px] md:py-[20px] px-10">*LOONG NAME*</td>
                     <td class="w-2/10 ease-in-out lg:w-[20vw] pl-10 flex-col justify-start">0%</td>
                     <td class="px-2 text-green-600">*+*</td>
                     <td class="text-red-600">*-*</td>
                   </tr>
                   <tr class="hover:bg-[#2C2F3A] border-t-[1px] border-[#545B71]">
-                    <td class="py-[10px] md:py-[20px] px-4">*NAME*</td>
+                    <td class="py-[10px] md:py-[20px] px-10">*NAME*</td>
                     <td class="w-2/10 ease-in-out lg:w-[20vw] pl-10 flex-col justify-start">0%</td>
                     <td class="px-2 text-green-600">*+*</td>
                     <td class="text-red-600">*-*</td>
                   </tr>
                   <tr class="hover:bg-[#2C2F3A] border-t-[1px] border-[#545B71]">
-                    <td class="py-[10px] md:py-[20px] px-4">*NAME*</td>
+                    <td class="py-[10px] md:py-[20px] px-10">*NAME*</td>
                     <td class="w-2/10 ease-in-out lg:w-[20vw] pl-10 flex-col justify-start">0%</td>
                     <td class="px-2 text-green-600">*+*</td>
                     <td class="text-red-600">*-*</td>
                   </tr>
                   <tr class="hover:bg-[#2C2F3A] border-t-[1px] border-[#545B71]">
-                    <td class="py-[10px] md:py-[20px] px-4">*NAME*</td>
+                    <td class="py-[10px] md:py-[20px] px-10">*NAME*</td>
                     <td class="w-2/10 ease-in-out lg:w-[20vw] pl-10 flex-col justify-start">0%</td>
                     <td class="px-2 text-green-600">*+*</td>
                     <td class="text-red-600">*-*</td>
                   </tr>
                   <tr class="hover:bg-[#2C2F3A] border-t-[1px] border-[#545B71]">
-                    <td class="py-[10px] md:py-[20px] px-4">*NAME*</td>
+                    <td class="py-[10px] md:py-[20px] px-10">*NAME*</td>
                     <td class="w-2/10 ease-in-out lg:w-[20vw] pl-10 flex-col justify-start">0%</td>
                     <td class="px-2 text-green-600">*+*</td>
                     <td class="text-red-600">*-*</td>
                   </tr>
                   <tr class="hover:bg-[#2C2F3A] border-t-[1px] border-[#545B71]">
-                    <td class="py-[10px] md:py-[20px] px-4">*NAME*</td>
+                    <td class="py-[10px] md:py-[20px] px-10">*NAME*</td>
                     <td class="w-2/10 ease-in-out lg:w-[20vw] pl-10 flex-col justify-start">0%</td>
                     <td class="px-2 text-green-600">*+*</td>
                     <td class="text-red-600">*-*</td>
                   </tr>
                   <tr class="hover:bg-[#2C2F3A] border-t-[1px] border-[#545B71]">
-                    <td class="py-[10px] md:py-[20px] px-4">*NAME*</td>
+                    <td class="py-[10px] md:py-[20px] px-10">*NAME*</td>
                     <td class="w-2/10 ease-in-out lg:w-[20vw] pl-10 flex-col justify-start">0%</td>
                     <td class="px-2 text-green-600">*+*</td>
                     <td class="text-red-600">*-*</td>
                   </tr>
                   <tr class="hover:bg-[#2C2F3A] border-t-[1px] border-[#545B71]">
-                    <td class="py-[10px] md:py-[20px] px-4">*NAME*</td>
+                    <td class="py-[10px] md:py-[20px] px-10">*NAME*</td>
                     <td class="w-2/10 ease-in-out lg:w-[20vw] pl-10 flex-col justify-start">0%</td>
                     <td class="px-2 text-green-600">*+*</td>
                     <td class="text-red-600">*-*</td>
                   </tr>
                   <tr class="hover:bg-[#2C2F3A] border-t-[1px] border-[#545B71]">
-                    <td class="py-[10px] md:py-[20px] px-4">*NAME*</td>
+                    <td class="py-[10px] md:py-[20px] px-10">*NAME*</td>
                     <td class="w-2/10 ease-in-out lg:w-[20vw] pl-10 flex-col justify-start">0%</td>
                     <td class="px-2 text-green-600">*+*</td>
                     <td class="text-red-600">*-*</td>

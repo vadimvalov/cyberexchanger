@@ -33,8 +33,26 @@ textarea.addEventListener("input", () => {
   const currentLength = textarea.value.length;
   const maxLength = parseInt(textarea.getAttribute("maxlength"));
   characterCount.textContent = `${currentLength}/${maxLength}`;
+  // textarea.parentElement.style.cssText = "border: 1px solid blue;";
 });
 
+/*
+textarea.addEventListener("focus", () => {
+  textarea.parentElement.style.cssText = "border: 1px solid blue;";
+});
+/*
+/*
+const allInputs = Array.from(document.getElementsByTagName("input"));
+
+allInputs.forEach((inp) => {
+  function removeBorder() {
+    if (inp.id !== textarea.id)
+      textarea.parentElement.style.cssText = "border: none;";
+  }
+  inp.addEventListener("click", removeBorder);
+  inp.removeEventListener("click", removeBorder);
+});
+*/
 /*
 let elementsInsideSection = [];
 
@@ -202,10 +220,10 @@ window.addEventListener("DOMContentLoaded", () => {
 
   inputsComments.forEach((input) => {
     input.addEventListener("click", () => {
-      input.parentElement.style.outline = "2px solid #00A3FF";
+      input.parentElement.style.border = "2px solid #00A3FF";
       const otherInputs = inputsComments.filter((inp) => inp !== input);
       otherInputs.forEach((other) => {
-        other.parentElement.style.outline = "none";
+        other.parentElement.style.border = "none";
       });
     });
   });
