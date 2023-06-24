@@ -221,8 +221,10 @@ window.addEventListener("DOMContentLoaded", () => {
   inputsComments.forEach((input) => {
     input.addEventListener("click", () => {
       input.parentElement.style.border = "2px solid #00A3FF";
+      input.parentElement.style.border = "2px solid #00A3FF";
       const otherInputs = inputsComments.filter((inp) => inp !== input);
       otherInputs.forEach((other) => {
+        other.parentElement.style.border = "none";
         other.parentElement.style.border = "none";
       });
     });
